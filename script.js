@@ -7,3 +7,10 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         });
     });
 });
+
+// Disable all links inside .tab-wrapper
+document.querySelectorAll('.tab-wrapper a').forEach(tab => {
+    tab.addEventListener('click', function(event) {
+        event.preventDefault(); // stops navigation
+    });
+});
