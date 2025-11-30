@@ -274,7 +274,7 @@ nav ul li a:hover {
 .contribution-section {
     text-align: left;
     padding: 50px;
-    height: 850px;
+    height: 1030px;
 }
 
 
@@ -346,7 +346,7 @@ nav ul li a:hover {
 
 /* ⭐ NEW — show box on hover */
 .tab2:hover .box2 {
-    max-height: 580px; /* how tall the box opens */
+    max-height: 800px; /* how tall the box opens */
     padding: 10px;
 }
 
