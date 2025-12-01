@@ -1,34 +1,152 @@
+/* ------------------------------
+   GLOBAL PAGE STYLING
+------------------------------ */
+
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    background-color: #eae0d5;
+    min-height: 100%;
+    font-family: 'Playfair Display', sans-serif;
+    background-color: #eae0d5;   /* soft beige */
+    color: #2d2d2d;
+}
+
+/* ------------------------------
+   PAGE CONTAINER
+------------------------------ */
+
+.page-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background: #ddbea9;     /* matches your cards */
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------
+   PAGE HEADER
+------------------------------ */
+
+.page-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2b4d34;   /* deep green accent */
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #4a4a4a;
+    margin-bottom: 40px;
+}
+
+/* ------------------------------
+   SECTION HEADINGS
+------------------------------ */
+
+.section-heading {
+    font-size: 24px;
+    margin-top: 35px;
+    color: #2b4d34;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.section-heading::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #2b4d34;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+}
+
+/* ------------------------------
+   CONTENT LIST
+------------------------------ */
+
+.content-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.content-list li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ------------------------------
+   BACK BUTTON
+------------------------------ */
+
+.back-btn {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 22px;
+    background: #2b4d34;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #1f3826;
+    transform: scale(1.05);
 }
 
 
+/* ------------------------------
+   MOBILE RESPONSIVE
+------------------------------ */
 
-.head-section {
-    font-family: 'Cinzel';
-    font-size: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 50px;
+@media (max-width: 768px) {
+    .page-wrapper {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 30px;
+    }
+
+    .section-heading {
+        font-size: 20px;
+    }
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    background-color: #eae0d5;
-    row-gap: 60px;
-    width: 100%;
+/* js changes */
 
+/* Smooth page fade-in */
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
 }
 
-.box {
-    height: 400px;
-    width: 1100px;
-    background-color: #ddbea9;
-    border-radius: 10px;
-    margin-left: 70px;
+body.page-loaded {
+    opacity: 1;
 }
+
+/* Fade-up animation for section headings */
+.fade-section {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
