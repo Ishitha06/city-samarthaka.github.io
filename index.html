@@ -4,384 +4,374 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samarthaka</title>
-    <link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <!-- Navigation -->
-<nav>
-    <div class="logo">Samarthaka</div>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#city-image">City Design</a></li>
-        <li><a href="#sdgs">SDGs</a></li>
-        <li><a href="#business-models">Business Models</a></li>
-        <li><a href="#collaborations">Collaborations</a></li>
+<nav class="navbar">
+    <div class="nav-logo">SAMARTHAKA</div>
+    <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#sdgs">Sdg</a></li>
+        <li><a href="#business-models">Business</a></li>
+        <li><a href="#team">Team</a></li>
     </ul>
 </nav>
 
-<!-- Hero Section -->
-<div id="home" class="hero">
-    <p><span>Welcome to Samarthaka</span></p>
-    <br>
-    <br>
-    <h2>A Smart & Sustainable Urban Vision</h2>
-    <br>
-    <br>
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>WELCOME TO</h1>
+    <h2>SAMARTHAKA</h2>
+    <h3>A SMART & SUSTAINABLE URBAN VISION</h3>
+    <p>"A sustainable world means working together to create prosperity for all"</p>
+    <button class="cta-btn">Explore Our Vision</button>
+</section>
 
-    <p id="quote"><i>"A sustainable world means <br><br> working together to <br><br> create prosperity for all"</i></p>
 
-    
+<!-- ABOUT / COURSE INFO -->
+<section id="about" class="course-section">
+    <div class="tag">PROJECT DETAILS</div>
+
+    <h2 class="section-title">COURSE INFORMATION</h2>
+
+    <div class="course-card">
+        <div>
+            <h4>COURSE</h4>
+            <p>Design & Analysis of Algorithms</p>
+        </div>
+        <div>
+            <h4>COURSE CODE</h4>
+            <p>24ECSC205</p>
+        </div>
+        <div>
+            <h4>PROFESSOR</h4>
+            <p>Prakash Hegade</p>
+        </div>
+        <div>
+            <h4>SEMESTER</h4>
+            <p>3</p>
+        </div>
+        <div class="team-members">
+            <h4>TEAM</h4>
+            <p>Ishitha S, Ananya Kulkarni, Pratiksha Chougule, Divya Udnur</p>
+        </div>
+    </div>
+</section>
+
+<!-- CITY DESIGN BLUEPRINT -->
+<div class="blueprint-section">
+    <h2 class="section-title">CITY DESIGN BLUEPRINT</h2>
+    <p class="section-subtitle">Our conceptual planning of Samarthaka</p>
+
+    <div class="blueprint-image-row">
+        <img src="assets/map1.jpg" alt="City Design Blueprint" class="blueprint-img">
+        <img src="assets/map2.jpg" alt="Population & Budget Sheet" class="blueprint-img">
+    </div>
 </div>
 
-<br>
-<br>
-    
 
-<div class="infoimg">
+<!-- SDG SECTION -->
+<section id="sdgs" class="sdg-section">
+    <div class="tag">UNITED NATIONS</div>
 
-    <div class="info-box">
-        <h2>Course Information</h2>
-        <br>
-        <p><strong>Course: </strong>Design & Analysis of Algorithms</p>
-        <br>
-        <p><strong>Course Code: </strong>24ECSC205 </p>
-        <br>
-        <p><strong>Professor: </strong> Prakash Hegade</p>
-        <br>
-        <p><strong>Team: </strong> <br>Ishitha S,<br> Ananya Kulkarni,<br> Pratiksha Chougule,<br> Divya Udnur</p>
-        <br>
-        <p><strong>Semester: </strong> 3</p>
-    </div>
-
-<!-- City Design Image Section -->
-<div id="city-image" class="city-section">
-    <div class="maphead">
-
-        <p id="head">City Design Blueprint</p>
-
-    </div>
-    <div class="maps">
-    <img src="assets/map1.jpg" alt="City Design">
-
-    <img src="assets/map2.jpg" alt="City Design">
-
-
-    </div>
-    <br>
-   
-    <p class="caption">Our conceptual planning of Samarthaka</p>
-</div>
-
-</div>
-
-<br>
-<br>
-
-
-<!-- SDG Section -->
-<div id="sdgs" class="sdg-section">
-    <p id="head2">Our Focus on UN Sustainable Development Goals</p>
-    <br>
-    <br>
+    <h2 class="section-title">OUR FOCUS ON UN SUSTAINABLE DEVELOPMENT GOALS</h2>
 
     <div class="sdg-container">
-        <div class="sdg-card">
-            <p>SDG 7</p>
-            <br>
+        <div class="sdg-card sdg7">
+            <div class="sdg-circle">7</div>
+            <p>Affordable & Clean Energy</p>
         </div>
-        <div class="sdg-card">
-            <p>SDG 9</p>
-            <br>
-
+        <div class="sdg-card sdg9">
+            <div class="sdg-circle">9</div>
+            <p>Industry, Innovation & Infrastructure</p>
         </div>
-        <div class="sdg-card">
-            <p>SDG 11</p>
-            <br>
+        <div class="sdg-card sdg11">
+            <div class="sdg-circle">11</div>
+            <p>Sustainable Cities & Communities</p>
         </div>
-        <div class="sdg-card">
-            <p>SDG 13</p>
-            <br>
+        <div class="sdg-card sdg13">
+            <div class="sdg-circle">13</div>
+            <p>Climate Action</p>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Business Models Tabs -->
-<section id="business-models" class="business-section">
-    <p id="head3">Explore Business Models</p>
+<!-- BUSINESS SECTION -->
+<section id="business-models">
+    <h2 class="business-title">Explore Business Models</h2>
 
-    <br>
-    <br>
+    <div class="business-grid">
 
-    <div class="tab-container">
-
-        <div class="tab-wrapper">
-            <a href="transport.html" class="tab">Infrastructure & Transport
-            <!-- <div class="box">
-
-                Content
-
-            </div> -->
-        </a>
-        </div>
-        
-        <div class="tab-wrapper">
-            <a href="energy.html" class="tab">Land & Housing
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/infrastructure.png" alt="">
+            </div>
+            <h3>Infrastructure & Transport</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
-        <div class="tab-wrapper">
-            <a href="waste.html" class="tab">Energy
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
-        </div>
-        
-        <div class="tab-wrapper">
-            <a href="agri.html" class="tab">Agriculture
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/land.png" alt="">
+            </div>
+            <h3>Land & Housing</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
-        <div class="tab-wrapper">
-            <a href="health.html" class="tab">Healthcare
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
-        </div>
-        
-        <div class="tab-wrapper">
-            <a href="commercialservices.html" class="tab">Commercial Services
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
-        </div>
-        
-        <div class="tab-wrapper">
-            <a href="health.html" class="tab">Industry
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/energy.png" alt="">
+            </div>
+            <h3>Energy Systems</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
-        <div class="tab-wrapper">
-
-            <a href="environment.html" class="tab">Environment & Tourism
-            <!-- <div class="box">
-                Content
-
-            </div> -->
-        </a>
-
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/agriculture.png" alt="">
+            </div>
+            <h3>Agriculture</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
-        
-        
-        
+
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/health.png" alt="">
+            </div>
+            <h3>Healthcare</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
+        </div>
+
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/commercial.png" alt="">
+            </div>
+            <h3>Commercial Services</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
+        </div>
+
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/industry.png" alt="">
+            </div>
+            <h3>Industry</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
+        </div>
+
+        <div class="business-card">
+            <div class="business-icon">
+                <img src="icons/tourism.png" alt="">
+            </div>
+            <h3>Environment & Tourism</h3>
+            <!-- <a href="#" class="learn-more">Learn More →</a> -->
+        </div>
+
     </div>
 </section>
 
 
-<!-- Individual Contributions -->
+<!-- TEAM CONTRIBUTIONS -->
+<section class="contribution-section" id="team">
+    <h2 class="section-title">INDIVIDUAL CONTRIBUTIONS</h2>
 
-<section class="contribution-section" id="contri">
-    <p id="head3">Individual Contributions</p>
+    <div class="contrib-grid">
 
-    <br>
-    <br>
+        <!-- CARD 1 - Ishitha -->
+        <div class="contrib-card">
+            <div class="avatar"></div>
 
-    <div class="tab-container2">
+            <h3>ISHITHA S</h3>
 
-        <div class="tab-wrapper2">
-            <a href="ishitha/ishitha.html" class="tab2">Ishitha S
-            <div class="box2">
+            <h4>INFRASTRUCTURE</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Automated power grid monitoring & control</li>
+                <li>Wireless Internet tower grid</li>
+                <li>Integrated Waste management system</li>
+            </ul>
 
-                <ol>
-                    <li>Infrastructure
-                        <ul>
-                            <li>Automated power grid monitoring & control</li>
-                            <li>Wireless Internet tower grid</li>
-                            <li>Integrated Waste management system</li>
-                        </ul>
-                    </li>
-                    <li>Transport Network
-                        <ul>
-                            <li>EV charging units</li>
-                            <li>Metro Transit System</li>
-                            <li>Medical Green corridors</li>
-                            <li>Smart Emergency Response management</li>
-                            <li>Automated Bus Operations & Digital ticketing</li>
-                        </ul>
-                    </li>
-                    <li>Semiconductor Industry & R&D
-                        <ul>
-                            <li>Chip Design & Architecture Development</li>
-                            <li>Wafer Fabrication & Defect Detection</li>
-                        </ul>
-                    </li>
-                    <li>Cultural Hub
-                        <ul>
-                            <li>Intelligent Event Scheduling & Space Optimization</li>
-                            <li>Smart Visitor Flow Prediction & Crowd Management</li>
-                        </ul>
-                    </li>
-                    <li>Sports Academy
-                        <ul>
-                            <li>AI-Driven Athlete Performance Analytics</li>
-                        </ul>
-                    </li>
-                </ol>
+            <h4>TRANSPORT NETWORK</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Metro Transit System</li>
+                <li>Medical Green Corridors</li>
+                <li>Smart Emergency Response Management</li>
+                <li>Automated Bus Operation & Digital Ticketing</li>
+            </ul>
 
-            </div>
-        </a>
-        </div>
-        
-        <div class="tab-wrapper2">
-            <a href="ananya/ananya.html" class="tab2">Ananya Kulkarni
-            <div class="box2">
-                <ol>
-                    <li>Land & Housing
-                        <ul>
-                            <li>Land use & Zoning</li>
-                            <li>Housing Models</li>
-                            <li>Services & Regulations</li>
-                        </ul>
-                    </li>
-                    <li>Wildlife & Maintenance
-                        <ul>
-                            <li>Ecological Design</li>
-                            <li>Management Models</li>
-                            <li>Integration with city</li>
-                        </ul>
-                    </li>
-                    <li>Administration
-                        <ul>
-                            <li>Process & Services</li>
-                        </ul>
-                    </li>
-                    <li>Industry (Sandalwood & Teakwood)
-                        <ul>
-                            <li>Zoning & Clustering</li>
-                            <li>Business Models</li>
-                            <li>Environmental & Legal aspects</li>
-                        </ul>
-                    </li>
-                </ol>
+            <h4>SEMICONDUCTOR INDUSTRY AND R&D</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Chip Design & Architecture Development</li>
+                <li>Wafer Fabrication & Defect Detection</li>
+            </ul>
 
-            </div>
-        </a>
+            <h4>CULTURAL HUB</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Intelligent Event Scheduling & Space Optimization</li>
+                <li>Smart Visitor Flow Prediction & Crowd Management</li>
+            </ul>
+
+            <h4>SPORTS ACADEMY</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>AI-Driven Athlete Performance Analytics</li>
+            </ul>
+
+           <a href="ishitha/ishitha.html" class="view-btn">View Work</a>
 
         </div>
 
-        <div class="tab-wrapper2">
-            <a href="pratiksha/pratiksha.html" class="tab2">Pratiksha Chougule
-            <div class="box2">
-                <ol>
-                    <li>Healthcare
-                        <ul>
-                            <li>Accessibility & Equity(decentralised care)</li>
-                            <li>Preventive & Proactive health(predicting & preventing)</li>
-                            <li>Emergency Response Optimization(saving critical time)</li>
-                            <li>Data integration & security</li>
-                        </ul>
-                    </li>
-                    <li>Education
-                        <ul>
-                            <li>Access and equity(resource management)</li>
-                            <li>Personalised learning(data and student performance)</li>
-                            <li>Infrastructure, safety, efficiency</li>
-                            <li>Skills for the future(curriculum and partnerships)</li>
-                        </ul>
-                    </li>
-                    <li> Solar Energy
-                        <ul>
-                            <li>Real-time monitoring and data ingestion</li>
-                            <li>Performance analysis and predictive maintenance</li>
-                            <li>Smart grid integration</li>
-            
-                        </ul>
-                    </li>
-                    <li>Commercial Services
-                        <ul>
-                        <li>Retail & hospitality (hotels, restaurants, shopping malls)</li>
-                        <li>Hyper-local on-demand manufacturing hubs</li>
-                        <li>Digital carbon and resource exchange</li>
-                        <li>AI-powered urban data consulting</li>
-                    </ul>
-                    </li>
-                    
-                </ol>
+        <!-- CARD 2 - Ananya -->
+        <div class="contrib-card">
+            <div class="avatar"></div>
 
-            </div>
-        </a>
+            <h3>ANANYA KULKARNI</h3>
+
+            <h4>LAND & HOUSING</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Land use & Zoning</li>
+                <li>Housing Models</li>
+                <li>Services & Regulations</li>
+            </ul>
+
+            <h4>WILDLIFE & MAINTENANCE</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Ecological design</li>
+                <li>Management models</li>
+                <li>Integration with city</li>
+            </ul>
+
+            <h4>ADMINISTRATION</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Processes & services</li>
+                <li>Finance & HR</li>
+            </ul>
+
+            <h4>INDUSTRY</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Zoning & clustering</li>
+                <li>Business models</li>
+                <li>Environmental & legal aspects</li>
+            </ul>
+
+            <a href="ananya/ananya.html" class="view-btn">View Work</a>
 
         </div>
-        
-        <div class="tab-wrapper2">
-            <a href="divya/divya.html" class="tab2">Divya Udnur
-            <div class="box2">
-                <ol>
-                    <li>Agriculture
-                        <ul>
-                            <li>Cocoa Chocolate Factory</li>
-                            <li>Cold Storage & Sorting Center</li>
-                        </ul>
-                    </li>
-                    <li>IT Hub & Tech Park
-                        <ul>
-                            <li>IT Hardware Assembly & Testing Unit </li>
-                            <li>Startup Incubation Center /Saas sartup</li>
-                            <li>Innovation & Research Center</li>
-                            <li>E-waste recycling facility</li>
-                        </ul>
-                    </li>
-                   
-                    <li>Commercial Services
-                        <ul>
-                            <li>Hybrid Micro-Finance Branch & Community Hub</li>
-                            <li>Integrated EV Charging &  Fuel Station</li>
-                            <li>Delivery Services</li>
-                        </ul>
-                    </li>
-                    <li>Tourism</li>
 
-                </ol>
+        <!-- CARD 3 - Pratiksha -->
+        <div class="contrib-card">
+            <div class="avatar"></div>
 
-            </div>
-        </a>
+            <h3>PRATIKSHA CHOUGULE</h3>
+
+            <h4>HEALTHCARE</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Accessibility & equity(decentralised care)</li>
+                <li>Preventive and proactive health(predicting and preventing)</li>
+                <li>Emergency response optimization(saving critical time)</li>
+                <li>Data integration & security</li>
+            </ul>
+
+            <h4>EDUCATION</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Access and equity(resource management)</li>
+                <li>Personalised learning(data and student performance)</li>
+                <li>Infrastructure ,safety, efficiency</li>
+                <li>Skills for the future(curriculum and partnerships)</li>
+            </ul>
+
+            <h4>SOLAR ENERGY</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Real-time monitoring and data ingestion</li>
+                <li>Performance analysis and predictive maintenance</li>
+                <li>Smart grid integration</li>
+            </ul>
+
+            <h4>COMMERCIAL SERVICES</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Retail & hospitality (hotels, restaurants, shopping malls)</li>
+                <li>Hyper-local on-demand manufacturing hubs</li>
+                <li>Digital carbon and resource exchange</li>
+                <li>AI-powered urban data consulting</li>
+            </ul>
+
+            <a href="pratiksha/pratiksha.html" class="view-btn">View Work</a>
 
         </div>
-        
-        
+
+        <!-- CARD 4 - Divya -->
+        <div class="contrib-card">
+            <div class="avatar"></div>
+
+            <h3>DIVYA UDNUR</h3>
+
+            <h4>AGRICULTURE</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Cocoa-Chocolate Factory</li>
+                <li>Cold Storage & Sorting Center</li>
+            </ul>
+
+            <h4>IT HUB</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>IT Hardware Assembly & Testing Unit</li>
+                <li>Startup Incubation Center /Saas sartup</li>
+                <li>Innovation & Research Center</li>
+                <li>E-waste recycling facility</li>
+            </ul>
+
+            <h4>COMMERCIAL SERVICES</h4>
+            <div class="rule"></div>
+            <ul>
+                <li>Hybrid Micro-Finance Branch & Community Hub</li>
+                <li> Integrated EV Charging &  Fuel Station</li>
+                <li>Delivery Services</li>
+            </ul>
+
+            <h4>TOURISM</h4>
+            <div class="rule"></div>
+
+            <a href="divya/divya.html" class="view-btn">View Work</a>
+
+           
+        </div>
+
     </div>
 </section>
-
-
 
 
 <script src="script.js"></script>
 </body>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <span>Samarthaka</span>
+        </div>
+
+        <p class="footer-tagline">A Smart & Sustainable Urban Vision for the Future</p>
+        <p class="footer-course">Design & Analysis of Algorithms | 24ECSC205 | Semester 3</p>
+    </div>
+
+    
+</footer>
+
 </html>

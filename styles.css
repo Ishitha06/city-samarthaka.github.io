@@ -1,429 +1,900 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ---------------------------
+   Samarthaka — Full stylesheet
+   Matches screenshots: hero, course info, sdgs, contributions
+   --------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root{
+    --cream: #f4efe9;       /* light paper */
+    --soft-cream: #f6f0e9;  /* slightly warmer */
+    --paper: #efe7dd;       /* page background panels */
+    --accent-green: #1f5136;/* deep green used for headings */
+    --hero-green: #234b33;  /* hero background */
+    --gold: #c99a6b;        /* gold / tan accent */
+    --soft-brown: #e0d5c9;  /* neutral */
+    --card-bg: #f7f3f0;     /* card background */
+    --sdg-card-bg: #f1ece8; /* sdg card panel */
+    --shadow: 0 10px 25px rgba(30,30,30,0.08);
 }
 
+/* reset */
+* { margin:0; padding:0; box-sizing: border-box; }
+html,body { height:100%; }
 body {
-    background: #eae0d5;
-    margin: 0;
-    padding-top: 45px;
+    background: white;
     font-family: 'Cinzel', serif;
+    color: #222;
+    padding-top: 70px; /* room for navbar */
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
-/* NAVIGATION */
+/* NAVBAR (white bar like screenshot) */
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    background: #c6ac8f;
-    color: white;
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 999;
-}
-
-nav ul {
-    list-style: none;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: white;
     display: flex;
-    gap: 25px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    border-bottom: 1px solid rgba(31,81,54,0.06);
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(10,10,10,0.02);
 }
 
-nav ul li a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
+.nav-logo, .logo {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 26px;
+    color: var(--accent-green);
+    display: flex;
+    align-items:center;
+    gap:10px;
 }
 
-nav ul li a:hover {
-    color: #000000;
+
+/* nav links */
+nav ul {
+    list-style:none;
+    display:flex;
+    gap:28px;
+    align-items:center;
 }
+nav a {
+    text-decoration:none;
+    color:#4a4a4a;
+    font-size:16px;
+    letter-spacing:0.4px;
+    padding:8px 6px;
+    transition: color .18s ease;
+}
+nav a:hover { color: var(--accent-green); }
+
+/* small active underline like screenshot */
+nav a.active {
+    position: relative;
+    color: var(--accent-green);
+}
+nav a.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -14px;
+    height: 4px;
+    width: 48%;
+    background: var(--gold);
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+/* -----------------------
+   HERO
+   ----------------------- */
+
+
 
 /* HERO SECTION */
 .hero {
-    height: 85vh;
-    background: linear-gradient(to bottom, #5e503f, #5e503f);
+    background: #184E35;   /* dark green like emergent preview */
     color: white;
     text-align: center;
-    padding-top: 120px;
+    padding: 140px 20px;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-.hero span {
-    color: #ffffff;
-    margin-top: 80px;
-    font-size: 70px;
+/* WELCOME TO */
+.hero h1 {
+    font-size: 64px;
+    font-weight: 550;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-family: 'Cinzel';
 }
 
-#quote {
-    font-size: 20px;
-    font-family: 'Playfair Display', serif;
+/* SAMARTHAKA */
+.hero h2 {
+    font-size: 64px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    font-weight: 550;
+    font-family: 'Cinzel';
 }
 
-/* INFO BOX */
-.info-box {
-    width: 350px;
-    height: 410px;
-    margin-top: 65px;
-    margin-left: 50px;
-    padding: 20px;
-    background-color: #a3b18a;
-    color: black;
-    border-radius: 10px;
-    font-size: 1.05rem;
-}
-
-/* CITY IMAGE SECTION */
-.city-section {
-    text-align: center;
-    padding: 50px;
-}
-
-#head {
-    font-size: 40px;
+/* A SMART & SUSTAINABLE URBAN VISION */
+.hero h3 {
+    font-size: 22px;
+    color: #D9A56A;        /* gold color from emergent */
     margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: 'Cinzel';
+}
+
+/* Quote text */
+.hero p {
+    font-size: 22px;
+    font-style: italic;
+    color: wh;        /* same as emergent preview */
+    margin-bottom: 35px;
+}
+
+/* Button styling */
+.hero .cta-btn {
+    background-color: #D9A56A;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #184E35;
+    font-family: 'Playfair Display';
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.hero .cta-btn:hover {
+    background-color: #d4a574;
+}
+
+
+
+
+
+
+/* -----------------------
+   Course Info / About
+   ----------------------- */
+.course-section, .infoimg { 
+    padding: 56px 64px;
+    background: #f5f1e8;
+}
+
+.tag {
+    display:inline-block;
+    background: #c6e0cf;
+    color: var(--accent-green);
+    font-weight:600;
+    padding: 8px 26px;
+    border-radius: 999px;
+    text-transform:uppercase;
+    font-size:14px;
+    margin: 0 auto 18px;
+    display:block;
+    width: fit-content;
+}
+
+.section-title, #head, #head3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-green);
+    font-size:48px;
+    text-align:center;
+    margin: 8px 0 28px;
+    letter-spacing: 2px;
+}
+
+/* course card large rounded white panel */
+.course-card {
+    max-width: 1200px;
+    margin: 22px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 48px;
+    box-shadow: var(--shadow);
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 32px;
+    align-items:start;
+}
+
+/* small label headings inside card */
+.course-card h4 {
+    font-family: 'Playfair Display', serif;
+    color: #7b6f68;
+    letter-spacing: 1px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom:10px;
+}
+.course-card p {
+    font-family: 'Playfair Display', serif;
+    color: #222;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* team entry spans full width */
+.course-card .team-members {
+    grid-column: 1 / -1;
+    margin-top: 18px;
+}
+
+/* -----------------------------------------
+   CITY DESIGN BLUEPRINT (About section images)
+   ----------------------------------------- */
+
+.blueprint-section {
+    padding: 60px 48px;
+    background: #f5f1e8;
     text-align: center;
 }
 
-.city-section img {
-    width: 70%;
-    border-radius: 10px;
+.blueprint-section .section-title {
+    font-size: 44px;
+    color: var(--accent-green);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-.city-section p {
-    font-size: 28px;
-    margin-top: 20px;
+.blueprint-section .section-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 34px;
 }
 
-.infoimg {
+/* Image row container */
+.blueprint-image-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: #eae0d5;
-    flex-wrap: wrap;
-}
-
-.maps {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    max-width: 600px;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
-.maps img {
-    width: 280px;
-    max-width: 100%;
-    border-radius: 10px;
+/* Image style — matches screenshot look */
+.blueprint-img {
+    width: 45%;
+    max-width: 520px;
+    border-radius: 18px;
+    box-shadow: 0 14px 32px rgba(20,20,20,0.12);
+    border: 1px solid rgba(31,81,54,0.06);
+    background: white;
 }
 
-/* SDG SECTION */
-#head2 {
-    font-size: 40px;
+/* Hover effect — subtle lift */
+.blueprint-img:hover {
+    transform: translateY(-6px);
+    transition: transform .25s cubic-bezier(.25,.9,.35,1);
+}
+
+/* Mobile-friendly */
+@media (max-width: 900px) {
+    .blueprint-img {
+        width: 90%;
+    }
+}
+
+
+/* -----------------------
+   SDG Section
+   ----------------------- */
+
+
+/* SDG Section Wrapper */
+.sdg-section {
+    padding: 64px 48px;
+    background: white;  /* Light cream background */
     text-align: center;
 }
 
-.sdg-section {
-    padding: 50px;
-    background: #ddbea9;
+/* Section Title */
+.sdg-section .section-title {
+    font-size: 44px;
+    color: #267b47;  /* Accent green */
+    margin-bottom: 26px;
 }
 
+/* SDG Card Grid */
 .sdg-container {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 25px;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding-top: 18px;
 }
 
+/* Each SDG Card */
 .sdg-card {
-    background: white;
-    padding: 25px;
-    width: 230px;
-    height: 400px;
-    border-radius: 12px;
+    width: 260px;
+    background: #f5f1e8; /* beige card background */
+    border-radius: 18px;
+    padding: 30px 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid rgba(0, 0, 0, 0.09);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Hover effect */
+.sdg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Circular Number Badge */
+.sdg-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+/* SDG Colors (matches reference screenshot) */
+.sdg-card:nth-child(1) .sdg-circle { background: #f4b400; } /* yellow */
+.sdg-card:nth-child(2) .sdg-circle { background: #f06a2b; } /* orange-red */
+.sdg-card:nth-child(3) .sdg-circle { background: #f7a21a; } /* mustard */
+.sdg-card:nth-child(4) .sdg-circle { background: #267b47; } /* deep green */
+
+/* Text inside card */
+.sdg-card p {
+    font-family: "Cormorant Garamond", serif;
+    color: #243c2a; /* dark green text */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
+
+/* -----------------------
+   Business Models (tab cards)
+   ----------------------- */
+
+/* Business Section Background */
+#business-models {
+    background: #f2eadc;
+    padding: 60px 0;
+}
+
+/* Title */
+.business-title {
+    text-align: center;
+    font-size: 44px;
+    font-family: "Cinzel", serif;
+    color: #1f3b26; 
+    margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 per row */
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* Individual Card */
+.business-card {
+    background: #f5f1e8;
+    border-radius: 18px;
+    padding: 32px 20px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+    transition: transform .22s ease, box-shadow .22s ease;
+}
+
+/* Hover */
+.business-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+/* Icon */
+.business-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(145deg, #3f6844, #23462d);
+    border-radius: 16px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-.sdg-card p {
-    font-size: 35px;
-    color: green;
-    font-weight: bold;
+.business-icon img {
+    width: 36px;   /* icon size */
+    height: 36px;
+    filter: brightness(90%) invert(0);
 }
 
-/* BACKGROUND IMAGE LAYER */
-.sdg-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.35;
-    z-index: 0;
+/* Card Title */
+.business-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    color: #243c2a;
+    margin-bottom: 12px;
 }
 
-.sdg-card:nth-child(1)::before {
-    background-image: url("assets/sdg7.webp");
-}
-.sdg-card:nth-child(2)::before {
-    background-image: url("assets/sdg9.svg");
-}
-.sdg-card:nth-child(3)::before {
-    background-image: url("assets/sdg11.png");
-}
-.sdg-card:nth-child(4)::before {
-    background-image: url("assets/sdg13.png");
-}
-
-.sdg-card * {
-    position: relative;
-    z-index: 1;
-}
-
-.sdg-card:hover {
-    transform: scale(1.05);
-    background: #fffbcc;
-}
-
-/* BUSINESS SECTION */
-.business-section {
-    text-align: left;
-    padding: 50px;
-    height: 550px;
-}
-
-#head3 {
-    font-size: 40px;
-    text-align: center;
-}
-
-.tab-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    row-gap: 55px;
-}
-
-.tab {
-    display: block;
-    position: relative;
-    background: #004080;
-    color: white;
-    padding: 15px;
-    width: 250px;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    font-size: 18px;
-    text-align: center;
+/* Learn More link */
+.learn-more {
+    font-size: 15px;
+    color: #1f3b26;
     text-decoration: none;
-    transition: background 0.3s ease;
-    overflow: hidden;
+    font-weight: 600;
+    transition: color .2s ease;
 }
 
-.tab-wrapper {
-    display: inline-block;     /* ⭐ keeps items in rows without affecting others */
-    vertical-align: top;
-    margin: 10px;
-}
-
-.tab:hover {
-    background: #8ecae6;
-    color: black;
-}
-
-.tab .box {
-    max-height: 0;       /* start collapsed */
-    overflow: hidden;
-    position: relative;  /* ⭐ CHANGE: remove absolute to make visible */
-    top: 10px;           /* ⭐ slight spacing below tab */
-    width: 100%;
-    background: #a3b18a;
-    padding: 0 10px;
-    border-radius: 8px;
-    margin-top: 8px;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-
-}
-
-.tab:hover .box {
-    max-height: 150px; /* how tall the box opens */
-    padding: 10px;
+.learn-more:hover {
+    color: #2a5c3a;
 }
 
 
-/* Individual Contributions */
 
-#contri {
-    background-color: #ddbea9;
-}
+
+
+
+
+
+
+/* -------------------------------
+   INDIVIDUAL CONTRIBUTIONS SECTION
+   ------------------------------- */
+
+/* -----------------------------------------
+   INDIVIDUAL CONTRIBUTIONS — Pixel-Perfect
+   ----------------------------------------- */
 
 .contribution-section {
-    text-align: left;
-    padding: 50px;
-    height: 1030px;
+    padding: 70px 48px;
+    background: transparent;
 }
 
-
-.tab-container2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    row-gap: 55px;
-}
-
-
-.tab2 {
-    display: block;
-    position: relative;
-    background: #004080;
-    color: white;
-    padding: 15px;
-    width: 450px;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    font-size: 18px;
+.contribution-section .section-title {
+    font-size: 52px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    color: #1f5136; /* deep green */
+    letter-spacing: 3px;
+    margin-bottom: 55px;
     text-align: center;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    overflow: hidden;
 }
 
-.tab-wrapper2 {
-    display: inline-block;     /* ⭐ keeps items in rows without affecting others */
-    vertical-align: top;
-    margin: 10px;
+/* ---------- GRID (2 columns) ---------- */
+.contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
-.tab2:hover {
-    background: #8ecae6;
-    color: black;
+/* ---------- CARD ---------- */
+.contrib-card {
+    position: relative;
+    background: #f5f1eb;                 /* MUCH closer to your screenshot */
+    border-radius: 18px;
+    padding: 60px 38px 40px;             /* matches screenshot spacing */
+    min-height: 420px;
+    border: 1px solid rgba(31, 81, 54, 0.09);
+    box-shadow: 0 16px 38px rgba(0,0,0,0.06); /* softer & wider like screenshot */
 }
 
-.tab2 .box2 {
-    font-family: "Playfair Display";
-    font-size: 18px;
-    text-align: left;
-    padding-left: 20px;
-    max-height: 0;       /* start collapsed */
-    overflow: hidden;
-    position: relative;  /* ⭐ CHANGE: remove absolute to make visible */
-    top: 10px;           /* ⭐ slight spacing below tab */
+/* Avatar circle — EXACT LOOK */
+.contrib-card::before {
+    content: "";
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+
+    /* EXACT gradient from screenshot */
+    background: linear-gradient(
+        135deg,
+        #d8b892 0%,   /* warm beige */
+        #9fb888 100%  /* green fade */
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("assets/user.png");
+    background-size: 56%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border: 1px solid rgba(255,255,255,0.60);
+    box-shadow: 0 14px 26px rgba(0,0,0,0.18);
+}
+
+/* Name */
+.contrib-card h3 {
+    margin-top: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 27px;
+    text-align: center;
+    color: var(--accent-green);
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+/* Section headings */
+.contrib-card h4 {
+    color: #1f5136;      /* exact green from screenshot */
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    letter-spacing: 1.1px;
+}
+
+/* Gold Divider — thin & soft like screenshot */
+.rule {
+    height: 2.5px;
     width: 100%;
-    background: #a3b18a;
-    padding: 0 10px;
-    border-radius: 8px;
+    background: linear-gradient(90deg, #c99a6b, #e2c19f);
+    margin: 8px 0 14px;
+    border-radius: 2px;
+}
+
+/* List styles */
+.contrib-card ol {
+    list-style: decimal;
+    margin-left: 22px;
+    font-family: 'Playfair Display', serif;
+    color: #232323;
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.contrib-card ol li { margin-bottom: 15px; }
+
+.contrib-card ol ul {
+    list-style: disc;
+    margin-left: 26px;
+    font-size: 15px;
     margin-top: 8px;
-    transition: max-height 0.4s ease, padding 0.3s ease;
-
 }
 
-.box2 ol {
-    padding-left: 18px;
+.contrib-card ol ul li { margin-bottom: 7px; }
+
+
+/* -----------------------------------------
+   INDIVIDUAL CONTRIBUTIONS — FINAL FIXED
+   ----------------------------------------- */
+
+.contribution-section {
+    padding: 65px 0;
 }
 
-.box2 ul {
-    margin-left: 40px;   /* extra indent for nested list */
+.section-title {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    color: #1f5136;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 55px;
+}
+
+/* GRID — smaller width like your screenshot */
+.contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 1050px;    /* FIXED width: reduces extra left/right empty space */
+    margin: 0 auto;
+}
+
+/* CARD */
+.contrib-card {
+    background: #f3ecdd;  /* closer to your light beige */
+    border-radius: 18px;
+    padding: 55px 35px 40px;  /* FIXED padding */
+    border: 1px solid rgba(31, 81, 54, 0.12);
+    box-shadow: 0 13px 26px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+/* Avatar circle */
+.avatar {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #d8b892, #9fb888);
+    border: 2px solid rgba(255,255,255,0.65);
+
+    background-image: url("assets/user.png");
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    box-shadow: 0 12px 22px rgba(0,0,0,0.18);
+}
+
+/* Name */
+.contrib-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: #1f5136;
+    letter-spacing: 1px;
+}
+
+/* Section headings */
+.contrib-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #1f5136;
+    margin-bottom: 6px;
+    margin-top: 18px;
+    letter-spacing: 1px;
+}
+
+/* GOLD LINE — made THINNER + lighter */
+.rule {
+    height: 1.7px;
+    background: linear-gradient(90deg, #c9a87a, #e4c9a7);
+    width: 100%;
+    margin: 5px 0 12px;
+    border-radius: 2px;
+}
+
+/* Bullet points */
+.contrib-card ul {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #333;
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+.contrib-card ul li {
+    margin-bottom: 8px;
 }
 
 
 
-/* ⭐ NEW — show box on hover */
-.tab2:hover .box2 {
-    max-height: 800px; /* how tall the box opens */
-    padding: 10px;
+
+.view-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #2b4d34;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: 0.3s ease;
 }
 
-/* --------------------------------------------------
-   RESPONSIVE MEDIA QUERIES
--------------------------------------------------- */
+.view-btn:hover {
+    background: #1f3826;
+    transform: scale(1.05);
+}
 
-/* TABLETS */
+
+
+
+
+
+
+
+
+
+/* MOBILE */
 @media (max-width: 900px) {
-    nav {
-        padding: 15px 20px;
-    }
-
-    .hero span {
-        font-size: 50px;
-    }
-
-    .info-box {
-        margin-left: 0;
-        margin-top: 20px;
-        width: 80%;
-    }
-
-    #head {
-        margin-left: 0;
-        text-align: center;
-    }
-
-    .city-section img {
-        width: 90%;
+    .contrib-grid {
+        grid-template-columns: 1fr;
+        max-width: 90%;
     }
 }
 
-/* MOBILE PHONES */
-@media (max-width: 600px) {
 
-    nav ul {
-        gap: 10px;
-        font-size: 14px;
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+    .contrib-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 
-    .hero span {
-        font-size: 35px;
+    .contrib-card {
+        padding: 55px 30px 30px;
+        min-height: 390px;
     }
+}
 
-    #quote {
-        font-size: 16px;
-    }
 
-    .info-box {
-        width: 90%;
-        margin: 20px auto;
-    }
+/* -----------------------
+   Responsive
+   ----------------------- */
+@media (max-width: 1100px) {
+    .course-card { grid-template-columns: repeat(2, 1fr); padding: 28px; }
+    .contrib-grid { grid-template-columns: 1fr; padding: 0 18px; }
+    .hero h2 { font-size: 74px; }
+}
 
-    .city-section p {
-        font-size: 20px;
-    }
+@media (max-width: 800px) {
+    nav { padding: 0 20px; }
+    nav ul { gap: 14px; font-size: 14px; }
+    .hero h1 { font-size: 40px; }
+    .hero h2 { font-size: 56px; }
+    .hero h3 { font-size: 20px; }
+    .course-card { grid-template-columns: 1fr; }
+    .sdg-container { gap: 18px; }
+    .sdg-card { width: 88%; }
+    .biz-card { width: 88%; }
+    .contrib-card { padding: 26px; min-height: 350px; }
+}
 
-    .maps {
-        width: 100%;
-        flex-direction: column;
-    }
+@media (max-width: 480px) {
+    body { padding-top: 64px; }
+    .hero { padding: 48px 18px 60px; }
+    .hero h2 { font-size: 40px; }
+    .hero h1 { font-size: 28px; }
+    .course-card { padding: 18px; }
+}
 
-    .sdg-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .sdg-card {
-        width: 90%;
-        height: auto;
-        padding: 40px 20px;
-    }
+/* FOOTER CHANGES */
 
-    .tab {
-        width: 90%;
-        height: auto;
-        padding: 15px;
-    }
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    background: #164a2f;      /* Dark green (matches your screenshot theme) */
+    color: #f4efe6;           /* Soft beige text (same as your page theme) */
+    padding: 40px 20px;
+    position: relative;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    height: 400px;
+}
+
+.footer-content {
+    max-width: 800px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+
+.footer-tagline {
+    font-size: 16px;
+    margin: 6px 0;
+    opacity: 0.9;
+}
+
+.footer-course {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+/* JS CHANGES */
+
+/* Fade animation */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.7s ease-out;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card hover effect */
+.contrib-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contrib-card.hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.18);
+}
+
+/* Click feedback for "View Work" */
+.view-btn.active-click {
+    transform: scale(0.94);
+    transition: 0.15s;
+}
+
+
+/* HERO SECTION 3D EFFECT */
+
+/* HERO 3D TEXT EFFECTS */
+.hero h1, 
+.hero h2 {
+    text-shadow: 
+        1px 1px 0px #c4b6a6,
+        2px 2px 0px #b6a28e,
+        3px 3px 0px #a89178,
+        4px 4px 6px rgba(0, 0, 0, 0.25);
+    
+    transform: translateZ(0);
+    animation: floatText 3s ease-in-out infinite;
+}
+
+/* Slight floating animation for depth */
+@keyframes floatText {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.hero h1 {
+    text-shadow:
+        1px 1px 0px #dac7b6,
+        3px 3px 0px #c8b29c,
+        6px 6px 12px rgba(0,0,0,0.28);
+}
+
+.hero h2 {
+    text-shadow:
+        1px 1px 0px #d2bca8,
+        2px 2px 0px #c0a890,
+        5px 5px 10px rgba(0,0,0,0.05);
+}
+
+
+
+.hero h2:hover {
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.9),
+        0 0 22px rgba(255, 255, 255, 0.5);
+    transition: 0.4s ease;
 }
