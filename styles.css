@@ -101,8 +101,8 @@ nav a.active::after{
 
 /* HERO SECTION */
 .hero {
-    background: linear-gradient(145deg, #3f6844, #23462d);
-    /* background: #184E35;    */
+    /* background: linear-gradient(145deg, #3f6844, #23462d); */
+    background: #184E35;   
     color: white;
     text-align: center;
     padding: 140px 20px;
