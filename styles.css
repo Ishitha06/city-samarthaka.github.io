@@ -424,8 +424,8 @@ nav a.active::after{
 
 /* Icon */
 .business-icon {
-    width: 95px;
-    height: 95px;
+    width: 75px;
+    height: 75px;
     background: linear-gradient(145deg, #3f6844, #23462d);
     border-radius: 16px;
     margin: 0 auto 5px;
