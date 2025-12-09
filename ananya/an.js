@@ -1,42 +1,53 @@
-/* ---------------------------------------
-   1. Fade in page on load
-----------------------------------------*/
+/* =========================================================
+   1. Fast Page Fade-in
+========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("page-loaded");
 });
 
 
+
 /* ---------------------------------------
-   2. Animate section headings on scroll
+   2. Fast Scroll Animations
 ----------------------------------------*/
-const observer = new IntersectionObserver((entries) => {
+const animatedItems = document.querySelectorAll(
+    "h1, h2, h3, h4, p, img, .section-heading, .card, .box, .container, .content-box, .efficiency-box"
+);
+
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            entry.target.classList.add("show");
+            scrollObserver.unobserve(entry.target); // animate once
         }
     });
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll(".section-heading").forEach(section => {
-    section.classList.add("fade-section");
-    observer.observe(section);
+animatedItems.forEach(item => {
+    item.classList.add("animate-smooth");
+    scrollObserver.observe(item);
 });
 
 
-/* ---------------------------------------
-   3. Back to Team Button – Ripple + Navigation
-----------------------------------------*/
-const backBtn = document.querySelector(".back-btn");
-if (backBtn) {
 
-    // Smooth ripple click feedback
+
+/* =========================================================
+   3. Back Button Ripple + Fade-out Transition
+========================================================= */
+const backBtn = document.querySelector(".back-btn");
+
+if (backBtn) {
     backBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
+        backBtn.classList.remove("clicked");
+        void backBtn.offsetWidth; // Restart animation
         backBtn.classList.add("clicked");
+
+        document.body.classList.add("fade-out");
 
         setTimeout(() => {
             window.location.href = "../index.html";
-        }, 250);
+        }, 200);
     });
 }
