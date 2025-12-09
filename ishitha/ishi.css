@@ -8,7 +8,7 @@ html, body {
     width: 100%;
     min-height: 100%;
     font-family: 'Playfair Display', sans-serif;
-    background-color: #eae0d5;   /* soft beige */
+    background-color: #f4f2ed;   /* soft beige */
     color: #2d2d2d;
 }
 
@@ -20,7 +20,7 @@ html, body {
     max-width: 1100px;
     margin: 40px auto;
     padding: 30px 40px;
-    background: #ddbea9;     /* matches your cards */
+    background: white;     /* matches your cards */
     border-radius: 14px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
@@ -83,6 +83,156 @@ html, body {
     font-size: 16px;
     line-height: 1.5;
 }
+
+.content-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.content-box {
+    background: #f3ecdd;  /* closer to your light beige */
+    border-radius: 18px;
+    padding: 25px 25px;  /* FIXED padding */
+    padding-top: 0px;
+    border: 1px solid rgba(31, 81, 54, 0.12);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+    position: relative;
+
+}
+
+.content-box h3 {
+    color: #2b4d34;
+
+}
+
+.content-box p {
+    font-size: 20px;
+    /* font-weight: 200; */
+
+}
+
+
+.rule {
+    height: 1.7px;
+    background: linear-gradient(90deg, #c9a87a, #e4c9a7);
+    width: 20%;
+    margin: 5px 0 12px;
+    border-radius: 2px;
+}
+
+.sdg-div {
+    display: inline-block;        /* keeps SDGs box on same line */
+    background-color: #2b4d34;    /* deep green */
+    color: white;                 /* readable text */
+    padding: 6px 14px;            /* nicer spacing */
+    border-radius: 6px;           /* rounded box */
+    font-family: 'Cinzel', serif; /* matches your theme */
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;           /* spacing before the text */
+}
+
+.sdg-container {
+    display: flex;
+    align-items: center;      /* vertically center items */
+    gap: 12px;
+    font-size: 20px;                /* space between SDG box and text */
+}
+
+.sdg-div {
+    background-color: #2b4d34;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.sdg-container p {
+    margin: 0;                /* remove unwanted top spacing */
+    font-size: 18px;
+}
+
+
+.algo-div {
+    background-color: goldenrod;
+    color: black;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    /* font-weight: 600; */
+    display: inline-block;
+}
+
+
+.image {
+    height: 200px;
+    width: 350px;
+    
+    border-radius: 8px;
+    margin-left: 65px;
+    border: 2px solid rgba(0,0,0,0.22);
+}
+
+/* .image-right {
+    height: 200px;
+    width: 350px;
+    
+    border-radius: 8px;
+    margin-left: 600px;
+    border: 2px solid rgba(0,0,0,0.22);
+
+} */
+
+
+
+.sequence {
+    height: 300px;
+    width: 600px;
+    
+    border-radius: 8px;
+    margin-left: 200px;
+    border: 2px solid rgba(0,0,0,0.22);
+}
+
+.btn {
+        display: inline-block;
+        font-family: 'Cinzel';
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border: 2px solid rgba(0,0,0,0.22);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.15s;
+
+        width: 160px;
+        margin-top: 20px;
+        /* margin-left: 40px; */
+    }
+    .btn-success {
+        color: #fff;
+        background-color: #198754;
+        border-color: #198754;
+    }
+    .btn-success:hover {
+        background-color: #157347;
+        border-color: #146c43;
+
+    }
+
+
 
 /* ------------------------------
    BACK BUTTON
@@ -150,3 +300,191 @@ body.page-loaded {
 }
 
 
+
+
+/* EFFICIENCY BOX */
+/* Efficiency Analysis Box — SAME SIZE AS IMAGE */
+.efficiency-box {
+    height: 200px;           /* same as .image */
+    width: 350px;            /* same as .image */
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.22);
+    background: #C7F9CC;     /* matching beige card color */
+    margin-left: 65px;       /* align perfectly under the Code button (same as image) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Heading inside the box */
+.efficiency-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: #2b4d34;          /* deep green highlight */
+    margin: 0;
+    text-align: center;
+}
+
+.image-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;   /* centers image & box vertically */
+    gap: 15px;             /* space between image and box */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* JS ANIMATIONS */
+
+/* =========================================================
+   PAGE FADE-IN / FADE-OUT
+========================================================= */
+
+body {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+/* =========================================================
+   SCROLL ANIMATIONS (for ALL ELEMENTS)
+========================================================= */
+
+.animate-smooth {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   CARDS / BOXES / CONTAINERS / CONTENT BOXES
+========================================================= */
+
+.card, .box, .container, .content-box, .eff-box {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover,
+.box:hover,
+.container:hover,
+.content-box:hover,
+.eff-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* =========================================================
+   IMAGE REVEAL
+========================================================= */
+
+img {
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+img.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   BACK BUTTON RIPPLE EFFECT
+========================================================= */
+
+.back-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.back-btn.clicked::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    animation: ripple 0.4s ease-out forwards;
+}
+
+@keyframes ripple {
+    from {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0.9;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(8);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   HEADINGS + PARAGRAPHS SMOOTH REVEAL
+========================================================= */
+
+h1, h2, h3, h4, p {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+h1.animate-smooth, h2.animate-smooth, h3.animate-smooth, 
+h4.animate-smooth, p.animate-smooth {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+h1.show, h2.show, h3.show, 
+h4.show, p.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efficiency Box Animation */
+.efficiency-box {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.efficiency-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effect */
+.efficiency-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
