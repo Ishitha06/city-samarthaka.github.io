@@ -158,7 +158,40 @@
              <img src="Infrastructure/Dijkstra.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Extract-Min Operations</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+    </tr>
+
+    <tr>
+      <td>Decrease-Key Operations</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+    </tr>
+  </table>
+
+
+
+
              </div>
 
 
@@ -177,7 +210,33 @@
              <img src="Infrastructure/segment.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Tree Construction</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Query / Update</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    
+  </table>
+
+
              </div>
 
 
@@ -197,7 +256,38 @@
              <img src="Infrastructure/union-find.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Find Operation</td>
+      <td>O(1)</td>
+      <td>O(α(N))</td>
+      <td>O(α(N))</td>
+    </tr>
+
+    <tr>
+      <td>Union Operation</td>
+      <td>O(1)</td>
+      <td>O(α(N))</td>
+      <td>O(α(N))</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -743,7 +833,38 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/prims.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Extract-Min</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+    </tr>
+
+    <tr>
+      <td>Decrease-Key</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -764,7 +885,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/floyd.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Matrix Initialization</td>
+      <td>O(V²)</td>
+      <td>O(V²)</td>
+      <td>O(V²)</td>
+    </tr>
+
+    <tr>
+      <td>Triple Loop Updates</td>
+      <td>O(V³)</td>
+      <td>O(V³)</td>
+      <td>O(V³)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(V³)</td>
+      <td>O(V³)</td>
+      <td>O(V³)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -784,7 +934,38 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/hash.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Insertion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Search / Deletion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -804,7 +985,38 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/bst.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Search</td>
+      <td>O(1)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Insertion / Deletion</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -813,6 +1025,557 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;cstring&gt;
+#include &lt;limits&gt;
+
+using namespace std;
+
+ofstream fout("output.txt");   // All output will go here
+
+const int MAX_NODES = 50;
+const int MAX_EDGES = 200;
+const int HASH_SIZE = 101;
+const int INF = 1000000000;
+
+// -------------------------------
+// Graph storage (for Prim + Floyd)
+// -------------------------------
+int N, M;                         // number of towers, number of links
+int graphMat[MAX_NODES][MAX_NODES];
+
+struct Edge {
+    int u, v, w;
+};
+
+Edge edges[MAX_EDGES];
+
+// -------------------------------
+// 1) Prim's MST (Backbone building)
+// -------------------------------
+void runPrimMST(int root) {
+    bool inMST[MAX_NODES];
+    int key[MAX_NODES];        // min edge weight to connect this node
+    int parent[MAX_NODES];     // parent in MST
+
+    for (int i = 0; i &lt; N; ++i) {
+        inMST[i] = false;
+        key[i] = INF;
+        parent[i] = -1;
+    }
+
+    key[root] = 0;
+
+    for (int count = 0; count &lt; N - 1; ++count) {
+        int u = -1;
+        int best = INF;
+
+        for (int i = 0; i &lt; N; ++i) {
+            if (!inMST[i] &amp;&amp; key[i] &lt; best) {
+                best = key[i];
+                u = i;
+            }
+        }
+
+        if (u == -1) break; // disconnected graph
+        inMST[u] = true;
+
+        // update neighbors
+        for (int v = 0; v &lt; N; ++v) {
+            if (graphMat[u][v] &lt; INF &amp;&amp; !inMST[v] &amp;&amp; graphMat[u][v] &lt; key[v]) {
+                key[v] = graphMat[u][v];
+                parent[v] = u;
+            }
+        }
+    }
+
+    fout &lt;&lt; "--- COMMUNICATION BACKBONE (Prim MST) ---\n";
+    int totalCost = 0;
+    for (int v = 0; v &lt; N; ++v) {
+        if (v == root) continue;
+        if (parent[v] != -1) {
+            fout &lt;&lt; "Link: " &lt;&lt; parent[v] &lt;&lt; " - " &lt;&lt; v
+                 &lt;&lt; "  Cost: " &lt;&lt; graphMat[parent[v]][v] &lt;&lt; "\n";
+            totalCost += graphMat[parent[v]][v];
+        }
+    }
+    fout &lt;&lt; "Total Backbone Cost = " &lt;&lt; totalCost &lt;&lt; "\n\n";
+}
+
+// -------------------------------
+// 2) Floyd-Warshall (All-pairs routing)
+// -------------------------------
+int distFW[MAX_NODES][MAX_NODES];
+int nextFW[MAX_NODES][MAX_NODES];
+
+void runFloydWarshall() {
+    // Initialize
+    for (int i = 0; i &lt; N; ++i) {
+        for (int j = 0; j &lt; N; ++j) {
+            distFW[i][j] = graphMat[i][j];
+            if (graphMat[i][j] &lt; INF &amp;&amp; i != j)
+                nextFW[i][j] = j;
+            else
+                nextFW[i][j] = -1;
+        }
+    }
+
+    // Floyd-Warshall core
+    for (int k = 0; k &lt; N; ++k) {
+        for (int i = 0; i &lt; N; ++i) {
+            if (distFW[i][k] == INF) continue;
+            for (int j = 0; j &lt; N; ++j) {
+                if (distFW[k][j] == INF) continue;
+                int through = distFW[i][k] + distFW[k][j];
+                if (through &lt; distFW[i][j]) {
+                    distFW[i][j] = through;
+                    nextFW[i][j] = nextFW[i][k];
+                }
+            }
+        }
+    }
+}
+
+void printFWPath(int u, int v) {
+    if (nextFW[u][v] == -1) {
+        fout &lt;&lt; "No path";
+        return;
+    }
+    int path[MAX_NODES];
+    int len = 0;
+    int cur = u;
+    path[len++] = cur;
+    while (cur != v &amp;&amp; len &lt; MAX_NODES) {
+        cur = nextFW[cur][v];
+        path[len++] = cur;
+    }
+    for (int i = 0; i &lt; len; ++i) {
+        fout &lt;&lt; path[i];
+        if (i + 1 &lt; len) fout &lt;&lt; " -&gt; ";
+    }
+}
+
+void answerFloydQueries(int Qfw) {
+    fout &lt;&lt; "--- INTERNET PACKET ROUTING (Floyd-Warshall) ---\n";
+    for (int q = 0; q &lt; Qfw; ++q) {
+        int src, dest;
+        cin &gt;&gt; src &gt;&gt; dest;
+        fout &lt;&lt; "Fastest path from Tower " &lt;&lt; src &lt;&lt; " to Tower " &lt;&lt; dest &lt;&lt; ":\n";
+        if (distFW[src][dest] &gt;= INF) {
+            fout &lt;&lt; "  No route available.\n\n";
+        } else {
+            fout &lt;&lt; "  Cost: " &lt;&lt; distFW[src][dest] &lt;&lt; "\n";
+            fout &lt;&lt; "  Path: ";
+            printFWPath(src, dest);
+            fout &lt;&lt; "\n\n";
+        }
+    }
+}
+
+// -------------------------------
+// 3) Hash Table (Tower failure → backup routes)
+// -------------------------------
+struct BackupRoute {
+    int towerId;
+    int count;
+    int backups[10];
+    bool used;
+};
+
+BackupRoute hashTable[HASH_SIZE];
+
+int hashFunc(int key) {
+    if (key &lt; 0) key = -key;
+    return key % HASH_SIZE;
+}
+
+void initHash() {
+    for (int i = 0; i &lt; HASH_SIZE; ++i) {
+        hashTable[i].used = false;
+        hashTable[i].towerId = -1;
+        hashTable[i].count = 0;
+    }
+}
+
+void insertBackup(int towerId, int count, int *arr) {
+    int idx = hashFunc(towerId);
+    for (int i = 0; i &lt; HASH_SIZE; ++i) {
+        int pos = (idx + i) % HASH_SIZE;
+        if (!hashTable[pos].used || hashTable[pos].towerId == towerId) {
+            hashTable[pos].used = true;
+            hashTable[pos].towerId = towerId;
+            hashTable[pos].count = count;
+            for (int j = 0; j &lt; count; ++j) {
+                hashTable[pos].backups[j] = arr[j];
+            }
+            return;
+        }
+    }
+}
+
+BackupRoute* findBackup(int towerId) {
+    int idx = hashFunc(towerId);
+    for (int i = 0; i &lt; HASH_SIZE; ++i) {
+        int pos = (idx + i) % HASH_SIZE;
+        if (!hashTable[pos].used) return nullptr;
+        if (hashTable[pos].towerId == towerId) return &amp;hashTable[pos];
+    }
+    return nullptr;
+}
+
+void runFailureHandling(int Qfail) {
+    fout &lt;&lt; "--- TOWER FAILURE HANDLING (Hash Table) ---\n";
+    for (int i = 0; i &lt; Qfail; ++i) {
+        int failedId;
+        cin &gt;&gt; failedId;
+        fout &lt;&lt; "Tower " &lt;&lt; failedId &lt;&lt; " FAILED.\n";
+        BackupRoute* br = findBackup(failedId);
+        if (br == nullptr || br-&gt;count == 0) {
+            fout &lt;&lt; "  No precomputed backup route.\n\n";
+        } else {
+            fout &lt;&lt; "  Backup route via towers: ";
+            for (int j = 0; j &lt; br-&gt;count; ++j) {
+                fout &lt;&lt; br-&gt;backups[j];
+                if (j + 1 &lt; br-&gt;count) fout &lt;&lt; " -&gt; ";
+            }
+            fout &lt;&lt; "\n\n";
+        }
+    }
+}
+
+// -------------------------------
+// 4) BST for Load Balancing
+// -------------------------------
+struct SessionNode {
+    int userId;
+    int bandwidth;    // Mbps used
+    SessionNode *left;
+    SessionNode *right;
+};
+
+SessionNode* newNode(int userId, int bandwidth) {
+    SessionNode* node = new SessionNode;
+    node-&gt;userId = userId;
+    node-&gt;bandwidth = bandwidth;
+    node-&gt;left = node-&gt;right = nullptr;
+    return node;
+}
+
+SessionNode* insertSession(SessionNode* root, int userId, int bandwidth) {
+    if (root == nullptr) return newNode(userId, bandwidth);
+    if (bandwidth &lt; root-&gt;bandwidth)
+        root-&gt;left = insertSession(root-&gt;left, userId, bandwidth);
+    else
+        root-&gt;right = insertSession(root-&gt;right, userId, bandwidth);
+    return root;
+}
+
+void inorderSessions(SessionNode* root) {
+    if (!root) return;
+    inorderSessions(root-&gt;left);
+    fout &lt;&lt; "User " &lt;&lt; root-&gt;userId &lt;&lt; " - Bandwidth " &lt;&lt; root-&gt;bandwidth &lt;&lt; " Mbps\n";
+    inorderSessions(root-&gt;right);
+}
+
+void findMaxSession(SessionNode* root, int &amp;maxBw, int &amp;maxUser) {
+    if (!root) return;
+    if (root-&gt;bandwidth &gt; maxBw) {
+        maxBw = root-&gt;bandwidth;
+        maxUser = root-&gt;userId;
+    }
+    findMaxSession(root-&gt;left, maxBw, maxUser);
+    findMaxSession(root-&gt;right, maxBw, maxUser);
+}
+
+void runLoadBalancing(SessionNode* root) {
+    fout &lt;&lt; "--- LOAD BALANCING (BST of Sessions) ---\n";
+    fout &lt;&lt; "Active sessions sorted by bandwidth:\n";
+    inorderSessions(root);
+    int maxBw = -1, maxUser = -1;
+    findMaxSession(root, maxBw, maxUser);
+    if (maxBw != -1) {
+        fout &lt;&lt; "\nTop bandwidth consumer: User " &lt;&lt; maxUser
+             &lt;&lt; " with " &lt;&lt; maxBw &lt;&lt; " Mbps\n";
+    }
+    fout &lt;&lt; "\n";
+}
+
+// -------------------------------
+// MAIN
+// -------------------------------
+int main() {
+    // 1) Read towers &amp; links
+    cin &gt;&gt; N &gt;&gt; M;
+
+    // Initialize adjacency matrix
+    for (int i = 0; i &lt; N; ++i) {
+        for (int j = 0; j &lt; N; ++j) {
+            if (i == j) graphMat[i][j] = 0;
+            else graphMat[i][j] = INF;
+        }
+    }
+
+    for (int i = 0; i &lt; M; ++i) {
+        int u, v, w;
+        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;
+        edges[i].u = u;
+        edges[i].v = v;
+        edges[i].w = w;
+        if (w &lt; graphMat[u][v]) {      // keep smallest if multiple
+            graphMat[u][v] = w;
+            graphMat[v][u] = w;
+        }
+    }
+
+    // 2) Prim MST (backbone)
+    int rootTower;
+    cin &gt;&gt; rootTower;
+    runPrimMST(rootTower);
+
+    // 3) Floyd-Warshall (all-pairs)
+    runFloydWarshall();
+    int Qfw;
+    cin &gt;&gt; Qfw;
+    answerFloydQueries(Qfw);
+
+    // 4) Hash table for tower failure backup routes
+    initHash();
+    int H;
+    cin &gt;&gt; H;
+    for (int i = 0; i &lt; H; ++i) {
+        int towerId, cnt;
+        cin &gt;&gt; towerId &gt;&gt; cnt;
+        int temp[10];
+        for (int j = 0; j &lt; cnt; ++j) {
+            cin &gt;&gt; temp[j];
+        }
+        insertBackup(towerId, cnt, temp);
+    }
+
+    int Qfail;
+    cin &gt;&gt; Qfail;
+    runFailureHandling(Qfail);
+
+    // 5) BST for load balancing
+    int S;
+    cin &gt;&gt; S;
+    SessionNode* root = nullptr;
+    for (int i = 0; i &lt; S; ++i) {
+        int uid, bw;
+        cin &gt;&gt; uid &gt;&gt; bw;
+        root = insertSession(root, uid, bw);
+    }
+    runLoadBalancing(root);
+
+    fout.close();
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="data-input">
+
+50 54
+0 1 2
+1 2 3
+2 3 4
+3 4 5
+4 5 6
+5 6 7
+6 7 8
+7 8 9
+8 9 10
+9 10 2
+10 11 3
+11 12 4
+12 13 5
+13 14 6
+14 15 7
+15 16 8
+16 17 9
+17 18 10
+18 19 2
+19 20 3
+20 21 4
+21 22 5
+22 23 6
+23 24 7
+24 25 8
+25 26 9
+26 27 10
+27 28 2
+28 29 3
+29 30 4
+30 31 5
+31 32 6
+32 33 7
+33 34 8
+34 35 9
+35 36 10
+36 37 2
+37 38 3
+38 39 4
+39 40 5
+40 41 6
+41 42 7
+42 43 8
+43 44 9
+44 45 10
+45 46 2
+46 47 3
+47 48 4
+48 49 5
+49 0 5
+0 10 7
+10 20 4
+20 30 6
+30 40 3
+
+0
+3
+0 25
+5 40
+12 33
+
+5
+5 2 4 6
+10 3 0 9 11
+20 2 10 30
+25 2 20 26
+40 2 30 41
+
+3
+5
+10
+40
+
+10
+101 5
+102 10
+103 3
+104 20
+105 15
+106 25
+107 8
+108 12
+109 18
+110 30
+
+
+
+
+    </div>
+
+    <div class="data-output">
+
+--- COMMUNICATION BACKBONE (Prim MST) ---
+Link: 0 - 1  Cost: 2
+Link: 1 - 2  Cost: 3
+Link: 2 - 3  Cost: 4
+Link: 3 - 4  Cost: 5
+Link: 4 - 5  Cost: 6
+Link: 5 - 6  Cost: 7
+Link: 6 - 7  Cost: 8
+Link: 7 - 8  Cost: 9
+Link: 10 - 9  Cost: 2
+Link: 0 - 10  Cost: 7
+Link: 10 - 11  Cost: 3
+Link: 11 - 12  Cost: 4
+Link: 12 - 13  Cost: 5
+Link: 13 - 14  Cost: 6
+Link: 14 - 15  Cost: 7
+Link: 15 - 16  Cost: 8
+Link: 16 - 17  Cost: 9
+Link: 19 - 18  Cost: 2
+Link: 20 - 19  Cost: 3
+Link: 10 - 20  Cost: 4
+Link: 20 - 21  Cost: 4
+Link: 21 - 22  Cost: 5
+Link: 22 - 23  Cost: 6
+Link: 23 - 24  Cost: 7
+Link: 24 - 25  Cost: 8
+Link: 25 - 26  Cost: 9
+Link: 28 - 27  Cost: 2
+Link: 29 - 28  Cost: 3
+Link: 30 - 29  Cost: 4
+Link: 20 - 30  Cost: 6
+Link: 30 - 31  Cost: 5
+Link: 31 - 32  Cost: 6
+Link: 32 - 33  Cost: 7
+Link: 33 - 34  Cost: 8
+Link: 34 - 35  Cost: 9
+Link: 37 - 36  Cost: 2
+Link: 38 - 37  Cost: 3
+Link: 39 - 38  Cost: 4
+Link: 40 - 39  Cost: 5
+Link: 30 - 40  Cost: 3
+Link: 40 - 41  Cost: 6
+Link: 41 - 42  Cost: 7
+Link: 42 - 43  Cost: 8
+Link: 43 - 44  Cost: 9
+Link: 46 - 45  Cost: 2
+Link: 47 - 46  Cost: 3
+Link: 48 - 47  Cost: 4
+Link: 49 - 48  Cost: 5
+Link: 0 - 49  Cost: 5
+Total Backbone Cost = 259
+
+--- INTERNET PACKET ROUTING (Floyd-Warshall) ---
+Fastest path from Tower 0 to Tower 25:
+  Cost: 41
+  Path: 0 -> 10 -> 20 -> 21 -> 22 -> 23 -> 24 -> 25
+
+Fastest path from Tower 5 to Tower 40:
+  Cost: 40
+  Path: 5 -> 4 -> 3 -> 2 -> 1 -> 0 -> 10 -> 20 -> 30 -> 40
+
+Fastest path from Tower 12 to Tower 33:
+  Cost: 35
+  Path: 12 -> 11 -> 10 -> 20 -> 30 -> 31 -> 32 -> 33
+
+--- TOWER FAILURE HANDLING (Hash Table) ---
+Tower 5 FAILED.
+  Backup route via towers: 4 -> 6
+
+Tower 10 FAILED.
+  Backup route via towers: 0 -> 9 -> 11
+
+Tower 40 FAILED.
+  Backup route via towers: 30 -> 41
+
+--- LOAD BALANCING (BST of Sessions) ---
+Active sessions sorted by bandwidth:
+User 103 - Bandwidth 3 Mbps
+User 101 - Bandwidth 5 Mbps
+User 107 - Bandwidth 8 Mbps
+User 102 - Bandwidth 10 Mbps
+User 108 - Bandwidth 12 Mbps
+User 105 - Bandwidth 15 Mbps
+User 109 - Bandwidth 18 Mbps
+User 104 - Bandwidth 20 Mbps
+User 106 - Bandwidth 25 Mbps
+User 110 - Bandwidth 30 Mbps
+
+Top bandwidth consumer: User 110 with 30 Mbps
+
+
+
+        
+    </div>
+</div>
 
 
 
@@ -853,7 +1616,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/bellman.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Edge Relaxation</td>
+      <td>O(E)</td>
+      <td>O(VE)</td>
+      <td>O(VE)</td>
+    </tr>
+
+    <tr>
+      <td>Negative Cycle Check</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E)</td>
+      <td>O(VE)</td>
+      <td>O(VE)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -874,7 +1666,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/trie.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Insertion</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+    </tr>
+
+    <tr>
+      <td>Search / Prefix</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N × L)</td>
+      <td>O(N × L)</td>
+      <td>O(N × L)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -895,7 +1716,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/red.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Search</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Insertion / Deletion</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -915,7 +1765,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Infrastructure/skip.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Search</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Insertion / Deletion</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -924,6 +1803,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
 
         </div>
@@ -966,7 +1874,39 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/dij.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Extract-Min Operations</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+    </tr>
+
+    <tr>
+      <td>Decrease-Key Operations</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+    </tr>
+  </table>
+
+
+
              </div>
 
 
@@ -987,7 +1927,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/avl.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Search</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Insertion / Deletion</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1009,7 +1978,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/fenwick.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Update Value</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Prefix Sum Query</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1029,7 +2026,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/hash.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Preprocessing (LPS)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+    </tr>
+
+    <tr>
+      <td>Pattern Search</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1038,6 +2063,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
 
 
@@ -1076,7 +2130,38 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/dij2.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Extract-Min Operations</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+    </tr>
+
+    <tr>
+      <td>Decrease-Key Operations</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -1097,7 +2182,36 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/sort.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Divide Step</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Step</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1118,7 +2232,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/bfs.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Visit Vertices</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+    </tr>
+
+    <tr>
+      <td>Traverse Edges</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1138,7 +2280,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Transport/dfs.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Visit Vertices</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+    </tr>
+
+    <tr>
+      <td>Traverse Edges</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1146,6 +2316,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
@@ -1195,7 +2394,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/backtrack.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Constraint Check</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>State Space Traversal</td>
+      <td>O(N)</td>
+      <td>O(b^N)</td>
+      <td>O(b^N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N)</td>
+      <td>O(b^N)</td>
+      <td>O(b^N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1216,7 +2443,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/dfs.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Visit Vertices</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+      <td>O(V)</td>
+    </tr>
+
+    <tr>
+      <td>Traverse Edges</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1236,7 +2491,42 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/kruskal.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Sorting Edges</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+
+    <tr>
+      <td>Union–Find Operations</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+  </table>
+
+  
+                
+
+
+
              </div>
 
 
@@ -1256,7 +2546,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/mergesort.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Divide Step</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Step</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1264,6 +2582,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
@@ -1302,7 +2649,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/backtrack2.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Constraint Check</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>State Space Traversal</td>
+      <td>O(N)</td>
+      <td>O(b^N)</td>
+      <td>O(b^N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N)</td>
+      <td>O(b^N)</td>
+      <td>O(b^N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1323,7 +2698,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/kmp.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Preprocessing (LPS)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+    </tr>
+
+    <tr>
+      <td>Pattern Search</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1343,7 +2746,38 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/dij.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Extract-Min Operations</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+      <td>O(V log V)</td>
+    </tr>
+
+    <tr>
+      <td>Decrease-Key Operations</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+      <td>O(E log V)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+      <td>O((V + E) log V)</td>
+    </tr>
+  </table>
+
+
              </div>
 
 
@@ -1363,7 +2797,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Semiconductor/merge2.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Divide Step</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Step</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1371,6 +2833,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
@@ -1421,7 +2912,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/bst.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Search</td>
+      <td>O(1)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Insertion / Deletion</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1443,7 +2962,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/union-find.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Find Operation</td>
+      <td>O(1)</td>
+      <td>O(α(N))</td>
+      <td>O(α(N))</td>
+    </tr>
+
+    <tr>
+      <td>Union Operation</td>
+      <td>O(1)</td>
+      <td>O(α(N))</td>
+      <td>O(α(N))</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1463,7 +3010,42 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/kruskal.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Sorting Edges</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+
+    <tr>
+      <td>Union–Find Operations</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+  </table>
+
+  
+
+
+                
              </div>
 
 
@@ -1483,7 +3065,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/merge.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Divide Step</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Step</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1491,6 +3101,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
@@ -1527,7 +3166,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/hash.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Insertion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Search / Deletion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1549,7 +3216,33 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/segment.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                 <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Tree Construction</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Query / Update</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    
+  </table>
+
+
              </div>
 
 
@@ -1569,7 +3262,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/bellman.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Edge Relaxation</td>
+      <td>O(E)</td>
+      <td>O(VE)</td>
+      <td>O(VE)</td>
+    </tr>
+
+    <tr>
+      <td>Negative Cycle Check</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E)</td>
+      <td>O(VE)</td>
+      <td>O(VE)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1590,7 +3311,40 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="CulturalHub/heap.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <td>Insertion</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Deletion (Extract-Max)</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Updating Priority</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Retrieving Max</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+  </table>
+
              </div>
 
 
@@ -1598,6 +3352,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
@@ -1641,7 +3424,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Sports/hash.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Insertion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Search / Deletion</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1663,7 +3474,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Sports/fen.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Update Value</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Prefix Sum Query</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Space Complexity</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1683,7 +3522,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Sports/KMP.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Preprocessing (LPS)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+      <td>O(M)</td>
+    </tr>
+
+    <tr>
+      <td>Pattern Search</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+      <td>O(N + M)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1703,7 +3570,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
              <img src="Sports/merge.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Divide Step</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+      <td>O(log N)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Step</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+      <td>O(N)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+      <td>O(N log N)</td>
+    </tr>
+  </table>
              </div>
 
 
@@ -1711,6 +3606,35 @@ Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 
             <br>
 
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
+
+            <div class="code-data" style="display:none;">
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Max-Heap Implementation for Power Grid
+int main() {
+    priority_queue&lt;int&gt; pq;
+    pq.push(100); // Solar
+    pq.push(80);  // Wind
+    pq.push(120); // Thermal
+    
+    cout << "Optimal Source: " << pq.top() << " MW";
+    return 0;
+}
+    </div>
+
+    <div class="data-input">
+3
+100 80 120
+    </div>
+
+    <div class="data-output">
+Optimal Source: 120 MW
+    </div>
+</div>
 
             
 
