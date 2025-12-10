@@ -51,7 +51,38 @@
               <img src="Infrastructure/max-heap.png" class="image">
 
                <div class="efficiency-box">
-                Efficiency
+                <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+    <tr>
+      <td>Insertion</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Deletion (Extract-Max)</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Updating Priority</td>
+      <td>O(1)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
+    <tr>
+      <td>Retrieving Max</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
+  </table>
                </div>
 
 
@@ -60,7 +91,6 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
 
             <br>
             <br>
@@ -73,8 +103,42 @@
              <img src="Infrastructure/kruskal.png" class="image">
 
              <div class="efficiency-box">
-                Efficiency
+
+  <table class="heap-table">
+    <tr>
+      <th>Operation</th>
+      <th>Best</th>
+      <th>Average</th>
+      <th>Worst</th>
+    </tr>
+
+    <tr>
+      <td>Sorting Edges</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+
+    <tr>
+      <td>Union–Find Operations</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+      <td>O(E)</td>
+    </tr>
+
+    <tr>
+      <td>Total Time Complexity</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+      <td>O(E log E)</td>
+    </tr>
+  </table>
+
+  
+
+
              </div>
+             
 
 
             </div>
@@ -82,7 +146,6 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
 
             <br>
             <br>
@@ -103,7 +166,6 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
             <br>
             <br>
              <p><b>Real-time Monitoring:</b>To monitor the total power consumption of a specific area, like a residential block, in real-time and efficiently handle updates from individual smart meters.<br> <br>
@@ -123,7 +185,6 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
 
            <br>
             <br>
@@ -144,7 +205,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
 
 
@@ -190,7 +251,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -211,7 +272,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
             <p><b>Tower Failure Handling & Rerouting: </b>To provide near-instantaneous recovery when a tower goes offline by immediately switching traffic to pre-calculated backup paths, minimizing service interruption for users.<br> <br>
@@ -231,7 +292,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
             <p><b>Load Balancing & Bandwidth Allocation: </b>To efficiently manage user demand by organizing bandwidth requests, ensuring that network resources are allocated fairly and that no single access point becomes overwhelmed by too many high-demand users.<br> <br>
@@ -251,7 +312,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
 
 
@@ -300,7 +361,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -321,7 +382,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -342,7 +403,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
             <p><b>Fault detection in bins, trucks, or sensors: </b>To allow for a fast search through a large number of units (bins, trucks, sensors) to quickly identify any that are malfunctioning.<br> <br>
@@ -362,7 +423,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
 
         </div>
@@ -413,7 +474,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -436,7 +497,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
             <p><b>Passenger Load Monitoring (Crowd Density): </b>To monitor real-time crowd density on moving trains across different segments of the metro line. This allows operators to identify overcrowded stretches instantly and make data-driven decisions, such as deploying extra trains or regulating station entry.<br> <br>
@@ -456,7 +517,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
             <p><b>Ticketing & Metro Card Validation: </b>To provide near-instantaneous validation of thousands of metro cards per minute at entry and exit gates. This ensures a seamless, rapid flow of passengers, preventing queues at turnstiles while instantly verifying card validity and sufficient balance.<br> <br>
@@ -476,7 +537,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
 
 
@@ -523,7 +584,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -544,7 +605,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -564,7 +625,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -584,7 +645,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -642,7 +703,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -662,7 +723,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -682,7 +743,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -702,7 +763,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -749,7 +810,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -769,7 +830,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -789,7 +850,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -809,7 +870,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -868,7 +929,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -889,7 +950,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
 
@@ -909,7 +970,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
 
@@ -929,7 +990,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -974,7 +1035,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -995,7 +1056,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
 
@@ -1015,7 +1076,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -1036,7 +1097,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -1088,7 +1149,7 @@
 
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
 
             <br>
             <br>
@@ -1109,7 +1170,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
 
@@ -1129,7 +1190,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <!-- <button type="button" class="btn btn-success">Code</button> -->
             <br>
             <br>
 
@@ -1149,7 +1210,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-success">Code</button>
+            <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
             
 
@@ -1170,6 +1231,40 @@
         <a href="../index.html" class="back-btn">← Back to Team</a>
 
     </div>
+
+
+    <!-- /* Code tab */ -->
+
+    <!-- Popup Modal -->
+        
+
+    <div id="codeModal" class="modal-overlay">
+  <div class="code-window">
+    <div class="window-header">
+      <div class="dots-container">
+        <span class="dot red" onclick="closeCode()"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="tabs-container">
+        <button class="tab-btn active" onclick="switchTab(event, 'cpp')">Solution.cpp</button>
+        <button class="tab-btn" onclick="switchTab(event, 'input')">Input.txt</button>
+        <button class="tab-btn" onclick="switchTab(event, 'output')">Output.txt</button>
+      </div>
+    </div>
+    <div class="code-body">
+      <div id="cpp" class="code-content active-content"><pre><code></code></pre></div>
+      <div id="input" class="code-content"><pre><code></code></pre></div>
+      <div id="output" class="code-content"><pre><code></code></pre></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+
 
     <script src="ishi.js"></script>
 
