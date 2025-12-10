@@ -208,6 +208,506 @@
             <button type="button" class="btn btn-success" onclick="openModal(this)">Code</button>
 
 
+<div class="code-data" style="display:none;">
+
+    <div class="data-cpp">
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;fstream&gt;  
+#include &lt;algorithm&gt;
+#include &lt;limits&gt;
+
+using namespace std;
+
+ofstream fout("output.txt");
+
+const int MAX_SOURCES = 20;
+const int MAX_NODES   = 50;
+const int MAX_EDGES   = 200;
+const int MAX_HOUSES  = 50;
+const int INF         = 1000000000;
+
+// ----------------------------
+// Power Source (Max-Heap)
+// ----------------------------
+struct PowerSource {
+    int id;
+    char name[20];
+    int score;
+};
+
+PowerSource heapArr[MAX_SOURCES];
+int heapSize = 0;
+
+void swapSource(PowerSource &amp;a, PowerSource &amp;b) {
+    PowerSource tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void heapifyUp(int idx) {
+    while (idx &gt; 0) {
+        int parent = (idx - 1) / 2;
+        if (heapArr[idx].score &gt; heapArr[parent].score) {
+            swapSource(heapArr[idx], heapArr[parent]);
+            idx = parent;
+        } else break;
+    }
+}
+
+void heapifyDown(int idx) {
+    while (true) {
+        int left = 2 * idx + 1;
+        int right = 2 * idx + 2;
+        int largest = idx;
+
+        if (left &lt; heapSize &amp;&amp; heapArr[left].score &gt; heapArr[largest].score)
+            largest = left;
+        if (right &lt; heapSize &amp;&amp; heapArr[right].score &gt; heapArr[largest].score)
+            largest = right;
+
+        if (largest != idx) {
+            swapSource(heapArr[idx], heapArr[largest]);
+            idx = largest;
+        } else break;
+    }
+}
+
+void heapPush(const PowerSource &amp;s) {
+    if (heapSize &gt;= MAX_SOURCES) return;
+    heapArr[heapSize] = s;
+    heapifyUp(heapSize);
+    heapSize++;
+}
+
+PowerSource heapTop() {
+    if (heapSize == 0) {
+        PowerSource dummy;
+        dummy.id = -1;
+        strcpy(dummy.name, "None");
+        dummy.score = -1;
+        return dummy;
+    }
+    return heapArr[0];
+}
+
+
+// ----------------------------
+// Union-Find
+// ----------------------------
+int parentUF[MAX_NODES];
+int rankUF[MAX_NODES];
+
+void makeSet(int n) {
+    for (int i = 0; i &lt; n; ++i) {
+        parentUF[i] = i;
+        rankUF[i] = 0;
+    }
+}
+
+int findSet(int v) {
+    if (v == parentUF[v]) return v;
+    parentUF[v] = findSet(parentUF[v]);
+    return parentUF[v];
+}
+
+void unionSet(int a, int b) {
+    a = findSet(a);
+    b = findSet(b);
+    if (a != b) {
+        if (rankUF[a] &lt; rankUF[b]) swap(a, b);
+        parentUF[b] = a;
+        if (rankUF[a] == rankUF[b]) rankUF[a]++;
+    }
+}
+
+// ----------------------------
+// Edges
+// ----------------------------
+struct Edge {
+    int u, v, w;
+};
+
+Edge edges[MAX_EDGES];
+int N, M;
+
+bool cmpEdge(const Edge &amp;a, const Edge &amp;b) {
+    return a.w &lt; b.w;
+}
+
+
+// ----------------------------
+// Kruskal MST
+// ----------------------------
+void runKruskalMST() {
+    Edge sortedEdges[MAX_EDGES];
+    for (int i = 0; i &lt; M; ++i) sortedEdges[i] = edges[i];
+
+    sort(sortedEdges, sortedEdges + M, cmpEdge);
+
+    makeSet(N);
+    int edgesUsed = 0;
+    long long totalWeight = 0;
+
+    fout &lt;&lt; "\n--- DISTRIBUTION NETWORK (Kruskal MST) ---\n";
+    fout &lt;&lt; "Edges in MST (u v w):\n";
+
+    for (int i = 0; i &lt; M &amp;&amp; edgesUsed &lt; N - 1; ++i) {
+        int u = sortedEdges[i].u;
+        int v = sortedEdges[i].v;
+        int w = sortedEdges[i].w;
+        if (findSet(u) != findSet(v)) {
+            unionSet(u, v);
+            edgesUsed++;
+            totalWeight += w;
+            fout &lt;&lt; u &lt;&lt; " " &lt;&lt; v &lt;&lt; " " &lt;&lt; w &lt;&lt; "\n";
+        }
+    }
+    fout &lt;&lt; "Total MST Cost: " &lt;&lt; totalWeight &lt;&lt; "\n";
+}
+
+
+// ----------------------------
+// Dijkstra
+// ----------------------------
+int graphMat[MAX_NODES][MAX_NODES];
+
+void runDijkstra(int src, int dest) {
+    int dist[MAX_NODES];
+    bool used[MAX_NODES];
+    int parentNode[MAX_NODES];
+
+    for (int i = 0; i &lt; N; ++i) {
+        dist[i] = INF;
+        used[i] = false;
+        parentNode[i] = -1;
+    }
+
+    dist[src] = 0;
+
+    for (int iter = 0; iter &lt; N; ++iter) {
+        int u = -1, best = INF;
+        for (int i = 0; i &lt; N; ++i)
+            if (!used[i] &amp;&amp; dist[i] &lt; best)
+                best = dist[i], u = i;
+
+        if (u == -1) break;
+        used[u] = true;
+
+        for (int v = 0; v &lt; N; ++v)
+            if (graphMat[u][v] &lt; INF &amp;&amp; dist[u] + graphMat[u][v] &lt; dist[v])
+                dist[v] = dist[u] + graphMat[u][v], parentNode[v] = u;
+    }
+
+    fout &lt;&lt; "\n--- POWER FLOW ROUTING (Dijkstra) ---\n";
+    if (dist[dest] == INF) {
+        fout &lt;&lt; "No path.\n";
+        return;
+    }
+
+    fout &lt;&lt; "Shortest Cost: " &lt;&lt; dist[dest] &lt;&lt; "\nPath: ";
+    int path[MAX_NODES], len = 0, cur = dest;
+    while (cur != -1) path[len++] = cur, cur = parentNode[cur];
+
+    for (int i = len - 1; i &gt;= 0; --i)
+        fout &lt;&lt; path[i] &lt;&lt; (i ? " -&gt; " : "");
+    fout &lt;&lt; "\n";
+}
+
+
+// ----------------------------
+// Segment Tree
+// ----------------------------
+long long arrHouses[MAX_HOUSES];
+long long segTree[4 * MAX_HOUSES];
+int H;
+
+void buildSegTree(int idx, int l, int r) {
+    if (l == r) { segTree[idx] = arrHouses[l]; return; }
+    int mid = (l + r) / 2;
+    buildSegTree(idx * 2, l, mid);
+    buildSegTree(idx * 2 + 1, mid + 1, r);
+    segTree[idx] = segTree[idx * 2] + segTree[idx * 2 + 1];
+}
+
+void updateSegTree(int idx, int l, int r, int pos, long long val) {
+    if (l == r) { segTree[idx] = val; return; }
+    int mid = (l + r) / 2;
+    if (pos &lt;= mid) updateSegTree(idx * 2, l, mid, pos, val);
+    else updateSegTree(idx * 2 + 1, mid + 1, r, pos, val);
+    segTree[idx] = segTree[idx * 2] + segTree[idx * 2 + 1];
+}
+
+long long querySegTree(int idx, int l, int r, int ql, int qr) {
+    if (qr &lt; l || ql &gt; r) return 0;
+    if (ql &lt;= l &amp;&amp; r &lt;= qr) return segTree[idx];
+    int mid = (l + r) / 2;
+    return querySegTree(idx * 2, l, mid, ql, qr) +
+           querySegTree(idx * 2 + 1, mid + 1, r, ql, qr);
+}
+
+void runSegmentTreeQueries() {
+    fout &lt;&lt; "\n--- REAL-TIME MONITORING (Segment Tree) ---\n";
+    buildSegTree(1, 0, H - 1);
+    int Q;
+    cin &gt;&gt; Q;
+
+    fout &lt;&lt; "Operations: " &lt;&lt; Q &lt;&lt; "\n";
+    while (Q--) {
+        char type;
+        cin &gt;&gt; type;
+        if (type == 'Q') {
+            int l, r;
+            cin &gt;&gt; l &gt;&gt; r;
+            fout &lt;&lt; "Sum(" &lt;&lt; l &lt;&lt; "," &lt;&lt; r &lt;&lt; ") = " &lt;&lt; querySegTree(1, 0, H - 1, l, r) &lt;&lt; "\n";
+        } else {
+            int pos; long long val;
+            cin &gt;&gt; pos &gt;&gt; val;
+            updateSegTree(1, 0, H - 1, pos, val);
+            fout &lt;&lt; "Updated meter " &lt;&lt; pos &lt;&lt; " to " &lt;&lt; val &lt;&lt; "\n";
+        }
+    }
+}
+
+
+// ----------------------------
+// Outage Detection
+// ----------------------------
+bool disabledEdge[MAX_EDGES];
+
+void runOutageDetection() {
+    fout &lt;&lt; "\n--- OUTAGE DETECTION (Union-Find) ---\n";
+    int B;
+    cin &gt;&gt; B;
+
+    for (int i = 0; i &lt; M; ++i) disabledEdge[i] = false;
+
+    while (B--) {
+        int idx;
+        cin &gt;&gt; idx;
+        disabledEdge[idx] = true;
+
+        makeSet(N);
+        for (int i = 0; i &lt; M; ++i)
+            if (!disabledEdge[i])
+                unionSet(edges[i].u, edges[i].v);
+
+        fout &lt;&lt; "Failure Edge: #" &lt;&lt; idx &lt;&lt; "\nDisconnected nodes: ";
+        int root = findSet(0);
+        bool none = true;
+        for (int i = 0; i &lt; N; ++i)
+            if (findSet(i) != root)
+                fout &lt;&lt; i &lt;&lt; " ", none = false;
+
+        if (none) fout &lt;&lt; "None";
+        fout &lt;&lt; "\n";
+    }
+}
+
+
+// ----------------------------
+// MAIN
+// ----------------------------
+int main() {
+    int S;
+    cin &gt;&gt; S;
+    fout &lt;&lt; "--- POWER SOURCE SELECTION (Max-Heap) ---\n";
+    
+    for (int i = 0; i &lt; S; ++i) {
+        PowerSource s;
+        cin &gt;&gt; s.id &gt;&gt; s.name &gt;&gt; s.score;
+        heapPush(s);
+    }
+
+    PowerSource best = heapTop();
+    fout &lt;&lt; "Best Source: " &lt;&lt; best.name &lt;&lt; " (Score: " &lt;&lt; best.score &lt;&lt; ")\n";
+
+    cin &gt;&gt; N &gt;&gt; M;
+    
+    for (int i = 0; i &lt; N; ++i)
+        for (int j = 0; j &lt; N; ++j)
+            graphMat[i][j] = (i == j ? 0 : INF);
+
+    for (int i = 0; i &lt; M; ++i) {
+        cin &gt;&gt; edges[i].u &gt;&gt; edges[i].v &gt;&gt; edges[i].w;
+        graphMat[edges[i].u][edges[i].v] = edges[i].w;
+        graphMat[edges[i].v][edges[i].u] = edges[i].w;
+    }
+
+    runKruskalMST();
+
+    int src, dest;
+    cin &gt;&gt; src &gt;&gt; dest;
+    runDijkstra(src, dest);
+
+    cin &gt;&gt; H;
+    for (int i = 0; i &lt; H; ++i) cin &gt;&gt; arrHouses[i];
+
+    runSegmentTreeQueries();
+    runOutageDetection();
+
+    fout.close();
+    return 0;
+}
+
+
+
+    </div>
+
+    <div class="data-input">
+5
+0 Solar 95
+1 Wind 70
+2 Hydro 85
+3 Thermal 60
+4 Backup 30
+50 50
+0 1 4
+1 2 2
+2 3 7
+3 4 3
+4 5 1
+5 6 6
+6 7 5
+7 8 2
+8 9 4
+9 10 3
+10 11 7
+11 12 2
+12 13 5
+13 14 4
+14 15 6
+15 16 3
+16 17 2
+17 18 4
+18 19 7
+19 20 1
+20 21 5
+21 22 3
+22 23 6
+23 24 2
+24 25 4
+25 26 7
+26 27 3
+27 28 5
+28 29 2
+29 30 4
+30 31 6
+31 32 3
+32 33 5
+33 34 2
+34 35 4
+35 36 7
+36 37 3
+37 38 5
+38 39 2
+39 40 4
+40 41 6
+41 42 3
+42 43 5
+43 44 2
+44 45 4
+45 46 7
+46 47 3
+47 48 5
+48 49 2
+0 49 10
+0 25
+50
+10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300 310 320 330 340 350 360 370 380 390 400 410 420 430 440 450 460 470 480 490 500
+4
+Q 0 9
+Q 10 19
+U 3 150
+Q 0 9
+3
+0
+10
+49
+
+    </div>
+
+    <div class="data-output">
+--- POWER SOURCE SELECTION (Max-Heap) ---
+Best Source: Solar (Score: 95)
+
+--- DISTRIBUTION NETWORK (Kruskal MST) ---
+Edges in MST (u v w):
+4 5 1
+19 20 1
+1 2 2
+48 49 2
+23 24 2
+43 44 2
+28 29 2
+7 8 2
+38 39 2
+11 12 2
+33 34 2
+16 17 2
+26 27 3
+21 22 3
+46 47 3
+31 32 3
+15 16 3
+36 37 3
+9 10 3
+41 42 3
+3 4 3
+34 35 4
+29 30 4
+39 40 4
+44 45 4
+24 25 4
+8 9 4
+0 1 4
+13 14 4
+17 18 4
+20 21 5
+32 33 5
+27 28 5
+12 13 5
+37 38 5
+47 48 5
+6 7 5
+42 43 5
+30 31 6
+14 15 6
+22 23 6
+40 41 6
+5 6 6
+25 26 7
+45 46 7
+35 36 7
+18 19 7
+10 11 7
+2 3 7
+Total MST Cost: 197
+
+--- POWER FLOW ROUTING (Dijkstra) ---
+Shortest Cost: 98
+Path: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21 -> 22 -> 23 -> 24 -> 25
+
+--- REAL-TIME MONITORING (Segment Tree) ---
+Operations: 4
+Sum(0,9) = 550
+Sum(10,19) = 1550
+Updated meter 3 to 150
+Sum(0,9) = 660
+
+--- OUTAGE DETECTION (Union-Find) ---
+Failure Edge: #0
+Disconnected nodes: None
+Failure Edge: #10
+Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 
+Failure Edge: #49
+Disconnected nodes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 
+
+    </div>
+
+</div>
+
+
 
 
         </div>

@@ -563,8 +563,8 @@ h4.show, p.show {
     background-color: #1e1e1e;
     width: 900px;
     max-width: 90vw;
-    height: 1000px;
-    margin-left: 150px;
+    height: 450px;
+    margin-left: 0;
     border-radius: 12px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.6);
     border: 1px solid #333;
@@ -579,6 +579,8 @@ h4.show, p.show {
     
     /* Ensure it sits on top of the overlay */
     z-index: 10001;
+    display: flex;       /* Required for the layout */
+    flex-direction: column; /* Required to stack header and body */
 }
 
 /* Animation End State (Visible) */
