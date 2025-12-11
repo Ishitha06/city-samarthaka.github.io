@@ -2,36 +2,226 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ishitha – Contributions</title>
+    <title>Pratiksha – Contributions</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="p.css"> <!-- your updated css file -->
+    <link rel="stylesheet" href="p.css">
 </head>
 
 <body>
 
-    <div class="page-wrapper">
+<div class="page-wrapper">
 
-        <h1 class="page-title">PRATIKSHA CHOUGULE</h1>
-        <p class="subtitle">Detailed Contribution Breakdown</p>
+    <h1 class="page-title">PRATIKSHA CHOUGULE</h1>
+    <p class="subtitle">Detailed Contribution Breakdown</p>
 
-        <h2 class="section-heading">Healthcare</h2>
-        
 
-        <h2 class="section-heading">Education</h2>
-        
+    <!-- -------------------------------------- -->
+    <!--                HEALTHCARE              -->
+    <!-- -------------------------------------- -->
 
-        <h2 class="section-heading">Solar Energy</h2>
+    <h2 class="section-heading">Healthcare</h2>
 
-        <h2 class="section-heading">Commercial Services</h2>
+    <div class="section-box">
 
-        
+        <h3 class="sub-heading">Smart City Healthcare Management System</h3>
 
-        <a href="../index.html" class="back-btn">← Back to Team</a>
+        <p>
+            A smart-city healthcare management system designed for a population
+            of approximately 2.6 million. It uses syllabus-based data structures
+            like Hash Tables, Heaps, BFS, Graphs, and AVL Trees to ensure efficient
+            routing, patient search, emergency handling, and hospital directory management.
+        </p>
+
+        <span class="sdg-tag">SDGs: 3, 9, 11</span>
+
+        <div class="img-container">
+            <img src="placeholder-healthcare.jpg" alt="Healthcare System Placeholder">
+        </div>
+
+        <h4>Objectives</h4>
+        <ul>
+            <li>Fast access to patient medical records</li>
+            <li>Smart emergency handling with priority scheduling</li>
+            <li>Efficient ambulance routing using BFS</li>
+            <li>Scalable directory of hospitals with AVL Trees</li>
+        </ul>
+
+        <h4>System Modules & Data Structures</h4>
+        <table>
+            <tr><th>Module</th><th>Feature</th><th>Data Structure</th><th>Reason</th></tr>
+            <tr><td>Patient Management</td><td>Store/Search</td><td>Hash Table</td><td>O(1) average lookup</td></tr>
+            <tr><td>Emergency Handling</td><td>Critical cases first</td><td>Max Heap</td><td>Highest severity first</td></tr>
+            <tr><td>Ambulance Routing</td><td>Shortest path</td><td>Graph + BFS</td><td>Unweighted city roads</td></tr>
+            <tr><td>Facility Directory</td><td>Departments</td><td>AVL Tree</td><td>Self-balancing</td></tr>
+        </table>
+
+        <h4>Algorithms & Complexity</h4>
+        <table>
+            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
+            <tr><td>Record Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
+            <tr><td>Emergency Queue</td><td>Heap</td><td>O(log n)</td><td>O(n)</td></tr>
+            <tr><td>Ambulance Route</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
+        </table>
 
     </div>
 
-    <script src="p.js"></script>
+
+
+
+    <!-- -------------------------------------- -->
+    <!--                EDUCATION               -->
+    <!-- -------------------------------------- -->
+
+    <h2 class="section-heading">Education</h2>
+
+    <div class="section-box">
+
+        <h3 class="sub-heading">Smart City Education Management System</h3>
+
+        <p>
+            A digital education management system designed for students, schools, and
+            colleges across a population of 2.6 million residents. Built using syllabus-based
+            data structures like Hash Tables, Heaps, BFS, Graphs, and AVL Trees.
+        </p>
+
+        <span class="sdg-tag">SDGs: 4, 9, 11</span>
+
+        <div class="img-container">
+            <img src="placeholder-education.jpg" alt="Education System Placeholder">
+        </div>
+
+        <h4>Objectives</h4>
+        <ul>
+            <li>Fast access to student data</li>
+            <li>Efficient routing between school zones</li>
+            <li>Scholarship ranking using heaps</li>
+            <li>Balanced course indexing with AVL Trees</li>
+        </ul>
+
+        <h4>Data Structures Used</h4>
+        <table>
+            <tr><th>Module</th><th>Purpose</th><th>Data Structure</th></tr>
+            <tr><td>Student Management</td><td>Store/Retrieve Records</td><td>Hash Table</td></tr>
+            <tr><td>Scholarship Ranking</td><td>Top candidate first</td><td>Max Heap</td></tr>
+            <tr><td>Zone Routing</td><td>Navigation</td><td>Graph + BFS</td></tr>
+            <tr><td>Course Indexing</td><td>Sorted curriculum</td><td>AVL Tree</td></tr>
+        </table>
+
+        <h4>Algorithm Complexities</h4>
+        <table>
+            <tr><th>Operation</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
+            <tr><td>Student Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
+            <tr><td>Scholarship Allocation</td><td>Heap</td><td>O(log n)</td><td>O(n)</td></tr>
+            <tr><td>Route Planning</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
+            <tr><td>Course Operations</td><td>AVL</td><td>O(log n)</td><td>O(n)</td></tr>
+        </table>
+
+    </div>
+
+
+
+
+    <!-- -------------------------------------- -->
+    <!--               SOLAR ENERGY             -->
+    <!-- -------------------------------------- -->
+
+    <h2 class="section-heading">Solar Energy</h2>
+
+    <div class="section-box">
+
+        <h3 class="sub-heading">Smart City Solar Energy Management System</h3>
+
+        <p>
+            A solar energy distribution and monitoring system designed for a smart city.
+            It handles solar panel data, backup power priority, maintenance routing, and
+            energy site indexing using purely syllabus-based data structures.
+        </p>
+
+        <span class="sdg-tag">SDGs: 7, 9, 11, 13</span>
+
+        <div class="img-container">
+            <img src="placeholder-solar.jpg" alt="Solar Energy Placeholder">
+        </div>
+
+        <h4>Modules & Data Structures</h4>
+        <table>
+            <tr><th>Module</th><th>Task</th><th>Data Structure</th></tr>
+            <tr><td>Solar Panel Mgmt</td><td>Store panel info</td><td>Hash Table</td></tr>
+            <tr><td>Backup Priority</td><td>Allocate power</td><td>Max Heap</td></tr>
+            <tr><td>Maintenance Routing</td><td>Shortest path</td><td>Graph + BFS</td></tr>
+            <tr><td>Power Site Index</td><td>Sorted output</td><td>AVL Tree</td></tr>
+        </table>
+
+        <h4>Algorithm Complexity</h4>
+        <table>
+            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
+            <tr><td>Panel Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
+            <tr><td>Backup Priority</td><td>Heap Ops</td><td>O(log n)</td><td>O(n)</td></tr>
+            <tr><td>Routing</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
+            <tr><td>AVL Ops</td><td>Rotations</td><td>O(log n)</td><td>O(n)</td></tr>
+        </table>
+
+    </div>
+
+
+
+    <!-- -------------------------------------- -->
+    <!--          COMMERCIAL SERVICES           -->
+    <!-- -------------------------------------- -->
+
+    <h2 class="section-heading">Commercial Services</h2>
+
+    <div class="section-box">
+
+        <h3 class="sub-heading">Commercial Services Management System</h3>
+
+        <p>
+            The Commercial Services Management System is a core module of the Smart City
+            infrastructure for a 2.6 million population. It manages business licensing,
+            tourism, ticketing, navigation, and revenue analytics using only syllabus-based
+            data structures.
+        </p>
+
+        <span class="sdg-tag">SDGs: 8, 9, 11</span>
+
+        <div class="img-container">
+            <img src="placeholder-commercial.jpg" alt="Commercial System Placeholder">
+        </div>
+
+        <h4>Objectives</h4>
+        <ul>
+            <li>Generate sustainable revenue</li>
+            <li>Provide business permits digitally</li>
+            <li>Smart ticket booking system</li>
+            <li>Navigation support for commercial hubs</li>
+            <li>Promote tourism & local culture</li>
+        </ul>
+
+        <h4>Data Structures</h4>
+        <table>
+            <tr><th>Component</th><th>Data Structure</th><th>Justification</th></tr>
+            <tr><td>Business Records</td><td>Hash Table</td><td>Quick search/update</td></tr>
+            <tr><td>Profit Ranking</td><td>AVL Tree</td><td>Sorted analytics</td></tr>
+            <tr><td>Event Scheduling</td><td>Doubly Linked List</td><td>Flexible insertion</td></tr>
+            <tr><td>Ticket Queue</td><td>Queue</td><td>Fair service order</td></tr>
+            <tr><td>Navigation</td><td>Graph + BFS</td><td>Efficient routing</td></tr>
+            <tr><td>Vendor Approval</td><td>Priority Queue</td><td>Most important first</td></tr>
+        </table>
+
+        <h4>Algorithms</h4>
+        <table>
+            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
+            <tr><td>Business Search</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
+            <tr><td>Path Finding</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
+            <tr><td>Priority Processing</td><td>Heap Ops</td><td>O(log n)</td><td>O(n)</td></tr>
+            <tr><td>Revenue Reports</td><td>AVL Ops</td><td>O(log n)</td><td>O(n)</td></tr>
+        </table>
+
+    </div>
+
+    <a href="../index.html" class="back-btn">← Back to Team</a>
+
+</div>
 
 </body>
 </html>
