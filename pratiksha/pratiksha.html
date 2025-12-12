@@ -49,8 +49,7 @@
             <p class="problem"><strong>Problem:</strong> Permit lookups and updates must be instant during peak intake; paper-processes are slow and error-prone.</p>
             <p class="why"><strong>Why Hash:</strong> O(1) average lookup for ID-based retrievals; simple key-based updates and compact mapping for permit IDs.</p>
             <p class="how"><strong>How it solves:</strong> A hash-table registry stores permit meta (owner, type, expiry, status). During intake and renewals the system does direct key lookup. Collision resolution via chaining keeps worst-case rare for urban-sized datasets; periodic rehash keeps load low. For audit trails, append-only logs reference hash keys so lookups remain O(1) even when producing historical reports.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=60" alt="licensing">
-          </article>
+             </article>
 
           <article class="subpoint">
             <h3>Smart Ticketing & Events — Queue (FIFO) <span class="sdg">SDG 11</span></h3>
