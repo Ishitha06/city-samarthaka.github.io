@@ -1,1 +1,801 @@
-
+business_id,name,category,revenue,location,rating,priority
+B0001,Ananya Hegde,Restaurant,440786.38,South,1.95,3
+B0002,Aditi Kulkarni,Restaurant,403255.04,Central,1.92,6
+B0003,Megha Kapoor,Manufacturing,438647.91,West,4.43,4
+B0004,Megha Pai,Manufacturing,205642.17,South,2.54,1
+B0005,Megha Jain,Manufacturing,184742.05,Central,3.24,6
+B0006,Neha Iyer,Restaurant,350548.68,North,4.04,5
+B0007,Rohan Jain,Restaurant,157824.13,West,1.86,7
+B0008,Manoj Pai,Restaurant,385770.94,Central,2.13,4
+B0009,Kiran Shinde,Mall,222800.86,North,4.12,2
+B0010,Karthik Patil,Mall,47185.13,Central,4.92,6
+B0011,Pooja Deshmukh,Manufacturing,304992.77,North,2.05,6
+B0012,Pranav Iyer,Restaurant,450899.39,West,1.01,5
+B0013,Manoj Rao,Digital Service,74885.22,South,3.21,5
+B0014,Arjun Shetty,Manufacturing,370967.55,West,3.7,10
+B0015,Riya Kulkarni,Retail,226088.05,East,3.03,2
+B0016,Arjun Pai,Digital Service,260343.28,Central,4.12,5
+B0017,Kiran Deshmukh,Retail,349185.87,East,4.91,4
+B0018,Shruti Pai,Restaurant,211416.7,West,1.93,9
+B0019,Vishal Hegde,Digital Service,389384.75,East,2.1,1
+B0020,Sneha Kapoor,Digital Service,171939.57,South,2.25,10
+B0021,Arjun Hegde,Manufacturing,444767.04,Central,4.1,8
+B0022,Arvind Iyer,Mall,62142.17,Central,4.38,6
+B0023,Megha Shinde,Mall,149566.86,North,2.26,2
+B0024,Megha Deshmukh,Hotel,145430.85,East,3.05,7
+B0025,Riya Shinde,Retail,73060.51,East,1.84,9
+B0026,Neha Deshmukh,Retail,173091.35,West,3.51,10
+B0027,Megha Bhat,Restaurant,247920.18,East,1.02,3
+B0028,Arvind Desai,Retail,434454.21,West,3.78,7
+B0029,Krish Shetty,Delivery,117335.59,North,2.52,2
+B0030,Rohan Shetty,Delivery,123355.98,Central,3.1,10
+B0031,Aditi Mehta,Manufacturing,315635.79,North,1.47,9
+B0032,Rohan Rao,Restaurant,426907.9,North,2.87,4
+B0033,Arjun Shetty,Hotel,51924.87,West,3.64,4
+B0034,Pranav Hegde,Digital Service,126651.31,North,2.31,2
+B0035,Neha Mehta,Delivery,59999.0,East,2.12,4
+B0036,Rahul Kulkarni,Restaurant,312387.57,West,1.73,9
+B0037,Karthik Patil,Retail,368526.32,North,3.73,10
+B0038,Arvind Bhat,Delivery,333907.85,Central,2.51,8
+B0039,Karthik Sharma,Restaurant,299611.31,East,2.84,5
+B0040,Rahul Shah,Mall,77010.99,Central,4.79,9
+B0041,Sneha Pai,Retail,165041.41,Central,2.99,9
+B0042,Rohan Shah,Restaurant,296955.51,Central,3.15,3
+B0043,Aditi Deshmukh,Manufacturing,187208.72,East,1.78,5
+B0044,Ananya Deshmukh,Retail,118211.9,South,2.93,6
+B0045,Dev Deshmukh,Mall,52664.9,North,3.2,1
+B0046,Shruti Iyer,Hotel,432374.02,Central,3.73,3
+B0047,Sneha Shetty,Delivery,161847.8,Central,3.53,6
+B0048,Krish Rao,Hotel,359976.8,East,1.19,2
+B0049,Rohan Iyer,Manufacturing,192672.92,Central,3.89,4
+B0050,Sneha Mehta,Delivery,88853.11,Central,1.02,6
+B0051,Sneha Deshmukh,Restaurant,83596.09,Central,2.06,10
+B0052,Kiran Patil,Manufacturing,420127.47,North,3.48,5
+B0053,Karthik Pai,Digital Service,277289.87,East,2.55,2
+B0054,Rohan Shah,Retail,132480.5,East,4.04,10
+B0055,Manoj Shinde,Restaurant,495036.81,Central,3.0,2
+B0056,Krish Mehta,Retail,70524.19,West,3.19,9
+B0057,Vishal Pai,Digital Service,456660.91,Central,2.68,2
+B0058,Rohan Kulkarni,Digital Service,46210.87,Central,2.84,4
+B0059,Karthik Pai,Restaurant,139622.96,West,1.27,7
+B0060,Arjun Bhat,Mall,444388.24,West,4.7,9
+B0061,Sneha Patil,Hotel,115028.76,Central,4.37,10
+B0062,Aditi Nair,Retail,282382.07,South,2.69,1
+B0063,Arjun Nair,Restaurant,333975.15,North,2.37,4
+B0064,Rahul Jain,Retail,281841.82,North,4.19,8
+B0065,Karthik Deshmukh,Mall,436796.07,West,2.86,4
+B0066,Aditi Joshi,Retail,194723.96,East,2.29,1
+B0067,Karthik Iyer,Restaurant,215644.48,North,4.21,6
+B0068,Karthik Sharma,Restaurant,287803.91,South,2.41,6
+B0069,Megha Shah,Delivery,70003.27,West,1.01,3
+B0070,Arjun Shetty,Retail,201808.06,North,4.1,6
+B0071,Arvind Gupta,Digital Service,79218.81,East,3.13,5
+B0072,Dev Sharma,Manufacturing,321483.37,Central,1.31,10
+B0073,Rahul Hegde,Delivery,265704.17,Central,4.03,5
+B0074,Rohan Singh,Mall,370487.8,South,3.07,9
+B0075,Arvind Pai,Delivery,74699.75,Central,2.04,8
+B0076,Kiran Pai,Delivery,158365.08,North,2.79,3
+B0077,Pranav Rao,Retail,265847.9,East,4.77,1
+B0078,Kiran Desai,Hotel,309068.14,North,3.58,2
+B0079,Dev Pai,Manufacturing,383946.81,South,3.3,3
+B0080,Kiran Kulkarni,Retail,199681.43,South,4.48,7
+B0081,Arvind Shah,Mall,478391.15,East,1.49,9
+B0082,Shruti Shinde,Restaurant,159694.25,West,2.19,5
+B0083,Shruti Mehta,Delivery,478331.66,East,4.01,9
+B0084,Manoj Hegde,Manufacturing,340558.97,West,3.53,5
+B0085,Sneha Gupta,Restaurant,281780.63,East,4.33,8
+B0086,Dev Patil,Manufacturing,111359.99,North,2.76,1
+B0087,Sneha Shinde,Hotel,497897.58,West,3.53,8
+B0088,Krish Nair,Hotel,145526.2,West,2.08,4
+B0089,Manoj Hegde,Retail,187335.4,North,3.97,3
+B0090,Pooja Singh,Retail,80923.16,South,4.37,8
+B0091,Manoj Deshmukh,Hotel,420405.84,West,4.55,9
+B0092,Pranav Rao,Manufacturing,230422.19,North,2.14,1
+B0093,Aditi Shetty,Mall,10876.78,West,1.37,6
+B0094,Rahul Jain,Manufacturing,461552.63,East,2.19,10
+B0095,Vishal Shinde,Hotel,123477.69,East,4.82,9
+B0096,Ananya Nair,Restaurant,82588.58,Central,1.4,7
+B0097,Shruti Patil,Retail,144064.58,South,3.04,9
+B0098,Meera Shinde,Hotel,400435.18,Central,3.2,3
+B0099,Shruti Gupta,Retail,301916.19,Central,3.29,2
+B0100,Riya Hegde,Manufacturing,447668.86,East,4.87,4
+B0101,Pooja Sharma,Restaurant,470021.87,East,2.95,1
+B0102,Meera Shah,Restaurant,387994.22,South,1.22,5
+B0103,Aditi Gupta,Mall,460052.12,East,1.48,2
+B0104,Vishal Hegde,Restaurant,151782.2,West,2.48,8
+B0105,Neha Rao,Digital Service,11099.98,South,2.1,7
+B0106,Karthik Rao,Restaurant,261637.76,Central,3.23,7
+B0107,Arvind Mehta,Delivery,430097.53,West,2.44,10
+B0108,Sneha Shah,Mall,398807.77,East,4.67,7
+B0109,Aditi Nair,Digital Service,499317.24,South,2.63,7
+B0110,Neha Nair,Retail,401722.51,North,4.44,3
+B0111,Kiran Joshi,Retail,25795.23,East,2.49,6
+B0112,Sneha Singh,Hotel,363887.63,West,4.51,2
+B0113,Meera Iyer,Manufacturing,48755.51,East,1.44,5
+B0114,Sneha Desai,Hotel,58072.74,South,4.89,7
+B0115,Rahul Hegde,Restaurant,426286.74,North,4.4,2
+B0116,Rahul Shinde,Restaurant,152054.12,West,4.21,10
+B0117,Ananya Patil,Retail,129078.47,North,3.38,7
+B0118,Dev Desai,Restaurant,122450.43,East,1.34,10
+B0119,Aditi Pai,Digital Service,410228.98,South,2.45,6
+B0120,Kiran Shetty,Hotel,376546.8,West,4.96,10
+B0121,Aditi Rao,Delivery,129599.22,Central,2.1,1
+B0122,Dev Mehta,Digital Service,209138.02,East,4.87,10
+B0123,Sneha Shah,Mall,396849.88,East,4.29,5
+B0124,Arvind Pai,Hotel,182543.75,East,3.09,6
+B0125,Pranav Shetty,Retail,201746.53,East,1.25,1
+B0126,Pooja Bhat,Retail,492917.08,North,2.13,2
+B0127,Aditi Hegde,Digital Service,284224.29,North,1.17,3
+B0128,Arjun Kapoor,Restaurant,90696.68,Central,3.48,7
+B0129,Meera Shetty,Digital Service,408900.66,Central,2.81,3
+B0130,Shruti Jain,Retail,62152.63,Central,3.89,8
+B0131,Megha Mehta,Manufacturing,107988.96,North,4.03,4
+B0132,Pranav Gupta,Manufacturing,424218.17,Central,1.48,3
+B0133,Arjun Kulkarni,Hotel,395423.15,North,2.48,5
+B0134,Pooja Rao,Restaurant,20842.45,East,1.1,3
+B0135,Pranav Deshmukh,Hotel,465045.15,South,4.12,8
+B0136,Arjun Desai,Delivery,322335.27,East,3.68,6
+B0137,Riya Joshi,Delivery,47442.45,West,4.86,1
+B0138,Karthik Deshmukh,Delivery,441211.65,South,1.9,7
+B0139,Dev Iyer,Manufacturing,232300.71,East,2.21,8
+B0140,Rohan Shah,Retail,171014.92,Central,4.57,6
+B0141,Krish Deshmukh,Mall,479360.79,South,2.17,5
+B0142,Neha Desai,Manufacturing,307604.2,West,4.93,10
+B0143,Pranav Shinde,Delivery,15729.45,North,1.38,7
+B0144,Rohan Shinde,Hotel,184069.33,West,2.83,10
+B0145,Arjun Sharma,Retail,207839.1,East,3.47,6
+B0146,Shruti Rao,Hotel,45939.42,North,2.1,1
+B0147,Kiran Nair,Mall,196489.29,Central,2.67,5
+B0148,Karthik Rao,Delivery,55274.32,North,1.95,5
+B0149,Ananya Mehta,Digital Service,27606.49,West,4.59,5
+B0150,Shruti Kulkarni,Mall,324460.92,Central,4.47,10
+B0151,Arjun Patil,Hotel,441276.12,South,3.88,10
+B0152,Manoj Patil,Digital Service,205495.92,East,3.9,6
+B0153,Manoj Kapoor,Digital Service,198897.13,West,1.03,3
+B0154,Shruti Shah,Delivery,94689.9,West,1.98,1
+B0155,Aditi Pai,Delivery,234531.83,North,3.83,6
+B0156,Arjun Hegde,Manufacturing,207428.23,East,4.87,7
+B0157,Shruti Shinde,Mall,328878.53,North,3.57,4
+B0158,Manoj Jain,Mall,111670.5,West,2.07,5
+B0159,Pooja Shetty,Manufacturing,359785.59,North,4.9,8
+B0160,Dev Hegde,Digital Service,86333.85,East,4.85,10
+B0161,Riya Mehta,Retail,292659.03,Central,3.93,5
+B0162,Sneha Joshi,Delivery,72372.06,Central,1.99,6
+B0163,Rahul Mehta,Delivery,303455.66,East,2.66,5
+B0164,Meera Joshi,Digital Service,390448.49,Central,4.95,5
+B0165,Riya Desai,Manufacturing,126920.59,South,4.68,8
+B0166,Kiran Gupta,Retail,45414.45,East,2.28,7
+B0167,Arjun Shetty,Retail,65039.71,South,3.23,5
+B0168,Arjun Bhat,Mall,348396.4,East,4.38,9
+B0169,Sneha Mehta,Mall,408316.13,West,2.17,7
+B0170,Shruti Shetty,Hotel,459563.41,North,4.02,7
+B0171,Rohan Shinde,Digital Service,360327.94,West,4.84,4
+B0172,Arjun Shetty,Retail,90140.89,North,4.22,1
+B0173,Rohan Nair,Manufacturing,44464.25,West,1.54,6
+B0174,Arjun Gupta,Mall,118289.58,Central,1.1,2
+B0175,Arjun Bhat,Mall,46762.53,East,3.8,6
+B0176,Shruti Mehta,Digital Service,430301.43,South,1.2,4
+B0177,Vishal Deshmukh,Hotel,361475.48,West,2.2,10
+B0178,Rahul Deshmukh,Retail,436126.63,West,2.89,3
+B0179,Meera Mehta,Manufacturing,487422.88,Central,2.06,4
+B0180,Pooja Gupta,Manufacturing,243674.37,Central,4.94,9
+B0181,Ananya Kulkarni,Retail,378793.9,North,1.43,4
+B0182,Arjun Sharma,Retail,306593.16,Central,4.4,4
+B0183,Pooja Shinde,Delivery,278486.04,East,4.71,10
+B0184,Pranav Nair,Hotel,334293.21,West,2.42,6
+B0185,Krish Sharma,Mall,419248.94,North,2.96,3
+B0186,Manoj Bhat,Retail,165648.94,East,1.35,9
+B0187,Manoj Nair,Hotel,345491.17,West,4.07,10
+B0188,Dev Rao,Restaurant,219732.11,South,3.84,2
+B0189,Pooja Singh,Digital Service,140488.54,North,3.81,2
+B0190,Rahul Jain,Hotel,193315.74,West,2.28,8
+B0191,Rahul Rao,Manufacturing,368895.31,North,3.29,3
+B0192,Riya Nair,Hotel,208002.68,North,1.72,10
+B0193,Rahul Kulkarni,Retail,134232.64,South,3.2,7
+B0194,Aditi Sharma,Mall,313255.26,South,1.68,8
+B0195,Karthik Nair,Hotel,362013.09,North,3.56,1
+B0196,Pooja Shetty,Mall,442340.99,West,1.06,8
+B0197,Vishal Hegde,Hotel,37203.77,East,1.33,6
+B0198,Sneha Desai,Hotel,327253.99,Central,3.26,5
+B0199,Megha Shah,Restaurant,332965.77,East,1.75,10
+B0200,Vishal Pai,Digital Service,387614.06,East,2.12,10
+B0201,Aditi Nair,Digital Service,69387.43,North,4.0,1
+B0202,Neha Kulkarni,Hotel,172914.67,West,3.08,5
+B0203,Krish Hegde,Hotel,275380.1,South,4.83,3
+B0204,Arjun Pai,Hotel,432742.55,North,4.64,4
+B0205,Sneha Singh,Manufacturing,390094.25,East,2.27,9
+B0206,Rahul Rao,Delivery,419068.38,East,4.56,2
+B0207,Riya Deshmukh,Manufacturing,322516.18,South,4.22,2
+B0208,Shruti Joshi,Hotel,146085.77,East,4.55,10
+B0209,Megha Shinde,Digital Service,137987.86,North,2.82,6
+B0210,Aditi Sharma,Delivery,168984.2,North,1.64,4
+B0211,Pooja Singh,Delivery,18731.24,South,2.01,6
+B0212,Pranav Kapoor,Manufacturing,159940.46,East,3.35,4
+B0213,Riya Nair,Hotel,386938.55,East,2.66,9
+B0214,Rohan Rao,Retail,175864.59,East,3.12,2
+B0215,Neha Kapoor,Restaurant,469981.9,South,2.24,3
+B0216,Vishal Sharma,Restaurant,262078.35,North,4.86,3
+B0217,Rohan Bhat,Delivery,236689.44,North,3.57,10
+B0218,Sneha Iyer,Manufacturing,232019.42,North,3.13,4
+B0219,Megha Pai,Mall,414681.09,South,3.0,5
+B0220,Karthik Sharma,Hotel,176276.65,East,1.31,7
+B0221,Pooja Pai,Hotel,24766.23,East,4.87,7
+B0222,Manoj Pai,Hotel,25762.59,South,4.44,4
+B0223,Dev Deshmukh,Hotel,254011.63,East,1.7,6
+B0224,Riya Bhat,Restaurant,225825.76,South,2.94,5
+B0225,Pooja Mehta,Retail,25074.47,South,2.01,6
+B0226,Arvind Kapoor,Restaurant,302960.85,East,3.69,2
+B0227,Pooja Singh,Restaurant,173675.9,South,3.0,6
+B0228,Sneha Kapoor,Hotel,163977.43,North,3.06,6
+B0229,Pooja Pai,Mall,364757.87,West,2.45,8
+B0230,Krish Mehta,Hotel,400042.88,East,3.47,1
+B0231,Megha Sharma,Manufacturing,66867.97,North,2.34,7
+B0232,Ananya Kapoor,Retail,138650.85,East,2.64,7
+B0233,Sneha Iyer,Digital Service,168960.87,South,2.04,3
+B0234,Neha Pai,Hotel,166301.53,Central,3.76,6
+B0235,Meera Kulkarni,Manufacturing,96257.93,North,3.45,7
+B0236,Arjun Shah,Retail,161485.04,South,2.25,9
+B0237,Pranav Mehta,Digital Service,359600.6,East,3.04,9
+B0238,Megha Shinde,Digital Service,389298.47,Central,3.98,9
+B0239,Vishal Shinde,Digital Service,39192.75,West,4.91,2
+B0240,Kiran Nair,Restaurant,240412.52,West,2.67,6
+B0241,Karthik Iyer,Retail,265650.88,East,4.26,3
+B0242,Manoj Bhat,Hotel,64574.37,South,4.78,3
+B0243,Krish Gupta,Digital Service,21693.98,South,4.15,9
+B0244,Pranav Bhat,Mall,147453.74,South,1.92,1
+B0245,Arvind Iyer,Retail,12215.07,West,2.64,5
+B0246,Arjun Shah,Retail,311396.33,North,4.15,5
+B0247,Manoj Kapoor,Delivery,334254.37,South,3.93,2
+B0248,Arvind Jain,Hotel,199489.89,South,4.82,4
+B0249,Rohan Pai,Manufacturing,481841.17,North,3.65,7
+B0250,Dev Hegde,Digital Service,129443.44,North,4.63,7
+B0251,Arjun Kapoor,Mall,235163.79,North,4.78,1
+B0252,Manoj Singh,Retail,298123.69,West,1.58,9
+B0253,Ananya Kapoor,Digital Service,29391.92,North,1.08,3
+B0254,Riya Sharma,Retail,162595.38,East,2.85,8
+B0255,Pranav Kapoor,Mall,417804.82,South,4.1,2
+B0256,Ananya Kapoor,Digital Service,102845.31,Central,1.52,9
+B0257,Dev Shetty,Mall,491092.43,Central,1.46,2
+B0258,Riya Hegde,Mall,54882.44,Central,4.03,7
+B0259,Vishal Patil,Digital Service,166968.59,East,2.23,1
+B0260,Vishal Kapoor,Restaurant,325800.82,Central,1.04,10
+B0261,Shruti Patil,Retail,277641.44,West,2.62,6
+B0262,Shruti Sharma,Retail,348326.5,West,4.51,2
+B0263,Arvind Mehta,Hotel,337464.63,West,1.38,1
+B0264,Vishal Nair,Restaurant,455791.64,East,1.59,1
+B0265,Pooja Iyer,Restaurant,39737.19,Central,4.64,9
+B0266,Sneha Patil,Mall,434363.22,Central,4.49,8
+B0267,Pranav Kapoor,Manufacturing,54054.43,Central,2.38,7
+B0268,Ananya Bhat,Hotel,19173.46,South,1.45,3
+B0269,Megha Singh,Retail,212885.6,Central,1.67,7
+B0270,Karthik Kapoor,Delivery,305409.55,South,2.72,6
+B0271,Shruti Shah,Mall,258860.21,West,4.08,4
+B0272,Sneha Bhat,Hotel,203057.01,Central,4.81,2
+B0273,Manoj Gupta,Hotel,332920.39,Central,1.0,6
+B0274,Arvind Rao,Restaurant,170166.96,Central,1.38,5
+B0275,Kiran Kapoor,Digital Service,186216.8,North,1.81,3
+B0276,Ananya Rao,Manufacturing,304957.43,South,4.6,10
+B0277,Neha Pai,Retail,329249.23,North,2.66,3
+B0278,Karthik Pai,Hotel,269019.45,North,2.34,10
+B0279,Pooja Kulkarni,Restaurant,197370.26,Central,3.0,8
+B0280,Arvind Kulkarni,Restaurant,281230.95,East,3.03,4
+B0281,Shruti Deshmukh,Mall,315624.7,South,1.46,10
+B0282,Aditi Sharma,Restaurant,50712.8,Central,2.53,1
+B0283,Krish Joshi,Hotel,39724.94,Central,1.24,9
+B0284,Neha Singh,Manufacturing,135982.67,South,3.47,10
+B0285,Krish Rao,Digital Service,466559.47,South,2.56,3
+B0286,Manoj Nair,Digital Service,57777.58,Central,2.87,2
+B0287,Arvind Sharma,Hotel,175783.79,East,3.08,4
+B0288,Ananya Jain,Mall,15331.73,East,1.54,8
+B0289,Pranav Jain,Restaurant,401382.49,North,2.3,7
+B0290,Kiran Kulkarni,Hotel,376563.81,South,4.38,9
+B0291,Rahul Mehta,Manufacturing,156332.64,East,2.19,6
+B0292,Shruti Desai,Delivery,221603.56,North,3.86,6
+B0293,Megha Jain,Digital Service,304652.01,South,1.22,5
+B0294,Pranav Sharma,Hotel,72667.3,West,4.14,3
+B0295,Dev Kapoor,Delivery,239088.83,Central,1.52,10
+B0296,Karthik Desai,Digital Service,174477.55,Central,1.99,3
+B0297,Krish Singh,Delivery,131698.79,Central,3.94,2
+B0298,Riya Sharma,Hotel,275417.18,South,1.71,2
+B0299,Dev Shetty,Restaurant,272337.2,North,3.89,1
+B0300,Krish Bhat,Retail,238184.55,West,3.39,10
+B0301,Karthik Bhat,Manufacturing,197450.06,Central,1.69,9
+B0302,Krish Kulkarni,Mall,27473.19,South,1.38,10
+B0303,Dev Patil,Retail,486589.26,Central,4.64,8
+B0304,Rohan Rao,Delivery,280061.59,South,1.92,2
+B0305,Ananya Mehta,Mall,231134.38,South,4.94,1
+B0306,Pranav Shinde,Restaurant,332702.76,Central,4.48,8
+B0307,Rahul Gupta,Delivery,19419.78,Central,2.52,8
+B0308,Arjun Gupta,Delivery,129697.82,Central,1.38,9
+B0309,Sneha Patil,Manufacturing,144655.84,East,2.64,4
+B0310,Aditi Singh,Manufacturing,462469.1,South,3.29,3
+B0311,Vishal Kapoor,Digital Service,86365.22,West,3.0,1
+B0312,Pooja Patil,Hotel,339178.09,West,4.5,6
+B0313,Arjun Pai,Delivery,59389.57,North,3.76,7
+B0314,Rahul Deshmukh,Retail,216622.97,South,4.91,6
+B0315,Vishal Sharma,Digital Service,404400.09,North,4.79,9
+B0316,Riya Gupta,Hotel,148140.39,West,1.34,3
+B0317,Rohan Shinde,Hotel,405581.27,West,1.76,2
+B0318,Krish Joshi,Delivery,180384.26,Central,4.82,3
+B0319,Riya Hegde,Manufacturing,282738.0,South,2.84,4
+B0320,Manoj Desai,Mall,75095.71,North,2.95,6
+B0321,Riya Desai,Mall,68974.6,East,4.71,6
+B0322,Arvind Gupta,Restaurant,165195.43,West,2.86,1
+B0323,Arvind Gupta,Mall,365719.23,Central,1.55,1
+B0324,Manoj Shah,Manufacturing,168550.05,East,3.57,5
+B0325,Rohan Kulkarni,Mall,150081.67,South,2.24,1
+B0326,Krish Desai,Mall,392969.77,West,3.27,3
+B0327,Manoj Deshmukh,Restaurant,63937.11,North,4.89,1
+B0328,Kiran Gupta,Restaurant,211798.31,West,2.91,2
+B0329,Ananya Deshmukh,Digital Service,290824.22,South,3.19,2
+B0330,Meera Deshmukh,Retail,495765.75,South,4.71,6
+B0331,Krish Gupta,Hotel,198575.69,East,2.53,1
+B0332,Krish Rao,Retail,422362.86,South,2.18,4
+B0333,Arjun Jain,Delivery,219330.32,East,3.03,2
+B0334,Kiran Singh,Delivery,424254.49,South,1.95,6
+B0335,Meera Desai,Manufacturing,430577.61,East,1.81,9
+B0336,Kiran Deshmukh,Retail,450265.87,West,4.78,4
+B0337,Ananya Shinde,Hotel,374814.66,East,1.8,4
+B0338,Shruti Joshi,Hotel,191726.81,West,2.56,8
+B0339,Neha Iyer,Manufacturing,162079.91,East,4.03,4
+B0340,Riya Gupta,Manufacturing,324471.67,North,3.83,3
+B0341,Sneha Shah,Hotel,246535.77,East,4.88,3
+B0342,Arjun Shinde,Delivery,360272.43,East,3.01,8
+B0343,Rohan Desai,Delivery,158540.56,North,4.31,4
+B0344,Meera Patil,Restaurant,401778.88,South,1.01,10
+B0345,Ananya Mehta,Mall,81320.71,South,2.94,3
+B0346,Arvind Kapoor,Restaurant,279674.28,Central,1.28,2
+B0347,Rohan Kulkarni,Digital Service,32734.56,West,1.16,3
+B0348,Riya Bhat,Digital Service,318583.39,Central,1.56,3
+B0349,Aditi Deshmukh,Retail,202791.4,West,3.89,2
+B0350,Riya Jain,Manufacturing,260821.98,North,1.65,9
+B0351,Vishal Desai,Manufacturing,356638.71,West,2.86,5
+B0352,Vishal Deshmukh,Mall,246179.14,North,4.09,10
+B0353,Megha Joshi,Restaurant,195278.27,West,3.37,6
+B0354,Manoj Joshi,Retail,416646.77,South,4.68,10
+B0355,Meera Mehta,Digital Service,443057.26,North,1.64,2
+B0356,Arvind Shetty,Restaurant,273792.59,East,4.7,10
+B0357,Arjun Shah,Delivery,170390.46,South,2.19,2
+B0358,Arjun Bhat,Delivery,465160.83,East,1.41,2
+B0359,Megha Jain,Mall,195650.94,West,4.83,4
+B0360,Ananya Kapoor,Delivery,446960.11,North,1.56,9
+B0361,Pranav Desai,Hotel,148810.68,North,1.24,1
+B0362,Megha Shah,Mall,284199.2,South,1.83,2
+B0363,Ananya Kapoor,Manufacturing,105613.99,North,1.98,7
+B0364,Shruti Kulkarni,Manufacturing,175483.7,South,3.22,3
+B0365,Meera Shinde,Hotel,412917.7,Central,3.78,2
+B0366,Neha Bhat,Hotel,442168.16,North,4.08,10
+B0367,Kiran Rao,Hotel,151163.81,East,2.76,9
+B0368,Arvind Joshi,Hotel,228721.53,West,3.77,5
+B0369,Neha Shah,Hotel,404039.22,Central,1.56,6
+B0370,Rahul Iyer,Delivery,296018.91,West,2.79,2
+B0371,Pooja Nair,Delivery,300701.04,Central,2.88,6
+B0372,Neha Jain,Digital Service,399379.18,West,1.22,9
+B0373,Karthik Shah,Manufacturing,13815.94,North,1.35,1
+B0374,Rahul Kulkarni,Hotel,112082.22,West,1.98,7
+B0375,Pooja Singh,Digital Service,148356.64,South,3.05,3
+B0376,Rohan Shetty,Retail,342696.62,South,3.81,10
+B0377,Krish Deshmukh,Manufacturing,318142.02,South,2.16,8
+B0378,Arjun Shetty,Mall,370922.55,South,3.09,6
+B0379,Neha Iyer,Mall,289910.3,West,2.14,10
+B0380,Neha Singh,Retail,450057.36,West,3.54,10
+B0381,Shruti Gupta,Retail,457852.79,Central,1.09,6
+B0382,Rohan Shah,Manufacturing,431736.11,West,2.47,1
+B0383,Rohan Jain,Digital Service,476430.93,North,1.14,9
+B0384,Megha Nair,Mall,110316.49,North,1.22,7
+B0385,Megha Nair,Digital Service,425848.51,South,2.71,5
+B0386,Rohan Shetty,Mall,73920.85,Central,2.31,1
+B0387,Dev Sharma,Manufacturing,249202.03,South,3.51,5
+B0388,Pooja Kapoor,Manufacturing,161307.28,South,4.33,2
+B0389,Rahul Bhat,Delivery,236084.96,South,4.48,7
+B0390,Pranav Jain,Manufacturing,127295.16,Central,3.41,3
+B0391,Sneha Sharma,Mall,428824.55,North,4.05,5
+B0392,Meera Sharma,Manufacturing,205213.64,South,2.69,4
+B0393,Pooja Shah,Manufacturing,63928.4,East,4.4,10
+B0394,Dev Kapoor,Digital Service,255875.01,Central,1.9,4
+B0395,Megha Bhat,Retail,376218.51,East,4.08,6
+B0396,Karthik Singh,Digital Service,200501.45,North,3.21,3
+B0397,Megha Singh,Digital Service,89514.96,South,1.94,1
+B0398,Riya Singh,Mall,212031.63,East,4.92,2
+B0399,Vishal Hegde,Delivery,427723.5,West,2.06,5
+B0400,Dev Shinde,Mall,417621.47,Central,1.05,6
+B0401,Pranav Nair,Restaurant,148523.39,East,3.43,3
+B0402,Karthik Rao,Mall,495566.89,South,4.56,5
+B0403,Ananya Singh,Digital Service,495577.04,West,1.59,7
+B0404,Pranav Nair,Delivery,409299.01,South,4.25,7
+B0405,Meera Rao,Delivery,128992.09,West,3.12,10
+B0406,Arvind Hegde,Hotel,176832.19,North,2.05,10
+B0407,Krish Shinde,Retail,112250.02,East,2.83,4
+B0408,Rahul Bhat,Delivery,62083.44,West,2.19,4
+B0409,Riya Desai,Digital Service,357249.92,East,1.01,3
+B0410,Riya Kapoor,Mall,23314.76,West,2.23,4
+B0411,Rohan Patil,Hotel,134803.47,South,2.46,8
+B0412,Megha Shetty,Delivery,295502.73,East,3.51,5
+B0413,Riya Rao,Delivery,273667.02,East,2.95,5
+B0414,Shruti Iyer,Retail,10978.12,Central,2.42,8
+B0415,Aditi Shah,Retail,98792.47,East,4.88,4
+B0416,Manoj Desai,Manufacturing,383053.74,South,3.83,8
+B0417,Ananya Shinde,Retail,332070.6,North,2.98,8
+B0418,Arvind Singh,Mall,177419.68,West,1.07,4
+B0419,Aditi Shah,Delivery,429992.13,Central,1.73,3
+B0420,Sneha Joshi,Delivery,291095.38,West,2.08,1
+B0421,Sneha Shah,Manufacturing,233556.04,South,2.38,5
+B0422,Meera Pai,Delivery,86482.45,East,3.33,9
+B0423,Manoj Deshmukh,Hotel,237029.66,East,2.27,5
+B0424,Pranav Singh,Delivery,304427.07,Central,3.46,5
+B0425,Manoj Iyer,Mall,292544.78,Central,2.04,9
+B0426,Rohan Nair,Delivery,482369.83,East,2.99,7
+B0427,Arjun Kulkarni,Restaurant,283801.95,Central,1.23,9
+B0428,Manoj Gupta,Mall,354694.5,Central,3.69,2
+B0429,Rohan Hegde,Retail,287576.22,Central,4.94,3
+B0430,Arjun Shinde,Delivery,376929.29,South,1.22,5
+B0431,Rahul Deshmukh,Manufacturing,397257.29,North,2.91,10
+B0432,Riya Nair,Restaurant,313873.1,Central,1.38,1
+B0433,Krish Bhat,Retail,416456.61,North,2.03,8
+B0434,Karthik Shah,Hotel,214218.96,South,1.72,2
+B0435,Megha Sharma,Digital Service,182620.52,North,4.57,3
+B0436,Arjun Rao,Retail,317779.42,North,3.29,3
+B0437,Riya Shetty,Digital Service,124981.63,East,1.99,2
+B0438,Dev Deshmukh,Manufacturing,81663.97,East,3.66,8
+B0439,Ananya Gupta,Retail,447217.7,South,1.06,6
+B0440,Meera Kulkarni,Mall,279804.93,East,4.83,4
+B0441,Megha Shetty,Retail,107686.99,Central,4.6,10
+B0442,Dev Desai,Retail,330452.09,South,1.96,7
+B0443,Sneha Gupta,Retail,251686.0,North,2.85,5
+B0444,Neha Shah,Mall,402910.41,North,3.68,3
+B0445,Megha Singh,Restaurant,69084.16,East,4.92,7
+B0446,Arjun Nair,Retail,130660.44,North,4.79,9
+B0447,Riya Patil,Retail,349420.02,North,1.93,5
+B0448,Rohan Patil,Restaurant,78095.55,Central,3.72,2
+B0449,Meera Shetty,Digital Service,138104.21,Central,1.55,1
+B0450,Karthik Shinde,Mall,354625.96,East,1.61,6
+B0451,Neha Singh,Hotel,409788.32,East,3.94,6
+B0452,Manoj Jain,Digital Service,382318.84,East,3.78,9
+B0453,Pooja Gupta,Digital Service,152642.66,Central,1.21,1
+B0454,Arvind Joshi,Restaurant,217623.62,North,2.42,6
+B0455,Krish Deshmukh,Mall,282031.58,East,2.31,7
+B0456,Meera Deshmukh,Mall,85911.75,North,4.5,7
+B0457,Pooja Deshmukh,Mall,496892.04,East,3.04,4
+B0458,Riya Desai,Mall,368172.7,West,1.42,1
+B0459,Arjun Mehta,Mall,294094.25,Central,1.19,2
+B0460,Arvind Patil,Restaurant,93492.11,Central,3.98,1
+B0461,Manoj Desai,Digital Service,48720.34,West,4.18,9
+B0462,Vishal Mehta,Restaurant,70741.12,North,3.68,7
+B0463,Shruti Hegde,Delivery,340147.74,South,4.21,9
+B0464,Sneha Nair,Restaurant,26288.42,South,2.58,2
+B0465,Meera Patil,Mall,382065.14,North,3.98,7
+B0466,Krish Desai,Retail,136195.57,South,3.03,4
+B0467,Rohan Joshi,Delivery,399143.54,East,1.37,2
+B0468,Riya Shinde,Digital Service,485683.18,South,2.32,3
+B0469,Meera Shetty,Digital Service,183090.26,North,3.96,5
+B0470,Manoj Shah,Restaurant,451022.3,West,3.42,1
+B0471,Pooja Jain,Retail,467261.21,Central,4.57,2
+B0472,Meera Shinde,Mall,431100.73,North,1.39,9
+B0473,Rohan Patil,Manufacturing,492695.68,North,4.05,8
+B0474,Arvind Gupta,Retail,436899.94,Central,1.77,10
+B0475,Neha Iyer,Mall,362610.69,South,4.38,4
+B0476,Kiran Singh,Restaurant,334660.98,Central,3.05,1
+B0477,Riya Kulkarni,Manufacturing,206055.03,North,3.14,7
+B0478,Arvind Jain,Restaurant,159407.1,South,2.33,2
+B0479,Manoj Shinde,Restaurant,451704.16,West,3.84,9
+B0480,Shruti Hegde,Delivery,143273.51,South,2.52,7
+B0481,Neha Desai,Manufacturing,293601.18,Central,3.26,10
+B0482,Shruti Kulkarni,Delivery,102279.32,West,4.64,5
+B0483,Arjun Kapoor,Mall,166250.11,East,3.05,4
+B0484,Manoj Desai,Manufacturing,103242.12,South,2.53,9
+B0485,Dev Patil,Mall,80053.55,Central,4.8,1
+B0486,Krish Nair,Digital Service,478786.09,South,1.41,10
+B0487,Rohan Joshi,Restaurant,328060.31,North,1.44,10
+B0488,Meera Gupta,Mall,315164.97,West,4.2,5
+B0489,Kiran Nair,Delivery,234653.46,Central,3.8,4
+B0490,Rahul Gupta,Manufacturing,249870.09,Central,2.83,2
+B0491,Ananya Kulkarni,Retail,68016.83,South,2.33,2
+B0492,Pooja Kulkarni,Retail,49105.06,Central,4.92,1
+B0493,Pooja Bhat,Restaurant,381767.08,East,3.27,6
+B0494,Kiran Bhat,Mall,426828.83,West,3.49,7
+B0495,Rohan Desai,Mall,335179.03,East,1.19,2
+B0496,Aditi Jain,Digital Service,234583.01,South,3.63,6
+B0497,Riya Iyer,Retail,101515.78,West,3.59,6
+B0498,Ananya Desai,Retail,293249.49,North,2.13,1
+B0499,Arjun Shinde,Delivery,461233.51,East,3.37,9
+B0500,Aditi Shah,Mall,410366.5,North,4.35,2
+B0501,Aditi Rao,Manufacturing,201834.16,West,4.83,5
+B0502,Krish Deshmukh,Hotel,467376.63,North,4.74,7
+B0503,Vishal Sharma,Restaurant,222069.44,East,1.07,10
+B0504,Shruti Desai,Restaurant,387493.88,North,2.54,5
+B0505,Aditi Rao,Manufacturing,234990.77,West,1.5,3
+B0506,Megha Hegde,Restaurant,170745.88,West,1.69,5
+B0507,Manoj Sharma,Delivery,269588.9,East,3.78,4
+B0508,Aditi Sharma,Mall,377929.83,Central,2.25,2
+B0509,Rahul Shinde,Digital Service,273797.72,South,3.1,6
+B0510,Ananya Kulkarni,Restaurant,137515.96,East,2.7,4
+B0511,Pranav Sharma,Restaurant,429773.17,West,4.77,8
+B0512,Rahul Gupta,Manufacturing,306087.73,Central,1.94,2
+B0513,Vishal Nair,Digital Service,404509.79,South,1.81,3
+B0514,Vishal Deshmukh,Hotel,338933.48,North,4.98,9
+B0515,Neha Joshi,Manufacturing,480328.32,East,1.05,1
+B0516,Riya Pai,Manufacturing,54374.75,North,2.76,3
+B0517,Arjun Kulkarni,Retail,294027.93,Central,3.17,3
+B0518,Vishal Mehta,Retail,208713.77,East,2.7,6
+B0519,Meera Shah,Retail,416188.14,West,2.2,7
+B0520,Meera Patil,Digital Service,37232.35,West,3.12,10
+B0521,Sneha Sharma,Digital Service,167640.05,East,3.83,1
+B0522,Shruti Shetty,Restaurant,392369.13,South,4.2,10
+B0523,Arvind Hegde,Restaurant,339726.42,South,4.87,1
+B0524,Megha Kapoor,Digital Service,27510.96,Central,1.73,2
+B0525,Pranav Rao,Hotel,439706.36,East,2.43,10
+B0526,Manoj Patil,Retail,480428.55,North,4.85,7
+B0527,Rahul Pai,Digital Service,322183.47,Central,1.04,5
+B0528,Dev Bhat,Mall,361835.47,North,3.15,5
+B0529,Sneha Joshi,Restaurant,70698.43,Central,3.29,4
+B0530,Arvind Desai,Mall,126355.03,Central,4.81,6
+B0531,Megha Shah,Mall,426858.95,Central,2.88,2
+B0532,Pranav Singh,Digital Service,449580.22,South,2.18,6
+B0533,Neha Bhat,Digital Service,493356.57,West,4.89,4
+B0534,Neha Nair,Hotel,243959.0,West,2.96,9
+B0535,Krish Patil,Manufacturing,365342.91,East,4.73,2
+B0536,Dev Hegde,Hotel,162540.84,Central,3.41,8
+B0537,Manoj Shah,Digital Service,406281.66,Central,4.9,4
+B0538,Vishal Deshmukh,Restaurant,182702.06,West,4.23,8
+B0539,Arvind Deshmukh,Delivery,201520.5,Central,2.78,1
+B0540,Ananya Bhat,Mall,120209.57,Central,3.77,7
+B0541,Kiran Singh,Restaurant,283783.69,Central,2.47,10
+B0542,Karthik Bhat,Retail,118853.22,West,3.17,6
+B0543,Manoj Bhat,Delivery,453259.8,East,1.65,1
+B0544,Arvind Shetty,Hotel,287940.5,North,1.4,3
+B0545,Manoj Pai,Mall,157111.43,Central,2.71,3
+B0546,Ananya Iyer,Digital Service,110785.83,West,1.36,3
+B0547,Krish Jain,Digital Service,317172.93,East,1.91,5
+B0548,Neha Singh,Hotel,34100.08,West,4.28,8
+B0549,Rahul Shah,Retail,11120.32,North,3.82,10
+B0550,Sneha Iyer,Retail,149135.13,South,2.99,9
+B0551,Arjun Joshi,Restaurant,44042.02,South,1.23,6
+B0552,Dev Patil,Manufacturing,166993.82,West,4.64,5
+B0553,Aditi Mehta,Restaurant,49431.02,West,2.36,5
+B0554,Karthik Gupta,Manufacturing,182031.48,North,2.96,4
+B0555,Kiran Shah,Retail,171058.53,South,3.23,9
+B0556,Vishal Pai,Hotel,367964.77,North,2.64,5
+B0557,Krish Singh,Hotel,414371.62,South,3.52,2
+B0558,Kiran Shah,Mall,172983.32,South,2.49,2
+B0559,Meera Nair,Restaurant,234623.69,Central,4.15,8
+B0560,Ananya Sharma,Restaurant,213312.14,East,4.6,4
+B0561,Sneha Desai,Delivery,161257.17,West,3.52,10
+B0562,Ananya Jain,Manufacturing,74130.79,North,2.97,1
+B0563,Vishal Singh,Hotel,264916.93,North,3.62,5
+B0564,Megha Sharma,Retail,180751.54,North,4.94,8
+B0565,Arjun Patil,Retail,57423.99,South,4.45,10
+B0566,Neha Kulkarni,Restaurant,190070.49,West,3.96,10
+B0567,Pooja Jain,Manufacturing,286820.31,West,3.54,10
+B0568,Dev Mehta,Hotel,85312.25,Central,4.69,1
+B0569,Meera Bhat,Hotel,31076.8,West,1.21,7
+B0570,Arjun Kulkarni,Digital Service,153698.26,North,3.36,3
+B0571,Kiran Bhat,Delivery,255222.88,Central,1.07,8
+B0572,Arvind Shah,Mall,263080.57,West,4.1,1
+B0573,Karthik Iyer,Restaurant,76078.61,East,4.2,1
+B0574,Rahul Bhat,Manufacturing,344046.12,South,2.22,7
+B0575,Riya Rao,Delivery,162381.27,Central,3.57,8
+B0576,Riya Jain,Digital Service,275611.78,South,1.67,3
+B0577,Dev Singh,Restaurant,59402.4,East,4.25,1
+B0578,Sneha Kulkarni,Hotel,409124.3,Central,3.27,3
+B0579,Shruti Singh,Delivery,441697.14,West,2.99,2
+B0580,Meera Rao,Digital Service,53389.43,South,3.86,1
+B0581,Neha Mehta,Mall,173555.93,Central,3.74,9
+B0582,Krish Patil,Delivery,385272.16,West,3.34,7
+B0583,Riya Patil,Manufacturing,77504.77,West,1.33,8
+B0584,Rohan Deshmukh,Retail,318868.84,East,1.03,6
+B0585,Aditi Pai,Mall,289860.99,South,2.52,4
+B0586,Megha Mehta,Hotel,65054.5,North,4.8,4
+B0587,Riya Desai,Manufacturing,81328.97,East,3.24,1
+B0588,Neha Hegde,Delivery,308542.54,East,2.91,1
+B0589,Shruti Bhat,Retail,466971.52,South,1.69,6
+B0590,Vishal Kulkarni,Digital Service,38236.3,North,4.03,2
+B0591,Arvind Shinde,Restaurant,70007.81,Central,3.72,5
+B0592,Pranav Shinde,Restaurant,57988.48,East,1.86,7
+B0593,Shruti Desai,Retail,96353.93,Central,3.72,8
+B0594,Karthik Deshmukh,Retail,310874.12,Central,3.53,1
+B0595,Riya Patil,Manufacturing,242460.77,South,2.47,10
+B0596,Ananya Shetty,Delivery,194157.2,East,1.43,4
+B0597,Arvind Gupta,Mall,149305.72,North,3.3,7
+B0598,Meera Kulkarni,Delivery,453158.13,South,2.17,3
+B0599,Pranav Joshi,Digital Service,426599.6,East,1.59,6
+B0600,Megha Desai,Digital Service,322407.69,South,3.85,3
+B0601,Aditi Patil,Hotel,57739.58,East,3.25,2
+B0602,Vishal Patil,Restaurant,202140.64,North,4.53,10
+B0603,Riya Hegde,Restaurant,301412.38,South,2.69,5
+B0604,Arjun Sharma,Mall,43174.94,East,4.7,4
+B0605,Pooja Shinde,Restaurant,15707.09,North,2.73,3
+B0606,Arjun Gupta,Delivery,224625.34,East,4.37,6
+B0607,Karthik Shah,Hotel,129196.17,South,2.47,4
+B0608,Rahul Bhat,Hotel,11056.73,West,1.77,5
+B0609,Vishal Jain,Retail,157705.77,North,1.26,8
+B0610,Krish Shinde,Delivery,311646.68,Central,2.85,6
+B0611,Rohan Patil,Digital Service,381660.14,East,3.44,5
+B0612,Riya Sharma,Manufacturing,62767.69,West,4.05,1
+B0613,Rohan Joshi,Delivery,485262.8,East,3.42,9
+B0614,Sneha Kapoor,Retail,218854.96,Central,2.27,1
+B0615,Megha Pai,Mall,462410.46,East,4.74,10
+B0616,Karthik Shah,Manufacturing,427380.23,North,3.82,9
+B0617,Rahul Shetty,Retail,278138.66,Central,1.97,1
+B0618,Megha Sharma,Hotel,83471.32,South,2.63,3
+B0619,Dev Bhat,Restaurant,71892.07,South,3.66,2
+B0620,Shruti Mehta,Hotel,296362.94,North,4.4,2
+B0621,Meera Pai,Delivery,329356.61,South,2.15,6
+B0622,Manoj Mehta,Digital Service,470529.56,North,2.4,9
+B0623,Ananya Bhat,Restaurant,11614.92,Central,4.16,4
+B0624,Krish Joshi,Hotel,346407.9,South,4.36,1
+B0625,Rahul Shinde,Restaurant,363709.36,West,2.41,9
+B0626,Dev Desai,Delivery,117343.33,South,1.57,1
+B0627,Shruti Nair,Restaurant,269754.32,East,3.14,2
+B0628,Manoj Rao,Restaurant,441663.48,West,1.58,9
+B0629,Riya Deshmukh,Retail,277437.24,North,1.88,8
+B0630,Ananya Deshmukh,Restaurant,496882.47,North,1.95,9
+B0631,Megha Desai,Retail,56290.75,North,3.7,10
+B0632,Karthik Deshmukh,Mall,120656.83,East,3.72,1
+B0633,Megha Kapoor,Delivery,227422.59,North,1.27,6
+B0634,Manoj Jain,Retail,194417.04,Central,3.75,1
+B0635,Pooja Kapoor,Retail,164258.89,Central,3.57,10
+B0636,Vishal Hegde,Digital Service,152528.32,North,4.96,10
+B0637,Meera Desai,Manufacturing,42871.4,North,1.64,10
+B0638,Karthik Deshmukh,Digital Service,414353.59,West,2.29,9
+B0639,Manoj Shetty,Hotel,356321.3,East,3.18,2
+B0640,Sneha Desai,Hotel,310596.38,South,4.3,7
+B0641,Shruti Joshi,Digital Service,233264.14,West,1.32,9
+B0642,Megha Shinde,Restaurant,362770.02,West,3.99,9
+B0643,Pooja Bhat,Retail,317654.97,East,1.77,2
+B0644,Meera Nair,Retail,188560.21,North,3.4,6
+B0645,Rohan Pai,Manufacturing,330156.58,Central,4.93,9
+B0646,Sneha Kulkarni,Retail,432348.83,South,3.35,2
+B0647,Arjun Pai,Delivery,439430.9,South,4.39,10
+B0648,Arjun Bhat,Delivery,391716.72,Central,1.72,8
+B0649,Meera Pai,Delivery,385925.66,North,3.88,10
+B0650,Neha Pai,Mall,294563.04,North,2.37,6
+B0651,Dev Rao,Mall,497297.36,North,4.19,4
+B0652,Pooja Sharma,Manufacturing,18774.91,North,2.13,7
+B0653,Sneha Jain,Digital Service,178115.76,North,4.97,10
+B0654,Ananya Pai,Restaurant,179046.08,East,4.79,6
+B0655,Pooja Shetty,Digital Service,82263.38,West,3.33,6
+B0656,Karthik Singh,Digital Service,24744.19,East,4.86,4
+B0657,Riya Rao,Hotel,330472.18,North,4.33,1
+B0658,Pranav Patil,Hotel,38115.5,Central,1.74,5
+B0659,Arvind Nair,Manufacturing,400425.1,South,3.61,7
+B0660,Rahul Deshmukh,Manufacturing,362572.44,West,3.01,4
+B0661,Sneha Jain,Retail,144778.77,East,4.34,6
+B0662,Vishal Gupta,Restaurant,232910.54,Central,1.84,2
+B0663,Krish Kapoor,Mall,348738.84,West,3.31,5
+B0664,Rahul Patil,Hotel,297311.42,South,1.14,10
+B0665,Aditi Shinde,Hotel,27418.5,Central,1.85,5
+B0666,Pooja Singh,Mall,113183.57,South,1.13,3
+B0667,Pranav Rao,Digital Service,89402.54,West,2.08,2
+B0668,Kiran Pai,Restaurant,126519.26,Central,4.5,3
+B0669,Aditi Deshmukh,Retail,50658.52,South,4.17,9
+B0670,Krish Shetty,Digital Service,152513.29,West,4.62,7
+B0671,Meera Mehta,Manufacturing,378113.97,North,3.64,10
+B0672,Shruti Patil,Restaurant,417452.22,East,4.89,1
+B0673,Ananya Desai,Manufacturing,341981.95,East,3.77,4
+B0674,Arjun Hegde,Delivery,311042.63,West,4.43,2
+B0675,Rohan Sharma,Digital Service,363931.25,North,2.38,2
+B0676,Rohan Deshmukh,Retail,474653.2,West,1.46,1
+B0677,Pooja Sharma,Manufacturing,58864.64,South,1.67,6
+B0678,Sneha Sharma,Mall,407893.66,South,3.78,6
+B0679,Rahul Deshmukh,Hotel,404139.56,West,3.77,10
+B0680,Arvind Joshi,Retail,202993.82,South,2.55,5
+B0681,Arvind Kulkarni,Manufacturing,280378.0,East,4.52,2
+B0682,Krish Sharma,Digital Service,470597.44,South,3.55,7
+B0683,Pranav Iyer,Manufacturing,78424.93,Central,3.62,9
+B0684,Pooja Kapoor,Mall,355613.63,South,3.31,7
+B0685,Ananya Nair,Manufacturing,279115.32,West,3.33,3
+B0686,Shruti Kulkarni,Delivery,446845.48,Central,2.16,5
+B0687,Pranav Patil,Manufacturing,80286.22,South,4.69,1
+B0688,Rohan Jain,Hotel,158061.62,East,3.0,5
+B0689,Dev Hegde,Manufacturing,423039.61,Central,1.77,3
+B0690,Krish Gupta,Delivery,32148.93,West,4.44,1
+B0691,Arvind Nair,Restaurant,59588.34,East,2.39,10
+B0692,Neha Kapoor,Retail,447014.25,South,2.51,7
+B0693,Krish Gupta,Manufacturing,45515.87,South,4.95,4
+B0694,Arjun Sharma,Retail,332733.07,Central,1.87,5
+B0695,Riya Mehta,Retail,81703.17,Central,3.89,6
+B0696,Neha Deshmukh,Delivery,331057.2,East,1.95,2
+B0697,Arjun Bhat,Hotel,330412.06,South,1.64,4
+B0698,Ananya Rao,Manufacturing,212576.6,North,3.18,10
+B0699,Arvind Sharma,Retail,27372.26,East,1.61,10
+B0700,Pooja Shah,Digital Service,470047.14,West,1.42,1
+B0701,Megha Kulkarni,Restaurant,439526.76,South,1.09,9
+B0702,Aditi Nair,Mall,461132.26,East,4.12,5
+B0703,Pranav Jain,Retail,432283.42,West,1.41,4
+B0704,Aditi Desai,Mall,226770.86,Central,1.12,1
+B0705,Ananya Desai,Delivery,116356.67,Central,3.37,4
+B0706,Meera Shinde,Digital Service,34945.2,East,2.3,5
+B0707,Rahul Iyer,Mall,179968.88,Central,1.08,2
+B0708,Ananya Kapoor,Manufacturing,19886.38,North,1.13,4
+B0709,Shruti Kulkarni,Hotel,33031.44,East,4.5,1
+B0710,Megha Shetty,Manufacturing,408535.43,North,4.9,9
+B0711,Rohan Hegde,Manufacturing,458870.71,East,2.52,5
+B0712,Manoj Desai,Retail,470729.95,North,4.57,10
+B0713,Ananya Rao,Retail,80618.17,West,2.73,8
+B0714,Vishal Mehta,Hotel,394099.74,East,4.45,3
+B0715,Kiran Iyer,Restaurant,150588.15,East,2.57,7
+B0716,Ananya Shah,Restaurant,461512.26,Central,1.37,2
+B0717,Vishal Patil,Hotel,470934.21,South,3.48,4
+B0718,Rohan Patil,Delivery,158029.51,Central,2.71,8
+B0719,Rohan Joshi,Mall,26416.51,South,4.63,1
+B0720,Rahul Jain,Manufacturing,29744.23,North,1.35,6
+B0721,Karthik Rao,Delivery,312800.59,West,4.79,3
+B0722,Neha Mehta,Digital Service,267440.62,East,1.74,5
+B0723,Karthik Rao,Digital Service,123930.56,East,4.03,5
+B0724,Shruti Desai,Digital Service,393823.45,South,1.84,6
+B0725,Krish Desai,Restaurant,118955.57,North,4.5,1
+B0726,Krish Iyer,Delivery,346963.06,Central,3.58,5
+B0727,Vishal Kulkarni,Hotel,489010.52,South,3.54,1
+B0728,Vishal Joshi,Digital Service,353991.05,North,4.18,4
+B0729,Kiran Kapoor,Digital Service,163927.25,East,3.62,7
+B0730,Aditi Nair,Hotel,56827.79,Central,1.68,9
+B0731,Manoj Mehta,Retail,489151.39,Central,2.24,6
+B0732,Vishal Desai,Mall,392283.86,North,3.75,5
+B0733,Pranav Iyer,Delivery,184917.68,Central,4.08,4
+B0734,Neha Deshmukh,Delivery,175537.34,East,4.75,2
+B0735,Arvind Shinde,Restaurant,328831.46,East,2.11,9
+B0736,Dev Joshi,Retail,156167.05,East,4.04,4
+B0737,Arvind Desai,Delivery,207039.23,South,4.54,7
+B0738,Shruti Singh,Digital Service,386060.96,North,2.75,9
+B0739,Rahul Hegde,Restaurant,144026.36,South,1.14,7
+B0740,Kiran Hegde,Retail,251224.19,South,1.3,3
+B0741,Arjun Kulkarni,Retail,484682.25,East,4.22,8
+B0742,Arvind Jain,Mall,77164.07,North,2.74,2
+B0743,Arvind Shetty,Mall,96002.91,North,4.4,8
+B0744,Arvind Kulkarni,Retail,79528.42,East,3.38,4
+B0745,Rahul Nair,Digital Service,303973.18,South,3.51,4
+B0746,Pooja Shinde,Retail,113161.77,East,1.47,6
+B0747,Vishal Patil,Hotel,140871.88,North,1.78,3
+B0748,Megha Singh,Mall,389377.15,Central,2.06,4
+B0749,Kiran Hegde,Restaurant,126606.55,East,3.93,10
+B0750,Pooja Shetty,Delivery,468251.59,North,2.58,2
+B0751,Kiran Jain,Restaurant,371172.28,North,2.78,1
+B0752,Manoj Gupta,Digital Service,264658.14,Central,2.01,5
+B0753,Rahul Pai,Delivery,93530.62,West,1.05,7
+B0754,Pranav Joshi,Retail,311319.4,Central,1.15,7
+B0755,Ananya Deshmukh,Digital Service,447063.48,South,1.82,1
+B0756,Aditi Pai,Manufacturing,188613.19,Central,2.95,4
+B0757,Pranav Bhat,Hotel,176439.46,West,1.33,7
+B0758,Karthik Iyer,Manufacturing,461804.05,Central,2.66,6
+B0759,Neha Rao,Delivery,236956.57,Central,1.32,7
+B0760,Arvind Mehta,Manufacturing,302061.04,Central,2.08,5
+B0761,Sneha Shetty,Mall,150240.5,West,3.57,7
+B0762,Riya Sharma,Restaurant,232963.37,South,1.08,6
+B0763,Pooja Hegde,Hotel,497274.53,Central,4.21,1
+B0764,Pooja Desai,Delivery,138948.98,Central,3.97,7
+B0765,Arjun Kapoor,Delivery,407387.95,North,2.73,10
+B0766,Rohan Deshmukh,Delivery,169361.18,East,4.69,5
+B0767,Kiran Bhat,Retail,337857.55,South,4.62,9
+B0768,Manoj Kapoor,Mall,134677.85,West,4.25,6
+B0769,Riya Sharma,Delivery,268966.91,North,3.51,10
+B0770,Riya Singh,Retail,282850.3,South,1.03,2
+B0771,Karthik Desai,Mall,228073.34,Central,4.45,2
+B0772,Rohan Pai,Hotel,253720.4,Central,2.38,1
+B0773,Kiran Deshmukh,Delivery,24361.6,Central,3.53,5
+B0774,Dev Singh,Restaurant,148703.38,North,1.49,3
+B0775,Vishal Desai,Restaurant,104441.22,Central,1.14,4
+B0776,Megha Jain,Digital Service,306497.86,West,4.87,6
+B0777,Arvind Shinde,Hotel,404925.0,North,3.95,10
+B0778,Vishal Desai,Hotel,383053.62,East,2.17,5
+B0779,Megha Mehta,Digital Service,169102.58,East,3.78,3
+B0780,Megha Sharma,Manufacturing,278799.49,North,4.61,8
+B0781,Ananya Shinde,Mall,218616.34,South,1.35,10
+B0782,Pranav Jain,Manufacturing,277250.2,West,4.95,9
+B0783,Rohan Pai,Manufacturing,177520.0,Central,3.27,4
+B0784,Riya Sharma,Delivery,174559.47,East,2.64,8
+B0785,Arvind Shinde,Restaurant,284623.01,East,1.07,3
+B0786,Pranav Kulkarni,Retail,434237.38,North,1.92,8
+B0787,Megha Rao,Hotel,165498.48,East,1.83,6
+B0788,Arvind Iyer,Retail,383524.77,West,4.99,7
+B0789,Pranav Sharma,Delivery,240233.61,North,1.62,2
+B0790,Aditi Singh,Delivery,430548.24,East,2.02,3
+B0791,Krish Kapoor,Restaurant,190589.04,North,3.65,4
+B0792,Neha Deshmukh,Delivery,459739.95,South,3.29,4
+B0793,Pooja Singh,Hotel,45291.46,West,3.45,3
+B0794,Aditi Shetty,Manufacturing,259730.51,South,2.02,1
+B0795,Arjun Deshmukh,Digital Service,442496.14,East,2.31,10
+B0796,Rahul Shinde,Manufacturing,470051.59,West,1.13,7
+B0797,Aditi Desai,Mall,60272.71,Central,1.91,9
+B0798,Rahul Sharma,Mall,273375.84,Central,3.6,4
+B0799,Kiran Shinde,Digital Service,396238.27,South,3.47,9
+B0800,Rahul Jain,Delivery,457150.89,South,1.28,9
