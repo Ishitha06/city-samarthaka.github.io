@@ -724,69 +724,174 @@ int main() {
             onclick="toggleHeapCode()">
         Code
     </button>
+    <a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/animal_cases_heap_output.csv"
+   target="_blank">
+  Dataset
+</a>
+
     
     <div id="heap-code-block" style="display:none; margin-top:20px;">
     
       <h4>C++ Logic used (Bottom‑up Max Heap for Priorities)</h4>
       <pre><code>#include &lt;iostream&gt;
-    using namespace std;
-    
-    
-    void heapBottomUp(int H[], int n) {
-        for (int i = n / 2; i &gt;= 1; i--) {
-            int k = i;
-            int v = H[k];
-            bool heap = false;
-    
-            while (!heap &amp;&amp; 2 * k &lt;= n) {
-                int j = 2 * k;             
-    
-                // choose the larger child to maintain MAX-HEAP property
-                if (j &lt; n &amp;&amp; H[j] &lt; H[j + 1]) {
-                    j = j + 1;             
-                }
-    
-                if (v &gt;= H[j]) {
-                    heap = true;            
-                } else {
-                    H[k] = H[j];           
-                    k = j;                  
-                }
-            }
-            H[k] = v;                      
-        }
+        #include <bits/stdc++.h>
+using namespace std;
+
+struct CaseInfo {
+    int heap_index;
+    string case_id;
+    string species;
+    string condition;
+    string triage_level;
+    double age_years;
+    double temperature_c;
+    int resp_rate_min;
+    int heart_rate_bpm;
+    int trauma_severity_0_3;
+    string infectious_suspect;
+    string pregnant;
+    double priority_score;
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    string filename = "animal_cases_heap_output.csv";
+    ifstream fin(filename);
+    if (!fin) {
+        cerr << "Could not open " << filename << "\n";
+        return 1;
     }
+
+    vector<CaseInfo> cases;
+    string line;
+
+    // skip header
+    if (!getline(fin, line)) {
+        cerr << "Empty CSV\n";
+        return 1;
+    }
+
+    while (getline(fin, line)) {
+        if (line.empty()) continue;
+        stringstream ss(line);
+        string token;
+        CaseInfo c;
+
+        // heap_index
+        getline(ss, token, ',');
+        c.heap_index = stoi(token);
+
+        // case_id
+        getline(ss, c.case_id, ',');
+
+        // species
+        getline(ss, c.species, ',');
+
+        // condition
+        getline(ss, c.condition, ',');
+
+        // triage_level
+        getline(ss, c.triage_level, ',');
+
+        // age_years
+        getline(ss, token, ',');
+        c.age_years = stod(token);
+
+        // temperature_c
+        getline(ss, token, ',');
+        c.temperature_c = stod(token);
+
+        // resp_rate_min
+        getline(ss, token, ',');
+        c.resp_rate_min = stoi(token);
+
+        // heart_rate_bpm
+        getline(ss, token, ',');
+        c.heart_rate_bpm = stoi(token);
+
+        // trauma_severity_0_3
+        getline(ss, token, ',');
+        c.trauma_severity_0_3 = stoi(token);
+
+        // infectious_suspect
+        getline(ss, c.infectious_suspect, ',');
+
+        // pregnant
+        getline(ss, c.pregnant, ',');
+
+        // priority_score
+        getline(ss, token, ',');
+        c.priority_score = stod(token);
+
+        cases.push_back(c);
+    }
+
+    cout << "Loaded " << cases.size()
+         << " animal triage cases from heap dataset.\n\n";
+
+    cout << left
+         << setw(4)  << "Idx"
+         << setw(8)  << "HeapPos"
+         << setw(10) << "CaseID"
+         << setw(10) << "Species"
+         << setw(14) << "Triage"
+         << setw(6)  << "Age"
+         << setw(6)  << "Temp"
+         << setw(6)  << "RR"
+         << setw(6)  << "HR"
+         << setw(4)  << "Tra"
+         << setw(5)  << "Inf?"
+         << setw(5)  << "Preg?"
+         << setw(9)  << "Priority"
+         << "\n";
+
+    int show = min<int>(15, cases.size());
+    for (int i = 0; i < show; ++i) {
+        const CaseInfo &c = cases[i];
+        cout << setw(4)  << (i + 1)
+             << setw(8)  << c.heap_index
+             << setw(10) << c.case_id
+             << setw(10) << c.species
+             << setw(14) << c.triage_level
+             << setw(6)  << fixed << setprecision(1) << c.age_years
+             << setw(6)  << setprecision(1) << c.temperature_c
+             << setw(6)  << c.resp_rate_min
+             << setw(6)  << c.heart_rate_bpm
+             << setw(4)  << c.trauma_severity_0_3
+             << setw(5)  << c.infectious_suspect
+             << setw(5)  << c.pregnant
+             << setw(9)  << setprecision(2) << c.priority_score
+             << "\n";
+    }
+
+    // verify heap property for priority_score
+    bool heap_ok = true;
+    int n = (int)cases.size();
+
+    auto getPriority = [&](int heapPos) -> double {
+        return cases[heapPos - 1].priority_score; // heap_index == position
+    };
+
+    for (int i = 1; i <= n / 2; ++i) {
+        int left  = 2 * i;
+        int right = 2 * i + 1;
+        double parentP = getPriority(i);
+        if (left <= n && parentP < getPriority(left))  heap_ok = false;
+        if (right <= n && parentP < getPriority(right)) heap_ok = false;
+    }
+
+    cout << "\nHeap property on priority_score: "
+         << (heap_ok ? "OK" : "VIOLATED") << "\n";
+
+    return 0;
+}
+
+    </code></pre>
     
-    int main() {
-        int n;
-        cout &lt;&lt; "Enter number of pending cases (elements):\n";
-        cin &gt;&gt; n;
-    
-        int H[105]; // 1-indexed
-        cout &lt;&lt; "Enter " &lt;&lt; n 
-             &lt;&lt; " priority values (higher = more urgent):\n";
-        for (int i = 1; i &lt;= n; i++) {
-            cin &gt;&gt; H[i];
-        }
-    
-        heapBottomUp(H, n);
-    
-        cout &lt;&lt; "Array arranged as max heap (level-order):\n";
-        for (int i = 1; i &lt;= n; i++) {
-            cout &lt;&lt; H[i] &lt;&lt; " ";
-        }
-        cout &lt;&lt; "\n";
-    
-        return 0;
-    }</code></pre>
-    
-      <h4>Sample Input</h4>
-      <pre><code>7
-    3 9 4 1 7 2 8</code></pre>
-    
-      <h4>Expected Output</h4>
-      <pre><code>Array arranged as max heap (level-order):
-    9 7 8 1 3 2 4 </code></pre>
+      
     
     </div>
 
