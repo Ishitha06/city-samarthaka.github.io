@@ -80,24 +80,21 @@
             <p class="problem"><strong>Problem:</strong> Need instant lookup (hotel id) and ranked queries for top hotels/shops.</p>
             <p class="why"><strong>Why Hash + AVL:</strong> Hash for instant id lookup; AVL for revenue-sorted lists and top-k analytics.</p>
             <p class="how"><strong>How it solves:</strong> Maintain a hash map for id→record for CRUD. Maintain an AVL index for revenue and occupancy readouts. For inventory indexes, maintain secondary hash maps by category with AVL top-sellers.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=900&q=60" alt="hotels-retail">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Restaurants & Food Delivery — Hash + Max-Heap + Queue <span class="sdg">SDG 12</span></h3>
             <p class="problem"><strong>Problem:</strong> Peak-time surges and urgent deliveries cause mis-prioritisation.</p>
             <p class="why"><strong>Why:</strong> Hash for restaurant lookup, max-heap for urgent deliveries, FIFO queue for normal orders.</p>
             <p class="how"><strong>How it solves:</strong> Orders get a composite score (urgency, distance, prep-time). Urgent orders go into heap; normal ones into queue. Drivers are assigned by popping heap first then queue. Metrics are recorded for SLA analytics.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1559628233-4a8b8d9a8c7f?auto=format&fit=crop&w=900&q=60" alt="delivery">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Digital Marketplace & E-services — Hashing + AVL <span class="sdg">SDG 9,12</span></h3>
             <p class="problem"><strong>Problem:</strong> Fast vendor search and best-seller extraction across categories.</p>
             <p class="why"><strong>Why:</strong> Hash for vendor lookup by id; AVL for sorted best-seller lists & top-k queries.</p>
             <p class="how"><strong>How it solves:</strong> Vendor entries stored in multiple indices: primary hash by id, secondary AVL trees by revenue and rating. Faceted search uses precomputed hash buckets by category for ultra-fast search.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=60" alt="marketplace">
-          </article>
+             </article>
 
           <!-- Efficiency Table -->
           <h4 class="eff-heading">Efficiency Analysis (Commercial)</h4>
@@ -161,32 +158,28 @@
             <p class="problem"><strong>Problem:</strong> Rapid access to patient records during emergencies and high concurrency.</p>
             <p class="why"><strong>Why Hash:</strong> Fast O(1) id-based lookups; simple mapping from patient id to secure record.</p>
             <p class="how"><strong>How it solves:</strong> Encrypted patient IDs hashed to securely locate medical history. Caching recent records reduces latency. For long-term analytics, export snapshots to sorted indices for trend queries.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1580281657521-4d7b5c83dcfd?auto=format&fit=crop&w=900&q=60" alt="patient-records">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Triage Queue — Max-Heap <span class="sdg">SDG 3</span></h3>
             <p class="problem"><strong>Problem:</strong> Emergency severity varies; must quickly identify most critical patients.</p>
             <p class="why"><strong>Why Heap:</strong> Priority queue allows O(log n) insertion and extraction of highest-severity cases.</p>
             <p class="how"><strong>How it solves:</strong> Severity computed from vitals & urgency; heap pops top cases for immediate attention. Non-critical patients remain in FIFO queue for standard processing. Periodic re-ranking ensures changing vitals are reflected.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1586773860413-3b1f7a6a3d5d?auto=format&fit=crop&w=900&q=60" alt="triage">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Ambulance Routing — Dijkstra <span class="sdg">SDG 11</span></h3>
             <p class="problem"><strong>Problem:</strong> Ambulance routing must pick shortest/fastest safe path considering live traffic & closures.</p>
             <p class="why"><strong>Why Dijkstra:</strong> Computes shortest weighted path (time) with O(E + V log V) using a priority queue.</p>
             <p class="how"><strong>How it solves:</strong> Model city roads as graph; edge weights are time estimates (live). Run Dijkstra from ambulance to patient, then to hospital. Use precomputed highway overlays for speed and incremental replan on live updates.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=900&q=60" alt="ambulance">
-          </article>
+           </article>
 
           <article class="subpoint">
             <h3>Facility Indexing & Scheduling — AVL / Hash <span class="sdg">SDG 3</span></h3>
             <p class="problem"><strong>Problem:</strong> Finding available facility slots (OR rooms, beds) under changing availability.</p>
             <p class="why"><strong>Why AVL+Hash:</strong> Hash maps for direct facility id lookup; AVL for sorted availability windows and top-capacity queries.</p>
             <p class="how"><strong>How it solves:</strong> Facilities stored in map; queries for the nearest available facility use BFS on road graph combined with AVL index of available beds sorted by expected availability time.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1580281657521-4d7b5c83dcfd?auto=format&fit=crop&w=900&q=60" alt="facility">
-          </article>
+             </article>
 
           <h4 class="eff-heading">Efficiency Analysis (Healthcare)</h4>
           <table class="eff-table">
