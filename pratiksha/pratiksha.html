@@ -1,272 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pratiksha Chougule — Contributions</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="p.css">
-
   <script src="p.js" defer></script>
 </head>
-
-
 <body>
-<div class="container">
+  <div class="page-wrapper">
 
-  <!-- Header -->
-  <header class="page-head fade-in">
-    <div class="brand">SAMARTHAKA — Smart City Modules (Pratiksha)</div>
-    <div><a class="back-btn" href="../index.html#team">← Back to Team</a></div>
-  </header>
+    <!-- header -->
+    <header class="page-head">
+      <div class="brand">SAMARTHAKA — Smart City Modules (Pratiksha)</div>
+      <nav class="mini-nav">
+        <a class="back-btn" href="../index.html#team">← Back to Team</a>
+      </nav>
+    </header>
 
-  <!-- Hero -->
-  <section class="hero fade-in">
-    <h1>Smart City — DSA Modules</h1>
-    <p class="lead">Efficient data structures, algorithms & real-world applications across Commercial Services, Healthcare, Education, and Solar Energy Systems.</p>
-  </section>
+    <!-- hero -->
+    <section class="hero">
+      <h1>Smart City — Data Structures & Algorithms Modules</h1>
+      <p class="lead">Commercial, Healthcare, Education and Solar — complete subsystems, algorithms, datasets and efficiency analysis.</p>
+    </section>
 
-  <!-- Mindmap -->
-  <div class="mindmap-wrap fade-in delay-1">
-    <img class="mindmap" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=60" alt="">
-    <p class="mind-caption">Mindmap showing the data flow & SDG alignment across modules.</p>
-  </div>
+    <!-- mindmap -->
+    <section class="mindmap">
+      <img src="https://images.unsplash.com/photo-1508385082359-f5b33b7b6888?auto=format&fit=crop&w=1500&q=60" alt="mindmap" />
+      <p class="caption">Mindmap: module relationships, DS & algorithm choices, and SDG alignment.</p>
+    </section>
 
-  <!-- ===========================
-       COMMERCIAL MODULE
-       =========================== -->
-  <section id="commercial" class="module fade-in delay-2">
-    <div class="module-header">
-      <div>
-        <h2>Commercial Services</h2>
-        <p class="lead">Licensing, hospitality, malls, restaurants & delivery systems enhanced with efficient DS & Algorithms.</p>
-      </div>
-      <img class="banner" src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1200&q=60">
-    </div>
-
-    <div class="module-row">
-      <div class="module-main">
-
-        <div class="subpoint">
-          <h4>Digital Licensing — Hash Table <span class="tag">SDG 9</span></h4>
-          <p>Instant permit lookups required by city authorities. Hash table enables O(1) retrievals for license IDs.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Hospitality Indexing — Hash + AVL <span class="tag">SDG 8</span></h4>
-          <p>Hotels/malls require revenue ranking. AVL gives sorted order; Hash gives instant access.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Restaurant & Delivery Priority — Heap + Queue <span class="tag">SDG 12</span></h4>
-          <p>Delivery surges require priority decisions. Max heap sorts urgent orders; queue handles normal flow.</p>
-        </div>
-
-        <h4 class="eff-title">Efficiency Analysis</h4>
-        <table class="eff-table">
-          <tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr>
-          <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
-          <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
-          <tr><td>Heap</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
-        </table>
-
-        <div class="actions">
-          <button class="btn" data-code="commercial">View C++ Code</button>
-          <a class="btn ghost" target="_blank"
-             href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/commercial_dataset.csv">
-             View Dataset
-          </a>
-        </div>
-
+    <!-- COMMERCIAL MODULE (expanded) -->
+    <section id="commercial" class="module">
+      <div class="module-head">
+        <h2>Commercial Services Management System</h2>
+        <p class="module-lead">Centralized licensing, hospitality, retail, digital marketplace, mobility-linked commerce and revenue analytics for a 2.6M city.</p>
       </div>
 
-      <aside class="module-side">
-        <strong>Recommendations</strong>
-        <p>Use cache layers for peak hours, sharded hashmaps for malls, and CCTV-assisted customer flow data.</p>
-      </aside>
-    </div>
-  </section>
+      <div class="module-content">
 
-  <!-- ===========================
-       HEALTHCARE MODULE
-       =========================== -->
-  <section id="healthcare" class="module fade-in delay-3">
-    <div class="module-header">
-      <div>
-        <h2>Healthcare System</h2>
-        <p class="lead">Patient triaging, emergency routing, and secure medical indexing.</p>
+        <div class="module-left">
+
+          <!-- Core subpoints (each: Problem / Why / How) -->
+          <article class="subpoint">
+            <h3>Digital Business Licensing — Hash Table <span class="sdg">SDG 9</span></h3>
+            <p class="problem"><strong>Problem:</strong> Permit lookups and updates must be instant during peak intake; paper-processes are slow and error-prone.</p>
+            <p class="why"><strong>Why Hash:</strong> O(1) average lookup for ID-based retrievals; simple key-based updates and compact mapping for permit IDs.</p>
+            <p class="how"><strong>How it solves:</strong> A hash-table registry stores permit meta (owner, type, expiry, status). During intake and renewals the system does direct key lookup. Collision resolution via chaining keeps worst-case rare for urban-sized datasets; periodic rehash keeps load low. For audit trails, append-only logs reference hash keys so lookups remain O(1) even when producing historical reports.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=60" alt="licensing">
+          </article>
+
+          <article class="subpoint">
+            <h3>Smart Ticketing & Events — Queue (FIFO) <span class="sdg">SDG 11</span></h3>
+            <p class="problem"><strong>Problem:</strong> Event admission flow must be fair, fast, and support re-entry and validation rules.</p>
+            <p class="why"><strong>Why Queue:</strong> FIFO ticket issuance and validation matches real-world admission flows; simple integration with scans and validators.</p>
+            <p class="how"><strong>How it solves:</strong> Tickets are enqueued; validation pops from front. Parallel worker threads validate in batches and analytics track queue backlog for dynamic opening of additional gates. Queue integrates with hashing for ticket lookup and with analytics for load prediction.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1520975910531-6da1d3b97f3f?auto=format&fit=crop&w=900&q=60" alt="events">
+          </article>
+
+          <article class="subpoint">
+            <h3>Priority Vendor Approvals — Max-Heap <span class="sdg">SDG 8</span></h3>
+            <p class="problem"><strong>Problem:</strong> Critical vendors (healthcare, transport) need fast approvals rather than FIFO processing.</p>
+            <p class="why"><strong>Why Max-Heap:</strong> Gives fast extraction of highest-priority items; insertion/pop are O(log n).</p>
+            <p class="how"><strong>How it solves:</strong> Each vendor application is given a composite priority (impact score, urgency, risk). The heap pops the highest priority for fast review. Lower-priority items wait in queue. Heap combined with bucketing avoids starvation (periodic promotions of queued items).</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=60" alt="vendor approvals">
+          </article>
+
+          <article class="subpoint">
+            <h3>Revenue Ranking & Analytics — AVL Tree<span class="sdg">SDG 9</span></h3>
+            <p class="problem"><strong>Problem:</strong> Top-k revenue reports and sorted queries are frequent; scanning unsorted lists is too slow.</p>
+            <p class="why"><strong>Why AVL:</strong> Balanced BST gives O(log n) update and O(k + log n) top-k extraction when maintaining subtree sizes.</p>
+            <p class="how"><strong>How it solves:</strong> Store (revenue, id) pairs in an AVL tree sorted by revenue. On updates (new sale) do an O(log n) update; extract top-k by walking down the tree using stored subtree sizes. For extremely large data, offload to sorted indexes or B-trees for disk-based storage.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=60" alt="analytics">
+          </article>
+
+          <article class="subpoint">
+            <h3>Hotels, Shopping Malls & Retail Indexing — Hash + AVL <span class="sdg">SDG 8</span></h3>
+            <p class="problem"><strong>Problem:</strong> Need instant lookup (hotel id) and ranked queries for top hotels/shops.</p>
+            <p class="why"><strong>Why Hash + AVL:</strong> Hash for instant id lookup; AVL for revenue-sorted lists and top-k analytics.</p>
+            <p class="how"><strong>How it solves:</strong> Maintain a hash map for id→record for CRUD. Maintain an AVL index for revenue and occupancy readouts. For inventory indexes, maintain secondary hash maps by category with AVL top-sellers.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=900&q=60" alt="hotels-retail">
+          </article>
+
+          <article class="subpoint">
+            <h3>Restaurants & Food Delivery — Hash + Max-Heap + Queue <span class="sdg">SDG 12</span></h3>
+            <p class="problem"><strong>Problem:</strong> Peak-time surges and urgent deliveries cause mis-prioritisation.</p>
+            <p class="why"><strong>Why:</strong> Hash for restaurant lookup, max-heap for urgent deliveries, FIFO queue for normal orders.</p>
+            <p class="how"><strong>How it solves:</strong> Orders get a composite score (urgency, distance, prep-time). Urgent orders go into heap; normal ones into queue. Drivers are assigned by popping heap first then queue. Metrics are recorded for SLA analytics.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1559628233-4a8b8d9a8c7f?auto=format&fit=crop&w=900&q=60" alt="delivery">
+          </article>
+
+          <article class="subpoint">
+            <h3>Digital Marketplace & E-services — Hashing + AVL <span class="sdg">SDG 9,12</span></h3>
+            <p class="problem"><strong>Problem:</strong> Fast vendor search and best-seller extraction across categories.</p>
+            <p class="why"><strong>Why:</strong> Hash for vendor lookup by id; AVL for sorted best-seller lists & top-k queries.</p>
+            <p class="how"><strong>How it solves:</strong> Vendor entries stored in multiple indices: primary hash by id, secondary AVL trees by revenue and rating. Faceted search uses precomputed hash buckets by category for ultra-fast search.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=60" alt="marketplace">
+          </article>
+
+          <!-- Efficiency Table -->
+          <h4 class="eff-heading">Efficiency Analysis (Commercial)</h4>
+          <table class="eff-table">
+            <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Queue</td><td>O(1)</td><td>O(n)</td><td>O(1)</td><td>O(n)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="actions">
+            <button class="btn code-btn" data-module="commercial">View C++ Code</button>
+            <!-- B: GitHub CSV page (UI) -->
+            <a class="btn ghost" target="_blank" href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/pratiksha/datasets/commercial_dataset.csv">Show dataset</a>
+          </div>
+
+        </div>
+
+        <aside class="module-right">
+          <div class="side-box">
+            <h4>All commercial services (combined)</h4>
+            <ul>
+              <li>Digital Business Licensing</li>
+              <li>Smart ticketing & event permits</li>
+              <li>Priority vendor approvals</li>
+              <li>Tourism navigation & kiosks</li>
+              <li>Revenue analytics & ranking</li>
+              <li>Hotels, shopping malls & retail indexes</li>
+              <li>Restaurants & food delivery pipelines</li>
+              <li>Digital marketplace & e-services</li>
+              <li>Transport-related commerce (parking, smartcards)</li>
+              <li>Advertising & loyalty engines</li>
+              <li>Hyper-local manufacturing hubs</li>
+            </ul>
+          </div>
+
+          <div class="side-box">
+            <h4>Notes (for implementation)</h4>
+            <p>Use sharded hashmaps for scale, caching for hot lookups, and periodic rebalancing of AVL indices. Combine streaming analytics for real-time dashboards.</p>
+          </div>
+        </aside>
+
       </div>
-      <img class="banner" src="https://images.unsplash.com/photo-1582719478250-0b88d55a3c2b?auto=format&fit=crop&w=1200&q=60">
-    </div>
+    </section>
 
-    <div class="module-row">
-      <div class="module-main">
-
-        <div class="subpoint">
-          <h4>Patient Records — Hash Table <span class="tag">SDG 3</span></h4>
-          <p>Load spikes in hospitals require instant record access. Hash keeps ID-based lookups O(1).</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Triage Queue — Max Heap <span class="tag">SDG 3</span></h4>
-          <p>Emergency management demands severity-based ordering. Max heap sorts patients efficiently.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Ambulance Routing — Dijkstra <span class="tag">SDG 11</span></h4>
-          <p>Ambulances must reach fastest path. Dijkstra computes shortest weighted routes.</p>
-        </div>
-
-        <h4 class="eff-title">Efficiency Analysis</h4>
-        <table class="eff-table">
-          <tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr>
-          <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
-          <tr><td>Heap</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
-          <tr><td>Graph (Dijkstra)</td><td>O(1)</td><td>O(E + V logV)</td><td>O(1)</td><td>O(V+E)</td></tr>
-        </table>
-
-        <div class="actions">
-          <button class="btn" data-code="healthcare">View C++ Code</button>
-          <a class="btn ghost" target="_blank"
-             href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/healthcare_dataset.csv">
-             View Dataset
-          </a>
-        </div>
-
+    <!-- HEALTHCARE MODULE (expanded) -->
+    <section id="healthcare" class="module">
+      <div class="module-head">
+        <h2>Healthcare Management System</h2>
+        <p class="module-lead">Patient lookup, triage, ambulance routing, facility indexing and predictive maintenance for medical infrastructure.</p>
       </div>
 
-      <aside class="module-side">
-        <strong>Notes</strong>
-        <p>Use encryption for patient identifiers. Build zonal triage queues to reduce load.</p>
-      </aside>
-    </div>
-  </section>
+      <div class="module-content">
+        <div class="module-left">
 
-  <!-- ===========================
-       EDUCATION MODULE
-       =========================== -->
-  <section id="education" class="module fade-in delay-4">
-    <div class="module-header">
-      <div>
+          <article class="subpoint">
+            <h3>Patient Records — Hash Table <span class="sdg">SDG 3</span></h3>
+            <p class="problem"><strong>Problem:</strong> Rapid access to patient records during emergencies and high concurrency.</p>
+            <p class="why"><strong>Why Hash:</strong> Fast O(1) id-based lookups; simple mapping from patient id to secure record.</p>
+            <p class="how"><strong>How it solves:</strong> Encrypted patient IDs hashed to securely locate medical history. Caching recent records reduces latency. For long-term analytics, export snapshots to sorted indices for trend queries.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1580281657521-4d7b5c83dcfd?auto=format&fit=crop&w=900&q=60" alt="patient-records">
+          </article>
+
+          <article class="subpoint">
+            <h3>Triage Queue — Max-Heap <span class="sdg">SDG 3</span></h3>
+            <p class="problem"><strong>Problem:</strong> Emergency severity varies; must quickly identify most critical patients.</p>
+            <p class="why"><strong>Why Heap:</strong> Priority queue allows O(log n) insertion and extraction of highest-severity cases.</p>
+            <p class="how"><strong>How it solves:</strong> Severity computed from vitals & urgency; heap pops top cases for immediate attention. Non-critical patients remain in FIFO queue for standard processing. Periodic re-ranking ensures changing vitals are reflected.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1586773860413-3b1f7a6a3d5d?auto=format&fit=crop&w=900&q=60" alt="triage">
+          </article>
+
+          <article class="subpoint">
+            <h3>Ambulance Routing — Dijkstra <span class="sdg">SDG 11</span></h3>
+            <p class="problem"><strong>Problem:</strong> Ambulance routing must pick shortest/fastest safe path considering live traffic & closures.</p>
+            <p class="why"><strong>Why Dijkstra:</strong> Computes shortest weighted path (time) with O(E + V log V) using a priority queue.</p>
+            <p class="how"><strong>How it solves:</strong> Model city roads as graph; edge weights are time estimates (live). Run Dijkstra from ambulance to patient, then to hospital. Use precomputed highway overlays for speed and incremental replan on live updates.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=900&q=60" alt="ambulance">
+          </article>
+
+          <article class="subpoint">
+            <h3>Facility Indexing & Scheduling — AVL / Hash <span class="sdg">SDG 3</span></h3>
+            <p class="problem"><strong>Problem:</strong> Finding available facility slots (OR rooms, beds) under changing availability.</p>
+            <p class="why"><strong>Why AVL+Hash:</strong> Hash maps for direct facility id lookup; AVL for sorted availability windows and top-capacity queries.</p>
+            <p class="how"><strong>How it solves:</strong> Facilities stored in map; queries for the nearest available facility use BFS on road graph combined with AVL index of available beds sorted by expected availability time.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1580281657521-4d7b5c83dcfd?auto=format&fit=crop&w=900&q=60" alt="facility">
+          </article>
+
+          <h4 class="eff-heading">Efficiency Analysis (Healthcare)</h4>
+          <table class="eff-table">
+            <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph (Dijkstra)</td><td>O(1)</td><td>O(E + V log V)</td><td>O(1)</td><td>O(V+E)</td></tr>
+              <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="actions">
+            <button class="btn code-btn" data-module="healthcare">View C++ Code</button>
+            <a class="btn ghost" target="_blank" href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/pratiksha/datasets/healthcare_dataset.csv">Show dataset</a>
+          </div>
+
+        </div>
+
+        <aside class="module-right">
+          <div class="side-box">
+            <h4>Implementation notes</h4>
+            <p>Encrypt patient ids at rest. Maintain audit logs. Use ephemeral caches for recent emergency zones to reduce lookup times during peak incidents.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- EDUCATION MODULE (expanded) -->
+    <section id="education" class="module">
+      <div class="module-head">
         <h2>Education System</h2>
-        <p class="lead">Student indexing, top-k ranking, and timetable conflict resolution.</p>
-      </div>
-      <img class="banner" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=60">
-    </div>
-
-    <div class="module-row">
-      <div class="module-main">
-
-        <div class="subpoint">
-          <h4>Student Records — Hash Table <span class="tag">SDG 4</span></h4>
-          <p>Fast O(1) lookups for student enrollment and performance tracking.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Scholarship Ranking — AVL <span class="tag">SDG 4</span></h4>
-          <p>Students must be ranked frequently. AVL keeps scores sorted.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Timetable Scheduling — Graph Coloring <span class="tag">SDG 4</span></h4>
-          <p>Rooms clash when teachers overlap. Coloring ensures conflict-free schedules.</p>
-        </div>
-
-        <h4 class="eff-title">Efficiency Analysis</h4>
-        <table class="eff-table">
-          <tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr>
-          <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
-          <tr><td>AVL</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
-          <tr><td>Graph Coloring</td><td>-</td><td>O(V+E)</td><td>-</td><td>O(V+E)</td></tr>
-        </table>
-
-        <div class="actions">
-          <button class="btn" data-code="education">View C++ Code</button>
-          <a class="btn ghost" target="_blank"
-             href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/education_dataset.csv">
-             View Dataset
-          </a>
-        </div>
-
+        <p class="module-lead">Student indexing, scholarships ranking, resource allocation, timetable scheduling and personalized learning analytics.</p>
       </div>
 
-      <aside class="module-side">
-        <strong>Suggestions</strong>
-        <p>Use a cache for hot records and maintain yearly snapshots for trend analysis.</p>
-      </aside>
-    </div>
-  </section>
+      <div class="module-content">
+        <div class="module-left">
 
-  <!-- ===========================
-       SOLAR MODULE
-       =========================== -->
-  <section id="solar" class="module fade-in delay-5">
-    <div class="module-header">
-      <div>
-        <h2>Solar Energy System</h2>
-        <p class="lead">Panel indexing, maintenance scheduling & priority-based backup allocation.</p>
+          <article class="subpoint">
+            <h3>Student Records — Hash Table <span class="sdg">SDG 4</span></h3>
+            <p class="problem"><strong>Problem:</strong> Fast enrollment checks and student lookups at scale.</p>
+            <p class="why"><strong>Why Hash:</strong> O(1) id-based access for student records and performance metrics.</p>
+            <p class="how"><strong>How it solves:</strong> Maintain a student registry keyed by id. Use stable snapshots for semester reports; combine with caches for hot queries (recent check-ins).</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=60" alt="students">
+          </article>
+
+          <article class="subpoint">
+            <h3>Scholarship Ranking — AVL Tree <span class="sdg">SDG 4</span></h3>
+            <p class="problem"><strong>Problem:</strong> Frequent top-k extraction for scholarship awards and leaderboards.</p>
+            <p class="why"><strong>Why AVL:</strong> Balanced tree keeps scores sorted with O(log n) updates, ideal for frequent top-k queries.</p>
+            <p class="how"><strong>How it solves:</strong> Insert student (score, id) into AVL. For top-k, traverse in descending order using subtree sizes. Perform periodic batch updates when many scores change.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=60" alt="ranking">
+          </article>
+
+          <article class="subpoint">
+            <h3>Timetable Scheduling — Graph Coloring <span class="sdg">SDG 4</span></h3>
+            <p class="problem"><strong>Problem:</strong> Avoid teacher/room conflicts and optimize allocation.</p>
+            <p class="why"><strong>Why Coloring:</strong> Model conflicts as graph edges; color classes are time slots ensuring no adjacent conflicts.</p>
+            <p class="how"><strong>How it solves:</strong> Build conflict graph (class nodes, edges where teacher/room overlap). Apply greedy coloring heuristics (syllabus-friendly) to produce conflict-free timetables. Use local search or simulated annealing for further optimization if needed.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=60" alt="timetable">
+          </article>
+
+          <h4 class="eff-heading">Efficiency Analysis (Education)</h4>
+          <table class="eff-table">
+            <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph Coloring</td><td>-</td><td>O(V+E)</td><td>-</td><td>O(V+E)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="actions">
+            <button class="btn code-btn" data-module="education">View C++ Code</button>
+            <a class="btn ghost" target="_blank" href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/pratiksha/datasets/education_dataset.csv">Show dataset</a>
+          </div>
+
+        </div>
+
+        <aside class="module-right">
+          <div class="side-box">
+            <h4>Notes</h4>
+            <p>Maintain yearly snapshots, anonymize student data for public analytics, and use caches for hot records (attendance/exam day).</p>
+          </div>
+        </aside>
       </div>
-      <img class="banner" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=60">
-    </div>
+    </section>
 
-    <div class="module-row">
-      <div class="module-main">
-
-        <div class="subpoint">
-          <h4>Panel Lookup — Hash Table <span class="tag">SDG 7</span></h4>
-          <p>Panels must be accessed instantly. Hash table gives quickest ID-based lookups.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Backup Allocation — Max Heap <span class="tag">SDG 7</span></h4>
-          <p>Cities must allocate limited batteries based on urgency. Heap supports this.</p>
-        </div>
-
-        <div class="subpoint">
-          <h4>Maintenance Routing — Dijkstra <span class="tag">SDG 11</span></h4>
-          <p>Maintenance teams need shortest safe path across zones.</p>
-        </div>
-
-        <h4 class="eff-title">Efficiency Analysis</h4>
-        <table class="eff-table">
-          <tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr>
-          <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
-          <tr><td>Heap</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
-          <tr><td>Graph</td><td>O(1)</td><td>O(E + VlogV)</td><td>O(1)</td><td>O(V+E)</td></tr>
-        </table>
-
-        <div class="actions">
-          <button class="btn" data-code="solar">View C++ Code</button>
-          <a class="btn ghost" target="_blank"
-             href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/solar_dataset.csv">
-             View Dataset
-          </a>
-        </div>
-
+    <!-- SOLAR MODULE (expanded) -->
+    <section id="solar" class="module">
+      <div class="module-head">
+        <h2>Solar Energy Management System</h2>
+        <p class="module-lead">Panel indexing, predictive maintenance, backup allocation and routing for service teams.</p>
       </div>
 
-      <aside class="module-side">
-        <strong>Tips</strong>
-        <p>Use rolling averages for sensor noise & route caching for known maintenance trips.</p>
-      </aside>
-    </div>
-  </section>
+      <div class="module-content">
+        <div class="module-left">
 
-</div>
+          <article class="subpoint">
+            <h3>Panel Lookup — Hash Table <span class="sdg">SDG 7</span></h3>
+            <p class="problem"><strong>Problem:</strong> Need instant retrieval of panel metadata for monitoring and repairs.</p>
+            <p class="why"><strong>Why Hash:</strong> O(1) access to panel by id for quick reads/writes to status and telemetry.</p>
+            <p class="how"><strong>How it solves:</strong> Each panel has an id mapped in a hash table to its meta+telemetry. Quick lookups support dashboards and alert routing. Combined with time-series DB for historic analytics.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=60" alt="panels">
+          </article>
 
-</div>
+          <article class="subpoint">
+            <h3>Backup Allocation — Max-Heap <span class="sdg">SDG 7</span></h3>
+            <p class="problem"><strong>Problem:</strong> Limited battery backups must be allocated to critical zones fast.</p>
+            <p class="why"><strong>Why Heap:</strong> Max-heap efficiently selects highest-priority zones by urgency/criticality score.</p>
+            <p class="how"><strong>How it solves:</strong> Compute a priority for each backup request; pop the highest-priority to allocate battery. Reinsert when usage finishes. Heap ensures O(log n) fairness and speed.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1581093458794-2c6f6dbf9e85?auto=format&fit=crop&w=900&q=60" alt="backup">
+          </article>
 
-<!-- Modal Code Popup -->
-<div id="modalBackdrop" class="modal-back">
-  <div class="modal">
-    <button class="close-btn" id="closeModal">✕</button>
-    <h3 id="modalTitle">C++ Code</h3>
-    <pre id="modalCode" class="code"></pre>
+          <article class="subpoint">
+            <h3>Maintenance Routing — Dijkstra <span class="sdg">SDG 11</span></h3>
+            <p class="problem"><strong>Problem:</strong> Route teams must take shortest safe path when multiple faults arise.</p>
+            <p class="why"><strong>Why Dijkstra:</strong> Shortest path on weighted graphs minimizes travel time considering traffic or road closures.</p>
+            <p class="how"><strong>How it solves:</strong> Graph nodes = panels/locations. Dijkstra finds quickest maintenance route for each crew, aggregated for multi-stop tours. Use heuristics to batch repairs for efficiency.</p>
+            <img class="subimage" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=900&q=60" alt="routing">
+          </article>
+
+          <h4 class="eff-heading">Efficiency Analysis (Solar)</h4>
+          <table class="eff-table">
+            <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>Heap</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph (Dijkstra)</td><td>O(1)</td><td>O(E + V log V)</td><td>O(1)</td><td>O(V+E)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="actions">
+            <button class="btn code-btn" data-module="solar">View C++ Code</button>
+            <a class="btn ghost" target="_blank" href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/pratiksha/datasets/solar_dataset.csv">Show dataset</a>
+          </div>
+
+        </div>
+
+        <aside class="module-right">
+          <div class="side-box">
+            <h4>Tips</h4>
+            <p>Use rolling averages for sensor smoothing. Cache frequent routes. Create emergency backup policies for critical zones.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>Samarthaka — Design & Analysis of Algorithms | 24ECSC205</div>
+        <div>&copy; Project Team</div>
+      </div>
+    </footer>
   </div>
-</div>
+
+  <!-- Code modal (C++ samples) -->
+  <div id="modalBackdrop" class="modal-back hidden">
+    <div class="modal">
+      <button id="closeModal" class="close-btn">✕</button>
+      <h3 id="modalTitle">C++ — sample</h3>
+      <pre id="modalCode" class="code-block" tabindex="0" aria-live="polite"></pre>
+    </div>
+  </div>
 
 </body>
 </html>
