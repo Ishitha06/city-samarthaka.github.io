@@ -1,228 +1,557 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pratiksha – Contributions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="p.css">
-    <script> href="p.js"</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pratiksha Chougule — Smart City Modules</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Primary stylesheet (if you have p.css keep it) -->
+  <link rel="stylesheet" href="p.css">
+
+  <style>
+    /* Inline fallback styles — uses your green theme */
+    :root{
+      --bg:#07120f;
+      --card:#0e2a23;
+      --accent:#1e8b5c;
+      --muted:#9fbfad;
+      --text:#dffaf0;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: "Playfair Display", serif;
+      background: linear-gradient(180deg,#03120e 0%, #07120f 100%);
+      color:var(--text);
+      margin:0;
+      padding:28px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{ max-width:1140px; margin:0 auto; }
+    header.page-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+    .brand{ font-family:"Cinzel", serif; color:var(--accent); font-weight:700; font-size:20px; letter-spacing:1px; }
+    .back-btn{ background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); padding:8px 12px; border-radius:6px; text-decoration:none; font-size:14px; }
+
+    .hero{ background:linear-gradient(180deg, rgba(30,139,92,0.06), rgba(255,255,255,0.01)); border-radius:8px; padding:18px 22px; margin-bottom:20px; }
+    .hero h1{ margin:0; color:var(--accent); font-size:24px; }
+    .hero p{ color:var(--muted); margin-top:8px; }
+
+    .mindmap-wrap{ background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)); border-radius:10px; padding:16px; margin-bottom:20px; }
+    .mindmap{ width:100%; height:220px; object-fit:cover; border-radius:8px; display:block; }
+
+    .module{ background:var(--card); border-radius:10px; padding:18px; margin-bottom:18px; box-shadow:0 10px 30px rgba(0,0,0,0.6); }
+    .module h2{ color:var(--accent); margin:0 0 6px 0; }
+    .module p.lead{ color:var(--muted); margin:0 0 12px 0; font-size:14px; }
+
+    .module-row{ display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start; }
+    .module-main{ padding-right:6px; }
+    .module-aside{ background:rgba(255,255,255,0.02); border-radius:8px; padding:12px; }
+
+    .subpoint{ margin-bottom:12px; }
+    .subpoint h4{ margin:2px 0; font-size:15px; }
+    .subpoint p{ margin:4px 0; color:var(--muted); font-size:13px; }
+
+    .meta-tag{ color:#bfe7d0; font-weight:700; font-size:12px; margin-left:8px; }
+
+    .table-eff{ width:100%; border-collapse:collapse; margin-top:10px; }
+    .table-eff th, .table-eff td{ padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.03); color:var(--muted); font-size:13px; text-align:left; }
+    .table-eff th{ color:var(--accent); font-weight:700; }
+
+    .actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ background:var(--accent); color:#042718; padding:10px 14px; border-radius:8px; border:none; text-decoration:none; font-weight:700; cursor:pointer; display:inline-block; }
+    .btn.ghost{ background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06); }
+
+    footer{ color:var(--muted); margin-top:30px; text-align:center; font-size:13px; }
+
+    /* Modal styles */
+    .modal-back{ position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none; align-items:center; justify-content:center; z-index:1500; padding:20px; }
+    .modal{ width:min(96%,1100px); max-height:88vh; overflow:auto; background:#07100e; border-radius:10px; padding:18px; position:relative; }
+    .modal h3{ color:var(--accent); margin:0 0 8px 0; }
+    pre.code{ background:#020705; color:#fff; padding:14px; border-radius:8px; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; font-size:13px; white-space:pre; overflow:auto; max-height:66vh; }
+    .modal .close-btn{ position:absolute; right:16px; top:12px; background:transparent; border:none; color:var(--muted); font-size:18px; cursor:pointer; }
+
+    @media (max-width:960px){
+      .module-row{ grid-template-columns:1fr; }
+      .mindmap{ height:160px; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <header class="page-head">
+      <div class="brand">SAMARTHAKA — Smart City Modules (Pratiksha)</div>
+      <div><a class="back-btn" href="../index.html#team">← Back to Team</a></div>
+    </header>
 
-<div class="page-wrapper">
+    <section class="hero">
+      <h1>Smart City — DSA Modules: Commercial, Healthcare, Education, Solar</h1>
+      <p class="lead">Each section: short problem statement, chosen DS/algorithm (why), two-line implementation note, efficiency analysis, code example & dataset link. Click "View C++ Code" to open the fixed code modal.</p>
+    </section>
 
-    <h1 class="page-title">PRATIKSHA CHOUGULE</h1>
-    <p class="subtitle">Detailed Contribution Breakdown</p>
-
-
-    <!-- -------------------------------------- -->
-    <!--                HEALTHCARE              -->
-    <!-- -------------------------------------- -->
-
-    <h2 class="section-heading">Healthcare</h2>
-
-    <div class="section-box">
-
-        <h3 class="sub-heading">Smart City Healthcare Management System</h3>
-
-        <p>
-            A smart-city healthcare management system designed for a population
-            of approximately 2.6 million. It uses syllabus-based data structures
-            like Hash Tables, Heaps, BFS, Graphs, and AVL Trees to ensure efficient
-            routing, patient search, emergency handling, and hospital directory management.
-        </p>
-
-        <span class="sdg-tag">SDGs: 3, 9, 11</span>
-
-        <div class="img-container">
-            <img src="placeholder-healthcare.jpg" alt="Healthcare System Placeholder">
-        </div>
-
-        <h4>Objectives</h4>
-        <ul>
-            <li>Fast access to patient medical records</li>
-            <li>Smart emergency handling with priority scheduling</li>
-            <li>Efficient ambulance routing using BFS</li>
-            <li>Scalable directory of hospitals with AVL Trees</li>
-        </ul>
-
-        <h4>System Modules & Data Structures</h4>
-        <table>
-            <tr><th>Module</th><th>Feature</th><th>Data Structure</th><th>Reason</th></tr>
-            <tr><td>Patient Management</td><td>Store/Search</td><td>Hash Table</td><td>O(1) average lookup</td></tr>
-            <tr><td>Emergency Handling</td><td>Critical cases first</td><td>Max Heap</td><td>Highest severity first</td></tr>
-            <tr><td>Ambulance Routing</td><td>Shortest path</td><td>Graph + BFS</td><td>Unweighted city roads</td></tr>
-            <tr><td>Facility Directory</td><td>Departments</td><td>AVL Tree</td><td>Self-balancing</td></tr>
-        </table>
-
-        <h4>Algorithms & Complexity</h4>
-        <table>
-            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
-            <tr><td>Record Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
-            <tr><td>Emergency Queue</td><td>Heap</td><td>O(log n)</td><td>O(n)</td></tr>
-            <tr><td>Ambulance Route</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
-        </table>
-
+    <!-- MAIN MINDMAP -->
+    <div class="mindmap-wrap">
+      <img class="mindmap" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=60" alt="mindmap">
+      <p style="color:var(--muted); margin:8px 0 0 0;">Central mindmap: how Commercial, Healthcare, Education and Solar modules interconnect — data flows, DS choices, and SDG mapping.</p>
     </div>
 
+    <!-- MODULE: COMMERCIAL -->
+    <section id="commercial" class="module">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <h2>Commercial Services</h2>
+          <p class="lead">Manage licensing, retail & hospitality, malls, restaurants, delivery & digital services with efficient DS/algorithms for high-performance queries and analytics.</p>
+        </div>
+        <div style="max-width:360px;">
+          <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1200&q=60" alt="commercial banner" style="width:100%; border-radius:8px;">
+        </div>
+      </div>
 
+      <div class="module-row" style="margin-top:14px;">
+        <div class="module-main">
+          <div class="subpoint">
+            <h4>Digital Licensing — Hash Table <span class="meta-tag">SDG 9</span></h4>
+            <p><strong>Problem:</strong> Permit lookups are frequent and must be fast. <br><strong>Implementation:</strong> Hash table keyed by license ID; chaining/open addressing as syllabus-friendly option; O(1) avg lookups.</p>
+          </div>
 
+          <div class="subpoint">
+            <h4>Hotels, Malls & Hospitality — Hash + AVL <span class="meta-tag">SDG 8</span></h4>
+            <p><strong>Problem:</strong> Need both quick lookup and sorted ranking by revenue. <br><strong>Implementation:</strong> Hash for instant lookup; AVL for sorted reports and top-k revenue queries.</p>
+          </div>
 
-    <!-- -------------------------------------- -->
-    <!--                EDUCATION               -->
-    <!-- -------------------------------------- -->
+          <div class="subpoint">
+            <h4>Restaurants & Delivery — Hash + Heap <span class="meta-tag">SDG 8,12</span></h4>
+            <p><strong>Problem:</strong> Surge ordering requires priority handling and quick vendor lookup. <br><strong>Implementation:</strong> Hash for menus/vendors; heap for priority deliveries; queue for FIFO orders.</p>
+          </div>
 
-    <h2 class="section-heading">Education</h2>
+          <h4 style="margin-top:10px; color:var(--accent);">Efficiency Analysis (Commercial)</h4>
+          <table class="table-eff">
+            <thead><tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table (licenses)</td><td>O(1) avg</td><td>O(1) avg</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>AVL Tree (reports)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+            </tbody>
+          </table>
 
-    <div class="section-box">
-
-        <h3 class="sub-heading">Smart City Education Management System</h3>
-
-        <p>
-            A digital education management system designed for students, schools, and
-            colleges across a population of 2.6 million residents. Built using syllabus-based
-            data structures like Hash Tables, Heaps, BFS, Graphs, and AVL Trees.
-        </p>
-
-        <span class="sdg-tag">SDGs: 4, 9, 11</span>
-
-        <div class="img-container">
-            <img src="placeholder-education.jpg" alt="Education System Placeholder">
+          <div class="actions">
+            <a class="btn" href="#" data-code="commercial">View C++ Code</a>
+            <a class="btn ghost" href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/commercial_dataset.csv" target="_blank">Show dataset</a>
+          </div>
         </div>
 
-        <h4>Objectives</h4>
-        <ul>
-            <li>Fast access to student data</li>
-            <li>Efficient routing between school zones</li>
-            <li>Scholarship ranking using heaps</li>
-            <li>Balanced course indexing with AVL Trees</li>
-        </ul>
+        <aside class="module-aside">
+          <strong>Recommendations</strong>
+          <p style="color:var(--muted); font-size:13px;">Add dynamic pricing ML models, caching for hot items and sharded hashmaps for city-scale operations. Include CCTV-based flow analytics for malls and markets.</p>
+        </aside>
+      </div>
+    </section>
 
-        <h4>Data Structures Used</h4>
-        <table>
-            <tr><th>Module</th><th>Purpose</th><th>Data Structure</th></tr>
-            <tr><td>Student Management</td><td>Store/Retrieve Records</td><td>Hash Table</td></tr>
-            <tr><td>Scholarship Ranking</td><td>Top candidate first</td><td>Max Heap</td></tr>
-            <tr><td>Zone Routing</td><td>Navigation</td><td>Graph + BFS</td></tr>
-            <tr><td>Course Indexing</td><td>Sorted curriculum</td><td>AVL Tree</td></tr>
-        </table>
+    <!-- MODULE: HEALTHCARE -->
+    <section id="healthcare" class="module">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <h2>Healthcare System</h2>
+          <p class="lead">Patient lookup, triage prioritization, ambulance routing and facility indexing for faster emergency response and better allocation.</p>
+        </div>
+        <div style="max-width:360px;">
+          <img src="https://images.unsplash.com/photo-1582719478250-0b88d55a3c2b?auto=format&fit=crop&w=1200&q=60" alt="healthcare banner" style="width:100%; border-radius:8px;">
+        </div>
+      </div>
 
-        <h4>Algorithm Complexities</h4>
-        <table>
-            <tr><th>Operation</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
-            <tr><td>Student Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
-            <tr><td>Scholarship Allocation</td><td>Heap</td><td>O(log n)</td><td>O(n)</td></tr>
-            <tr><td>Route Planning</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
-            <tr><td>Course Operations</td><td>AVL</td><td>O(log n)</td><td>O(n)</td></tr>
-        </table>
+      <div class="module-row" style="margin-top:14px;">
+        <div class="module-main">
+          <div class="subpoint">
+            <h4>Patient Records — Hash Table <span class="meta-tag">SDG 3</span></h4>
+            <p><strong>Problem:</strong> Emergency care needs instant access to history. <br><strong>Implementation:</strong> Hash keyed by patient ID with ACLs; O(1) average lookup and updates.</p>
+          </div>
 
-    </div>
+          <div class="subpoint">
+            <h4>Emergency Triage — Max-Heap <span class="meta-tag">SDG 3</span></h4>
+            <p><strong>Problem:</strong> Prioritizing severe patients during surges. <br><strong>Implementation:</strong> Max-heap keyed by severity (tie-break by arrival); pop top for allocation in O(log n).</p>
+          </div>
 
+          <div class="subpoint">
+            <h4>Ambulance Routing — Dijkstra / Graph <span class="meta-tag">SDG 11</span></h4>
+            <p><strong>Problem:</strong> Weighted travel times and dynamic traffic. <br><strong>Implementation:</strong> Weighted graph with Dijkstra/A*; precompute critical hub routes for speed.</p>
+          </div>
 
+          <h4 style="margin-top:10px; color:var(--accent);">Efficiency Analysis (Healthcare)</h4>
+          <table class="table-eff">
+            <thead><tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table (records)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>Heap (triage)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph (routing)</td><td>O(1) add</td><td>O(E + V log V)</td><td>O(1)/O(E)</td><td>O(V+E)</td></tr>
+            </tbody>
+          </table>
 
-
-    <!-- -------------------------------------- -->
-    <!--               SOLAR ENERGY             -->
-    <!-- -------------------------------------- -->
-
-    <h2 class="section-heading">Solar Energy</h2>
-
-    <div class="section-box">
-
-        <h3 class="sub-heading">Smart City Solar Energy Management System</h3>
-
-        <p>
-            A solar energy distribution and monitoring system designed for a smart city.
-            It handles solar panel data, backup power priority, maintenance routing, and
-            energy site indexing using purely syllabus-based data structures.
-        </p>
-
-        <span class="sdg-tag">SDGs: 7, 9, 11, 13</span>
-
-        <div class="img-container">
-            <img src="placeholder-solar.jpg" alt="Solar Energy Placeholder">
+          <div class="actions">
+            <a class="btn" href="#" data-code="healthcare">View C++ Code</a>
+            <a class="btn ghost" href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/healthcare_dataset.csv" target="_blank">Show dataset</a>
+          </div>
         </div>
 
-        <h4>Modules & Data Structures</h4>
-        <table>
-            <tr><th>Module</th><th>Task</th><th>Data Structure</th></tr>
-            <tr><td>Solar Panel Mgmt</td><td>Store panel info</td><td>Hash Table</td></tr>
-            <tr><td>Backup Priority</td><td>Allocate power</td><td>Max Heap</td></tr>
-            <tr><td>Maintenance Routing</td><td>Shortest path</td><td>Graph + BFS</td></tr>
-            <tr><td>Power Site Index</td><td>Sorted output</td><td>AVL Tree</td></tr>
-        </table>
+        <aside class="module-aside">
+          <strong>Notes</strong>
+          <p style="color:var(--muted); font-size:13px;">Use encryption for identifiers and ephemeral tokens for access. Consider regional triage queues to reduce central contention.</p>
+        </aside>
+      </div>
+    </section>
 
-        <h4>Algorithm Complexity</h4>
-        <table>
-            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
-            <tr><td>Panel Lookup</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
-            <tr><td>Backup Priority</td><td>Heap Ops</td><td>O(log n)</td><td>O(n)</td></tr>
-            <tr><td>Routing</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
-            <tr><td>AVL Ops</td><td>Rotations</td><td>O(log n)</td><td>O(n)</td></tr>
-        </table>
+    <!-- MODULE: EDUCATION -->
+    <section id="education" class="module">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <h2>Education System</h2>
+          <p class="lead">Student records, scholarship selection, course indexing and transport routing for improved learning outcomes and resource allocation.</p>
+        </div>
+        <div style="max-width:360px;">
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=60" alt="education banner" style="width:100%; border-radius:8px;">
+        </div>
+      </div>
 
-    </div>
+      <div class="module-row" style="margin-top:14px;">
+        <div class="module-main">
+          <div class="subpoint">
+            <h4>Student Records — Hash Table <span class="meta-tag">SDG 4</span></h4>
+            <p><strong>Problem:</strong> Fast enrollment and rollbacks. <br><strong>Implementation:</strong> Hash by student id for O(1) access; use rehash when load factor increases.</p>
+          </div>
 
+          <div class="subpoint">
+            <h4>Scholarship Top-k — AVL / Balanced BST <span class="meta-tag">SDG 4</span></h4>
+            <p><strong>Problem:</strong> Frequent top-k queries for awards. <br><strong>Implementation:</strong> Maintain balanced BST to allow O(log n) updates and fast top-k extraction.</p>
+          </div>
 
+          <div class="subpoint">
+            <h4>Timetable Scheduling — Graph Coloring (Greedy) <span class="meta-tag">SDG 4</span></h4>
+            <p><strong>Problem:</strong> Room/time conflicts with constraints. <br><strong>Implementation:</strong> Conflict graph; greedy coloring heuristic for feasible timetable generation.</p>
+          </div>
 
-    <!-- -------------------------------------- -->
-    <!--          COMMERCIAL SERVICES           -->
-    <!-- -------------------------------------- -->
+          <h4 style="margin-top:10px; color:var(--accent);">Efficiency Analysis (Education)</h4>
+          <table class="table-eff">
+            <thead><tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table (students)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>AVL Tree (top-k)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph coloring</td><td>—</td><td>O(n+e)</td><td>—</td><td>O(n+e)</td></tr>
+            </tbody>
+          </table>
 
-    <h2 class="section-heading">Commercial Services</h2>
-
-    <div class="section-box">
-
-        <h3 class="sub-heading">Commercial Services Management System</h3>
-
-        <p>
-            The Commercial Services Management System is a core module of the Smart City
-            infrastructure for a 2.6 million population. It manages business licensing,
-            tourism, ticketing, navigation, and revenue analytics using only syllabus-based
-            data structures.
-        </p>
-
-        <span class="sdg-tag">SDGs: 8, 9, 11</span>
-
-        <div class="img-container">
-            <img src="placeholder-commercial.jpg" alt="Commercial System Placeholder">
+          <div class="actions">
+            <a class="btn" href="#" data-code="education">View C++ Code</a>
+            <a class="btn ghost" href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/education_dataset.csv" target="_blank">Show dataset</a>
+          </div>
         </div>
 
-        <h4>Objectives</h4>
-        <ul>
-            <li>Generate sustainable revenue</li>
-            <li>Provide business permits digitally</li>
-            <li>Smart ticket booking system</li>
-            <li>Navigation support for commercial hubs</li>
-            <li>Promote tourism & local culture</li>
-        </ul>
+        <aside class="module-aside">
+          <strong>Recommendations</strong>
+          <p style="color:var(--muted); font-size:13px;">Add dashboards for teachers; use external indices for large historical records and caching for hot-year queries.</p>
+        </aside>
+      </div>
+    </section>
 
-        <h4>Data Structures</h4>
-        <table>
-            <tr><th>Component</th><th>Data Structure</th><th>Justification</th></tr>
-            <tr><td>Business Records</td><td>Hash Table</td><td>Quick search/update</td></tr>
-            <tr><td>Profit Ranking</td><td>AVL Tree</td><td>Sorted analytics</td></tr>
-            <tr><td>Event Scheduling</td><td>Doubly Linked List</td><td>Flexible insertion</td></tr>
-            <tr><td>Ticket Queue</td><td>Queue</td><td>Fair service order</td></tr>
-            <tr><td>Navigation</td><td>Graph + BFS</td><td>Efficient routing</td></tr>
-            <tr><td>Vendor Approval</td><td>Priority Queue</td><td>Most important first</td></tr>
-        </table>
+    <!-- MODULE: SOLAR -->
+    <section id="solar" class="module">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <h2>Solar Energy System</h2>
+          <p class="lead">Panel indexing, backup allocation and maintenance routing to keep the microgrids healthy and resilient.</p>
+        </div>
+        <div style="max-width:360px;">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=60" alt="solar banner" style="width:100%; border-radius:8px;">
+        </div>
+      </div>
 
-        <h4>Algorithms</h4>
-        <table>
-            <tr><th>Feature</th><th>Algorithm</th><th>Time</th><th>Space</th></tr>
-            <tr><td>Business Search</td><td>Hashing</td><td>O(1)</td><td>O(n)</td></tr>
-            <tr><td>Path Finding</td><td>BFS</td><td>O(V+E)</td><td>O(V)</td></tr>
-            <tr><td>Priority Processing</td><td>Heap Ops</td><td>O(log n)</td><td>O(n)</td></tr>
-            <tr><td>Revenue Reports</td><td>AVL Ops</td><td>O(log n)</td><td>O(n)</td></tr>
-        </table>
+      <div class="module-row" style="margin-top:14px;">
+        <div class="module-main">
+          <div class="subpoint">
+            <h4>Panel Lookup — Hash Table <span class="meta-tag">SDG 7</span></h4>
+            <p><strong>Problem:</strong> Quickly find flagged panels for service. <br><strong>Implementation:</strong> Hash by panel id; O(1) updates and quick status checks; include TTL for old telemetry.</p>
+          </div>
 
+          <div class="subpoint">
+            <h4>Backup Allocation — Max-Heap <span class="meta-tag">SDG 7</span></h4>
+            <p><strong>Problem:</strong> Decide which critical sites get battery backup. <br><strong>Implementation:</strong> Heap keyed by priority; pop highest-priority zones for allocation in O(log n).</p>
+          </div>
+
+          <div class="subpoint">
+            <h4>Maintenance Routing — Graph + Dijkstra <span class="meta-tag">SDG 11</span></h4>
+            <p><strong>Problem:</strong> Optimize crew routes to reduce travel time. <br><strong>Implementation:</strong> Use graph shortest-path algorithms (Dijkstra/A*) with live weights for time estimates.</p>
+          </div>
+
+          <h4 style="margin-top:10px; color:var(--accent);">Efficiency Analysis (Solar)</h4>
+          <table class="table-eff">
+            <thead><tr><th>Structure</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
+            <tbody>
+              <tr><td>Hash Table (panels)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>Heap (backup)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph (routing)</td><td>O(1)</td><td>O(E + V log V)</td><td>O(1)</td><td>O(V+E)</td></tr>
+            </tbody>
+          </table>
+
+          <div class="actions">
+            <a class="btn" href="#" data-code="solar">View C++ Code</a>
+            <a class="btn ghost" href="https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/solar_dataset.csv" target="_blank">Show dataset</a>
+          </div>
+        </div>
+
+        <aside class="module-aside">
+          <strong>Edge cases</strong>
+          <p style="color:var(--muted); font-size:13px;">Sensor jitter should be smoothed; use rolling averages and time-based thresholds to prevent false alarms. Shard regional data for scale.</p>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <p>Pratiksha Chougule — Smart City Modules | DSA Project</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.12)">This page expects datasets in <code>pratiksha/datasets/</code> and uses raw GitHub links for direct access.</p>
+    </footer>
+  </div>
+
+  <!-- CODE MODAL -->
+  <div id="modalBackdrop" class="modal-back" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" id="closeModal" aria-label="Close">✕</button>
+      <h3 id="modalTitle">C++ Code</h3>
+      <pre id="modalCode" class="code" tabindex="0">// code will load here</pre>
     </div>
+  </div>
 
-    <a href="../index.html" class="back-btn">← Back to Team</a>
+  <!-- Inline JS: code samples (stored as strings), modal logic and safety -->
+  <script>
+    (function(){
+      // RAW dataset base (use your username & repo)
+      const RAW_BASE = "https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/";
 
-</div>
+      // C++ code samples stored as strings (syllabus-friendly, read CSV from RAW URLs; for local tests, replace with local path)
+      const CODE = {
+        commercial:
+`/* commercial_reader.cpp
+Reads: commercial_dataset.csv
+Simple top-5 by revenue selection (syllabus-friendly)
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
 
+struct Biz { string id,name,category,location,status; double revenue; };
+const int MAXB = 2000;
+
+int splitLine(const string &s, string parts[], int maxp){
+  int p=0; string cur=\"\";
+  for(size_t i=0;i<s.size();++i){
+    if (s[i]==','){ if (p<maxp) parts[p++]=cur; cur=\"\"; } else cur.push_back(s[i]);
+  }
+  if (!cur.empty() && p<maxp) parts[p++]=cur;
+  return p;
+}
+
+int main(){
+  ifstream fin(\"` + RAW_BASE + `commercial_dataset.csv\");
+  if (!fin){ cout<<\"Cannot open commercial_dataset.csv\\n\"; return 1; }
+  string line; getline(fin,line); // header
+  Biz arr[MAXB]; int n=0;
+  while (getline(fin,line) && n < MAXB){
+    string p[8]; int pc = splitLine(line,p,8);
+    if (pc>=7){
+      arr[n].id=p[0]; arr[n].name=p[1]; arr[n].category=p[2];
+      arr[n].revenue = atof(p[3].c_str()); arr[n].location=p[4]; arr[n].status=p[5]; ++n;
+    }
+  }
+  fin.close();
+
+  // simplistic selection sort for top-5 (teaches simple algo)
+  for (int i=0;i<n && i<5;i++){
+    int best=i;
+    for (int j=i+1;j<n;j++) if (arr[j].revenue > arr[best].revenue) best=j;
+    Biz tmp = arr[i]; arr[i]=arr[best]; arr[best]=tmp;
+  }
+
+  cout<<\"Top businesses by revenue:\\n\";
+  for (int i=0;i<n && i<5;i++){
+    cout<<arr[i].id<<\" | \"<<arr[i].name<<\" | \"<<arr[i].category<<\" | \"<<arr[i].revenue<<\"\\n\";
+  }
+  return 0;
+}
+`,
+
+        healthcare:
+`/* health_reader.cpp
+Reads: healthcare_dataset.csv
+Prints top severity patients (syllabus-friendly)
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct Patient{ string id, name, zone; int sev; string status; };
+const int MAXP = 2000;
+
+int splitLine(const string &s, string parts[], int maxp){
+  int p=0; string cur=\"\";
+  for(size_t i=0;i<s.size();++i){
+    if (s[i]==','){ if (p<maxp) parts[p++]=cur; cur=\"\"; } else cur.push_back(s[i]);
+  }
+  if(!cur.empty() && p<maxp) parts[p++]=cur;
+  return p;
+}
+
+int main(){
+  ifstream fin(\"` + RAW_BASE + `healthcare_dataset.csv\");
+  if(!fin){ cout<<\"Cannot open healthcare_dataset.csv\\n\"; return 1; }
+  string line; getline(fin,line);
+  Patient A[MAXP]; int n=0;
+  while(getline(fin,line) && n<MAXP){
+    string p[8]; int c = splitLine(line,p,8);
+    if (c>=8){ A[n].id=p[0]; A[n].name=p[1]; A[n].sev = atoi(p[3].c_str()); A[n].zone = p[6]; A[n].status = p[7]; ++n; }
+  }
+  fin.close();
+
+  cout<<\"High severity patients:\\n\";
+  for (int s=5;s>=1;--s){
+    for (int i=0;i<n;i++){
+      if (A[i].sev==s) cout<<A[i].id<<\" | \"<<A[i].name<<\" | sev=\"<<A[i].sev<<\" | \"<<A[i].zone<<\"\\n\";
+    }
+  }
+  return 0;
+}
+`,
+
+        education:
+`/* education_reader.cpp
+Reads: education_dataset.csv
+Simple top-5 by score (syllabus-friendly)
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct Cand{ string id,name,course,zone; int score; };
+const int MAXC=2000; Cand A[MAXC];
+
+int splitLine(const string &s, string parts[], int maxp){
+  int p=0; string cur=\"\";
+  for(size_t i=0;i<s.size();++i){
+    if (s[i]==','){ if(p<maxp) parts[p++]=cur; cur=\"\"; } else cur.push_back(s[i]);
+  }
+  if(!cur.empty() && p<maxp) parts[p++]=cur;
+  return p;
+}
+
+int main(){
+  ifstream fin(\"` + RAW_BASE + `education_dataset.csv\");
+  if(!fin){ cout<<\"Cannot open education_dataset.csv\\n\"; return 1; }
+  string line; getline(fin,line);
+  int aN=0;
+  while(getline(fin,line) && aN < MAXC){
+    string p[8]; int c = splitLine(line,p,8);
+    if (c>=7){ A[aN].id=p[0]; A[aN].name=p[1]; A[aN].score = atoi(p[2].c_str()); A[aN].course = p[3]; ++aN; }
+  }
+  fin.close();
+
+  // selection for top-5 (teaches simple algorithms)
+  for (int i=0;i<aN && i<5;i++){
+    int best=i; for (int j=i+1;j<aN;j++) if (A[j].score > A[best].score) best=j;
+    Cand tmp = A[i]; A[i]=A[best]; A[best]=tmp;
+  }
+
+  cout<<\"Top students:\\n\";
+  for (int i=0;i<aN && i<5;i++) cout<<A[i].id<<\" | \"<<A[i].name<<\" | score=\"<<A[i].score<<\"\\n\";
+  return 0;
+}
+`,
+
+        solar:
+`/* solar_reader.cpp
+Reads: solar_dataset.csv
+Finds top priority active panels (syllabus-friendly)
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct Panel{ string id, loc, status; double out; int pr; int last; };
+const int MAXP=2000; Panel P[MAXP];
+
+int splitLine(const string &s, string parts[], int maxp){
+  int p=0; string cur=\"\";
+  for(size_t i=0;i<s.size();++i){
+    if (s[i]==','){ if (p<maxp) parts[p++]=cur; cur=\"\"; } else cur.push_back(s[i]);
+  }
+  if(!cur.empty() && p<maxp) parts[p++]=cur;
+  return p;
+}
+
+int main(){
+  ifstream fin(\"` + RAW_BASE + `solar_dataset.csv\");
+  if(!fin){ cout<<\"Cannot open solar_dataset.csv\\n\"; return 1; }
+  string line; getline(fin,line);
+  int n=0;
+  while(getline(fin,line) && n<MAXP){
+    string p[8]; int c = splitLine(line,p,8);
+    if (c>=6){ P[n].id=p[0]; P[n].loc=p[1]; P[n].status=p[2]; P[n].out = atof(p[3].c_str()); P[n].pr = atoi(p[4].c_str()); ++n; }
+  }
+  fin.close();
+
+  cout<<\"Top priority active panels:\\n\";
+  int printed=0;
+  for (int pr=100; pr>=0 && printed<5; --pr){
+    for (int i=0;i<n && printed<5;i++){
+      if (P[i].pr==pr && P[i].status==\"Active\"){ cout<<P[i].id<<\" \"<<P[i].loc<<\" out=\"<<P[i].out<<\" pr=\"<<P[i].pr<<\"\\n\"; printed++; }
+    }
+  }
+  return 0;
+}
+`
+      };
+
+      // Modal elements
+      const backdrop = document.getElementById('modalBackdrop');
+      const modalCode = document.getElementById('modalCode');
+      const modalTitle = document.getElementById('modalTitle');
+      const closeBtn = document.getElementById('closeModal');
+
+      // open modal with codeKind
+      function openCode(kind){
+        modalTitle.textContent = "C++ — " + kind.charAt(0).toUpperCase() + kind.slice(1);
+        modalCode.textContent = CODE[kind] || CODE['commercial'];
+        backdrop.style.display = 'flex';
+        backdrop.setAttribute('aria-hidden','false');
+        // focus for keyboard scroll
+        modalCode.focus();
+      }
+
+      // close handler
+      function closeModal(){ backdrop.style.display='none'; backdrop.setAttribute('aria-hidden','true'); modalCode.textContent=''; }
+
+      // click delegation for buttons with data-code
+      document.addEventListener('click', function(e){
+        const btn = e.target.closest('[data-code]');
+        if (btn){
+          e.preventDefault();
+          const codeKind = btn.getAttribute('data-code');
+          openCode(codeKind);
+          return;
+        }
+        if (e.target === closeBtn || e.target === backdrop) closeModal();
+      });
+
+      // close on ESC
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closeModal();
+      });
+
+    })();
+  </script>
 </body>
 </html>
