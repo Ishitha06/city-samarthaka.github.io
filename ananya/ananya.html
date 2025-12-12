@@ -76,6 +76,14 @@
                     onclick="toggleZoningCode()">
                 Code
             </button>
+            <button type="button" class="btn btn-success" 
+            onclick="window.location.href='https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/land_housing_zoning_with_status%20(1).csv';">
+        Dataset
+    </button>
+    
+        
+            
+
 
             <div id="zoning-code-block" style="display:none; margin-top:20px;">
 
@@ -83,7 +91,6 @@
                 <pre><code>#include &lt;iostream&gt;
 using namespace std;
 
-// check if plots u and v are in same zoning block
 int unionfind(int arr[], int u, int v) {
     if (arr[u] == arr[v])
         return 1;
@@ -95,66 +102,55 @@ int unionfind(int arr[], int u, int v) {
 void unionn(int arr[], int n, int u, int v) {
     int old_id = arr[u];
     int new_id = arr[v];
-    for (int i = 0; i &lt; n; i++) {
+    if (old_id == new_id) return;          // no work needed
+
+    for (int i = 0; i < n; i++) {
         if (arr[i] == old_id)
             arr[i] = new_id;
     }
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n, m, q;
-    cin &gt;&gt; n;                 // number of plots
+    cin >> n;                  // number of plots (e.g. up to 5000)
     int *arr = new int[n];
 
-    for (int i = 0; i &lt; n; i++)
+    // initially, each plot is its own zoning block
+    for (int i = 0; i < n; i++)
         arr[i] = i;
 
-    cin &gt;&gt; m;                 // number of unions
+    cin >> m;                  // number of unions
     while (m--) {
         int u, v;
-        cin &gt;&gt; u &gt;&gt; v;
-        unionn(arr, n, u, v);
+        cin >> u >> v;         // 0-based plot indices
+        if (u >= 0 && u < n && v >= 0 && v < n)
+            unionn(arr, n, u, v);
     }
 
-    cin &gt;&gt; q;                 // number of queries
+    cin >> q;                  // number of queries
     while (q--) {
         int u, v;
-        cin &gt;&gt; u &gt;&gt; v;
-        if (unionfind(arr, u, v))
-            cout &lt;&lt; "Same zoning block\n";
-        else
-            cout &lt;&lt; "Different zoning blocks\n";
+        cin >> u >> v;
+        if (u >= 0 && u < n && v >= 0 && v < n) {
+            if (unionfind(arr, u, v))
+                cout << "Same zoning block\n";
+            else
+                cout << "Different zoning blocks\n";
+        } else {
+            cout << "Invalid plot index\n";
+        }
     }
 
     delete[] arr;
     return 0;
-}</code></pre>
+}
+​
 
-                <h4>Sample Input</h4>
-                <pre><code>12
-7
-0 1
-1 2
-2 3
-4 5
-5 6
-7 8
-8 9
-6
-0 3
-0 4
-4 6
-7 9
-3 10
-10 11</code></pre>
+</code></pre>
 
-                <h4>Expected Output</h4>
-                <pre><code>Same zoning block
-Different zoning blocks
-Same zoning block
-Same zoning block
-Different zoning blocks
-Different zoning blocks</code></pre>
 
             </div>
         </div>  <!-- close zoning content-box -->
@@ -178,7 +174,7 @@ Different zoning blocks</code></pre>
         To support fast queries and easy evolution of the rules, all these bands sit inside the balanced Red‑Black
         tree rather than in ad‑hoc if‑else blocks. The tree automatically maintains its height as bands are inserted
         or updated, so lookups continue to run in <code>O(log n)</code> time even when hundreds of base rules and
-        overlays exist.[web:226][web:232] Once the correct node is found, the value at that node directly exposes the
+        overlays exist. Once the correct node is found, the value at that node directly exposes the
         permitted FAR, maximum height and setback distances; the checking step only has to compare the proposal’s
         numbers against these limits to decide whether it is compliant.
     </p>
@@ -188,7 +184,7 @@ Different zoning blocks</code></pre>
         is introduced and a higher‑FAR transit‑oriented development band is needed along a defined corridor, that band
         is simply added as a new key in the Red‑Black tree without touching the evaluation pipeline.
         Likewise, if eco‑sensitive edges need stricter caps, their corresponding keys are tightened in place and all
-        future proposals automatically see the updated limits.[web:227][web:233]
+        future proposals automatically see the updated limits.
     </p>
 
     <p>
@@ -214,96 +210,185 @@ Different zoning blocks</code></pre>
     <button type="button" 
     class="btn btn-success"
     onclick="toggleDcrCode()">
-Code
+ Code
 </button>
+
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/housing_development_bands_part1.csv"
+   target="_blank">
+  Dataset
+</a>
+
+
+
 
 <div id="dcr-code-block" style="display:none; margin-top:20px;">
 
 <h4>C++ Logic used</h4>
 <pre><code>#include &lt;iostream&gt;
-#include &lt;map&gt;
-#include &lt;tuple&gt;
-using namespace std;
-
-// composite key: (zone, roadWidthBand, plotSizeBand)
-typedef tuple&lt;string,string,string&gt; Key;
-
-// regulation band: FAR, maxHeight(m), minOpenSpace(%)
-struct Band {
-double far;
-int maxHeight;
-int minOpenSpace;
-};
-
-int main() {
-map&lt;Key, Band&gt; regs;  // Red-Black tree map
-
-int n;
-cin &gt;&gt; n;  // number of regulation bands
-
-// each band: zone roadBand plotBand FAR maxHeight minOpenSpace
-for (int i = 0; i &lt; n; i++) {
-    string zone, roadBand, plotBand;
-    double far;
-    int maxH, minOS;
-    cin &gt;&gt; zone &gt;&gt; roadBand &gt;&gt; plotBand &gt;&gt; far &gt;&gt; maxH &gt;&gt; minOS;
-    Key k = make_tuple(zone, roadBand, plotBand);
-    regs[k] = { far, maxH, minOS };
-}
-
-int q;
-cin &gt;&gt; q;  // number of proposals
-
-// each proposal: zone roadBand plotBand proposedFAR proposedHeight proposedOpenSpace
-while (q--) {
-    string zone, roadBand, plotBand;
-    double proposedFar;
-    int proposedHeight, proposedOpenSpace;
-
-    cin &gt;&gt; zone &gt;&gt; roadBand &gt;&gt; plotBand
-        &gt;&gt; proposedFar &gt;&gt; proposedHeight &gt;&gt; proposedOpenSpace;
-
-    Key k = make_tuple(zone, roadBand, plotBand);
-    auto it = regs.find(k);
-
-    if (it == regs.end()) {
-        cout &lt;&lt; "No regulation band defined for this combination\n";
-        continue;
+    #include <bits/stdc++.h>
+    using namespace std;
+    
+    // ---------- Red‑Black tree key & value ----------
+    
+    struct BandKey {
+        string zone;
+        int road_width_m;   // here derived from max_height_m just for demo
+        int plot_band_id;
+    
+        bool operator<(const BandKey &o) const {
+            if (zone != o.zone) return zone < o.zone;
+            if (road_width_m != o.road_width_m) return road_width_m < o.road_width_m;
+            return plot_band_id < o.plot_band_id;
+        }
+    };
+    
+    struct RegBand {
+        double max_far;
+        double max_height_m;
+    };
+    
+    // ---------- Proposals ----------
+    
+    struct Proposal {
+        string zone;
+        double road_width_m;
+        double plot_area_sqm;
+        double proposed_far;
+        double proposed_height_m;
+    };
+    
+    // ---------- Globals ----------
+    
+    map<BandKey, RegBand> bandTree;
+    
+    // ---------- Helpers ----------
+    
+    int plot_band(double a) {
+        if (a < 60.0)   return 1;
+        if (a < 120.0)  return 2;
+        if (a < 240.0)  return 3;
+        if (a < 480.0)  return 4;
+        return 5;
     }
-
-    Band rule = it-&gt;second;
-
-    bool ok = true;
-    if (proposedFar &gt; rule.far)                ok = false;
-    if (proposedHeight &gt; rule.maxHeight)       ok = false;
-    if (proposedOpenSpace &lt; rule.minOpenSpace) ok = false;
-
-    if (ok)
-        cout &lt;&lt; "Proposal COMPLIES with DCR\n";
-    else
-        cout &lt;&lt; "Proposal VIOLATES DCR\n";
-}
-
-return 0;
-}</code></pre>
-
-<h4>Sample Input</h4>
-<pre><code>4
-R 9m-12m 60-120 1.8 18 20
-R 12m-18m 120-240 2.5 24 18
-C 18m-24m 120-240 3.5 30 15
-C 24m-plus 240-plus 4.0 36 12
-4
-R 9m-12m 60-120 1.6 16 22
-R 12m-18m 120-240 2.8 24 20
-C 18m-24m 120-240 3.2 30 15
-C 24m-plus 240-plus 3.8 40 10</code></pre>
-
-<h4>Expected Output</h4>
-<pre><code>Proposal COMPLIES with DCR
-Proposal VIOLATES DCR
-Proposal COMPLIES with DCR
-Proposal VIOLATES DCR</code></pre>
+    
+    int round_road(double w) {
+        return static_cast<int>(round(w));
+    }
+    
+    vector<string> split_csv(const string &line) {
+        vector<string> out;
+        string cur;
+        bool in_quotes = false;
+        for (char c : line) {
+            if (c == '"') {
+                in_quotes = !in_quotes;
+            } else if (c == ',' && !in_quotes) {
+                out.push_back(cur);
+                cur.clear();
+            } else {
+                cur.push_back(c);
+            }
+        }
+        out.push_back(cur);
+        return out;
+    }
+    
+    // ---------- Load bands from CSV ----------
+    
+    void load_bands_from_csv(const string &filename) {
+        ifstream fin(filename);
+        if (!fin.is_open()) {
+            cerr << "Cannot open file: " << filename << "\n";
+            exit(1);
+        }
+    
+        string line;
+        // header
+        if (!getline(fin, line)) {
+            cerr << "Empty file\n";
+            exit(1);
+        }
+    
+        while (getline(fin, line)) {
+            if (line.empty()) continue;
+            auto cols = split_csv(line);
+            if (cols.size() < 7) continue; // sanity
+    
+            string zone_code    = cols[1];
+            double plot_area    = stod(cols[4]);
+            double max_far      = stod(cols[5]);
+            double max_height_m = stod(cols[6]);
+    
+            int pb  = plot_band(plot_area);
+            int rw  = round_road(max_height_m);   // placeholder for road width
+    
+            BandKey key{zone_code, rw, pb};
+            RegBand rb{max_far, max_height_m};
+    
+            // insert / update band
+            bandTree[key] = rb;
+        }
+    
+        fin.close();
+    }
+    
+    // ---------- Evaluate a proposal ----------
+    
+    bool evaluate(const Proposal &p, string &reason) {
+        BandKey k{p.zone, round_road(p.road_width_m), plot_band(p.plot_area_sqm)};
+        auto it = bandTree.find(k);
+        if (it == bandTree.end()) {
+            reason = "no matching band";
+            return false;
+        }
+        const RegBand &rb = it->second;
+    
+        if (p.proposed_far > rb.max_far) {
+            reason = "FAR exceeds " + to_string(rb.max_far);
+            return false;
+        }
+        if (p.proposed_height_m > rb.max_height_m) {
+            reason = "height exceeds " + to_string(rb.max_height_m);
+            return false;
+        }
+        reason = "OK";
+        return true;
+    }
+    
+    // ---------- Main demo ----------
+    
+    int main() {
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+    
+        // change to your actual CSV name
+        string filename = "land_housing_zoning_with_status.csv";
+        load_bands_from_csv(filename);
+    
+        cout << "Loaded " << bandTree.size() << " bands into RB‑tree\n";
+    
+        // two sample proposals using real‑ish values
+        Proposal p1{
+            "RZ_RES_LOW", 17.0, 110.0, 1.8, 16.0
+        };
+        Proposal p2{
+            "RZ_RES_LOW", 17.0, 110.0, 3.0, 25.0
+        };
+    
+        for (int i = 0; i < 2; ++i) {
+            Proposal p = (i == 0 ? p1 : p2);
+            string reason;
+            bool ok = evaluate(p, reason);
+            cout << "Proposal " << (i + 1) << ": "
+                 << (ok ? "APPROVED: " : "REJECTED: ")
+                 << reason << "\n";
+        }
+    
+        return 0;
+    }
+    
+</pre></code>
 
 </div>
 </div> 
