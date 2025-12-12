@@ -4,1174 +4,1294 @@
     <meta charset="UTF-8">
     <title>Ananya – Contributions</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="an.css"> <!-- your updated css file -->
-    
+    <link rel="stylesheet" href="an.css">
 </head>
 
 <body>
+<div class="page-wrapper">
 
-    <div class="page-wrapper">
+    <h1 class="page-title">Ananya Kulkarni</h1>
+    <p class="subtitle">Detailed Contribution Breakdown</p>
 
-        <h1 class="page-title">ISHITHA S</h1>
-        <p class="subtitle">Detailed Contribution Breakdown</p>
+    <!-- =====================================================
+         BLOCK 1: LAND & HOUSING
+    ====================================================== -->
+    <h2 class="section-heading">Land & Housing</h2>
 
-        <h2 class="section-heading">Infrastructure</h2>
+    <div class="content-box-container">
 
-        <div class="content-box-container">
-
-            <div class="content-box">
-            <h3>Automated power grid monitoring & control</h3>
-            <div class="rule"></div>
-
-            <p>An automated power grid monitoring and control system is a smart infrastructure solution that continuously observes the flow of electricity across the grid and takes automatic actions to maintain stability. It uses sensors, communication networks, and intelligent algorithms to detect faults, balance loads, and optimize energy distribution. Instead of relying on manual checks, the system responds instantly to changes in voltage, current, frequency, or equipment health. <br></p>
-
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>Primary: 7 (7.1,7.2,7.3) <br> Secondary: 9,11,13</p>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-            <br>
-            <br>
-            <img src="Infrastructure/powerGrid-flow.png" class="sequence">
-
-            <p><b>Power Source Selection:</b> To dynamically select the most efficient or cost-effective power source available. This could be the Solar Plant during a sunny day, or a traditional power plant when demand is high. <br> <br>
-
-            <b>The Algorithm:</b> A <b>Max-Heap</b> data structure is used to maintain a prioritized list of available power sources. The source at the "top" of the heap is always the best current option, allowing for instant selection.</p>
-            <br>
-
-            <div class="image-box">
-
-              <img src="Infrastructure/max-heap.png" class="image">
-
-               <div class="efficiency-box">
-                Efficiency
-               </div>
-
-
-            </div>
-
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-             <p><b>Building the Distribution Network:</b>To design the physical network of power lines that connects all sectors of Samarthaka (Residential, IT Hub, etc.) with the minimum total length of cable, reducing cost and material usage. <br> <br>
-
-            <b>The Algorithm:</b> <b>Kruskal’s Minimum Spanning Tree (MST)</b> algorithm is used to determine the most efficient set of connections (edges) between all key locations (nodes), ensuring every sector is connected without creating any redundant loops.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/kruskal.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-             <p><b>Power Flow Routing:</b>To determine the best path for electricity to travel from a selected source to a specific destination (e.g., from the Solar Plant to the Hospital) to minimize power loss.<br> <br>
-
-            <b>The Algorithm:</b> <b>Dijkstra’s Shortest Path </b>algorithm calculates the path with the lowest total resistance or cost through the network. This ensures sensitive zones receive stable power and overall transmission losses are kept to a minimum.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/Dijkstra.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-             <p><b>Real-time Monitoring:</b>To monitor the total power consumption of a specific area, like a residential block, in real-time and efficiently handle updates from individual smart meters.<br> <br>
-
-            <b>The Algorithm:</b> <b>Segment Tree</b>A Segment Tree is used to store power usage data. It allows for rapid queries of a range of data (e.g., "total usage for houses 1-100") and quick updates to individual data points, which is essential for processing data from thousands of smart meters.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/segment.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-           <br>
-            <br>
-             <p><b>Outage Detection: </b>To instantly detect if any part of the grid has become disconnected from the main power source, allowing for immediate response.<br> <br>
-
-            <b>The Algorithm:</b> <b>Union-Find</b>data structure tracks which parts of the grid are connected. If a power line breaks, the system can almost instantly determine if a sector is now in a separate, disconnected set from the main power source, triggering an alarm.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/union-find.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-
-
-
-        </div>
-
+        <!-- i) Master plan & zoning -->
         <div class="content-box">
-            <h3>Wireless Internet tower grid</h3>
+            <h3>Master Plan & Zoning – Union–Find Engine</h3>
             <div class="rule"></div>
 
-            <p>A Wireless Internet Tower Grid is a city-wide system of interconnected communication towers that deliver fast, reliable, and uninterrupted internet coverage. These towers act as digital infrastructure that ensures every home, business, institution, and public space in Samarthaka city has seamless wireless connectivity—supporting education, healthcare, transport, and smart governance.<br>The Wireless Internet Tower Grid for Samarthaka consists of strategically placed communication towers connected through fiber-optic backbones and microwave relay links. Each tower covers a circular or sector-shaped region, forming an overlapping mesh so there are no dead zones.</p>
+            <p>
+                The master plan for Samarthaka divides land into zoning categories such as Residential, Commercial,
+                Industrial, Public/Semi‑public, Transport Corridors and Green/Open Space. Each category carries its own
+                bundle of regulations like FAR ranges, density bands, and buffer requirements between conflicting uses,
+                turning the master plan into a clear rulebook rather than just colours on a map.
+            </p>
 
+            <p>
+                To make this computable, the city is discretised into a regular 2D grid where each cell represents a
+                small land parcel and stores exactly one zoning label (R, C, I, P, T or G). This simple grid lets the
+                system quickly identify neighbours in four directions and attach zoning rules directly to individual
+                cells, but by itself it still treats parcels as isolated points.
+            </p>
+
+            <p>
+                The structure that actually groups parcels into meaningful zoning pockets is the
+                <b>Union–Find (Disjoint Set / Quick‑Find)</b> layer built on top of the grid. Each cell starts in its
+                own set; whenever two adjacent cells share the same zone type, the <code>unionn(u, v)</code> operation
+                relabels every parcel that was in the same block as <code>u</code> so that it now uses the block id of
+                <code>v</code>. The <code>unionfind(u, v)</code> check simply compares the stored ids to decide whether
+                two plots currently lie in the same zoning block.
+            </p>
+
+            <p>
+                With this representation, typical planning questions become cheap operations on the zoning engine:
+                “Are these two plots in the same residential cluster?” is answered by a single
+                <code>unionfind(u, v)</code> call; “Merge these two compatible pockets along a corridor” is just one
+                <code>unionn(u, v)</code> that updates all affected cells. When rezoning happens near a junction or
+                metro station, only the corresponding cells are relabelled and their unions recomputed, while the
+                remainder of the city grid stays untouched, keeping the master plan responsive and easy to maintain.
+            </p>
+
+            <h4>Implementation:</h4>
             <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>9, 11</p>
+
+           
+
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/master.jpg"
+                     alt="Development control regulations"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+        
+            <div class="algo-div">Data Structure:Union Find</div>
+            <br><br>
 
-            <br>
-            <br>
+            <button type="button"
+                    class="btn btn-success"
+                    onclick="toggleZoningCode()">
+                Code
+            </button>
 
-            <div class="algo-div">Algorithms</div>
+            <div id="zoning-code-block" style="display:none; margin-top:20px;">
 
-            <br>
-            <br>
-            <img src="Infrastructure/sequence2.png" class="sequence">
+                <h4>C++ Logic used</h4>
+                <pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-            <p><b>Building the Communication Backbone: </b>To create a robust, central network backbone that connects all major towers together using the minimum possible total length of high-speed fiber or microwave links, starting construction from a central hub.<br> <br>
+// check if plots u and v are in same zoning block
+int unionfind(int arr[], int u, int v) {
+    if (arr[u] == arr[v])
+        return 1;
+    else
+        return 0;
+}
 
-            <b>The Algorithm: </b><b>Prim's MST</b> is used to build a Minimum Spanning Tree (MST). It starts from an arbitrary "root" tower (perhaps your main data center connection). It then iteratively adds the closest (cheapest connection) neighboring tower that isn't yet part of the backbone. This process repeats until all towers are connected, ensuring the most cost-effective, loop-free backbone structure grows outwards from the center.</p>
-            <br>
+// merge zoning block of u into zoning block of v
+void unionn(int arr[], int n, int u, int v) {
+    int old_id = arr[u];
+    int new_id = arr[v];
+    for (int i = 0; i &lt; n; i++) {
+        if (arr[i] == old_id)
+            arr[i] = new_id;
+    }
+}
 
-            <div class="image-box">
-             <img src="Infrastructure/prims.png" class="image">
+int main() {
+    int n, m, q;
+    cin &gt;&gt; n;                 // number of plots
+    int *arr = new int[n];
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+    for (int i = 0; i &lt; n; i++)
+        arr[i] = i;
 
+    cin &gt;&gt; m;                 // number of unions
+    while (m--) {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        unionn(arr, n, u, v);
+    }
+
+    cin &gt;&gt; q;                 // number of queries
+    while (q--) {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        if (unionfind(arr, u, v))
+            cout &lt;&lt; "Same zoning block\n";
+        else
+            cout &lt;&lt; "Different zoning blocks\n";
+    }
+
+    delete[] arr;
+    return 0;
+}</code></pre>
+
+                <h4>Sample Input</h4>
+                <pre><code>12
+7
+0 1
+1 2
+2 3
+4 5
+5 6
+7 8
+8 9
+6
+0 3
+0 4
+4 6
+7 9
+3 10
+10 11</code></pre>
+
+                <h4>Expected Output</h4>
+                <pre><code>Same zoning block
+Different zoning blocks
+Same zoning block
+Same zoning block
+Different zoning blocks
+Different zoning blocks</code></pre>
 
             </div>
+        </div>  <!-- close zoning content-box -->
 
-            <br>
+        
+<!-- ii) Housing & DCR -->
+<div class="content-box">
+    <h3>Housing & Development Controls</h3>
+    <div class="rule"></div>
 
-            <button type="button" class="btn btn-success">Code</button>
+    <p>
+        For housing and development rules, all regulation bands—combinations of zone, road width, FAR limit, height
+        cap, plot size range and open‑space requirements—are treated as clean data and organised into an ordered
+        structure backed by a balanced <b>Red‑Black tree</b> using <code>std::map</code> / <code>std::set</code>.
+        When a building or layout is proposed, its parameters (zone, abutting road width, plot area) are converted
+        into a composite key and used to look up the matching regulation band in log time, then the proposed FAR,
+        height and setbacks are checked against the values stored in that band.
+    </p>
 
-            <br>
-            <br>
-            <p><b>Route Internet Packets: </b>To determine the absolute fastest path for data packets to travel between any two towers in the entire grid, ensuring that no matter where a user is and which server they need to reach, the data takes the optimal route.<br> <br>
+    <p>
+        To support fast queries and easy evolution of the rules, all these bands sit inside the balanced Red‑Black
+        tree rather than in ad‑hoc if‑else blocks. The tree automatically maintains its height as bands are inserted
+        or updated, so lookups continue to run in <code>O(log n)</code> time even when hundreds of base rules and
+        overlays exist.[web:226][web:232] Once the correct node is found, the value at that node directly exposes the
+        permitted FAR, maximum height and setback distances; the checking step only has to compare the proposal’s
+        numbers against these limits to decide whether it is compliant.
+    </p>
 
-            <b>The Algorithm: </b><b>Floyd-Warshall</b> is an "all-pairs shortest path" algorithm. It analyzes the entire network graph and calculates the shortest path between every possible combination of source tower and destination tower. The result is a comprehensive routing table (a matrix) that the network uses to immediately know the best path for any packet, regardless of its entry and exit points in the grid.</p>
-            <br>
+    <p>
+        This tree‑based design keeps the rule set flexible, which is essential for a growing city. If a new metro line
+        is introduced and a higher‑FAR transit‑oriented development band is needed along a defined corridor, that band
+        is simply added as a new key in the Red‑Black tree without touching the evaluation pipeline.
+        Likewise, if eco‑sensitive edges need stricter caps, their corresponding keys are tightened in place and all
+        future proposals automatically see the updated limits.[web:227][web:233]
+    </p>
 
-            <div class="image-box">
-             <img src="Infrastructure/floyd.png" class="image">
+    <p>
+        Every proposal therefore passes through the same predictable sequence: construct the composite key from its
+        zone, road width and plot area; perform a log‑time lookup in the tree; and validate the submitted FAR, height
+        and setbacks against the retrieved band. Policy changes become a matter of editing data in the tree rather than
+        rewriting code paths, which keeps the housing and development control layer both technically clean and easy to
+        align with new planning decisions.
+    </p>
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+    <h4>Implementation:</h4>
+    <br>
 
+    <div style="text-align:center; margin:20px 0;">
+        <img src="Masterplan/hoc.jpg"
+             alt="Development control regulations"
+             style="width:450px; height:auto; border:2px solid #000;">
+    </div>
 
-            </div>
+    <div class="algo-div">Data Structure: Red‑Black Tree</div>
+    <br><br>
 
-            <br>
+    <button type="button" 
+    class="btn btn-success"
+    onclick="toggleDcrCode()">
+Code
+</button>
 
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-            <p><b>Tower Failure Handling & Rerouting: </b>To provide near-instantaneous recovery when a tower goes offline by immediately switching traffic to pre-calculated backup paths, minimizing service interruption for users.<br> <br>
+<div id="dcr-code-block" style="display:none; margin-top:20px;">
 
-            <b>The Algorithm: </b><b>Hashing</b> A Hash Table is used for ultra-fast lookups. The system maintains a table where the "key" is the ID of a specific tower, and the corresponding "value" is the pre-determined backup routing plan for that tower. When a tower failure is detected, the system hashes the failed tower's ID to instantly retrieve its backup route from the table (in O(1) constant time) and re-directs traffic without needing to recalculate the entire network topology.</p>
-            <br>
+<h4>C++ Logic used</h4>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;tuple&gt;
+using namespace std;
 
-            <div class="image-box">
-             <img src="Infrastructure/hash.png" class="image">
+// composite key: (zone, roadWidthBand, plotSizeBand)
+typedef tuple&lt;string,string,string&gt; Key;
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+// regulation band: FAR, maxHeight(m), minOpenSpace(%)
+struct Band {
+double far;
+int maxHeight;
+int minOpenSpace;
+};
 
+int main() {
+map&lt;Key, Band&gt; regs;  // Red-Black tree map
 
-            </div>
+int n;
+cin &gt;&gt; n;  // number of regulation bands
 
-            <br>
+// each band: zone roadBand plotBand FAR maxHeight minOpenSpace
+for (int i = 0; i &lt; n; i++) {
+    string zone, roadBand, plotBand;
+    double far;
+    int maxH, minOS;
+    cin &gt;&gt; zone &gt;&gt; roadBand &gt;&gt; plotBand &gt;&gt; far &gt;&gt; maxH &gt;&gt; minOS;
+    Key k = make_tuple(zone, roadBand, plotBand);
+    regs[k] = { far, maxH, minOS };
+}
 
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-            <p><b>Load Balancing & Bandwidth Allocation: </b>To efficiently manage user demand by organizing bandwidth requests, ensuring that network resources are allocated fairly and that no single access point becomes overwhelmed by too many high-demand users.<br> <br>
+int q;
+cin &gt;&gt; q;  // number of proposals
 
-            <b>The Algorithm: </b><b>Binary Search Tree - BST</b> A Binary Search Tree is used to maintain an organized structure of active user sessions or bandwidth requests, sorted by their consumption level (e.g., low bandwidth users on the left branch, high bandwidth on the right). Because the data is sorted hierarchically, the system can efficiently search for available bandwidth slots, identify top consumers, and reallocate resources to balance the load across different parts of the network.</p>
-            <br>
+// each proposal: zone roadBand plotBand proposedFAR proposedHeight proposedOpenSpace
+while (q--) {
+    string zone, roadBand, plotBand;
+    double proposedFar;
+    int proposedHeight, proposedOpenSpace;
 
-            <div class="image-box">
-             <img src="Infrastructure/bst.png" class="image">
+    cin &gt;&gt; zone &gt;&gt; roadBand &gt;&gt; plotBand
+        &gt;&gt; proposedFar &gt;&gt; proposedHeight &gt;&gt; proposedOpenSpace;
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+    Key k = make_tuple(zone, roadBand, plotBand);
+    auto it = regs.find(k);
 
+    if (it == regs.end()) {
+        cout &lt;&lt; "No regulation band defined for this combination\n";
+        continue;
+    }
 
-            </div>
+    Band rule = it-&gt;second;
 
-            <br>
+    bool ok = true;
+    if (proposedFar &gt; rule.far)                ok = false;
+    if (proposedHeight &gt; rule.maxHeight)       ok = false;
+    if (proposedOpenSpace &lt; rule.minOpenSpace) ok = false;
 
-            <button type="button" class="btn btn-success">Code</button>
+    if (ok)
+        cout &lt;&lt; "Proposal COMPLIES with DCR\n";
+    else
+        cout &lt;&lt; "Proposal VIOLATES DCR\n";
+}
 
+return 0;
+}</code></pre>
 
+<h4>Sample Input</h4>
+<pre><code>4
+R 9m-12m 60-120 1.8 18 20
+R 12m-18m 120-240 2.5 24 18
+C 18m-24m 120-240 3.5 30 15
+C 24m-plus 240-plus 4.0 36 12
+4
+R 9m-12m 60-120 1.6 16 22
+R 12m-18m 120-240 2.8 24 20
+C 18m-24m 120-240 3.2 30 15
+C 24m-plus 240-plus 3.8 40 10</code></pre>
 
+<h4>Expected Output</h4>
+<pre><code>Proposal COMPLIES with DCR
+Proposal VIOLATES DCR
+Proposal COMPLIES with DCR
+Proposal VIOLATES DCR</code></pre>
 
+</div>
+</div> 
 
-        </div>
-
+        <!-- iii) Permissions / phasing -->
         <div class="content-box">
-            <h3>Integrated Waste management system</h3>
+            <h3>Permissions, Phasing & Updates</h3>
             <div class="rule"></div>
 
-            <p>The Integrated Waste Management System in Samarthaka uses smart sensors in public dustbins to monitor fill levels in real time. This data is sent to a central control dashboard, where collection routes are dynamically optimized so trucks only visit bins that are actually full. The city is divided into zones, each equipped with waste. <br> A digital tracking system records the journey of waste—from bin to truck to processing center—ensuring complete transparency. Recycling centers use compactors, sorters, and shredders to recover materials, while organic waste is sent to biogas plants or composting sites. The system reduces landfill usage, lowers pollution, and ensures a clean, sustainable city environment.</p>
+            <p>
+               The flow of applications is treated as a controlled processing pipeline and implemented with a
+               <b>double‑ended queue (deque)</b>. Normal building and layout applications enter at the back and are
+               processed from the front in a clean FIFO manner, while phase‑critical or policy‑priority projects
+               (such as public or affordable housing) can be pushed to the front to be handled earlier.
+            </p>
 
+            <p>
+               Each application’s full data is stored in an indexed array or vector; the deque manages the order through
+               <code>push_back</code>, <code>push_front</code> and <code>pop_front</code> in constant time. This mirrors how permissions,
+               phasing and plan updates work in practice—mostly queue‑based, but with the flexibility to fast‑track or
+               defer specific cases when the city’s development strategy demands it.
+            </p>
+            <h4>Implementation:</h4>
             <br>
             
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>11, 12</p>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-
-
-            <img src="Infrastructure/sequence3.png" class="sequence">
-
-            <p><b>Route optimization for garbage trucks: </b>To find the most efficient routes for garbage trucks, which works well when routes have varying weights such as traffic, distance, or time. The system can also handle negative weights, which can represent delays.<br> <br>
-
-            <b>The Algorithm: </b><b>Bellman-Ford</b> algorithm is used to calculate the shortest paths in a network where edges can have different weights, including negative ones, ensuring trucks take the most optimal path even with varying conditions.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/bellman.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Waste segregation (categorizing recyclable, organic, toxic): </b>To provide fast categorization of waste items based on their material type names or codes, such as "plastic" or "paper".<br> <br>
-
-            <b>The Algorithm: </b><b>Trie</b> or prefix tree, is used for its efficient search and insertion properties, allowing for rapid identification and sorting of waste materials based on their textual descriptions or identifiers.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/trie.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Processing facility load balancing: </b>To maintain a fair and even distribution of incoming waste across multiple processing facilities to ensure no single facility is overburdened.<br> <br>
-
-            <b>The Algorithm: </b><b>Red-Black Tree</b> is a self-balancing binary search tree that automatically keeps its height small, ensuring that the distribution of load (represented by the nodes) remains balanced across the available facilities.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/red.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-            <p><b>Fault detection in bins, trucks, or sensors: </b>To allow for a fast search through a large number of units (bins, trucks, sensors) to quickly identify any that are malfunctioning.<br> <br>
-
-            <b>The Algorithm: </b><b>Skip List</b> is a probabilistic data structure that allows for fast search, insertion, and deletion operations, serving as an efficient alternative to balanced trees for quickly locating faulty units.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Infrastructure/skip.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-
-        </div>
-
-        </div>
-
-        
-       
-
-        <h2 class="section-heading">Transport Network</h2>
-
-        <div class="content-box-container">
-            <div class="content-box">
-            <h3>Metro Transit System & Digital Ticketing</h3>
-            <div class="rule"></div>
-            <p>The Metro Transit System in Samarthaka provides a fast, clean, and efficient mode of urban transport that connects major residential zones, commercial districts, and business hubs. It is designed with smart scheduling, automatic fare collection, real-time crowd monitoring, and optimized route planning to ensure smooth mobility for citizens.<br>The system uses digital sensors, central control units, and communication between stations to maintain punctuality, safety, and energy efficiency. By reducing traffic congestion, lowering pollution, and enabling seamless travel, the metro becomes the backbone of sustainable mobility in the city.</p>
-
-            <br>
             
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>9, 11</p>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/phasing.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+            <div class="algo-div">Core Structure: Union–Find </div>
+            <br><br>
 
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-            <img src="Transport/sequence1.png" class="sequence">
-
-            <p><b>Route Planning & Shortest Travel Time: </b>To enable passengers to instantly find the quickest route between any two metro stations within the expansive Samarthaka network, considering varying travel times between different stretches as the "cost."<br> <br>
-
-            <b>The Algorithm: </b><b>Dijkstra’s Algorithm</b> models the metro network as a graph where stations are nodes and connecting tracks are edges, weighted by their specific travel times. Starting from the passenger's chosen entry station, the algorithm systematically explores neighboring nodes to calculate the path with the absolute minimum total travel time to the destination, ensuring passengers are always directed to the fastest route.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/dij.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Train Scheduling & Dispatch Timing: </b>To manage the dynamic and tight schedule of train departures efficiently. The system must ensure trains are dispatched precisely on time and that timetable adjustments—due to unexpected delays or the insertion of extra peak-hour trains—are handled instantly without disrupting the overall operational flow.<br> <br>
-
-            <b>The Algorithm: </b><b>AVL Tree</b> An AVL tree is a self-balancing binary search tree used here to store scheduled train departure times chronologically. The tree automatically maintains its balance after every insertion or deletion, the system can perform operations like searching for the next immediate departure, adding a new train slot etc.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/avl.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-            <p><b>Passenger Load Monitoring (Crowd Density): </b>To monitor real-time crowd density on moving trains across different segments of the metro line. This allows operators to identify overcrowded stretches instantly and make data-driven decisions, such as deploying extra trains or regulating station entry.<br> <br>
-
-            <b>The Algorithm: </b><b>Fenwick Tree (Binary Indexed Tree)</b> A Fenwick Tree is a specialized data structure designed for efficiently updating values and calculating prefix sums. In this context, it tracks the net number of passengers on board. As passengers board or alight at a station (a "point update"), the tree updates instantly.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/fenwick.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-            <p><b>Ticketing & Metro Card Validation: </b>To provide near-instantaneous validation of thousands of metro cards per minute at entry and exit gates. This ensures a seamless, rapid flow of passengers, preventing queues at turnstiles while instantly verifying card validity and sufficient balance.<br> <br>
-
-            <b>The Algorithm: </b><b>Hashing</b> Hashing utilizes a hash table to store the database of millions of active user profiles. The unique ID embedded in the metro card acts as the "key." When a passenger taps their card, a hash function uses this key to compute the exact location of their data in memory.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/hash.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-
-
-
-
-
+            
+            <button type="button" 
+            class="btn btn-success"
+            onclick="togglePhasingCode()">
+        Code
+    </button>
+    
+    <div id="phasing-code-block" style="display:none; margin-top:20px;">
+    
+        <h4>C++ Logic used</h4>
+        <pre><code>#include &lt;iostream&gt;
+    #include &lt;deque&gt;
+    using namespace std;
+    
+    // application record: id and priority flag
+    struct Application {
+        int id;
+        bool priority;  // true = policy-priority / phase-critical
+    };
+    
+    int main() {
+        deque&lt;Application&gt; q;  // double-ended queue of applications
+    
+        int n;
+        cin &gt;&gt; n;  // number of incoming applications
+    
+        // each line: id type
+        // type = 0 -> normal, type = 1 -> priority (front of deque)
+        for (int i = 0; i &lt; n; i++) {
+            int id, type;
+            cin &gt;&gt; id &gt;&gt; type;
+    
+            Application app = { id, (type == 1) };
+    
+            if (app.priority) {
+                q.push_front(app);   // fast-track to front
+            } else {
+                q.push_back(app);    // normal FIFO at back
+            }
+        }
+    
+        // process applications in the order stored in the deque
+        while (!q.empty()) {
+            Application cur = q.front();
+            q.pop_front();   // remove from front after processing
+    
+            if (cur.priority) {
+                cout &lt;&lt; "Processing PRIORITY application " &lt;&lt; cur.id &lt;&lt; "\n";
+            } else {
+                cout &lt;&lt; "Processing NORMAL application " &lt;&lt; cur.id &lt;&lt; "\n";
+            }
+        }
+    
+        return 0;
+    }</code></pre>
+    
+        <h4>Sample Input</h4>
+        <pre><code>6
+    101 0
+    102 0
+    201 1
+    103 0
+    202 1
+    104 0</code></pre>
+    
+        <h4>Expected Output</h4>
+        <pre><code>Processing PRIORITY application 202
+    Processing PRIORITY application 201
+    Processing NORMAL application 101
+    Processing NORMAL application 102
+    Processing NORMAL application 103
+    Processing NORMAL application 104</code></pre>
+    
+    </div>
         </div>
+    
 
+    <!-- =====================================================
+         BLOCK 2: WILDLIFE & MANAGEMENT
+    ====================================================== -->
+    <h2 class="section-heading">Wildlife & Management</h2>
+
+    <div class="content-box-container">
+
+        <!-- i) PATROL & SECURITY -->
         <div class="content-box">
-            <h3>Medical Green Corridors</h3>
+            <h3>Patrol & Security – Dijkstra (Single Source)</h3>
             <div class="rule"></div>
-            <p>A Medical Green Corridor is a special, high-priority, traffic-free route created to transport organs, critical medical supplies, or emergency patients from one point to another in the shortest possible time.<br>Traffic police, hospitals, and ambulance control rooms coordinate to create a fast, uninterrupted pathway by adjusting traffic signals and clearing roads.It requires real-time decision-making, routing, monitoring, and communication—making it perfect for demonstrating algorithms.</p>
 
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>3, 9, 11</p>
+            <p>
+                The wildlife zone is treated as a live, data‑driven patrol network where every watchtower, gate, water reservoir and conflict‑prone location is connected by trails and forest roads. 
+                Rangers at any post can always ask the system for the fastest safe route to a new incident point, whether it is a poaching alert near a boundary or a distress call near a water body.
+              </p>
+              
+              <p>
+                In the implementation, each of these locations becomes a node in a weighted graph, and every road or path between them is an edge with a cost representing travel time, terrain difficulty or risk level. 
+                The graph is stored using adjacency lists so that from any location it is efficient to scan all outgoing paths and update their tentative travel cost during routing.
+                
+              </p>
+              
+              <p>
+                From a selected starting tower or base camp, Dijkstra’s single‑source shortest path algorithm is run once to compute the minimum‑time route to every other node in the reserve. 
+                Internally, the system maintains a distance array, a visited set, and a min‑priority queue that repeatedly picks the unvisited node with the smallest known travel time and relaxes its outgoing edges to see if they provide a faster route to neighbouring patrol points.
+              </p>
+              
+              <p>
+                In practice, this behaves like a GPS tailored to conservation work: once the rangers’ current position is fixed, the system can instantly answer “what is the best route to this incident?” by looking up the pre‑computed distance and reconstructing the path. 
+                If monsoon conditions or temporary closures make certain tracks slower or unsafe, the corresponding edge weights are increased, and the next run of Dijkstra automatically diverts patrols along alternate trails that are slightly longer in distance but better in effective response time and safety.
+              
+              <p>
+                This allows the patrolling module to be framed as hands‑on work: the wildlife wing was modelled as a weighted graph over the reserve’s patrol grid, with Dijkstra’s algorithm driving both routine patrol planning and time‑critical responses. 
+                Routes and priorities are no longer based purely on intuition; they adapt continuously to terrain, season and historical patrol data, making coverage and incident response more objective, transparent and data‑driven for the forest department.
+              </p>
+              
+
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/patroling.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-            <img src="Transport/sequence2.png" class="sequence">
-
-            <p><b>Route Planning & Shortest Travel Time: </b>Find the fastest path for an ambulance considering real-time traffic.<br> <br>
-
-            <b>The Algorithm: </b><b>Dijkstra’s Algorithm</b> Calculates the path with the lowest total travel time by exploring routes from the starting point.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/dij2.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Resource Allocation & Scheduling: </b>Prioritize emergency requests and dispatch the nearest appropriate resources (ambulances, teams).<br> <br>
-
-            <b>The Algorithm: </b><b>Merge/Quick Sort</b> Rapidly sorts incoming requests by medical severity to prioritize critical cases.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/sort.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Traffic Signal Optimization & Clearance: </b>Create a synchronized "green wave" of traffic lights along the ambulance's route.<br> <br>
-
-            <b>The Algorithm: </b><b>BFS</b> Explores intersections layer by layer ahead of the ambulance to preemptively clear the path.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/bfs.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Live Monitoring & Emergency Handling: </b>Detect unexpected blockages on the route and quickly find alternative paths.<br> <br>
-
-            <b>The Algorithm: </b><b>DFS</b> Deeply explores specific detour options to find a viable workaround when the primary route fails.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Transport/dfs.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            
-
-
-
-        </div>
-
-        
-
-        </div>
-
-        
-        
-        <h2 class="section-heading">Semiconductor R&D</h2>
-
-        <div class="content-box-container">
-
-            <div class="content-box">
-            <h3>Chip Design & Architecture Development</h3>
-
-            <div class="rule"></div>
-            <p>Chip design and architecture development is the process of creating semiconductor chips that power devices like computers, mobiles, electric vehicles, and IoT systems.
-            It involves planning the architecture, designing logic circuits, optimizing layouts, routing connections, and ensuring efficiency, speed, and thermal stability.</p>
-
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>8, 9, 12</p>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-            <img src="Semiconductor/sequence1.png" class="sequence">
-
-            <p><b>Architecture Planning: </b>Find the optimal arrangement of major functional blocks on the chip die to fit constraints and maximize performance.<br> <br>
-
-            <b>The Algorithm: </b><b>Backtracking</b> Explores potential placement configurations on a grid; if a placement violates design rules, it backtracks to try alternative arrangements until a valid layout is found.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/backtrack.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Logic Circuit Verification: </b>Ensure the digital logic circuits function correctly by checking for connectivity errors, loops, or faults before manufacturing.<br> <br>
-
-            <b>The Algorithm: </b><b>DFS (Depth-First Search)</b> Treats the circuit as a graph, diving deep along signal paths from inputs to outputs to exhaustively test logic states and ensure complete connectivity.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/dfs.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Physical Layout & Routing: </b>Connect all chip components with the minimum total length of wiring to reduce signal delay and power consumption.<br> <br>
-
-            <b>The Algorithm: </b><b>Kruskal’s Minimum Spanning Tree</b> Selects the shortest necessary wiring paths between components to create a complete network connection without redundant loops, minimizing overall wire usage.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/kruskal.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Performance & Thermal Optimization: </b>Analyze massive simulation datasets to identify critical performance bottlenecks and high-temperature areas (hotspots) on the chip.<br> <br>
-
-            <b>The Algorithm: </b><b>Merge Sort</b> Efficiently sorts huge volumes of simulation data (like timing delays or temperature readings) to quickly isolate the worst-case scenarios requiring optimization.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/mergesort.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            
-
-
-
-        </div>
-            <div class="content-box">
-            <h3>Wafer Fabrication & Defect Detection</h3>
-
-            <div class="rule"></div>
-            <p>Wafer fabrication is the process of creating semiconductor chips on ultra-pure silicon wafers through nanometer-level layering, etching, doping, and lithography.
-           <br>After each stage, wafers are inspected because even a tiny particle, scratch, or pattern mismatch can destroy thousands of chips.</p>
-
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>4, 8, 9, 11, 12</p>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-            <img src="Semiconductor/sequence2.png" class="sequence">
-
-            <p><b>Wafer Layer Formation & Lithography Planning: </b>Determine the optimal sequence of processing steps (layer deposition, patterning, etching) to construct the complex 3D chip structure without violating any design rules.<br> <br>
-
-            <b>The Algorithm: </b><b>Backtracking</b> Systematically builds a sequence of process steps. If a proposed step is found to violate a design constraint (e.g., creates an impossible feature size), the algorithm backtracks to the previous valid step and tries a different parameter or process to find a workable fabrication sequence.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/backtrack2.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Optical Inspection & Image-Based Defect Detection: </b>Rapidly identify visual anomalies like particles, scratches, or pattern irregularities on the wafer surface by comparing high-resolution images against a known good reference.<br> <br>
-
-            <b>The Algorithm: </b><b>KMP Pattern Matching</b> Adapted for 2D image data, this algorithm efficiently searches for the expected reference pattern within the captured image of the wafer. By avoiding redundant comparisons, it quickly locates mismatches, flagging them as potential defects for further review.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/kmp.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Electrical Testing & Circuit Path Validation: </b>Verify the electrical integrity of the fabricated paths, ensuring that critical signals can travel between points with the correct resistance and that there are no open or short circuits.<br> <br>
-
-            <b>The Algorithm: </b><b>Dijkstra’s Algorithm</b> Models the chip's electrical network as a graph where nodes are test points and edges are connections weighted by resistance. It calculates the path of least resistance between probes; deviations from the expected value indicate a physical defect in the circuit path.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/dij.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-            <p><b>Yield Analysis, Classification & Defect Mapping: </b>Process massive datasets of collected defects to categorize them, map their physical locations on the wafer, and identify systematic manufacturing problems to improve overall yield.<br> <br>
-
-            <b>The Algorithm: </b><b>Merge Sort</b>A highly efficient and stable sorting algorithm used to organize millions of defect records by various criteria (e.g., size, location, type). This sorted data allows for quick grouping, statistical analysis, and the generation of detailed defect maps to pinpoint problem areas.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Semiconductor/merge2.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            
-
-
-
-
-
-        </div>
-
-        
-
-        </div>
-         
-       
-
-        <h2 class="section-heading">Cultural Hub</h2>
-
-        <div class="content-box-container">
-
-             <div class="content-box">
-            <h3>Intelligent Event Scheduling & Space Optimization</h3>
-            <div class="rule"></div>
-             <p>Intelligent Event Scheduling & Space Optimization is a smart-city system that automatically manages events, venues, spaces, time slots, resources, and crowd flow.
-             It ensures, no overlapping events,maximum utilization of public spaces,efficient crowd movement, optimal use of auditoriums, halls, parks, and convention centers, automatic conflict resolution and rescheduling</p>
-
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p> 8, 9, 11, 12, 16</p>
-            </div>
-
-            <br>
-            <br>
-
-            <div class="algo-div">Algorithms</div>
-
-            <br>
-            <br>
-            <img src="CulturalHub/sequence1.png" class="sequence">
-
-            <p><b>Event Request & Time Slot Matching: </b>Rapidly search available time slots to match incoming event requests with suitable openings.<br> <br>
-
-            <b>The Algorithm: </b><b>Binary Search Tree</b> Organizes time slots hierarchically, allowing the system to search, insert, or confirm venue availability for a specific time range with high efficiency (O(log n)).</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/bst.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-
-            <p><b>Conflict Detection & Resource Linking: </b>Instantly determine if required resources (like A/V equipment or specific rooms) are already in use to prevent double-booking.<br> <br>
-
-            <b>The Algorithm: </b><b>Union–Find</b>Tracks elements partitioned into disjoint sets. It quickly checks if a requested resource is already "united" with another active event, signaling a conflict.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/union-find.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-
-            <p><b>Venue Allocation & Space Optimization: </b>Connect events to the most appropriate venues while minimizing wasted capacity or travel distance between related sessions.<br> <br>
-
-            <b>The Algorithm: </b><b>Kruskal's algorithm</b> treats events and venues as a graph, selecting the "edges" (allocations) with the lowest "cost" (best fit/closest distance) first to build an efficient allocation network without cycles or redundancies.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/kruskal.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-
-            <p><b>Final Schedule Ordering & Publication: </b>compile all confirmed bookings into a single, chronologically sorted master schedule for public view.<br> <br>
-
-            <b>The Algorithm: </b><b>Merge Sort</b> efficiently organizes the complete list of finalized event data into time order, ensuring a stable and predictably sorted schedule ready for publishing.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/merge.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            
-
-
-        </div>
-
+            <div class="algo-div">Algorithm:Dijakstra  </div>
+            <br><br>
+
+
+            <button type="button" 
+        class="btn btn-success"
+        onclick="togglePatrolCode()">
+    Code
+</button>
+
+<div id="patrol-code-block" style="display:none; margin-top:20px;">
+
+    <h4>C++ Logic used (Patrol Routing with Dijkstra)</h4>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+#define MAXN 100
+#define INF 999   // 999 represents no direct path
+
+// Each vertex = patrol point (tower, gate, water body, etc.)
+// Each edge weight = travel time / difficulty between two points
+
+int main() {
+    int n;
+    cout &lt;&lt; "Enter number of patrol points (vertices):\n";
+    cin &gt;&gt; n;
+
+    int cost[MAXN][MAXN];
+
+    cout &lt;&lt; "Enter travel-time matrix (use 999 if no direct path):\n";
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) {
+            cin &gt;&gt; cost[i][j];
+        }
+    }
+
+    int source;
+    cout &lt;&lt; "Enter index of starting patrol post (source vertex):\n";
+    cin &gt;&gt; source;
+
+    int dist[MAXN];    // best known time from source to i
+    int parent[MAXN];  // previous patrol point on best route
+    int visited[MAXN]; // 1 if shortest time to i is final
+
+    // Initialization
+    for (int i = 0; i &lt; n; i++) {
+        dist[i] = cost[source][i];
+        parent[i] = source;
+        visited[i] = 0;
+    }
+    dist[source] = 0;
+    parent[source] = -1;
+    visited[source] = 1;
+
+    // Dijkstra main loop
+    for (int iter = 0; iter &lt; n - 1; iter++) {
+        int u = -1;
+        int minDist = INF + 1;
+
+        // pick unvisited vertex with smallest distance
+        for (int i = 0; i &lt; n; i++) {
+            if (!visited[i] &amp;&amp; dist[i] &lt; minDist) {
+                minDist = dist[i];
+                u = i;
+            }
+        }
+
+        if (u == -1) break;
+
+        visited[u] = 1;
+
+        // relax neighbours of u
+        for (int v = 0; v &lt; n; v++) {
+            if (!visited[v] &amp;&amp; cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] &lt; dist[v]) {
+                    dist[v] = dist[u] + cost[u][v];
+                    parent[v] = u;
+                }
+            }
+        }
+    }
+
+    cout &lt;&lt; "\nPatrolPoint   MinTime(from source)   PreviousPoint\n";
+    for (int i = 0; i &lt; n; i++) {
+        cout &lt;&lt; i &lt;&lt; "             " &lt;&lt; dist[i] 
+             &lt;&lt; "                    " &lt;&lt; parent[i] &lt;&lt; "\n";
+    }
+
+    return 0;
+}</code></pre>
+
+    <h4>Sample Input</h4>
+    <pre><code>5
+0   10  3   999 999
+10  0   1   2   999
+3   1   0   8   2
+999 2   8   0   7
+999 999 2  7   0
+0</code></pre>
+
+    <h4>Expected Output</h4>
+    <pre><code>PatrolPoint   MinTime(from source)   PreviousPoint
+0             0                      -1
+1             4                      2
+2             3                      0
+3             6                      1
+4             5                      2</code></pre>
+
+</div>
+</div>
+
+
+        <!-- ii) ANIMAL HEALTH -->
         <div class="content-box">
-            <h3>Smart Visitor Flow Prediction & Crowd Management</h3>
+            <h3>Animal Health</h3>
             <div class="rule"></div>
-            <p>Smart Visitor Flow Prediction & Crowd Management helps Samarthaka monitor how people move through parks, events, markets, stations, temples, sports zones, and public spaces. The system analyzes visitor patterns, predicts where crowds will form, and guides people safely using dynamic routing and smart alerts.</p>
 
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>3, 9, 11, 12, 16</p>
+            <p>
+                Wildlife health management is organised into three parts: emergency triage, central storage of animal
+                details and stock monitoring for water and medical supplies. Each component is mapped to a specific
+                data structure that reflects how a real sanctuary needs to react and plan every day.[web:113]
+            </p>
+
+            <!-- a) Emergency – Max Heap -->
+            <h4>a) Emergency – Max‑Heap</h4>
+            <p>
+                During emergencies, vets must immediately know which case is most critical. Every animal is given a
+                dynamic risk score based on injuries, illness, behaviour changes and recent reports. These entries are
+                kept in a <b>max‑heap</b>, ordered by risk score, so the animal at the top is always the one that needs
+                attention first; updating a score and pushing it back into the heap keeps the priority list constantly
+                refreshed.
+            </p>
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/heapp.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+            <div class="algo-div">Algorithm:Max Heap  </div>
+            <br><br>
+            <button type="button" 
+            class="btn btn-success"
+            onclick="toggleHeapCode()">
+        Code
+    </button>
+    
+    <div id="heap-code-block" style="display:none; margin-top:20px;">
+    
+      <h4>C++ Logic used (Bottom‑up Max Heap for Priorities)</h4>
+      <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+    
+    
+    void heapBottomUp(int H[], int n) {
+        for (int i = n / 2; i &gt;= 1; i--) {
+            int k = i;
+            int v = H[k];
+            bool heap = false;
+    
+            while (!heap &amp;&amp; 2 * k &lt;= n) {
+                int j = 2 * k;             
+    
+                // choose the larger child to maintain MAX-HEAP property
+                if (j &lt; n &amp;&amp; H[j] &lt; H[j + 1]) {
+                    j = j + 1;             
+                }
+    
+                if (v &gt;= H[j]) {
+                    heap = true;            
+                } else {
+                    H[k] = H[j];           
+                    k = j;                  
+                }
+            }
+            H[k] = v;                      
+        }
+    }
+    
+    int main() {
+        int n;
+        cout &lt;&lt; "Enter number of pending cases (elements):\n";
+        cin &gt;&gt; n;
+    
+        int H[105]; // 1-indexed
+        cout &lt;&lt; "Enter " &lt;&lt; n 
+             &lt;&lt; " priority values (higher = more urgent):\n";
+        for (int i = 1; i &lt;= n; i++) {
+            cin &gt;&gt; H[i];
+        }
+    
+        heapBottomUp(H, n);
+    
+        cout &lt;&lt; "Array arranged as max heap (level-order):\n";
+        for (int i = 1; i &lt;= n; i++) {
+            cout &lt;&lt; H[i] &lt;&lt; " ";
+        }
+        cout &lt;&lt; "\n";
+    
+        return 0;
+    }</code></pre>
+    
+      <h4>Sample Input</h4>
+      <pre><code>7
+    3 9 4 1 7 2 8</code></pre>
+    
+      <h4>Expected Output</h4>
+      <pre><code>Array arranged as max heap (level-order):
+    9 7 8 1 3 2 4 </code></pre>
+    
+    </div>
 
-            <br>
-            <br>
 
-            <div class="algo-div">Algorithms</div>
+  
+            <!-- b) Storing animal details – Hashmap -->
+            <h4>b) Storing Animal Details – Hashmap</h4>
+            <p>
+                Each animal in the sanctuary receives a unique ID linked to species, age, location, health notes and
+                current risk score. These records are stored in a <b>hashmap</b> keyed by animal ID, which provides
+                constant‑time access during patrols and routine checks, so any profile can be pulled or updated without
+                scanning long lists.
+            </p>
 
-            <br>
-            <br>
-            <img src="CulturalHub/sequence2.png" class="sequence">
+            <p>
+                Alongside the live record, a vector of historical health snapshots is maintained per animal. At the end
+                of each check cycle, a new entry is appended with date, risk score and remarks, enabling trend analysis
+                over weeks or months without slowing real‑time operations.
+            </p>
 
-            <p><b>Real-Time Visitor Data Collection: </b>To instantly log and track the entry, movements, and exit of tens of thousands of individual visitors across city checkpoints in real-time.<br> <br>
-
-            <b>The Algorithm: </b><b>Hashing</b> uses a hash table to map unique visitor identifiers (like ticket IDs or RFID tags) directly to their location records.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/hash.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/heapify.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+            <div class="algo-div">Data Structure:Hash Maps  </div>
+            <br><br>
+            <button type="button" 
+        class="btn btn-success"
+        onclick="toggleAnimalHashCode()">
+    Code
+</button>
 
-            <br>
+<div id="animal-hash-code-block" style="display:none; margin-top:20px;">
 
-            <button type="button" class="btn btn-success">Code</button>
+  <h4>C++ Logic used (Array‑based Hash Lookup for Animal Records)</h4>
+  <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
 
-            <br>
-            <br>
+const int MAXA = 100;  
+const int MAXH = 10;   
 
-            <p><b>Zone Density Monitoring & Updates: </b>To continuously calculate and update the total number of people present within specific defined zones (like a market square or a street segment) to detect overcrowding instantly.<br> <br>
+int main() {
+    
+    string name[MAXA];
+    string species[MAXA];
+    int    healthScore[MAXA][MAXH];
+    int    healthCount[MAXA];
 
-            <b>The Algorithm: </b><b>Segment tree</b> stores visitor counts in a hierarchical tree structure representing spatial intervals. This allows the system to rapidly update counts as individuals move and instantaneously query the total density over any range of contiguous zones (O(log n)).</p>
-            <br>
+   
+    for (int i = 0; i &lt; MAXA; i++) healthCount[i] = 0;
 
-            <div class="image-box">
-             <img src="CulturalHub/segment.png" class="image">
+    int n;
+    cout &lt;&lt; "Enter number of animals:\n";
+    cin &gt;&gt; n;
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+    
+    for (int id = 0; id &lt; n; id++) {
+        cout &lt;&lt; "Animal " &lt;&lt; id &lt;&lt; " name and species:\n";
+        cin &gt;&gt; name[id] &gt;&gt; species[id];
 
+        int k;
+        cout &lt;&lt; "How many health entries for this animal?\n";
+        cin &gt;&gt; k;
+        healthCount[id] = k;
 
+        cout &lt;&lt; "Enter " &lt;&lt; k &lt;&lt; " health scores:\n";
+        for (int j = 0; j &lt; k; j++) {
+            cin &gt;&gt; healthScore[id][j];
+        }
+    }
+
+    
+    int queryId;
+    cout &lt;&lt; "\nEnter animal ID to view (0 to " &lt;&lt; n-1 &lt;&lt; "):\n";
+    cin &gt;&gt; queryId;
+
+    if (queryId &lt; 0 || queryId &gt;= n) {
+        cout &lt;&lt; "No record for this ID\n";
+        return 0;
+    }
+
+    cout &lt;&lt; "\nAnimal ID : " &lt;&lt; queryId &lt;&lt; "\n";
+    cout &lt;&lt; "Name      : " &lt;&lt; name[queryId] &lt;&lt; "\n";
+    cout &lt;&lt; "Species   : " &lt;&lt; species[queryId] &lt;&lt; "\n";
+    cout &lt;&lt; "Health scores:\n";
+    for (int j = 0; j &lt; healthCount[queryId]; j++) {
+        cout &lt;&lt; "  " &lt;&lt; healthScore[queryId][j] &lt;&lt; "\n";
+    }
+
+    return 0;
+}</code></pre>
+
+  <h4>Sample Input</h4>
+  <pre><code>2
+Luna Elephant
+2
+82 85
+Ranger Tiger
+1
+73
+0</code></pre>
+
+  <h4>Expected Output</h4>
+  <pre><code>Animal ID : 0
+Name      : Luna
+Species   : Elephant
+Health scores:
+  82
+  85</code></pre>
+
+</div>
+
+<!-- c) Stock – Fenwick Tree -->
+          <h4>c) Stock (Water & Medical Supplies) – Fenwick Tree</h4>
+            <p>
+                Water in reservoirs and medical supplies across clinics are monitored as continuous resources that
+                fluctuate throughout the day. Storage points are indexed, and a <b>Fenwick Tree (Binary Indexed
+                Tree)</b> is built over this index to support fast prefix and range‑sum queries such as “total water in
+                this cluster of reservoirs” or “total vaccine doses available along one corridor”.
+            </p>
+
+            <p>
+                Individual refills and consumptions update single positions in the Fenwick Tree, while range summaries
+                can still be answered in logarithmic time. This structure makes continuous stock monitoring efficient
+                and keeps the system ready for sudden demand during emergencies.
+            </p>
+
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/BIT.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
-            <br>
+            <div class="algo-div">Data Structure:Fenwick Tree  </div>
+            <br><br>
+            <button type="button" 
+        class="btn btn-success"
+        onclick="toggleBITCode()">
+    Code
+</button>
 
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
+<div id="bit-code-block" style="display:none; margin-top:20px;">
 
-            <p><b>Safe Path Prediction & Crowd Flow Routing: </b>To determine congestion-free routes to guide crowds during peak times or emergencies, adapting to rapidly changing street conditions.<br> <br>
+  <h4>C++ Logic used (Fenwick / BIT for Resource Monitoring)</h4>
+  <pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-            <b>The Algorithm: </b><b>Bellman-Ford</b> calculates the shortest (safest/fastest) paths from a source to various destinations. It is chosen here for its ability to handle complex graphs where edge weights (congestion levels) change dynamically, ensuring that visitors aren't routed into areas where movement has become impossible</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/bellman.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            <br>
-            <br>
-
-            <p><b>Priority-Based Crowd Management Actions: </b>To efficiently manage a queue of required interventions—such as deploying staff, opening overflow exits, or issuing alerts—by addressing the most critical situations first.<br> <br>
-
-            <b>The Algorithm: </b><b>Heap / Priority Queue </b>Organizes all necessary crowd control actions based on an urgency score. A Max-Heap ensures that the highest-priority task (e.g., a zone exceeding safe capacity) is always at the top for immediate execution.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="CulturalHub/heap.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+const int MAXN = 100;  
+int BIT[MAXN + 1];      
+int n;
 
 
-            </div>
-            <br>
+void update(int x, int delta) {
+    for (int i = x; i &lt;= n; i = i + (i &amp; -i)) {
+        BIT[i] += delta;
+    }
+}
 
-            <button type="button" class="btn btn-success">Code</button>
 
-            
+int prefixSum(int x) {
+    int s = 0;
+    for (int i = x; i &gt; 0; i = i - (i &amp; -i)) {
+        s += BIT[i];
+    }
+    return s;
+}
 
 
-        </div>
+int rangeSum(int l, int r) {
+    return prefixSum(r) - prefixSum(l - 1);
+}
 
-        </div>
-       
-       
-        
-        <h2 class="section-heading">Sports Academy</h2>
+int main() {
+    cout &lt;&lt; "Enter number of storage points (n):\n";
+    cin &gt;&gt; n;
 
-        <div class="content-box-container">
-             <div class="content-box">
-            <h3>AI-Driven Athlete Performance Analytics</h3>
+    int a[MAXN + 1];
+    cout &lt;&lt; "Enter initial units at each point (1..n):\n";
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; a[i];
+        update(i, a[i]);          
+    }
+
+    
+    int idx, delta;
+    cout &lt;&lt; "Enter index and change in stock (delta):\n";
+    cin &gt;&gt; idx &gt;&gt; delta;
+    update(idx, delta);
+
+    int L, R;
+    cout &lt;&lt; "Enter range [L R] to query total stock:\n";
+    cin &gt;&gt; L &gt;&gt; R;
+
+    cout &lt;&lt; "Total stock from " &lt;&lt; L &lt;&lt; " to " &lt;&lt; R
+         &lt;&lt; " = " &lt;&lt; rangeSum(L, R) &lt;&lt; "\n";
+
+    return 0;
+}</code></pre>
+
+  <h4>Sample Input</h4>
+  <pre><code>5
+10 5 0 12 3
+3 4
+2 5</code></pre>
+
+  <h4>Explanation</h4>
+  <pre><code>n = 5
+Initial stock: [10, 5, 0, 12, 3]
+Update: index 3 += 4  -> [10, 5, 4, 12, 3]
+Query: total from 2..5 -> 5 + 4 + 12 + 3 = 24</code></pre>
+
+  <h4>Expected Output</h4>
+  <pre><code>Total stock from 2 to 5 = 24</code></pre>
+
+</div>
+</div>
+        <!-- iii) R&D – Boyer–Moore -->
+        <div class="content-box">
+            <h3>Research & Development – Boyer–Moore</h3>
             <div class="rule"></div>
-             <p>AI-Driven Athlete Performance Analytics helps Samarthaka’s sports academies monitor athletes more intelligently by analysing speed, stamina, reaction time, training patterns, and injury risks. The system collects sensor data, identifies patterns, compares performance over time, and gives personalized improvement suggestions.</p>
 
-            <br>
-            
-            <div class="sdg-container">
-            <div class="sdg-div">SDGs :</div>
-            <p>3, 4, 9, 8, 11</p>
+            <p>
+                The wildlife zone also functions as a research space where genetic data and long‑term behaviour logs
+                are stored as sequences. Important signals such as risky gene markers or recurring stress patterns need
+                to be located quickly inside these long strings, so the <b>Boyer–Moore</b> string‑matching algorithm is
+                used instead of naive scanning.
+            </p>
+
+            <p>
+                Each gene sample or weekly behaviour trace is saved as a long text over some alphabet, such as nucleotides for genetics or stress‑event codes for behaviour. When a biologist wants to check if a risky marker (a short pattern) appears anywhere inside that text, Boyer–Moore pre‑processes just the pattern once and then scans the big string from right to left, skipping whole chunks whenever a mismatch proves that alignment impossible
+            </p>
+            <p>
+                Instead of checking every character position like the naive algorithm, Boyer–Moore uses “bad‑character” and “good‑suffix” rules to jump ahead several indices at a time, which makes it much faster on long logs and genome‑scale data. In practice this means a researcher can run near real‑time queries such as “find all occurrences of this gene motif” or “locate every repeated stress code subsequence” across months of stored data without blocking the system.
+            </p>
+
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/boyree.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+            <div class="algo-div">Algorithm:Boyer Moore  </div>
+            <br><br>
+            <button type="button" 
+        class="btn btn-success"
+        onclick="toggleBMCode()">
+       
+    Code
+</button>
 
-            <br>
-            <br>
+<div id="bm-code-block" style="display:none; margin-top:20px;">
 
-            <div class="algo-div">Algorithms</div>
+  <h4>C++ Logic used (Boyer–Moore for Gene / Behaviour Logs)</h4>
+  <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
 
-            <br>
-            <br>
-            <img src="Sports/sequence1.png" class="sequence">
-
-            <p><b>Data Collection & Instant Retrieval: </b>Instantly store and retrieve massive volumes of individual athlete data, such as biometric readings and historical stats, using unique identifiers.<br> <br>
-
-            <b>The Algorithm: </b><b>Hashing</b> uses a hash table to map a unique key (e.g., athlete ID) directly to the memory location of their data record, allowing for near-instantaneous access ($O(1)$ average time) regardless of database size.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Sports/hash.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+const int ALPH = 256;   
 
 
+void buildLast(string pat, int last[]) {
+    for (int i = 0; i &lt; ALPH; i++) last[i] = -1;
+    for (int i = 0; i &lt; (int)pat.size(); i++) {
+        last[(unsigned char)pat[i]] = i;
+    }
+}
+
+
+void boyerMoore(string text, string pat) {
+    int n = text.size();
+    int m = pat.size();
+    if (m == 0) return;
+
+    int last[ALPH];
+    buildLast(pat, last);
+
+    int s = 0;                // shift of pattern on text
+    bool found = false;
+
+    while (s &lt;= n - m) {
+        int j = m - 1;
+
+        // move backwards while characters match
+        while (j &gt;= 0 &amp;&amp; pat[j] == text[s + j]) {
+            j--;
+        }
+
+        if (j &lt; 0) {
+            cout &lt;&lt; "Pattern found at position " &lt;&lt; s &lt;&lt; "\n";
+            found = true;
+            // shift so that next char in text aligns with last occurrence
+            s += (s + m &lt; n) ? m - last[(unsigned char)text[s + m]] : 1;
+        } else {
+            int bad = (unsigned char)text[s + j];
+            int shift = j - last[bad];
+            if (shift &lt; 1) shift = 1;
+            s += shift;
+        }
+    }
+
+    if (!found) {
+        cout &lt;&lt; "Pattern not found\n";
+    }
+}
+
+int main() {
+    string logText;   // long gene / behaviour log
+    string pattern;   // risky marker / stress pattern
+
+    cout &lt;&lt; "Enter log string (sample / behaviour sequence):\n";
+    cin &gt;&gt; logText;
+
+    cout &lt;&lt; "Enter pattern to search for:\n";
+    cin &gt;&gt; pattern;
+
+    boyerMoore(logText, pattern);
+
+    return 0;
+}</code></pre>
+
+  <h4>Sample Input</h4>
+  <pre><code>ACGTACGTGACG
+ACG</code></pre>
+
+  <h4>Expected Output</h4>
+  <pre><code>Pattern found at position 0
+Pattern found at position 4
+Pattern found at position 9</code></pre>
+
+</div>
+
+</div>
+        <!-- iv) CARBON CREDITS – Segment Tree -->
+        <div class="content-box">
+            <h3>Carbon Credits – Segment Tree</h3>
+            <div class="rule"></div>
+
+            <p>
+                Each forest band, plantation strip or wetland patch is mapped to an index in a base array, where a[i] stores the estimated annual carbon sequestration (in tonnes of CO₂) for segment i. This linearisation lets the carbon layer plug directly into a segment tree, since the structure is designed to answer repeated range‑sum questions over such arrays while still allowing point updates.
+            </p>
+            <p>
+                bove this array, a segment tree is built as a binary tree in an internal array tree[], where each node covers a contiguous range of segments and stores the sum of their carbon values. Leaves correspond to single segments, and each internal node stores tree[node] = leftSum + rightSum, so building the tree once from the base array costs 
+O
+(
+n
+)
+O(n) time and prepares it for queries and updates.
+            </p>
+
+            <p>
+                To keep this data ready for continuous analysis, the segments are placed in a linear structure and a
+                <b>Segment Tree</b> is built over them. This allows range‑sum queries like “total carbon captured along
+                this corridor” and point updates when restoration, degradation or new planting occurs, so carbon‑credit
+                values can be recalculated quickly for many funding and reporting scenarios.
+            </p>
+
+            <h4>Implementation:</h4>
+            <div style="text-align:center; margin:20px 0;">
+                <img src="Masterplan/seg.jpg"
+                     alt="City Master Plan & Zoning mindmap"
+                     style="width:450px; height:auto; border:2px solid #000;">
             </div>
+            <div class="algo-div">Algorithm:Segment Tree </div>
+            <br><br>
+            <button type="button" 
+        class="btn btn-success"
+        onclick="toggleSegTreeCode()">
+    Code
+</button>
 
-            <br>
+<div id="seg-code-block" style="display:none; margin-top:20px;">
 
-            <button type="button" class="btn btn-success">Code</button>
+  <h4>C++ Logic used (Segment Tree for Carbon Bands)</h4>
+  <pre><code>#include &lt;iostream&gt;
+using namespace std;
 
-            <br>
-            <br>
+const int MAXN = 100;
 
-            <p><b>Tracking Real-Time Performance Changes: </b>Continuously monitor and update cumulative performance metrics in real-time, such as total distance covered or aggregate training load during a session.<br> <br>
+int n;
+long long a[MAXN];
+long long tree[4 * MAXN];
 
-            <b>The Algorithm: </b><b>Fenwick Tree - Binary Indexed Tree</b>Efficiently updates individual data points (e.g., adding distance from a new lap) and instantly calculates cumulative totals (prefix sums) up to the current moment in logarithmic time.</p>
-            <br>
+void build(int node, int l, int r) {
+    if (l == r) {
+        tree[node] = a[l];
+        return;
+    }
+    int mid = (l + r) / 2;
+    build(2 * node, l, mid);
+    build(2 * node + 1, mid + 1, r);
+    tree[node] = tree[2 * node] + tree[2 * node + 1];
+}
 
-            <div class="image-box">
-             <img src="Sports/fen.png" class="image">
+void update(int node, int l, int r, int idx, long long val) {
+    if (l == r) {
+        tree[node] = val;
+        a[idx] = val;
+        return;
+    }
+    int mid = (l + r) / 2;
+    if (idx <= mid) update(2 * node, l, mid, idx, val);
+    else update(2 * node + 1, mid + 1, r, idx, val);
+    tree[node] = tree[2 * node] + tree[2 * node + 1];
+}
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+long long query(int node, int l, int r, int ql, int qr) {
+    if (qr &lt; l || r &lt; ql) return 0;
+    if (ql &lt;= l &amp;&amp; r &lt;= qr) return tree[node];
+    int mid = (l + r) / 2;
+    return query(2 * node, l, mid, ql, qr)
+         + query(2 * node + 1, mid + 1, r, ql, qr);
+}
 
+int main() {
+    cout &lt;&lt; "Enter number of forest bands:\n";
+    cin &gt;&gt; n;
 
-            </div>
-            <br>
+    cout &lt;&lt; "Enter carbon value for each band (1..n):\n";
+    for (int i = 1; i &lt;= n; i++) cin &gt;&gt; a[i];
 
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
+    build(1, 1, n);
 
-            <p><b>Pattern Recognition in Movements & Training Cycles: </b>Identify specific, recurring sequences in sensor data or training logs that indicate optimal performance states, fatigue patterns, or potential injury risks.<br> <br>
+    int idx;
+    long long val;
+    cout &lt;&lt; "Enter band index and new carbon value:\n";
+    cin &gt;&gt; idx &gt;&gt; val;
+    update(1, 1, n, idx, val);
 
-            <b>The Algorithm: </b><b>KMP - Knuth–Morris–Pratt</b> Treats streams of movement data or training sequences as text strings, efficiently searching for specific "pattern" sequences within the larger dataset without redundant comparisons to quickly flag notable events.</p>
-            <br>
+    int L, R;
+    cout &lt;&lt; "Enter corridor range [L R] to query total carbon:\n";
+    cin &gt;&gt; L &gt;&gt; R;
 
-            <div class="image-box">
-             <img src="Sports/KMP.png" class="image">
+    long long ans = query(1, 1, n, L, R);
+    cout &lt;&lt; "Total carbon from band " &lt;&lt; L &lt;&lt; " to " &lt;&lt; R
+         &lt;&lt; " = " &lt;&lt; ans &lt;&lt; "\n";
 
-             <div class="efficiency-box">
-                Efficiency
-             </div>
+    return 0;
+}</code></pre>
 
+  <h4>Sample Input</h4>
+  <pre><code>5
+10 8 4 6 12
+3 9
+2 5</code></pre>
 
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-            <br>
-            <br>
-
-            <p><b>Athlete Ranking & Report Generation: </b>Compile comprehensive performance reports and generate leaderboards by ordering athletes based on aggregated scores or specific metrics.<br> <br>
-
-            <b>The Algorithm: </b><b>Merge Sort</b>A highly efficient, stable sorting algorithm that systematically divides the dataset of athlete scores, sorts sub-lists, and merges them back together to produce a perfectly ordered ranking list for analysis.</p>
-            <br>
-
-            <div class="image-box">
-             <img src="Sports/merge.png" class="image">
-
-             <div class="efficiency-box">
-                Efficiency
-             </div>
-
-
-            </div>
-            <br>
-
-            <button type="button" class="btn btn-success">Code</button>
-
-            
-
-
-
-
-
-
+  <h4>Expected Output</h4>
+  <pre><code>Total carbon from band 2 to 5 = 35</code></pre>
         </div>
-
-        </div>
-       
-
-       
-       
-
-
-        <a href="../index.html" class="back-btn">← Back to Team</a>
 
     </div>
 
-    <script src="an.js"></script>
+    <!-- =====================================================
+         BLOCK 3: TEAK & SANDALWOOD INDUSTRY
+    ====================================================== -->
+    <h2 class="section-heading">Sandalwood Industry</h2>
+
+    <div class="content-box-container">
+
+        <!-- Overall industry idea -->
+        <div class="content-box">
+            <h3>Green Industrial Timber Belt</h3>
+            <div class="rule"></div>
+
+            <p>
+                The sandalwood industry wing treats every plantation block as a long-term asset with its own age, host-tree mix and expected harvest year. 
+                Instead of keeping these blocks in flat lists or spreadsheets, the planning system organises them in a <b>Binary Search Tree (BST)</b>, keyed by harvest year, so that upcoming harvest windows can be queried and adjusted quickly for different policy and investment scenarios.
+              </p>
+              
+              <p>
+                Each node of the BST represents one sandalwood block: it stores the block identifier or compartment number as the key, along with its harvest year and a projected yield score. 
+                The tree property—values smaller than a node’s key on the left, larger on the right—lets the planner insert new blocks, delete retired ones and traverse the tree in sorted order to generate a year-wise or range-wise harvest schedule without scanning the full registry every time.
+              </p>
+              
+              <p>
+                In practice this means that when the forest department wants to answer questions such as “which blocks are due between 2032 and 2035?” or “what does the 2030 harvest basket look like if we drop one risky block?”, the system simply walks the BST in-order or deletes/updates specific nodes. 
+                The core operations—insert, delete and inorder traversal—run in time proportional to the height of the tree, so with reasonably balanced data the planning tool stays responsive even as more sandalwood estates and farmer groups are onboarded.
+              </p>
+
+            <h4>Implementation – Plantation Logic:</h4>
+            <div class="algo-div">Structures: Structured Records + Priority Queue for Blocks</div>
+            <br>
+
+            <div class="image-box">
+                <img src="Industry/teak-queue.png" class="image" alt="Teak & sandal priority queue">
+                <div class="efficiency-box">
+                    <h3>Greedy, transparent harvest planning</h3>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success">Code</button>
+
+            <br><br>
+
+            <h4>Transport & Routing – Dijkstra</h4>
+            <p>
+                Movement of timber from plantations to sawmills and then to logistics hubs is handled as a transport
+                network problem. Plantation blocks, mills and depots form the nodes of a weighted graph, with roads and
+                internal tracks as edges carrying travel time or cost.[web:167][web:179] To minimise hauling effort and
+                improve turnaround, <b>Dijkstra’s algorithm</b> is used to compute shortest paths from each mill or hub
+                to all relevant blocks.
+            </p>
+
+            <p>
+                This routing layer links directly with the priority queue: once the best blocks are chosen for a given
+                season, their logs move along the cheapest or fastest routes suggested by the graph. The result is an
+                industry sector that appears as forest on the map, but behaves like an optimised supply chain in the
+                backend.
+            </p>
+
+            <h4>Implementation – Transport Logic:</h4>
+            <div class="algo-div">Algorithm: Dijkstra on Industry Transport Graph</div>
+            <br>
+
+            <div class="image-box">
+                <img src="Industry/transport-dijkstra.png" class="image" alt="Industry transport graph">
+                <div class="efficiency-box">
+                    <h3>Shortest‑path hauling from block to mill</h3>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success">Code</button>
+        </div>
+
+    </div>
+
+   <a href="../index.html" class="back-btn">Back</a>
+
+</div>
+
+<script>
+    // Fast page fade-in
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("page-loaded");
+    });
+
+    // Show / hide the Union–Find zoning code block
+    function toggleZoningCode() {
+        const block = document.getElementById("zoning-code-block");
+        if (!block) return;
+        if (block.style.display === "none" || block.style.display === "") {
+            block.style.display = "block";
+        } else {
+            block.style.display = "none";
+        }
+    }
+    function toggleDcrCode() {
+    const block = document.getElementById("dcr-code-block");
+    if (!block) return;
+    if (block.style.display === "none" || block.style.display === "") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+}
+
+function togglePhasingCode() {
+    const block = document.getElementById("phasing-code-block");
+    if (!block) return;
+    if (block.style.display === "none" || block.style.display === "") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+}
+
+function togglePatrolCode() {
+    const block = document.getElementById("patrol-code-block");
+    if (!block) return;
+    if (block.style.display === "none" || block.style.display === "") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+}
+function toggleHeapCode() {
+      const block = document.getElementById("heap-code-block");
+      if (!block) return;
+      if (block.style.display === "none" || block.style.display === "") {
+        block.style.display = "block";
+      } else {
+        block.style.display = "none";
+      }
+    }
+    function toggleAnimalHashCode() {
+  const block = document.getElementById("animal-hash-code-block");
+  if (!block) return;
+  if (block.style.display === "none" || block.style.display === "") {
+    block.style.display = "block";
+  } else {
+    block.style.display = "none";
+  }
+}
+function toggleBITCode() {
+  const block = document.getElementById("bit-code-block");
+  if (!block) return;
+  if (block.style.display === "none" || block.style.display === "") {
+    block.style.display = "block";
+  } else {
+    block.style.display = "none";
+  }
+}
+function toggleBMCode() {
+  const block = document.getElementById("bm-code-block");
+  if (!block) return;
+  if (block.style.display === "none" || block.style.display === "") {
+    block.style.display = "block";
+  } else {
+    block.style.display = "none";
+  }
+}
+
+function toggleSegTreeCode() {
+  const block = document.getElementById("seg-code-block");
+  if (!block) return;
+  if (block.style.display === "none" || block.style.display === "") {
+    block.style.display = "block";
+  } else {
+    block.style.display = "none";
+  }
+}    
+
+</script>
 
 </body>
 </html>
