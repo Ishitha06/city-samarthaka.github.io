@@ -1,15 +1,12 @@
 /* =========================================================
-   1. Fast Page Fade-in
+   1. Page Load & Animations
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("page-loaded");
 });
 
-/* ---------------------------------------
-   2. Fast Scroll Animations
-----------------------------------------*/
 const animatedItems = document.querySelectorAll(
-    "h1, h2, h3, h4, p, img, .section-heading, .card, .box, .container, .content-box, .efficiency-box"
+    "h1, h2, h3, h4, p, img, .section-heading, .card, .content-box, .efficiency-box"
 );
 
 const scrollObserver = new IntersectionObserver((entries) => {
@@ -28,124 +25,114 @@ animatedItems.forEach(item => {
 
 
 /* =========================================================
-   3. CODE POPUP LOGIC (Fixed & Robust)
+   2. CODE POPUP LOGIC (Diagnostic Version)
 ========================================================= */
 
-function openModal(btnElement) {
-    const modal = document.getElementById('codeModal');
-    if (!modal) return; // Safety check
-    const codeWindow = modal.querySelector('.code-window');
-
-    // --- 1. ROBUST DATA FETCHING ---
-    // We look for the next sibling that is actually a '.code-data' div.
-    // This skips <br> tags, text nodes, or comments that might be in between.
-    let dataDiv = btnElement.nextElementSibling;
-    while (dataDiv && !dataDiv.classList.contains('code-data')) {
-        dataDiv = dataDiv.nextElementSibling;
+function openModal(btn) {
+    // 1. Get Modal
+    const modal = document.getElementById("codeModal");
+    if (!modal) {
+        alert("CRITICAL ERROR: Modal HTML missing.");
+        return;
     }
 
-    // Only try to extract data if we actually found the div
-    if (dataDiv) {
-        try {
-            const cppCode = dataDiv.querySelector('.data-cpp').innerHTML;
-            const inputCode = dataDiv.querySelector('.data-input').innerHTML;
-            const outputCode = dataDiv.querySelector('.data-output').innerHTML;
-
-            // Inject into Popup
-            document.querySelector('#cpp code').innerHTML = cppCode;
-            document.querySelector('#input code').innerHTML = inputCode;
-            document.querySelector('#output code').innerHTML = outputCode;
-        } catch (err) {
-            console.error("Error reading code data:", err);
-            document.querySelector('#cpp code').innerText = "// Error: Code structure missing.";
-        }
-    } else {
-        // Fallback if no data div found
-        console.warn("No .code-data div found next to button");
-        document.querySelector('#cpp code').innerText = "// No code data provided for this section.";
-    }
-
-    // --- 2. POSITIONING LOGIC ---
-    modal.style.height = document.documentElement.scrollHeight + 'px';
-    modal.style.display = 'block';
-
-    const rect = btnElement.getBoundingClientRect();
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    // 2. Open & Reset
+    modal.classList.add("open"); 
     
-    const popupWidth = 700; 
-    const popupHeight = 450;
-    const gap = 15;
+    // Set initial status text
+    const setStatus = (id, msg) => {
+        const el = document.querySelector(`#${id} code`);
+        if(el) el.textContent = msg;
+    };
 
-    // Calculate Top: Position it ABOVE the button
-    let topPos = rect.top + scrollTop - popupHeight - gap;
+    setStatus("cpp", "🔍 Scanning for C++ file...");
+    setStatus("input", "🔍 Scanning for Input...");
+    setStatus("output", "🔍 Scanning for Output...");
 
-    // Calculate Left: Center it horizontally relative to the button
-    let leftPos = rect.left + (rect.width / 2) - (popupWidth / 2);
-
-    // Safety Checks (Keep it on screen)
-    if (leftPos < 10) leftPos = 10;
-    if (leftPos + popupWidth > document.documentElement.clientWidth) {
-        leftPos = document.documentElement.clientWidth - popupWidth - 10;
-    }
-
-    // Check Top Edge: If button is too high, show popup BELOW button
-    if (topPos < scrollTop) {
-        topPos = rect.bottom + scrollTop + gap;
-    }
-
-    codeWindow.style.top = topPos + 'px';
-    codeWindow.style.left = leftPos + 'px';
-
-    // Reset tabs to first one
+    // 3. Reset Tabs
     switchTab(null, 'cpp');
 
-    // Animate in
-    setTimeout(() => {
-        codeWindow.classList.add('show');
-    }, 10);
+    // 4. Find Data Container
+    let container = btn.nextElementSibling;
+    while (container && !container.classList.contains("code-data")) {
+        container = container.nextElementSibling;
+    }
+
+    if (!container) {
+        setStatus("cpp", "❌ ERROR: No <div class='code-data'> found next to button.");
+        return;
+    }
+
+    // 5. Load Content Function
+    const loadContent = (type, elementId) => {
+        const div = container.querySelector(`.data-${type}`);
+        const codeBox = document.querySelector(`#${elementId} code`);
+
+        if (!div) {
+            codeBox.textContent = "// No " + type + " data provided.";
+            return;
+        }
+
+        // Case A: Fetch from File
+        if (div.dataset.src) {
+            const filePath = div.dataset.src;
+            codeBox.textContent = "⏳ Loading file: " + filePath + " ...";
+
+            // Add timestamp to force fresh load (bypasses cache)
+            fetch(filePath + "?t=" + new Date().getTime())
+                .then(response => {
+                    if (!response.ok) throw new Error(`File not found (Status: ${response.status})`);
+                    return response.text();
+                })
+                .then(text => {
+                    // SUCCESS: Display the code
+                    codeBox.textContent = text; 
+                })
+                .catch(err => {
+                    // FAILURE: Show error message in the box
+                    codeBox.textContent = "❌ ERROR: Could not load file.\n" +
+                                          "👉 Path: " + filePath + "\n" +
+                                          "👉 Details: " + err.message + "\n" +
+                                          "👉 Check: Does '" + filePath + "' exist in your 'codes' folder?";
+                });
+        } 
+        // Case B: Inline HTML
+        else if (div.innerHTML.trim().length > 0) {
+            codeBox.textContent = div.innerHTML.trim(); // Use textContent to show tags like <iostream> safely
+        } 
+        else {
+            codeBox.textContent = "// Data block is empty.";
+        }
+    };
+
+    // 6. Trigger Loads
+    loadContent("cpp", "cpp");
+    loadContent("input", "input");
+    loadContent("output", "output");
 }
 
+
 function closeCode() {
-    const modal = document.getElementById('codeModal');
-    const codeWindow = modal.querySelector('.code-window');
-
-    codeWindow.classList.remove('show');
-
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 200);
+    const modal = document.getElementById("codeModal");
+    if (modal) modal.classList.remove("open");
 }
 
 window.onclick = function(event) {
-    const modal = document.getElementById('codeModal');
-    if (event.target == modal) {
-        closeCode();
-    }
-}
+    const modal = document.getElementById("codeModal");
+    if (event.target === modal) closeCode();
+};
 
-// Fixed Switch Tab Logic (Handles Event Correctly)
 function switchTab(evt, tabName) {
-    // Hide all contents
-    document.querySelectorAll('.code-content').forEach(content => {
-        content.classList.remove('active-content');
-    });
-
-    // Deactivate all buttons
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // Show selected content
-    const activeContent = document.getElementById(tabName);
-    if(activeContent) activeContent.classList.add('active-content');
+    document.querySelectorAll(".code-content").forEach(c => c.classList.remove("active-content"));
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     
-    // Activate button
-    // If event is passed (click), use it. If null (reset), find button manually.
+    const activeContent = document.getElementById(tabName);
+    if (activeContent) activeContent.classList.add("active-content");
+
     if (evt) {
-        evt.currentTarget.classList.add('active');
+        evt.currentTarget.classList.add("active");
     } else {
-        // Default to first button if no event (reset scenario)
-        const defaultBtn = document.querySelector(`.tab-btn[onclick*="'${tabName}'"]`);
-        if(defaultBtn) defaultBtn.classList.add('active');
+        const btn = document.querySelector(`.tab-btn[onclick*="${tabName}"]`);
+        if (btn) btn.classList.add("active");
     }
 }
