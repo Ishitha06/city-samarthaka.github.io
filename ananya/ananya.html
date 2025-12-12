@@ -429,72 +429,114 @@ int main() {
             onclick="togglePhasingCode()">
         Code
     </button>
+    <a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/applications_processed.csv"
+   target="_blank">
+  Dataset
+</a>
+
     
     <div id="phasing-code-block" style="display:none; margin-top:20px;">
     
         <h4>C++ Logic used</h4>
         <pre><code>#include &lt;iostream&gt;
-    #include &lt;deque&gt;
-    using namespace std;
-    
-    // application record: id and priority flag
-    struct Application {
-        int id;
-        bool priority;  // true = policy-priority / phase-critical
-    };
-    
-    int main() {
-        deque&lt;Application&gt; q;  // double-ended queue of applications
-    
-        int n;
-        cin &gt;&gt; n;  // number of incoming applications
-    
-        // each line: id type
-        // type = 0 -> normal, type = 1 -> priority (front of deque)
-        for (int i = 0; i &lt; n; i++) {
-            int id, type;
-            cin &gt;&gt; id &gt;&gt; type;
-    
-            Application app = { id, (type == 1) };
-    
-            if (app.priority) {
-                q.push_front(app);   // fast-track to front
-            } else {
-                q.push_back(app);    // normal FIFO at back
+            #include <bits/stdc++.h>
+            using namespace std;
+            
+            // One application record loaded from CSV
+            struct Application {
+                string app_id;
+                string zone;
+                double plot_area_sqm;
+                double road_width_m;
+                double proposed_far;
+                double proposed_height_m;
+                string priority;        // "PRIORITY" or "NORMAL"
+                string status;          // APPROVED / DEFERRED / PENDING
+                string phase;           // PHASE_1 / PHASE_2 / ...
+                int    processed_order; // 1..1000
+                string fast_tracked;    // "YES" / "NO"
+            };
+            
+            int main() {
+                ios::sync_with_stdio(false);
+                cin.tie(nullptr);
+            
+                // ------------ load CSV into vector<Application> ------------
+                // Assumes a file "applications_processed.csv" with 1000 rows
+                // and header: app_id,zone,plot_area_sqm,road_width_m,proposed_far,proposed_height_m,priority,status,phase,processed_order,fast_tracked
+                ifstream fin("ananya/Datasets/applications_processed.csv");
+                if (!fin) {
+                    cerr << "Could not open applications_processed.csv\n";
+                    return 1;
+                }
+            
+                vector<Application> apps;
+                string line;
+            
+                // skip header
+                getline(fin, line);
+            
+                while (getline(fin, line)) {
+                    if (line.empty()) continue;
+                    stringstream ss(line);
+                    string token;
+                    Application a;
+            
+                    getline(ss, a.app_id, ',');
+                    getline(ss, a.zone, ',');
+                    getline(ss, token, ','); a.plot_area_sqm = stod(token);
+                    getline(ss, token, ','); a.road_width_m = stod(token);
+                    getline(ss, token, ','); a.proposed_far = stod(token);
+                    getline(ss, token, ','); a.proposed_height_m = stod(token);
+                    getline(ss, a.priority, ',');
+                    getline(ss, a.status, ',');
+                    getline(ss, a.phase, ',');
+                    getline(ss, token, ','); a.processed_order = stoi(token);
+                    getline(ss, a.fast_tracked, ',');
+            
+                    apps.push_back(a);
+                }
+            
+                cout << "Loaded " << apps.size() << " applications\n";
+            
+                // ------------ processing pipeline using deque ------------
+                deque<int> dq; // stores indices into apps vector
+            
+                for (int i = 0; i < (int)apps.size(); ++i) {
+                    const Application &a = apps[i];
+            
+                    bool is_priority = (a.priority == "PRIORITY") || (a.fast_tracked == "YES");
+                    if (is_priority) {
+                        // phase‑critical or policy‑priority: go to the front
+                        dq.push_front(i);          // O(1)
+                    } else {
+                        // normal application: join the back of the queue
+                        dq.push_back(i);           // O(1)
+                    }
+                }
+            
+                // Process applications in pipeline order (front of deque)
+                while (!dq.empty()) {
+                    int idx = dq.front();
+                    dq.pop_front();                // O(1)
+            
+                    Application &a = apps[idx];
+            
+                    // Example processing logic: here just print a summary line
+                    cout << "Processing " << a.app_id
+                         << " zone=" << a.zone
+                         << " priority=" << a.priority
+                         << " fast_tracked=" << a.fast_tracked
+                         << " phase=" << a.phase << "\n";
+            
+                    // In a real system, this is where approval/deferral rules would run,
+                    // possibly updating a.status or a.phase.
+                }
+            
+                return 0;
             }
-        }
-    
-        // process applications in the order stored in the deque
-        while (!q.empty()) {
-            Application cur = q.front();
-            q.pop_front();   // remove from front after processing
-    
-            if (cur.priority) {
-                cout &lt;&lt; "Processing PRIORITY application " &lt;&lt; cur.id &lt;&lt; "\n";
-            } else {
-                cout &lt;&lt; "Processing NORMAL application " &lt;&lt; cur.id &lt;&lt; "\n";
-            }
-        }
-    
-        return 0;
-    }</code></pre>
-    
-        <h4>Sample Input</h4>
-        <pre><code>6
-    101 0
-    102 0
-    201 1
-    103 0
-    202 1
-    104 0</code></pre>
-    
-        <h4>Expected Output</h4>
-        <pre><code>Processing PRIORITY application 202
-    Processing PRIORITY application 201
-    Processing NORMAL application 101
-    Processing NORMAL application 102
-    Processing NORMAL application 103
-    Processing NORMAL application 104</code></pre>
+            </code></pre>
     
     </div>
         </div>
@@ -553,104 +595,97 @@ int main() {
         onclick="togglePatrolCode()">
     Code
 </button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/wildlife_patrol_distances.csv"
+   target="_blank">
+  Dataset
+</a>
+
 
 <div id="patrol-code-block" style="display:none; margin-top:20px;">
 
     <h4>C++ Logic used (Patrol Routing with Dijkstra)</h4>
     <pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-#define MAXN 100
-#define INF 999   // 999 represents no direct path
-
-// Each vertex = patrol point (tower, gate, water body, etc.)
-// Each edge weight = travel time / difficulty between two points
-
-int main() {
-    int n;
-    cout &lt;&lt; "Enter number of patrol points (vertices):\n";
-    cin &gt;&gt; n;
-
-    int cost[MAXN][MAXN];
-
-    cout &lt;&lt; "Enter travel-time matrix (use 999 if no direct path):\n";
-    for (int i = 0; i &lt; n; i++) {
-        for (int j = 0; j &lt; n; j++) {
-            cin &gt;&gt; cost[i][j];
-        }
-    }
-
-    int source;
-    cout &lt;&lt; "Enter index of starting patrol post (source vertex):\n";
-    cin &gt;&gt; source;
-
-    int dist[MAXN];    // best known time from source to i
-    int parent[MAXN];  // previous patrol point on best route
-    int visited[MAXN]; // 1 if shortest time to i is final
-
-    // Initialization
-    for (int i = 0; i &lt; n; i++) {
-        dist[i] = cost[source][i];
-        parent[i] = source;
-        visited[i] = 0;
-    }
-    dist[source] = 0;
-    parent[source] = -1;
-    visited[source] = 1;
-
-    // Dijkstra main loop
-    for (int iter = 0; iter &lt; n - 1; iter++) {
-        int u = -1;
-        int minDist = INF + 1;
-
-        // pick unvisited vertex with smallest distance
-        for (int i = 0; i &lt; n; i++) {
-            if (!visited[i] &amp;&amp; dist[i] &lt; minDist) {
-                minDist = dist[i];
-                u = i;
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        struct NodeInfo {
+            int    id;
+            string type;
+            double dist; // minutes from source (precomputed by Python)
+        };
+        
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+        
+            string filename = "wildlife_patrol_distances.csv";
+            ifstream fin(filename);
+            if (!fin) {
+                cerr << "Could not open " << filename << "\n";
+                return 1;
             }
-        }
-
-        if (u == -1) break;
-
-        visited[u] = 1;
-
-        // relax neighbours of u
-        for (int v = 0; v &lt; n; v++) {
-            if (!visited[v] &amp;&amp; cost[u][v] != INF) {
-                if (dist[u] + cost[u][v] &lt; dist[v]) {
-                    dist[v] = dist[u] + cost[u][v];
-                    parent[v] = u;
-                }
+        
+            vector<NodeInfo> nodes;
+            string line;
+        
+            // skip header
+            if (!getline(fin, line)) {
+                cerr << "Empty CSV\n";
+                return 1;
             }
+        
+            while (getline(fin, line)) {
+                if (line.empty()) continue;
+                stringstream ss(line);
+                string token;
+        
+                NodeInfo ni;
+        
+                // node_id
+                getline(ss, token, ',');
+                ni.id = stoi(token);
+        
+                // node_type
+                getline(ss, ni.type, ',');
+        
+                // distance_from_source_minutes
+                getline(ss, token, ',');
+                ni.dist = stod(token);
+        
+                nodes.push_back(ni);
+            }
+        
+            cout << "Loaded " << nodes.size()
+                 << " patrol points with precomputed travel times.\n\n";
+        
+            cout << "Node   Type            MinTime(from source, min)\n";
+            for (const auto &ni : nodes) {
+                cout << setw(4) << ni.id << "   "
+                     << setw(12) << ni.type << "   "
+                     << fixed << setprecision(2) << ni.dist << "\n";
+            }
+        
+            // Example: sort by travel time to suggest response order
+            sort(nodes.begin(), nodes.end(),
+                 [](const NodeInfo &a, const NodeInfo &b) {
+                     return a.dist < b.dist;
+                 });
+        
+            cout << "\nSuggested incident response order (closest first):\n";
+            for (int i = 0; i < min<int>(10, nodes.size()); ++i) {
+                const auto &ni = nodes[i];
+                cout << i + 1 << ") node " << ni.id
+                     << " (" << ni.type << "), "
+                     << ni.dist << " minutes from source\n";
+            }
+        
+            return 0;
         }
-    }
-
-    cout &lt;&lt; "\nPatrolPoint   MinTime(from source)   PreviousPoint\n";
-    for (int i = 0; i &lt; n; i++) {
-        cout &lt;&lt; i &lt;&lt; "             " &lt;&lt; dist[i] 
-             &lt;&lt; "                    " &lt;&lt; parent[i] &lt;&lt; "\n";
-    }
-
-    return 0;
+        
 }</code></pre>
 
-    <h4>Sample Input</h4>
-    <pre><code>5
-0   10  3   999 999
-10  0   1   2   999
-3   1   0   8   2
-999 2   8   0   7
-999 999 2  7   0
-0</code></pre>
-
-    <h4>Expected Output</h4>
-    <pre><code>PatrolPoint   MinTime(from source)   PreviousPoint
-0             0                      -1
-1             4                      2
-2             3                      0
-3             6                      1
-4             5                      2</code></pre>
+    </code></pre>
 
 </div>
 </div>
