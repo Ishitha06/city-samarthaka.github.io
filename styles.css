@@ -271,8 +271,9 @@ nav a.active::after{
 
 /* Image style — matches screenshot look */
 .blueprint-img {
-    width: 45%;
-    max-width: 520px;
+    width: 65%;
+
+    /* max-width: 520px; */
     border-radius: 18px;
     box-shadow: 0 14px 32px rgba(20,20,20,0.12);
     border: 1px solid rgba(31,81,54,0.06);
@@ -290,6 +291,231 @@ nav a.active::after{
     .blueprint-img {
         width: 90%;
     }
+}
+
+
+
+/* TABLE section */
+
+
+/* =========================================
+   NEW CSS: LARGER CARDS & DARK/GOLD TABLE
+========================================= */
+
+/* --- Container for the two statistics cards --- */
+.city-stats-container {
+    display: flex;
+    gap: 40px; /* Increased gap */
+    justify-content: center;
+    margin: 70px auto;
+    max-width: 1300px; /* Widen container */
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+/* --- General Styling for both cards (Larger Size) --- */
+.stat-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    /* INCREASED SIZE HERE */
+    padding: 40px; 
+    flex: 1;
+    min-width: 380px; /* Much wider minimum */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    color: #333333;
+}
+
+.stat-card h3 {
+    font-family: 'Cinzel', serif;
+    color: #244D43;
+    font-size: 1.6rem; /* Larger title font */
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* Decorative line under card titles */
+.stat-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
+    margin-bottom: 35px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+}
+
+/* --- Card 1: City Info Specific Styles --- */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    margin-bottom: 20px; /* More spacing */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; /* Larger font */
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 12px;
+    color: #333333;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #666666;
+}
+
+/* --- Card 2: Age Distribution Chart Styles --- */
+.age-group-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* More spacing */
+    font-family: 'Playfair Display', serif;
+}
+
+.age-label {
+    flex: 0 0 130px; /* Wider label area */
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #555555;
+}
+
+/* The background track for the progress bar */
+.progress-track {
+    flex-grow: 1;
+    background-color: #e9ecef;
+    height: 16px; /* Thicker bar */
+    border-radius: 8px;
+    margin: 0 25px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* The filled part of the progress bar */
+.progress-fill {
+    background: linear-gradient(90deg, #FFD700, #FFC107);
+    height: 100%;
+    border-radius: 8px;
+}
+
+.age-percentage {
+    flex: 0 0 55px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: #244D43;
+    text-align: right;
+}
+
+/* =========================================
+   NEW REVENUE TABLE STYLES (Dark & Gold Theme)
+========================================= */
+
+.revenue-section-container {
+    margin: 90px auto;
+    max-width: 1300px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.revenue-section-container .section-title {
+    color: #333333; /* Dark title */
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 40px;
+    border-radius: 15px;
+    /* Strong shadow for depth */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+    border: none;
+}
+
+.revenue-table {
+    width: 100%;
+    height: 600px;
+    border-collapse: collapse;
+    font-family: 'Playfair Display', serif;
+    color: #e0e0e0; /* Light text for dark bg */
+    background-color: #565454; /* Dark Charcoal Background */
+    text-align: center;
+}
+
+/* --- Dark & Gold Table Header --- */
+.revenue-table thead th {
+    background-color: #565454; /* Very Dark Header */
+    color: #FFD700; /* Gold text */
+    font-family: 'Cinzel', serif;
+    padding: 22px 15px; 
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #FFD700; /* Prominent gold border */
+    white-space: nowrap;
+}
+
+/* --- Table Body Cell Styling --- */
+.revenue-table tbody td {
+    padding: 20px 15px; 
+    font-size: 1.65rem;
+    border-bottom: 1px solid rgba(255,215,0, 0.1); /* Subtle gold separator */
+}
+
+/* Zebra striping (Slightly lighter charcoal) */
+.revenue-table tbody tr:nth-child(even) {
+    background-color: #565454; 
+}
+
+/* Hover effect (Gold tint) */
+.revenue-table tbody tr:hover {
+    background-color: rgba(255, 215, 0, 0.08);
+    transition: background-color 0.2s ease;
+}
+
+/* Styling for the first column (Phases) */
+.phase-name {
+    font-weight: 700;
+    color: #FFD700; /* Gold color */
+    text-align: left;
+    padding-left: 25px;
+    font-family: 'Cinzel', serif;
+}
+
+/* Styling specifically for "Total" columns */
+.revenue-table .total-col {
+    font-weight: 800;
+    color: #FFD700;
+    /* Stronger gold tint background for totals */
+    background-color: rgba(255, 215, 0, 0.15) !important; 
+}
+
+/* --- Dark Table Footer (Grand Total Row) --- */
+.revenue-table tfoot th {
+    padding: 25px 15px;
+    background-color: #565454; /* Very Dark Footer */
+    color: #ffffff;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    border-top: 3px solid #FFD700;
+}
+
+.grand-total-label {
+    text-align: right;
+    padding-right: 30px;
+    color: #FFD700;
+}
+
+/* Final Grand Total Value Pop */
+.grand-total-value {
+    font-size: 1.6rem;
+    /* Bright Neon Green for final distinct pop against dark bg */
+    color: #00ff7f !important; 
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(0,255,127, 0.4);
 }
 
 
