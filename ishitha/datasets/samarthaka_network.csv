@@ -1,4 +1,4 @@
-NodeID,Zone,Latitude,Longitude,ConnectedTo,Distance,BackupCount,Backup1,Backup2,Backup3,Backup4,Backup5,ActiveUsers,AvgBandwidth
+NodeID,Zone,Latitude,Longitude,ConnectedTo,Distance,BackupCount,Backup1,Backup2,Backup3,Backup4,Backup5,ActiveUsers,Avg_BW
 0,North,12.057503,76.632509,3657,18,5,1679,8935,1424,9674,6912,66,4
 1,North,12.115591,76.701607,434,72,1,8928,-1,-1,-1,-1,264,29
 2,West,12.22678,76.792829,106,98,1,6924,-1,-1,-1,-1,224,36
