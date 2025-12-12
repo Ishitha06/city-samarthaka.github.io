@@ -1,204 +1,211 @@
-/* =============== Root Theme =============== */
-:root {
-  --bg: #07120f;
-  --card: #0e2a23;
-  --accent: #1e8b5c;
-  --muted: #9fbfad;
-  --text: #dffaf0;
+/* ========= Modal + Code Loader ========= */
+
+const RAW = "https://raw.githubusercontent.com/Ishitha06/city-samarthaka.github.io/main/pratiksha/datasets/";
+
+const codeSamples = {
+  commercial: `// Commercial CSV Reader (Syallabus Friendly)
+// Reads top 5 businesses by revenue
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct Biz { string id,name,category,location,status; double revenue; };
+
+int split(const string &s, string p[], int m){
+  string c=""; int x=0;
+  for(char ch : s){
+    if(ch==','){ p[x++]=c; c=""; }
+    else c+=ch;
+  }
+  p[x++] = c;
+  return x;
 }
 
-/* =============== Base =============== */
-body {
-  background: linear-gradient(180deg, #03120e, #07120f);
-  font-family: "Playfair Display", serif;
-  color: var(--text);
-  margin: 0;
-  padding: 28px;
+int main(){
+  ifstream fin("${RAW}commercial_dataset.csv");
+  if(!fin){ cout<<"File not found"; return 0; }
+
+  Biz A[2000]; int n=0;
+  string line; getline(fin,line);
+  while(getline(fin,line)){
+    string p[10];
+    split(line,p,10);
+    A[n].id=p[0];
+    A[n].name=p[1];
+    A[n].category=p[2];
+    A[n].revenue = atof(p[3].c_str());
+    A[n].location=p[4];
+    A[n].status=p[5];
+    n++;
+  }
+
+  for(int i=0;i<5;i++){
+    int b=i;
+    for(int j=i+1;j<n;j++)
+      if(A[j].revenue > A[b].revenue) b=j;
+    swap(A[i], A[b]);
+  }
+
+  for(int i=0;i<5;i++)
+    cout<<A[i].id<<" "<<A[i].name<<" "<<A[i].revenue<<"\\n";
+}
+`,
+
+  healthcare: `// Healthcare Severity Sort
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct P { string id,name,zone,status; int sev; };
+
+int split(const string &s,string p[],int m){
+  string c=""; int x=0;
+  for(char ch:s){
+    if(ch==','){ p[x++]=c; c=""; }
+    else c+=ch;
+  }
+  p[x++]=c;
+  return x;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
+int main(){
+  ifstream fin("${RAW}healthcare_dataset.csv");
+  if(!fin){ cout<<"File Error"; return 0; }
+
+  P A[2000]; int n=0;
+  string line; getline(fin,line);
+  while(getline(fin,line)){
+    string p[10]; split(line,p,10);
+    A[n].id=p[0];
+    A[n].name=p[1];
+    A[n].sev=atoi(p[3].c_str());
+    A[n].zone=p[6];
+    A[n].status=p[7];
+    n++;
+  }
+
+  for(int s=5;s>=1;s--)
+    for(int i=0;i<n;i++)
+      if(A[i].sev==s)
+        cout<<A[i].id<<" "<<A[i].name<<" sev="<<A[i].sev<<"\\n";
+}
+`,
+
+  education: `// Education Top 5 Scorers
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+struct S { string id,name,course; int score; };
+
+int split(const string&s,string p[],int m){
+  string c=""; int x=0;
+  for(char ch:s){
+    if(ch==','){ p[x++]=c; c=""; }
+    else c+=ch;
+  }
+  p[x++] = c;
+  return x;
 }
 
-/* Smooth fade animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeIn 0.8s ease forwards;
+int main(){
+  ifstream fin("${RAW}education_dataset.csv");
+  if(!fin){ cout<<"Error"; return 0; }
+
+  S A[2000]; int n=0;
+  string line; getline(fin,line);
+  while(getline(fin,line)){
+    string p[10]; split(line,p,10);
+    A[n].id=p[0];
+    A[n].name=p[1];
+    A[n].score=atoi(p[2].c_str());
+    A[n].course=p[3];
+    n++;
+  }
+
+  for(int i=0;i<5;i++){
+    int b=i;
+    for(int j=i+1;j<n;j++)
+      if(A[j].score > A[b].score) b=j;
+    swap(A[i],A[b]);
+  }
+
+  for(int i=0;i<5;i++)
+    cout<<A[i].id<<" "<<A[i].name<<" "<<A[i].score<<"\\n";
+}
+`,
+
+  solar: `// Solar Priority Panel Reader
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+struct Panel{ string id,loc,status; double out; int pr; };
+
+int split(const string&s,string p[],int m){
+  string c=""; int x=0;
+  for(char ch:s){
+    if(ch==','){ p[x++]=c; c=""; }
+    else c+=ch;
+  }
+  p[x++]=c;
+  return x;
 }
 
-.delay-1 { animation-delay: 0.15s; }
-.delay-2 { animation-delay: 0.25s; }
-.delay-3 { animation-delay: 0.35s; }
-.delay-4 { animation-delay: 0.45s; }
-.delay-5 { animation-delay: 0.55s; }
+int main(){
+  ifstream fin("${RAW}solar_dataset.csv");
+  if(!fin){ cout<<"Not Found"; return 0; }
 
-@keyframes fadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
+  Panel P[2000]; int n=0;
+  string line; getline(fin,line);
+  while(getline(fin,line)){
+    string p[10]; split(line,p,10);
+    P[n].id=p[0];
+    P[n].loc=p[1];
+    P[n].status=p[2];
+    P[n].out=atof(p[3].c_str());
+    P[n].pr=atoi(p[4].c_str());
+    n++;
+  }
 
-/* Header */
-.page-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  int printed=0;
+  for(int pr=100;pr>=0 && printed<5;pr--)
+    for(int i=0;i<n && printed<5;i++)
+      if(P[i].pr==pr && P[i].status=="Active"){
+        cout<<P[i].id<<" "<<P[i].loc<<" pr="<<P[i].pr<<"\\n";
+        printed++;
+      }
 }
-.brand {
-  font-family: "Cinzel", serif;
-  color: var(--accent);
-  font-weight: 700;
-}
-.back-btn {
-  color: var(--text);
-  padding: 6px 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 6px;
-  text-decoration: none;
-}
+`
+};
 
-/* Hero */
-.hero {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 10px;
-}
-.hero h1 { margin: 0; color: var(--accent); }
-.hero p { margin: 6px 0 0; color: var(--muted); }
+/* ========= Modal Control ========= */
+const modalBack = document.getElementById("modalBackdrop");
+const modalCode = document.getElementById("modalCode");
+const modalTitle = document.getElementById("modalTitle");
+const closeBtn = document.getElementById("closeModal");
 
-/* Mindmap */
-.mindmap-wrap {
-  margin-top: 20px;
-  background: rgba(255,255,255,0.02);
-  padding: 12px;
-  border-radius: 10px;
-}
-.mindmap {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.mind-caption {
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 13px;
-}
+document.addEventListener("click", e => {
+  const btn = e.target.closest("[data-code]");
+  if (btn) {
+    const kind = btn.getAttribute("data-code");
+    modalTitle.textContent = "C++ Code — " + kind.toUpperCase();
+    modalCode.textContent = codeSamples[kind];
+    modalBack.style.display = "flex";
+  }
 
-/* Module */
-.module {
-  margin-top: 22px;
-  background: var(--card);
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-.module-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-.banner {
-  width: 340px;
-  border-radius: 10px;
-  object-fit: cover;
-}
+  if (e.target === closeBtn || e.target === modalBack) {
+    modalBack.style.display = "none";
+  }
+});
 
-/* Rows */
-.module-row {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.module-side {
-  padding: 12px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 8px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* Subpoints */
-.subpoint h4 { margin: 4px 0; color: var(--text); }
-.subpoint p { margin: 4px 0 10px; color: var(--muted); font-size: 14px; }
-.tag {
-  background: var(--accent);
-  color: #042718;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 11px;
-  margin-left: 6px;
-}
-
-/* Efficiency Table */
-.eff-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 14px;
-}
-.eff-table th {
-  text-align: left;
-  color: var(--accent);
-  padding: 6px;
-}
-.eff-table td {
-  padding: 6px;
-  color: var(--muted);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Buttons */
-.btn {
-  background: var(--accent);
-  color: #042718;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.btn.ghost {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Modal */
-.modal-back {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-.modal {
-  width: min(95%, 1000px);
-  background: #020705;
-  padding: 20px;
-  border-radius: 10px;
-  max-height: 85vh;
-  overflow: auto;
-}
-.close-btn {
-  background: transparent;
-  border: none;
-  color: var(--muted);
-  font-size: 20px;
-  float: right;
-  cursor: pointer;
-}
-.code {
-  margin-top: 10px;
-  background: #000;
-  color: #fff;
-  padding: 14px;
-  border-radius: 8px;
-  font-family: "Roboto Mono", monospace;
-  white-space: pre;
-  overflow-x: auto;
-}
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") modalBack.style.display = "none";
+});
