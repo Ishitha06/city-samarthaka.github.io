@@ -6,7 +6,7 @@
   <title>Pratiksha Chougule — Contributions</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="p.css?v=2">
+  <link rel="stylesheet" href="p.css?v=3">
   <script src="p.js" defer></script>
 </head>
 <body>
@@ -25,7 +25,10 @@
     </section>
 
     <section class="mindmap">
-      <img class="mindmap-img" src="assets/smart_city_ds_mindmap.png" alt="Smart City Data Structures Mindmap" />
+      <img class="mindmap-img" 
+           src="assets/smart_city_ds_mindmap.png" 
+           alt="Smart City Data Structures Mindmap"
+           style="height: auto; object-fit: contain; max-height: none;" />
       <p class="caption">Mindmap: module relationships, DS & algorithm choices, and SDG alignment.</p>
     </section>
 
@@ -51,7 +54,7 @@
             <p class="problem"><strong>Problem:</strong> Event admission flow must be fair, fast, and support re-entry and validation rules.</p>
             <p class="why"><strong>Why Queue:</strong> FIFO ticket issuance and validation matches real-world admission flows; simple integration with scans and validators.</p>
             <p class="how"><strong>How it solves:</strong> Tickets are enqueued; validation pops from front. Parallel worker threads validate in batches and analytics track queue backlog for dynamic opening of additional gates. Queue integrates with hashing for ticket lookup and with analytics for load prediction.</p>
-            <img class="subimage" src="assets/smart_ticketing_gate.jpg" alt="Smart Event Ticketing Gate">
+            <img class="subimage" src="assets/smart_ticketing_gate.jpg" alt="Smart Event Ticketing Gate" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -66,7 +69,7 @@
             <p class="problem"><strong>Problem:</strong> Top-k revenue reports and sorted queries are frequent; scanning unsorted lists is too slow.</p>
             <p class="why"><strong>Why AVL:</strong> Balanced BST gives O(log n) update and O(k + log n) top-k extraction when maintaining subtree sizes.</p>
             <p class="how"><strong>How it solves:</strong> Store (revenue, id) pairs in an AVL tree sorted by revenue. On updates (new sale) do an O(log n) update; extract top-k by walking down the tree using stored subtree sizes. For extremely large data, offload to sorted indexes or B-trees for disk-based storage.</p>
-            <img class="subimage" src="assets/revenue_ranking_dashboard.jpg" alt="City Revenue Analytics">
+            <img class="subimage" src="assets/revenue_ranking_dashboard.jpg" alt="City Revenue Analytics" style="height: auto; object-fit: contain;">
           </article>
           
           <article class="subpoint">
@@ -81,7 +84,7 @@
               <p class="problem"><strong>Problem:</strong> Static pricing misses out on revenue maximization during peak demand and fails to reduce congestion.</p>
               <p class="why"><strong>Why Max-Heap + AVL:</strong> **AVL Tree** manages the inventory/service list ($O(\log n)$ updates). **Max-Heap** prioritizes the item with the highest immediate demand score ($O(\log n)$ extraction) for instant price adjustment.</p>
               <p class="how"><strong>How it solves:</strong> Products/Services are ranked by urgency/demand in a **Max-Heap**. The system extracts the top item to calculate a new optimal price, maximizing vendor profit. It can also steer traffic (e.g., lower parking prices in outer zones) for sustainability.</p>
-              <img class="subimage" src="assets/commercial_dynamic_pricing.jpg" alt="Dynamic Pricing System Interface" />
+              <img class="subimage" src="assets/commercial_dynamic_pricing.jpg" alt="Dynamic Pricing System Interface" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -173,7 +176,7 @@
             <p class="problem"><strong>Problem:</strong> Emergency severity varies; must quickly identify most critical patients.</p>
             <p class="why"><strong>Why Heap:</strong> Priority queue allows O(log n) insertion and extraction of highest-severity cases.</p>
             <p class="how"><strong>How it solves:</strong> Severity computed from vitals & urgency; heap pops top cases for immediate attention. Non-critical patients remain in FIFO queue for standard processing. Periodic re-ranking ensures changing vitals are reflected.</p>
-            <img class="subimage" src="assets/triage_emergency_room.jpg" alt="Emergency Triage Process" />
+            <img class="subimage" src="assets/triage_emergency_room.jpg" alt="Emergency Triage Process" style="height: auto; object-fit: contain;">
             </article>
 
           <article class="subpoint">
@@ -188,7 +191,7 @@
               <p class="problem"><strong>Problem:</strong> Unpredictable demand leads to shortages of critical medicines or wasted expired stock.</p>
               <p class="why"><strong>Why Queues + Arrays:</strong> **Queues** model FIFO demand flow for recent usage. Historical demand is stored in **Arrays** to allow time-series analysis for forecasting.</p>
               <p class="how"><strong>How it solves:</strong> Hospital stock movements are recorded in a **Queue** (Sliding Window). Time-series models use historical **Array** data to predict future consumption, allowing proactive purchasing to prevent critical shortages (Welfare) and minimize waste (Business).</p>
-              <img class="subimage" src="assets/healthcare_inventory_prediction.jpg" alt="Medicine Inventory System" />
+              <img class="subimage" src="assets/healthcare_inventory_prediction.jpg" alt="Medicine Inventory System" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -196,7 +199,7 @@
               <p class="problem"><strong>Problem:</strong> Patients often wait too long to see the most appropriate specialist, leading to delayed treatment.</p>
               <p class="why"><strong>Why Bipartite Graph (DFS/BFS):</strong> Bipartite matching finds the optimal one-to-one assignment between two sets (Doctors and Patients). Algorithms using **DFS/BFS** find augmenting paths for maximum matching efficiently.</p>
               <p class="how"><strong>How it solves:</strong> A Bipartite Graph connects Doctors (specialties) to Patients (needs). **DFS** or **BFS** is used to find the maximum number of matches, ensuring patients see the most qualified doctor instantly (Welfare), which improves clinic efficiency (Business).</p>
-              <img class="subimage" src="assets/healthcare_doctor_patient_matching.jpg" alt="Bipartite Graph Matching" />
+              <img class="subimage" src="assets/healthcare_doctor_patient_matching.jpg" alt="Bipartite Graph Matching" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -256,7 +259,7 @@
             <p class="problem"><strong>Problem:</strong> Frequent top-k extraction for scholarship awards and leaderboards.</p>
             <p class="why"><strong>Why AVL:</strong> Balanced tree keeps scores sorted with O(log n) updates, ideal for frequent top-k queries.</p>
             <p class="how"><strong>How it solves:</strong> Insert student (score, id) into AVL. For top-k, traverse in descending order using subtree sizes. Perform periodic batch updates when many scores change.</p>
-            <img class="subimage" src="assets/scholarship_ranking_board.jpg" alt="Scholarship Ranking">
+            <img class="subimage" src="assets/scholarship_ranking_board.jpg" alt="Scholarship Ranking" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -278,7 +281,7 @@
               <p class="problem"><strong>Problem:</strong> Generic curricula lead to student frustration and high dropout rates due to knowledge gaps.</p>
               <p class="why"><strong>Why Graph + DFS:</strong> **Graphs** model topic prerequisites. **DFS** (Depth First Search) traverses this graph to generate a sequential path, ensuring students master foundational topics first.</p>
               <p class="how">**How it solves:** Topics are **Graph** nodes; prerequisites are directed edges. **DFS** is used to check that all necessary prerequisites are met before recommending a topic, providing a custom sequence that increases pass rates (Welfare) and creates a valuable EdTech product (Business).</p>
-              <img class="subimage" src="assets/adaptive_learning_path.jpg" alt="Personalized Learning Path" />
+              <img class="subimage" src="assets/adaptive_learning_path.jpg" alt="Personalized Learning Path" style="height: auto; object-fit: contain;" />
           </article>
           
           <article class="subpoint">
@@ -352,7 +355,7 @@
             <p class="problem"><strong>Problem:</strong> Need instant retrieval of panel metadata for monitoring and repairs.</p>
             <p class="why"><strong>Why Hash:</strong> O(1) access to panel by id for quick reads/writes to status and telemetry.</p>
             <p class="how"><strong>How it solves:</strong> Each panel has an id mapped in a hash table to its meta+telemetry. Quick lookups support dashboards and alert routing. Combined with time-series DB for historic analytics.</p>
-            <img class="subimage" src="assets/solar_panel_array.jpg" alt="Large Solar Panel Array">
+            <img class="subimage" src="assets/solar_panel_array.jpg" alt="Large Solar Panel Array" style="height: auto; object-fit: contain;">
           </article>
 
           <article class="subpoint">
@@ -367,7 +370,7 @@
             <p class="problem"><strong>Problem:</strong> Route teams must take shortest safe path when multiple faults arise.</p>
             <p class="why"><strong>Why Dijkstra:</strong> Shortest path on weighted graphs minimizes travel time considering traffic or road closures.</p>
             <p class="how"><strong>How it solves:</strong> Graph nodes = panels/locations. Dijkstra finds quickest maintenance route for each crew, aggregated for multi-stop tours. Use heuristics to batch repairs for efficiency.</p>
-            <img class="subimage" src="assets/solar_energy_trading.jpg" alt="Solar Energy Trading Marketplace">
+            <img class="subimage" src="assets/solar_energy_trading.jpg" alt="Solar Energy Trading Marketplace" style="height: auto; object-fit: contain;">
           </article>
           
           <article class="subpoint">
