@@ -1,20 +1,23 @@
-/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL LIGHT MODE THEME */
+/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL MATCHED THEME */
 
 /* --------------------------------------
  * 1. Global Reset & Typography
  * -------------------------------------- */
 :root {
-    --color-primary: #1e3a8a; /* Deep Navy Blue (Accent Color) */
-    --color-secondary: #059669; /* Medium Emerald Green (Highlight Color) */
-    --color-text-dark: #333333; /* Dark Text for Light Backgrounds */
-    --color-text-light: #555555; /* Secondary Text/Body Copy */
-    --color-bg-main: #f4f4f4; /* Light Off-White Main Background */
-    --color-bg-secondary: #ffffff; /* Crisp White Module Cards */
-    --color-accent-bg: #cccccc; /* Light Gray for Borders/Separators */
+    /* MATCHED COLORS */
+    --color-primary: #2b4d34;     /* Deep Forest Green (Main Accent) */
+    --color-secondary: #c9a87a;   /* Antique Gold/Brown (Secondary Highlight) */
+    --color-text-dark: #2d2d2d;   /* Very Dark Gray (Main Text) */
+    --color-text-light: #4a4a4a;  /* Secondary Body Text */
+    --color-bg-main: #f4f2ed;     /* Creamy Beige Main Background */
+    --color-bg-secondary: #ffffff;/* Crisp White Module Cards */
+    --color-accent-bg: #cccccc;   /* Light Gray for Borders/Separators */
+
+    /* STANDARD STYLING */
     --font-heading: 'Cinzel', serif;
     --font-body: 'Playfair Display', serif;
     --border-radius: 8px;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
 * {
@@ -35,8 +38,11 @@ body {
  * -------------------------------------- */
 .page-wrapper {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 40px auto; /* Added margin for page visibility based on teammate's CSS */
+    padding: 30px 40px;
+    background-color: var(--color-bg-secondary);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
 }
 
 /* Header */
@@ -52,7 +58,7 @@ body {
 .brand {
     font-family: var(--font-heading);
     font-size: 1.2rem;
-    color: var(--color-primary); /* Use Primary Accent Color */
+    color: var(--color-primary); /* Deep Forest Green */
 }
 
 .mini-nav a {
@@ -78,13 +84,13 @@ body {
 .hero h1 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--color-primary); /* Use Primary Accent Color */
+    color: var(--color-primary); /* Deep Forest Green */
     margin-bottom: 10px;
 }
 
 .lead {
     font-size: 1.1rem;
-    color: var(--color-secondary);
+    color: var(--color-text-light); /* Darker text */
 }
 
 /* Mindmap Section */
@@ -103,11 +109,11 @@ body {
  * 3. Module Styling (Four Modules)
  * -------------------------------------- */
 .module {
-    background-color: var(--color-bg-secondary);
-    padding: 30px;
+    /* Using white module background from teammate's .page-wrapper style */
+    background-color: var(--color-bg-secondary); 
+    padding: 30px 0; /* Remove internal padding, let content-box style define */
     margin-bottom: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    /* Removed border-radius/shadow as they should be applied to the page-wrapper */
 }
 
 .module-head {
@@ -131,6 +137,8 @@ body {
 .module-content {
     display: flex;
     gap: 30px;
+    /* Added padding to prevent content hugging the sides */
+    padding: 0 20px; 
 }
 
 .module-left {
@@ -144,19 +152,23 @@ body {
 
 /* Subpoint (Feature) Styling */
 .subpoint {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed var(--color-accent-bg);
+    /* Adjusted background to match teammate's .content-box background */
+    background-color: #f3ecdd; 
+    border-radius: 14px; /* Slightly adjusted radius */
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(43, 77, 52, 0.12); /* Based on primary color */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Lighter shadow */
 }
 
 .subpoint:last-of-type {
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: 25px;
 }
 
 .subpoint h3 {
     font-family: var(--font-heading);
-    color: var(--color-secondary);
+    color: var(--color-primary); /* Deep Forest Green */
     font-size: 1.25rem;
     margin-bottom: 8px;
 }
@@ -164,12 +176,12 @@ body {
 .subpoint p {
     margin-bottom: 5px;
     padding-left: 15px;
-    border-left: 3px solid var(--color-secondary);
-    color: var(--color-text-light); /* Ensure body text is readable */
+    border-left: 3px solid var(--color-secondary); /* Antique Gold/Brown line */
+    color: var(--color-text-dark); /* Ensure body text is dark */
 }
 
 .subpoint strong {
-    color: var(--color-text-dark);
+    color: var(--color-primary); /* Bold items use Primary Green */
 }
 
 /* SDG Tag */
@@ -180,12 +192,13 @@ body {
     color: var(--color-bg-secondary); /* White text on primary accent */
     padding: 2px 6px;
     border-radius: 4px;
-    font-family: var(--font-body);
+    font-family: var(--font-heading); /* Match teammate's font choice for tags */
+    font-weight: 600;
 }
 
 /* Sidebar Boxes */
 .side-box {
-    background-color: #f0f0f0; /* Light Gray background for sidebar */
+    background-color: #f8f8f8; /* Very light gray background for sidebar */
     padding: 15px;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
@@ -224,7 +237,7 @@ body {
  * 4. Image Styling FIXES (Full Content Display)
  * -------------------------------------- */
 
-/* Detail Images (Fallback: primary styling is now handled by the inline styles in HTML) */
+/* Detail Images - Handled by inline style, but defining class properties for fallback */
 .subimage { 
     width: 100%; 
     max-width: 100%; 
@@ -236,7 +249,7 @@ body {
     border: 1px solid var(--color-accent-bg); 
 }
 
-/* Mindmap Image (Fallback: primary styling is now handled by the inline styles in HTML) */
+/* Mindmap Image - Handled by inline style, but defining class properties for fallback */
 .mindmap-img {
     width: 100%;
     max-width: 900px;
@@ -253,10 +266,10 @@ body {
  * -------------------------------------- */
 .eff-heading {
     font-family: var(--font-heading);
-    color: var(--color-secondary);
+    color: var(--color-primary); /* Deep Forest Green */
     margin-top: 30px;
     margin-bottom: 10px;
-    border-top: 1px solid var(--color-primary);
+    border-top: 1px solid var(--color-accent-bg);
     padding-top: 10px;
     font-size: 1.1rem;
 }
@@ -266,7 +279,7 @@ body {
     border-collapse: collapse;
     margin-bottom: 25px;
     font-size: 0.9rem;
-    background-color: var(--color-bg-secondary); /* White table background */
+    background-color: var(--color-bg-secondary); 
 }
 
 .eff-table th, .eff-table td {
@@ -285,7 +298,7 @@ body {
 }
 
 .eff-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* very slight variation for readability */
+    background-color: #f9f9f9; 
 }
 
 /* --------------------------------------
@@ -307,29 +320,30 @@ body {
     font-family: var(--font-heading);
     text-transform: uppercase;
     cursor: pointer;
-    border: none;
+    border: 2px solid var(--color-primary); /* Primary Green border */
     transition: all 0.3s;
     font-size: 0.9rem;
+    width: auto; /* Allow button to resize */
 }
 
 .code-btn {
-    background-color: var(--color-secondary);
-    color: var(--color-bg-secondary); /* White text on secondary color */
+    background-color: var(--color-primary); /* Deep Forest Green */
+    color: var(--color-bg-secondary); /* White text */
 }
 
 .code-btn:hover {
-    background-color: #06b27e;
+    background-color: #1f3826; /* Darker green on hover */
     transform: translateY(-2px);
 }
 
 .ghost {
     background-color: transparent;
-    color: var(--color-secondary);
-    border: 2px solid var(--color-secondary);
+    color: var(--color-primary); /* Primary Green text */
+    border: 2px solid var(--color-primary);
 }
 
 .ghost:hover {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     color: var(--color-bg-secondary); /* White text on hover */
 }
 
@@ -346,7 +360,7 @@ body {
 }
 
 /* --------------------------------------
- * 8. Modal (for C++ Code)
+ * 8. Modal (for C++ Code) - Theme should remain dark for code readability
  * -------------------------------------- */
 .modal-back {
     position: fixed;
@@ -362,7 +376,7 @@ body {
 }
 
 .modal {
-    background-color: var(--color-bg-secondary);
+    background-color: #f3ecdd; /* Light background for the modal window */
     padding: 25px;
     border-radius: var(--border-radius);
     max-width: 800px;
@@ -385,15 +399,15 @@ body {
     right: 15px;
     background: none;
     border: none;
-    color: var(--color-accent-bg);
+    color: var(--color-text-dark);
     font-size: 1.5rem;
     cursor: pointer;
     line-height: 1;
 }
 
 .code-block {
-    background-color: #000;
-    color: #00ff88; /* Hacking/terminal color for C++ */
+    background-color: #1e1e1e; /* Dark background for code block */
+    color: #cccccc; /* Light text for readability */
     padding: 15px;
     border-radius: 4px;
     white-space: pre-wrap;
@@ -427,5 +441,10 @@ body {
 
     .brand {
         font-size: 1rem;
+    }
+    
+    .page-wrapper {
+        margin: 20px 5px; 
+        padding: 20px 15px;
     }
 }
