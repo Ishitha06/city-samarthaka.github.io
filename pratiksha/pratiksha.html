@@ -12,7 +12,6 @@
 <body>
   <div class="page-wrapper">
 
-    <!-- header -->
     <header class="page-head">
       <div class="brand">SAMARTHAKA — Smart City Modules (Pratiksha)</div>
       <nav class="mini-nav">
@@ -20,19 +19,16 @@
       </nav>
     </header>
 
-    <!-- hero -->
     <section class="hero">
       <h1>Smart City — Data Structures & Algorithms Modules</h1>
       <p class="lead">Commercial, Healthcare, Education and Solar — complete subsystems, algorithms, datasets and efficiency analysis.</p>
     </section>
 
-    <!-- mindmap -->
     <section class="mindmap">
-      <img src="https://images.unsplash.com/photo-1508385082359-f5b33b7b6888?auto=format&fit=crop&w=1500&q=60" alt="mindmap" />
+      <img src="assets/smart_city_ds_mindmap.png" alt="Smart City Data Structures Mindmap" />
       <p class="caption">Mindmap: module relationships, DS & algorithm choices, and SDG alignment.</p>
     </section>
 
-    <!-- COMMERCIAL MODULE (expanded) -->
     <section id="commercial" class="module">
       <div class="module-head">
         <h2>Commercial Services Management System</h2>
@@ -43,7 +39,6 @@
 
         <div class="module-left">
 
-          <!-- Core subpoints (each: Problem / Why / How) -->
           <article class="subpoint">
             <h3>Digital Business Licensing — Hash Table <span class="sdg">SDG 9</span></h3>
             <p class="problem"><strong>Problem:</strong> Permit lookups and updates must be instant during peak intake; paper-processes are slow and error-prone.</p>
@@ -56,7 +51,7 @@
             <p class="problem"><strong>Problem:</strong> Event admission flow must be fair, fast, and support re-entry and validation rules.</p>
             <p class="why"><strong>Why Queue:</strong> FIFO ticket issuance and validation matches real-world admission flows; simple integration with scans and validators.</p>
             <p class="how"><strong>How it solves:</strong> Tickets are enqueued; validation pops from front. Parallel worker threads validate in batches and analytics track queue backlog for dynamic opening of additional gates. Queue integrates with hashing for ticket lookup and with analytics for load prediction.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1520975910531-6da1d3b97f3f?auto=format&fit=crop&w=900&q=60" alt="events">
+            <img class="subimage" src="assets/smart_ticketing_gate.jpg" alt="Smart Event Ticketing Gate">
           </article>
 
           <article class="subpoint">
@@ -64,15 +59,29 @@
             <p class="problem"><strong>Problem:</strong> Critical vendors (healthcare, transport) need fast approvals rather than FIFO processing.</p>
             <p class="why"><strong>Why Max-Heap:</strong> Gives fast extraction of highest-priority items; insertion/pop are O(log n).</p>
             <p class="how"><strong>How it solves:</strong> Each vendor application is given a composite priority (impact score, urgency, risk). The heap pops the highest priority for fast review. Lower-priority items wait in queue. Heap combined with bucketing avoids starvation (periodic promotions of queued items).</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=60" alt="vendor approvals">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Revenue Ranking & Analytics — AVL Tree<span class="sdg">SDG 9</span></h3>
             <p class="problem"><strong>Problem:</strong> Top-k revenue reports and sorted queries are frequent; scanning unsorted lists is too slow.</p>
             <p class="why"><strong>Why AVL:</strong> Balanced BST gives O(log n) update and O(k + log n) top-k extraction when maintaining subtree sizes.</p>
             <p class="how"><strong>How it solves:</strong> Store (revenue, id) pairs in an AVL tree sorted by revenue. On updates (new sale) do an O(log n) update; extract top-k by walking down the tree using stored subtree sizes. For extremely large data, offload to sorted indexes or B-trees for disk-based storage.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=60" alt="analytics">
+            <img class="subimage" src="assets/revenue_ranking_dashboard.jpg" alt="City Revenue Analytics">
+          </article>
+          
+          <article class="subpoint">
+              <h3>Fraud Detection Engine — Hash Maps + Pattern Matching <span class="sdg">SDG 8, 16</span></h3>
+              <p class="problem"><strong>Problem:</strong> Digital marketplaces are vulnerable to fraudulent transactions (e.g., identity theft, abnormal returns) leading to financial losses.</p>
+              <p class="why"><strong>Why Hashing + Pattern Matching:</strong> **Hash Maps** provide O(1) lookups for blacklisted IDs. **Pattern Matching (KMP/Rabin-Karp)** efficiently analyzes transaction sequences/strings for abnormal patterns.</p>
+              <p class="how"><strong>How it solves:</strong> Transaction strings/data are hashed and compared to known fraud patterns using **Rabin-Karp** for fast similarity checks. **Hash Maps** store user risk scores for instant verification. This reduces losses (Business) and protects small vendors (Welfare).</p>
+              </article>
+
+          <article class="subpoint">
+              <h3>Dynamic Pricing System — Max-Heap + AVL Tree <span class="sdg">SDG 9, 11</span></h3>
+              <p class="problem"><strong>Problem:</strong> Static pricing misses out on revenue maximization during peak demand and fails to reduce congestion.</p>
+              <p class="why"><strong>Why Max-Heap + AVL:</strong> **AVL Tree** manages the inventory/service list ($O(\log n)$ updates). **Max-Heap** prioritizes the item with the highest immediate demand score ($O(\log n)$ extraction) for instant price adjustment.</p>
+              <p class="how"><strong>How it solves:</strong> Products/Services are ranked by urgency/demand in a **Max-Heap**. The system extracts the top item to calculate a new optimal price, maximizing vendor profit. It can also steer traffic (e.g., lower parking prices in outer zones) for sustainability.</p>
+              <img class="subimage" src="assets/commercial_dynamic_pricing.jpg" alt="Dynamic Pricing System Interface" />
           </article>
 
           <article class="subpoint">
@@ -96,7 +105,6 @@
             <p class="how"><strong>How it solves:</strong> Vendor entries stored in multiple indices: primary hash by id, secondary AVL trees by revenue and rating. Faceted search uses precomputed hash buckets by category for ultra-fast search.</p>
              </article>
 
-          <!-- Efficiency Table -->
           <h4 class="eff-heading">Efficiency Analysis (Commercial)</h4>
           <table class="eff-table">
             <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
@@ -105,12 +113,12 @@
               <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
               <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
               <tr><td>Queue</td><td>O(1)</td><td>O(n)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>Rabin-Karp (Pattern Match)</td><td>O(m) (Pre-processing)</td><td>O(n+m) (Avg.)</td><td>-</td><td>O(m)</td></tr>
             </tbody>
           </table>
 
           <div class="actions">
             <button class="btn code-btn" data-module="commercial">View C++ Code</button>
-            <!-- B: GitHub CSV page (UI) -->
             <a class="btn ghost" target="_blank" href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/pratiksha/datasets/commercial_dataset.csv">Show dataset</a>
           </div>
 
@@ -131,6 +139,8 @@
               <li>Transport-related commerce (parking, smartcards)</li>
               <li>Advertising & loyalty engines</li>
               <li>Hyper-local manufacturing hubs</li>
+              <li>**Fraud Detection Engine**</li>
+              <li>**Dynamic Pricing System**</li>
             </ul>
           </div>
 
@@ -143,7 +153,6 @@
       </div>
     </section>
 
-    <!-- HEALTHCARE MODULE (expanded) -->
     <section id="healthcare" class="module">
       <div class="module-head">
         <h2>Healthcare Management System</h2>
@@ -165,6 +174,7 @@
             <p class="problem"><strong>Problem:</strong> Emergency severity varies; must quickly identify most critical patients.</p>
             <p class="why"><strong>Why Heap:</strong> Priority queue allows O(log n) insertion and extraction of highest-severity cases.</p>
             <p class="how"><strong>How it solves:</strong> Severity computed from vitals & urgency; heap pops top cases for immediate attention. Non-critical patients remain in FIFO queue for standard processing. Periodic re-ranking ensures changing vitals are reflected.</p>
+            <img class="subimage" src="assets/triage_emergency_room.jpg" alt="Emergency Triage Process" />
             </article>
 
           <article class="subpoint">
@@ -173,6 +183,22 @@
             <p class="why"><strong>Why Dijkstra:</strong> Computes shortest weighted path (time) with O(E + V log V) using a priority queue.</p>
             <p class="how"><strong>How it solves:</strong> Model city roads as graph; edge weights are time estimates (live). Run Dijkstra from ambulance to patient, then to hospital. Use precomputed highway overlays for speed and incremental replan on live updates.</p>
            </article>
+           
+          <article class="subpoint">
+              <h3>Medicine Inventory Prediction — Queues + Time-Series Arrays <span class="sdg">SDG 3</span></h3>
+              <p class="problem"><strong>Problem:</strong> Unpredictable demand leads to shortages of critical medicines or wasted expired stock.</p>
+              <p class="why"><strong>Why Queues + Arrays:</strong> **Queues** model FIFO demand flow for recent usage. Historical demand is stored in **Arrays** to allow time-series analysis for forecasting.</p>
+              <p class="how"><strong>How it solves:</strong> Hospital stock movements are recorded in a **Queue** (Sliding Window). Time-series models use historical **Array** data to predict future consumption, allowing proactive purchasing to prevent critical shortages (Welfare) and minimize waste (Business).</p>
+              <img class="subimage" src="assets/healthcare_inventory_prediction.jpg" alt="Medicine Inventory System" />
+          </article>
+
+          <article class="subpoint">
+              <h3>Doctor–Patient Matching — Bipartite Graph Matching (DFS/BFS) <span class="sdg">SDG 3</span></h3>
+              <p class="problem"><strong>Problem:</strong> Patients often wait too long to see the most appropriate specialist, leading to delayed treatment.</p>
+              <p class="why"><strong>Why Bipartite Graph (DFS/BFS):</strong> Bipartite matching finds the optimal one-to-one assignment between two sets (Doctors and Patients). Algorithms using **DFS/BFS** find augmenting paths for maximum matching efficiently.</p>
+              <p class="how"><strong>How it solves:</strong> A Bipartite Graph connects Doctors (specialties) to Patients (needs). **DFS** or **BFS** is used to find the maximum number of matches, ensuring patients see the most qualified doctor instantly (Welfare), which improves clinic efficiency (Business).</p>
+              <img class="subimage" src="assets/healthcare_doctor_patient_matching.jpg" alt="Bipartite Graph Matching" />
+          </article>
 
           <article class="subpoint">
             <h3>Facility Indexing & Scheduling — AVL / Hash <span class="sdg">SDG 3</span></h3>
@@ -189,6 +215,8 @@
               <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
               <tr><td>Graph (Dijkstra)</td><td>O(1)</td><td>O(E + V log V)</td><td>O(1)</td><td>O(V+E)</td></tr>
               <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Bipartite Matching (DFS/BFS)</td><td>O(1) (Edge Add)</td><td>O(V+E)</td><td>O(1)</td><td>O(V+E)</td></tr>
+              <tr><td>Queue/Array (Time-Series)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
             </tbody>
           </table>
 
@@ -208,7 +236,6 @@
       </div>
     </section>
 
-    <!-- EDUCATION MODULE (expanded) -->
     <section id="education" class="module">
       <div class="module-head">
         <h2>Education System</h2>
@@ -223,15 +250,14 @@
             <p class="problem"><strong>Problem:</strong> Fast enrollment checks and student lookups at scale.</p>
             <p class="why"><strong>Why Hash:</strong> O(1) id-based access for student records and performance metrics.</p>
             <p class="how"><strong>How it solves:</strong> Maintain a student registry keyed by id. Use stable snapshots for semester reports; combine with caches for hot queries (recent check-ins).</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=60" alt="students">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Scholarship Ranking — AVL Tree <span class="sdg">SDG 4</span></h3>
             <p class="problem"><strong>Problem:</strong> Frequent top-k extraction for scholarship awards and leaderboards.</p>
             <p class="why"><strong>Why AVL:</strong> Balanced tree keeps scores sorted with O(log n) updates, ideal for frequent top-k queries.</p>
             <p class="how"><strong>How it solves:</strong> Insert student (score, id) into AVL. For top-k, traverse in descending order using subtree sizes. Perform periodic batch updates when many scores change.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=60" alt="ranking">
+            <img class="subimage" src="assets/scholarship_ranking_board.jpg" alt="Scholarship Ranking">
           </article>
 
           <article class="subpoint">
@@ -239,8 +265,50 @@
             <p class="problem"><strong>Problem:</strong> Avoid teacher/room conflicts and optimize allocation.</p>
             <p class="why"><strong>Why Coloring:</strong> Model conflicts as graph edges; color classes are time slots ensuring no adjacent conflicts.</p>
             <p class="how"><strong>How it solves:</strong> Build conflict graph (class nodes, edges where teacher/room overlap). Apply greedy coloring heuristics (syllabus-friendly) to produce conflict-free timetables. Use local search or simulated annealing for further optimization if needed.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=60" alt="timetable">
+            </article>
+          
+          <article class="subpoint">
+              <h3>Smart Scholarship Allocation System — Max-Heap + Hash Map <span class="sdg">SDG 4</span></h3>
+              <p class="problem"><strong>Problem:</strong> Manual application review is slow and inconsistent, risking aid going to the wrong students.</p>
+              <p class="why"><strong>Why Max-Heap + Hash:</strong> **Max-Heap** ranks composite priority (Need + Merit) for fast allocation ($O(\log n)$). **Hash Map** stores full student profiles for instant ($O(1)$) lookups during final verification.</p>
+              <p class="how"><strong>How it solves:</strong> Applications are placed in a **Max-Heap** by score. Reviewers pop the top candidate, instantly retrieving the full record from the **Hash Map**, ensuring fairness (Welfare) and reducing administrative costs (Business).</p>
           </article>
+          
+          <article class="subpoint">
+              <h3>Adaptive Learning Path Generator — Graphs + DFS <span class="sdg">SDG 4</span></h3>
+              <p class="problem"><strong>Problem:</strong> Generic curricula lead to student frustration and high dropout rates due to knowledge gaps.</p>
+              <p class="why"><strong>Why Graph + DFS:</strong> **Graphs** model topic prerequisites. **DFS** (Depth First Search) traverses this graph to generate a sequential path, ensuring students master foundational topics first.</p>
+              <p class="how"><strong>How it solves:</strong> Topics are **Graph** nodes; prerequisites are directed edges. **DFS** is used to check that all necessary prerequisites are met before recommending a topic, providing a custom sequence that increases pass rates (Welfare) and creates a valuable EdTech product (Business).</p>
+              <img class="subimage" src="assets/adaptive_learning_path.jpg" alt="Personalized Learning Path" />
+          </article>
+          
+          <article class="subpoint">
+              <h3>Teacher Workload Optimization — Min-Heap + Greedy Scheduling <span class="sdg">SDG 4</span></h3>
+              <p class="problem"><strong>Problem:</strong> Uneven workload distribution leads to teacher burnout and inconsistent teaching quality.</p>
+              <p class="why"><strong>Why Min-Heap + Greedy:</strong> A **Min-Heap** maintains the list of teachers prioritized by the lowest current workload. The **Greedy Algorithm** makes the optimal scheduling choice at each step.</p>
+              <p class="how"><strong>How it solves:</strong> New sessions are allocated by the **Greedy Scheduler** to the teacher with the current minimum workload (extracted from the heap in $O(\log n)$). This balances assignments, reducing burnout (Welfare) and optimizing school staff utilization (Business).</p>
+              </article>
+          
+          <article class="subpoint">
+              <h3>Real-Time Classroom Monitoring Analytics — Sliding Window (Queues) <span class="sdg">SDG 4</span></h3>
+              <p class="problem"><strong>Problem:</strong> Detecting real-time issues like overcrowding or sudden performance drops is difficult with batch processing.</p>
+              <p class="why"><strong>Why Sliding Window (Queues):** A **Sliding Window** (implemented with two **Queues** or **Arrays**) efficiently tracks metrics over a fixed, recent time frame without recalculating the entire stream ($O(1)$ update).</p>
+              <p class="how">**How it solves:** Metrics (e.g., login times, activity rates) are fed into the **Sliding Window**. The system compares the current window's average against a baseline to detect anomalies, allowing for instant alerts on potential issues like overcrowding or disengagement (Welfare/Business).</p>
+              </article>
+          
+          <article class="subpoint">
+              <h3>Exam Generation + Plagiarism Detection — Graphs + Hashing <span class="sdg">SDG 4, 16</span></h3>
+              <p class="problem"><strong>Problem:</strong> Ensuring comprehensive syllabus coverage and quickly detecting similar or copied answers.</p>
+              <p class="why"><strong>Why Hashing + Graph:** **Hashing** (**Rabin-Karp**) is fast for text similarity detection. **Graph Algorithms** (Connectivity via DFS/BFS) ensure syllabus coverage in generated papers.</p>
+              <p class="how">**How it solves:** **Graph Algorithms** (DFS/BFS on a Topic Graph) ensure question sets cover all prerequisite topic clusters. **Rabin-Karp Hashing** checks for matching hash sequences across all submissions ($O(N+M)$ average time), flagging cheating instantly (Welfare) and reducing manual evaluation (Business).</p>
+              </article>
+
+          <article class="subpoint">
+              <h3>Career Recommendation Engine — Decision Trees + AVL Trees <span class="sdg">SDG 4, 8</span></h3>
+              <p class="problem"><strong>Problem:</strong> Students lack guidance on career paths aligned with their skills and market demand.</p>
+              <p class="why"><strong>Why Decision Trees + AVL Trees:** **Decision Trees** categorize student profiles. **AVL Trees** rank the best job matches within those categories based on market salary/demand ($O(\log n)$ query/ranking).</p>
+              <p class="how">**How it solves:** Student skill data traverses the **Decision Tree** for category placement. Job market data (salary, demand) is stored in an **AVL Tree** for fast extraction of the top $K$ best-matched jobs, guiding students to better opportunities (Welfare/Business).</p>
+              </article>
 
           <h4 class="eff-heading">Efficiency Analysis (Education)</h4>
           <table class="eff-table">
@@ -248,7 +316,10 @@
             <tbody>
               <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
               <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
-              <tr><td>Graph Coloring</td><td>-</td><td>O(V+E)</td><td>-</td><td>O(V+E)</td></tr>
+              <tr><td>Heap (priority)</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
+              <tr><td>Graph (DFS)</td><td>O(1)</td><td>O(V+E)</td><td>-</td><td>O(V+E)</td></tr>
+              <tr><td>Rabin-Karp (Pattern Match)</td><td>O(m)</td><td>O(N+M) (Avg.)</td><td>-</td><td>O(m)</td></tr>
+              <tr><td>Sliding Window (Queue/Array)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
             </tbody>
           </table>
 
@@ -268,7 +339,6 @@
       </div>
     </section>
 
-    <!-- SOLAR MODULE (expanded) -->
     <section id="solar" class="module">
       <div class="module-head">
         <h2>Solar Energy Management System</h2>
@@ -283,7 +353,7 @@
             <p class="problem"><strong>Problem:</strong> Need instant retrieval of panel metadata for monitoring and repairs.</p>
             <p class="why"><strong>Why Hash:</strong> O(1) access to panel by id for quick reads/writes to status and telemetry.</p>
             <p class="how"><strong>How it solves:</strong> Each panel has an id mapped in a hash table to its meta+telemetry. Quick lookups support dashboards and alert routing. Combined with time-series DB for historic analytics.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=60" alt="panels">
+            <img class="subimage" src="assets/solar_panel_array.jpg" alt="Large Solar Panel Array">
           </article>
 
           <article class="subpoint">
@@ -291,24 +361,39 @@
             <p class="problem"><strong>Problem:</strong> Limited battery backups must be allocated to critical zones fast.</p>
             <p class="why"><strong>Why Heap:</strong> Max-heap efficiently selects highest-priority zones by urgency/criticality score.</p>
             <p class="how"><strong>How it solves:</strong> Compute a priority for each backup request; pop the highest-priority to allocate battery. Reinsert when usage finishes. Heap ensures O(log n) fairness and speed.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1581093458794-2c6f6dbf9e85?auto=format&fit=crop&w=900&q=60" alt="backup">
-          </article>
+            </article>
 
           <article class="subpoint">
             <h3>Maintenance Routing — Dijkstra <span class="sdg">SDG 11</span></h3>
             <p class="problem"><strong>Problem:</strong> Route teams must take shortest safe path when multiple faults arise.</p>
             <p class="why"><strong>Why Dijkstra:</strong> Shortest path on weighted graphs minimizes travel time considering traffic or road closures.</p>
             <p class="how"><strong>How it solves:</strong> Graph nodes = panels/locations. Dijkstra finds quickest maintenance route for each crew, aggregated for multi-stop tours. Use heuristics to batch repairs for efficiency.</p>
-            <img class="subimage" src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=900&q=60" alt="routing">
+            <img class="subimage" src="assets/maintenance_routing_map.jpg" alt="Maintenance Routing on Digital Map">
           </article>
+          
+          <article class="subpoint">
+              <h3>Fault Prediction Engine — Decision Trees + AVL Trees <span class="sdg">SDG 7</span></h3>
+              <p class="problem"><strong>Problem:</strong> Unanticipated panel failure causes energy loss and expensive reactive maintenance.</p>
+              <p class="why"><strong>Why Decision Trees + AVL Trees:</strong> **Decision Trees** classify panel health data (temp, output) to predict failure. **AVL Trees** efficiently store and rank panels by their current risk score for $O(\log n)$ updates and ranking.</p>
+              <p class="how"><strong>How it solves:</strong> Sensor data runs through a pre-trained **Decision Tree** model which outputs a risk score. This score is inserted into the **AVL Tree**, which maintains the panels ranked by risk. Technicians service the top $K$ riskiest panels proactively, reducing downtime (Welfare) and optimizing maintenance scheduling (Business).</p>
+              </article>
+
+          <article class="subpoint">
+              <h3>Energy Trading Marketplace — Hash Tables + Ledgers <span class="sdg">SDG 7, 11</span></h3>
+              <p class="problem"><strong>Problem:</strong> Excess solar energy often goes unutilized; no direct peer-to-peer trading mechanism exists.</p>
+              <p class="why"><strong>Why Hash Tables:</strong> **Hash Tables** provide $O(1)$ instant lookups for user accounts and live balance updates, crucial for high-frequency trading ledgers.</p>
+              <p class="how"><strong>How it solves:</strong> A digital ledger tracks energy credits. **Hash Tables** store user accounts and balances, facilitating near-instantaneous, secure debits and credits when energy is bought/sold. The marketplace generates profit through transaction fees while incentivizing citizens to generate solar power (Welfare/Sustainability).</p>
+              </article>
 
           <h4 class="eff-heading">Efficiency Analysis (Solar)</h4>
           <table class="eff-table">
             <thead><tr><th>Structure / Operation</th><th>Insert</th><th>Search</th><th>Update</th><th>Space</th></tr></thead>
             <tbody>
               <tr><td>Hash Table</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+              <tr><td>AVL Tree (Risk Ranking)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
               <tr><td>Heap</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td><td>O(n)</td></tr>
               <tr><td>Graph (Dijkstra)</td><td>O(1)</td><td>O(E + V log V)</td><td>O(1)</td><td>O(V+E)</td></tr>
+              <tr><td>Decision Tree (Classification)</td><td>O(1) (Query)</td><td>O(Tree Height)</td><td>-</td><td>O(n)</td></tr>
             </tbody>
           </table>
 
@@ -328,7 +413,6 @@
       </div>
     </section>
 
-    <!-- footer -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div>Samarthaka — Design & Analysis of Algorithms | 24ECSC205</div>
@@ -337,7 +421,6 @@
     </footer>
   </div>
 
-  <!-- Code modal (C++ samples) -->
   <div id="modalBackdrop" class="modal-back hidden">
     <div class="modal">
       <button id="closeModal" class="close-btn">✕</button>
