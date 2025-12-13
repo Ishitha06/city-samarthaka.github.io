@@ -1,4 +1,4 @@
-/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme */
+/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL THEME RESTORED */
 
 /* --------------------------------------
  * 1. Global Reset & Typography
@@ -6,11 +6,11 @@
 :root {
     --color-primary: #1e3a8a; /* Deep Navy Blue */
     --color-secondary: #059669; /* Medium Emerald Green */
-    --color-text-dark: #f8f8f8; /* Off-White for text */
+    --color-text-dark: #f8f8f8; /* Off-White for high contrast text */
     --color-text-light: #d1d5db; /* Light gray for body text */
-    --color-bg-main: #111827; /* Dark Grey/Black for background */
-    --color-bg-secondary: #1f2937; /* Slightly lighter dark for modules */
-    --color-accent-bg: #4b5563; /* Medium grey for highlights */
+    --color-bg-main: #111827; /* Dark Grey/Black for main background */
+    --color-bg-secondary: #1f2937; /* Slightly lighter dark for module cards */
+    --color-accent-bg: #4b5563; /* Medium grey for borders/highlights */
     --font-heading: 'Cinzel', serif;
     --font-body: 'Playfair Display', serif;
     --border-radius: 8px;
@@ -218,29 +218,29 @@ body {
 
 
 /* --------------------------------------
- * 4. Image Styling FIX (Crucial Fix)
+ * 4. Image Styling FIXES (Full Content Display)
  * -------------------------------------- */
 
-/* FIX for the smaller images to show their FULL height/content */
+/* Detail Images (Overridden by inline styles in HTML, but kept here for fallback) */
 .subimage { 
     width: 100%; 
     max-width: 100%; 
-    height: auto; /* Allows vertical scaling */
-    object-fit: contain; /* Ensures no cropping, full image visible */
+    height: auto; 
+    object-fit: contain; 
     margin-top: 8px; 
     margin-bottom: 8px;
     border-radius: 8px;
-    border: 1px solid var(--color-accent-bg); /* Optional visual boundary */
+    border: 1px solid var(--color-accent-bg); 
 }
 
-/* FIX for the Mindmap image (large diagram) */
+/* Mindmap Image */
 .mindmap-img {
     width: 100%;
     max-width: 900px;
     height: auto;
     object-fit: contain;
     margin: 16px auto; 
-    display: block; /* Centers the mindmap */
+    display: block; 
     border-radius: var(--border-radius);
     border: 2px solid var(--color-primary);
 }
