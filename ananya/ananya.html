@@ -925,85 +925,126 @@ int main() {
         onclick="toggleAnimalHashCode()">
     Code
 </button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/animal_hashmap_output__score_.csv"
+   target="_blank">
+  Dataset
+</a>
+
 
 <div id="animal-hash-code-block" style="display:none; margin-top:20px;">
 
   <h4>C++ Logic used (Array‑based Hash Lookup for Animal Records)</h4>
-  <pre><code>#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
-
-const int MAXA = 100;  
-const int MAXH = 10;   
-
-int main() {
+  <pre><code>
+    #include <bits/stdc++.h>
+    using namespace std;
     
-    string name[MAXA];
-    string species[MAXA];
-    int    healthScore[MAXA][MAXH];
-    int    healthCount[MAXA];
-
-   
-    for (int i = 0; i &lt; MAXA; i++) healthCount[i] = 0;
-
-    int n;
-    cout &lt;&lt; "Enter number of animals:\n";
-    cin &gt;&gt; n;
-
+    const int MAX_ANIMALS = 1000;
     
-    for (int id = 0; id &lt; n; id++) {
-        cout &lt;&lt; "Animal " &lt;&lt; id &lt;&lt; " name and species:\n";
-        cin &gt;&gt; name[id] &gt;&gt; species[id];
-
-        int k;
-        cout &lt;&lt; "How many health entries for this animal?\n";
-        cin &gt;&gt; k;
-        healthCount[id] = k;
-
-        cout &lt;&lt; "Enter " &lt;&lt; k &lt;&lt; " health scores:\n";
-        for (int j = 0; j &lt; k; j++) {
-            cin &gt;&gt; healthScore[id][j];
-        }
+    // Array-based "hash map" (direct index = Animal_ID)
+    string  speciesArr[MAX_ANIMALS];
+    int     riskScoreArr[MAX_ANIMALS];
+    string  zoneArr[MAX_ANIMALS];
+    int     ageArr[MAX_ANIMALS];
+    string  lastCheckArr[MAX_ANIMALS];
+    int     healthScoreArr[MAX_ANIMALS];   // single score only
+    
+    // Generate a random recent date (last 30 days) in DD-MM-YYYY format
+    string randomRecentDate(mt19937 &gen) {
+        uniform_int_distribution<int> dayBack(1, 30);
+        int back = dayBack(gen);
+    
+        using namespace chrono;
+        auto today  = chrono::system_clock::now();
+        auto target = today - chrono::hours(24 * back);
+        time_t tt   = chrono::system_clock::to_time_t(target);
+        tm *lt      = localtime(&tt);
+    
+        char buf[11];
+        strftime(buf, sizeof(buf), "%d-%m-%Y", lt);   // DD-MM-YYYY
+        return string(buf);
     }
-
     
-    int queryId;
-    cout &lt;&lt; "\nEnter animal ID to view (0 to " &lt;&lt; n-1 &lt;&lt; "):\n";
-    cin &gt;&gt; queryId;
-
-    if (queryId &lt; 0 || queryId &gt;= n) {
-        cout &lt;&lt; "No record for this ID\n";
+    int main() {
+        // Random engine and distributions
+        random_device rd;
+        mt19937 gen(rd());
+    
+        uniform_int_distribution<int> riskDist(1, 10);     // 1..10
+        uniform_int_distribution<int> ageDist(1, 25);      // 1..25
+        uniform_int_distribution<int> healthDist(50, 100); // 50..100
+    
+        // Full species list (same as Python)
+        vector<string> speciesList = {
+            "Tiger", "Elephant", "Bear", "Leopard", "Wolf",
+            "TIGER", "LEOPARD", "ELEPHANT", "RHINO",
+            "GAUR", "SLOTH_BEAR", "WILD_DOG", "HYENA",
+            "SAMBAR_DEER", "CHITAL", "BARASINGHA", "NILGAI",
+            "WILD_BOAR", "BLACKBUCK", "LANGUR", "MACAQUE",
+            "CROCODILE", "OTTER", "PEAFOWL", "HORNBILL"
+        };
+    
+        vector<string> zones = {"Zone-1", "Zone-2", "Zone-3", "Zone-4", "Zone-5"};
+    
+        // ---- Generate data for 1000 animals ----
+        for (int id = 0; id < MAX_ANIMALS; ++id) {
+            // Species and zone pattern must match Python behaviour:
+            // Python currently uses species_list[animal_id % 5] and zones[animal_id % 5],
+            // so we do the same here.
+            speciesArr[id]   = speciesList[id % 5];
+            zoneArr[id]      = zones[id % 5];
+    
+            riskScoreArr[id] = riskDist(gen);
+            ageArr[id]       = ageDist(gen);
+            lastCheckArr[id] = randomRecentDate(gen);
+            healthScoreArr[id] = healthDist(gen);   // exactly ONE health score
+        }
+    
+        // ---- Sample query for Animal ID 0 (similar to Python print) ----
+        int queryId = 0;
+        cout << "Sample ID " << queryId << ": "
+             << speciesArr[queryId]
+             << " | Risk: " << riskScoreArr[queryId]
+             << " | Zone: " << zoneArr[queryId]
+             << " | Health: " << healthScoreArr[queryId]
+             << "\n";
+    
+        // ---- CSV export (same structure and filename as Python) ----
+        string filename = "realistic_animal_hashmap_output_single_score_.csv";
+        ofstream fout(filename);
+        if (!fout) {
+            cerr << "Error opening output CSV file\n";
+            return 1;
+        }
+    
+        // Header
+        fout << "Animal_ID,"
+             << "Species,"
+             << "Risk_Score,"
+             << "Zone,"
+             << "Age_Years,"
+             << "Last_Check,"
+             << "Health_Score\n";
+    
+        // Rows
+        for (int id = 0; id < MAX_ANIMALS; ++id) {
+            fout << id << ","
+                 << speciesArr[id] << ","
+                 << riskScoreArr[id] << ","
+                 << zoneArr[id] << ","
+                 << ageArr[id] << ","
+                 << lastCheckArr[id] << ","
+                 << healthScoreArr[id] << "\n";
+        }
+    
+        fout.close();
+        cout << "Generated " << filename
+             << " with ONE health score per animal\n";
+    
         return 0;
     }
-
-    cout &lt;&lt; "\nAnimal ID : " &lt;&lt; queryId &lt;&lt; "\n";
-    cout &lt;&lt; "Name      : " &lt;&lt; name[queryId] &lt;&lt; "\n";
-    cout &lt;&lt; "Species   : " &lt;&lt; species[queryId] &lt;&lt; "\n";
-    cout &lt;&lt; "Health scores:\n";
-    for (int j = 0; j &lt; healthCount[queryId]; j++) {
-        cout &lt;&lt; "  " &lt;&lt; healthScore[queryId][j] &lt;&lt; "\n";
-    }
-
-    return 0;
-}</code></pre>
-
-  <h4>Sample Input</h4>
-  <pre><code>2
-Luna Elephant
-2
-82 85
-Ranger Tiger
-1
-73
-0</code></pre>
-
-  <h4>Expected Output</h4>
-  <pre><code>Animal ID : 0
-Name      : Luna
-Species   : Elephant
-Health scores:
-  82
-  85</code></pre>
+    
+  </code></pre>
 
 </div>
 
@@ -1035,6 +1076,11 @@ Health scores:
         onclick="toggleBITCode()">
     Code
 </button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/animal_hashmap_output__score_.csv"
+   target="_blank">
+  Dataset
+</a>
 
 <div id="bit-code-block" style="display:none; margin-top:20px;">
 
@@ -1144,85 +1190,113 @@ Query: total from 2..5 -> 5 + 4 + 12 + 3 = 24</code></pre>
        
     Code
 </button>
+</button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/wildlife_boyer_moore_1000_matches.csv"
+   target="_blank">
+  Dataset
+</a>
+
+
 
 <div id="bm-code-block" style="display:none; margin-top:20px;">
 
   <h4>C++ Logic used (Boyer–Moore for Gene / Behaviour Logs)</h4>
   <pre><code>#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
-
-const int ALPH = 256;   
-
-
-void buildLast(string pat, int last[]) {
-    for (int i = 0; i &lt; ALPH; i++) last[i] = -1;
-    for (int i = 0; i &lt; (int)pat.size(); i++) {
-        last[(unsigned char)pat[i]] = i;
+    #include <bits/stdc++.h>
+    using namespace std;
+    
+    const int ALPH = 256;
+    
+    void buildLast(const string &pat, int last[]) {
+        for (int i = 0; i < ALPH; ++i) last[i] = -1;
+        for (int i = 0; i < (int)pat.size(); ++i)
+            last[(unsigned char)pat[i]] = i;
     }
-}
-
-
-void boyerMoore(string text, string pat) {
-    int n = text.size();
-    int m = pat.size();
-    if (m == 0) return;
-
-    int last[ALPH];
-    buildLast(pat, last);
-
-    int s = 0;                // shift of pattern on text
-    bool found = false;
-
-    while (s &lt;= n - m) {
-        int j = m - 1;
-
-        // move backwards while characters match
-        while (j &gt;= 0 &amp;&amp; pat[j] == text[s + j]) {
-            j--;
+    
+    vector<int> boyerMoore(const string &text, const string &pat) {
+        int n = (int)text.size(), m = (int)pat.size();
+        vector<int> matches;
+        if (m == 0 || n == 0 || m > n) return matches;
+        int last[ALPH];
+        buildLast(pat, last);
+        int s = 0;
+        while (s <= n - m) {
+            int j = m - 1;
+            while (j >= 0 && pat[j] == text[s + j]) --j;
+            if (j < 0) {
+                matches.push_back(s);
+                if (s + m < n) s += m - last[(unsigned char)text[s + m]];
+                else ++s;
+            } else {
+                unsigned char bad = text[s + j];
+                int shift = j - last[bad];
+                if (shift < 1) shift = 1;
+                s += shift;
+            }
         }
-
-        if (j &lt; 0) {
-            cout &lt;&lt; "Pattern found at position " &lt;&lt; s &lt;&lt; "\n";
-            found = true;
-            // shift so that next char in text aligns with last occurrence
-            s += (s + m &lt; n) ? m - last[(unsigned char)text[s + m]] : 1;
-        } else {
-            int bad = (unsigned char)text[s + j];
-            int shift = j - last[bad];
-            if (shift &lt; 1) shift = 1;
-            s += shift;
+        return matches;
+    }
+    
+    string randomGene(int len, mt19937 &g) {
+        static const string alph = "ACGT";
+        uniform_int_distribution<int> d(0, (int)alph.size() - 1);
+        string s(len, 'A');
+        for (int i = 0; i < len; ++i) s[i] = alph[d(g)];
+        return s;
+    }
+    
+    string randomStress(int len, mt19937 &g) {
+        static const string alph = "HL";
+        uniform_int_distribution<int> d(0, (int)alph.size() - 1);
+        string s(len, 'H');
+        for (int i = 0; i < len; ++i) s[i] = alph[d(g)];
+        return s;
+    }
+    
+    int main() {
+        mt19937 gen(random_device{}());
+        string riskyPattern  = "ACGTACG";
+        string stressPattern = "HHLH";
+    
+        struct Sample { string id, type, text, pattern; };
+        vector<Sample> data;
+        data.reserve(1000);
+    
+        for (int i = 0; i < 1000; ++i) {
+            Sample s;
+            s.id = "S" + to_string(i + 1);
+            if (i % 2 == 0) {
+                s.type = "GENE";
+                s.text = randomGene(80, gen);
+                s.pattern = riskyPattern;
+            } else {
+                s.type = "STRESS";
+                s.text = randomStress(80, gen);
+                s.pattern = stressPattern;
+            }
+            data.push_back(move(s));
         }
+    
+        ofstream fout("wildlife_boyer_moore_1000_matches_cpp.csv");
+        if (!fout) {
+            cerr << "Error opening CSV\n";
+            return 1;
+        }
+        fout << "Sample_ID,Log_Type,Pattern,Start_Index\n";
+    
+        for (const auto &s : data) {
+            vector<int> pos = boyerMoore(s.text, s.pattern);
+            for (int p : pos) {
+                fout << s.id << "," << s.type << ","
+                     << s.pattern << "," << p << "\n";
+            }
+        }
+        fout.close();
+        cout << "Generated wildlife_boyer_moore_1000_matches_cpp.csv\n";
+        return 0;
     }
-
-    if (!found) {
-        cout &lt;&lt; "Pattern not found\n";
-    }
-}
-
-int main() {
-    string logText;   // long gene / behaviour log
-    string pattern;   // risky marker / stress pattern
-
-    cout &lt;&lt; "Enter log string (sample / behaviour sequence):\n";
-    cin &gt;&gt; logText;
-
-    cout &lt;&lt; "Enter pattern to search for:\n";
-    cin &gt;&gt; pattern;
-
-    boyerMoore(logText, pattern);
-
-    return 0;
-}</code></pre>
-
-  <h4>Sample Input</h4>
-  <pre><code>ACGTACGTGACG
-ACG</code></pre>
-
-  <h4>Expected Output</h4>
-  <pre><code>Pattern found at position 0
-Pattern found at position 4
-Pattern found at position 9</code></pre>
+    </code></pre>
 
 </div>
 
