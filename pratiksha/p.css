@@ -1,10 +1,10 @@
-/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL MATCHED THEME */
+/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - BLUE REMOVED, FOREST GREEN MATCHED */
 
 /* --------------------------------------
  * 1. Global Reset & Typography
  * -------------------------------------- */
 :root {
-    /* MATCHED COLORS */
+    /* MATCHED COLORS (Primary Accent is Forest Green) */
     --color-primary: #2b4d34;     /* Deep Forest Green (Main Accent) */
     --color-secondary: #c9a87a;   /* Antique Gold/Brown (Secondary Highlight) */
     --color-text-dark: #2d2d2d;   /* Very Dark Gray (Main Text) */
@@ -38,7 +38,7 @@ body {
  * -------------------------------------- */
 .page-wrapper {
     max-width: 1200px;
-    margin: 40px auto; /* Added margin for page visibility based on teammate's CSS */
+    margin: 40px auto;
     padding: 30px 40px;
     background-color: var(--color-bg-secondary);
     border-radius: 14px;
@@ -90,7 +90,7 @@ body {
 
 .lead {
     font-size: 1.1rem;
-    color: var(--color-text-light); /* Darker text */
+    color: var(--color-text-light);
 }
 
 /* Mindmap Section */
@@ -109,22 +109,20 @@ body {
  * 3. Module Styling (Four Modules)
  * -------------------------------------- */
 .module {
-    /* Using white module background from teammate's .page-wrapper style */
     background-color: var(--color-bg-secondary); 
-    padding: 30px 0; /* Remove internal padding, let content-box style define */
+    padding: 30px 0; 
     margin-bottom: 40px;
-    /* Removed border-radius/shadow as they should be applied to the page-wrapper */
 }
 
 .module-head {
-    border-bottom: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary); /* Deep Forest Green */
     padding-bottom: 15px;
     margin-bottom: 25px;
 }
 
 .module-head h2 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
+    color: var(--color-primary); /* Deep Forest Green */
     font-size: 2rem;
 }
 
@@ -137,28 +135,26 @@ body {
 .module-content {
     display: flex;
     gap: 30px;
-    /* Added padding to prevent content hugging the sides */
     padding: 0 20px; 
 }
 
 .module-left {
-    flex: 3; /* Wider column for content */
+    flex: 3; 
 }
 
 .module-right {
-    flex: 1; /* Narrower column for sidebar */
+    flex: 1; 
     padding-top: 5px;
 }
 
 /* Subpoint (Feature) Styling */
 .subpoint {
-    /* Adjusted background to match teammate's .content-box background */
-    background-color: #f3ecdd; 
-    border-radius: 14px; /* Slightly adjusted radius */
+    background-color: #f3ecdd; /* Creamy beige background */
+    border-radius: 14px;
     padding: 25px;
     margin-bottom: 20px;
-    border: 1px solid rgba(43, 77, 52, 0.12); /* Based on primary color */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Lighter shadow */
+    border: 1px solid rgba(43, 77, 52, 0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .subpoint:last-of-type {
@@ -177,28 +173,28 @@ body {
     margin-bottom: 5px;
     padding-left: 15px;
     border-left: 3px solid var(--color-secondary); /* Antique Gold/Brown line */
-    color: var(--color-text-dark); /* Ensure body text is dark */
+    color: var(--color-text-dark);
 }
 
 .subpoint strong {
-    color: var(--color-primary); /* Bold items use Primary Green */
+    color: var(--color-primary); /* Deep Forest Green */
 }
 
 /* SDG Tag */
 .sdg {
     float: right;
     font-size: 0.9rem;
-    background-color: var(--color-primary);
-    color: var(--color-bg-secondary); /* White text on primary accent */
+    background-color: var(--color-primary); /* Deep Forest Green */
+    color: var(--color-bg-secondary); /* White text */
     padding: 2px 6px;
     border-radius: 4px;
-    font-family: var(--font-heading); /* Match teammate's font choice for tags */
+    font-family: var(--font-heading);
     font-weight: 600;
 }
 
 /* Sidebar Boxes */
 .side-box {
-    background-color: #f8f8f8; /* Very light gray background for sidebar */
+    background-color: #f8f8f8;
     padding: 15px;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
@@ -206,7 +202,7 @@ body {
 }
 
 .side-box h4 {
-    color: var(--color-primary);
+    color: var(--color-primary); /* Deep Forest Green */
     margin-bottom: 10px;
     font-family: var(--font-heading);
 }
@@ -225,7 +221,7 @@ body {
 
 .side-box li::before {
     content: "•";
-    color: var(--color-primary);
+    color: var(--color-primary); /* Deep Forest Green */
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -237,7 +233,7 @@ body {
  * 4. Image Styling FIXES (Full Content Display)
  * -------------------------------------- */
 
-/* Detail Images - Handled by inline style, but defining class properties for fallback */
+/* Detail Images - Primary styling is handled by the inline styles in HTML */
 .subimage { 
     width: 100%; 
     max-width: 100%; 
@@ -249,7 +245,7 @@ body {
     border: 1px solid var(--color-accent-bg); 
 }
 
-/* Mindmap Image - Handled by inline style, but defining class properties for fallback */
+/* Mindmap Image - Primary styling is handled by the inline styles in HTML */
 .mindmap-img {
     width: 100%;
     max-width: 900px;
@@ -258,7 +254,7 @@ body {
     margin: 16px auto; 
     display: block; 
     border-radius: var(--border-radius);
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-primary); /* Deep Forest Green */
 }
 
 /* --------------------------------------
@@ -290,8 +286,8 @@ body {
 }
 
 .eff-table th {
-    background-color: var(--color-primary);
-    color: var(--color-bg-secondary); /* White text on primary accent */
+    background-color: var(--color-primary); /* Deep Forest Green */
+    color: var(--color-bg-secondary); /* White text */
     font-family: var(--font-heading);
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -320,10 +316,10 @@ body {
     font-family: var(--font-heading);
     text-transform: uppercase;
     cursor: pointer;
-    border: 2px solid var(--color-primary); /* Primary Green border */
+    border: 2px solid var(--color-primary); /* Deep Forest Green */
     transition: all 0.3s;
     font-size: 0.9rem;
-    width: auto; /* Allow button to resize */
+    width: auto;
 }
 
 .code-btn {
@@ -338,7 +334,7 @@ body {
 
 .ghost {
     background-color: transparent;
-    color: var(--color-primary); /* Primary Green text */
+    color: var(--color-primary); /* Deep Forest Green text */
     border: 2px solid var(--color-primary);
 }
 
@@ -376,7 +372,7 @@ body {
 }
 
 .modal {
-    background-color: #f3ecdd; /* Light background for the modal window */
+    background-color: #f3ecdd; 
     padding: 25px;
     border-radius: var(--border-radius);
     max-width: 800px;
@@ -389,7 +385,7 @@ body {
 
 .modal h3 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
+    color: var(--color-primary); /* Deep Forest Green */
     margin-bottom: 15px;
 }
 
@@ -406,8 +402,8 @@ body {
 }
 
 .code-block {
-    background-color: #1e1e1e; /* Dark background for code block */
-    color: #cccccc; /* Light text for readability */
+    background-color: #1e1e1e;
+    color: #cccccc;
     padding: 15px;
     border-radius: 4px;
     white-space: pre-wrap;
