@@ -2632,6 +2632,290 @@ int main() {
     block.style.display = (current === 'none') ? 'block' : 'none';
   }
 </script>
+<h2 class="section-heading">Administration & Governance</h2>
+
+<div class="content-box-container">
+
+  <div class="content-box">
+    <h3>Rules & Compliance Engine (AVL Tree)</h3>
+    <div class="rule"></div>
+
+    <p>
+      Forest administration relies on a large and evolving rulebook: working plan prescriptions, government orders, court directions, circulars and scheme guidelines that together decide who can approve which activity, in what quantity and under what conditions. 
+      Officers processing permits, payments or offence cases must quickly know which rules apply to a specific range, species, volume and season combination, without manually scanning long PDFs each time. 
+    </p>
+
+    <p>
+      The rules engine stores every operative clause as a node in an <b>AVL Tree</b>, using a composite key that can combine priority, effective date, jurisdiction and rule code so that the most relevant rules are always found in logarithmic time. 
+      Because the AVL tree self‑balances after each insertion or deletion, new circulars or court orders can be added and obsolete rules retired without degrading lookup performance as the rulebase grows. 
+    </p>
+
+    <p>
+      When a transaction is initiated – such as issuing a transport permit, sanctioning a budget item or compounding an offence – the engine queries the AVL tree with the relevant key to retrieve all active rules that match the case attributes. 
+      The matched nodes include thresholds, required approval levels and any special conditions, allowing the system to validate the action in real time and highlight exactly which clause was applied in the decision log. 
+    </p>
+
+    <p>
+      Version and scope fields in each node let administrators restrict rules to specific periods or locations, and a change log records which AVL operations (insert, rotate, delete) correspond to which notified circulars. 
+      This turns the rulebook into an auditable, queryable data structure where governance staff can trace every decision back to a precise rule node, strengthening accountability and consistency across the forest department. 
+    </p>
+
+    <h4>Implementation – Rules Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="rules.jpg"
+           alt="Rules & Compliance Engine – AVL Tree"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+
+    <div class="algo-div">
+      Data Structure: AVL Tree (Balanced Rule Index)
+    </div>
+    <br><br>
+
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleAdminRulesCode()">
+      Code
+    </button>
+
+    <a class="btn btn-success text-decoration-none"
+       href="ananya/Datasets/admin_rules_avl.csv"
+       target="_blank">
+      Dataset
+    </a>
+
+    <div id="admin-rules-code-block" style="display:none; margin-top:20px;">
+      <h4>C++ / Python Logic used (Rules AVL Tree)</h4>
+      <pre><code>
+        // admin_rules_avl.cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        struct Rule {
+            int ruleId;
+            int priorityScore;
+            string effectiveFrom;
+            string effectiveToOrBlank;
+            string jurisdiction;
+            string minLevel;
+            string maxLevel;
+            string domain;
+            string actionType;
+            double minThreshold;
+            double maxThreshold;
+            int requiresWrittenOrder;
+            int requiresLegalVet;
+            string primaryApproverRole;
+            string secondaryApproverRole;
+            string citationCode;
+            string shortTitle;
+        };
+        
+        // composite key for AVL: (priorityScore, effectiveFrom, jurisdiction, citationCode)
+        struct Key {
+            int priorityScore;
+            string effectiveFrom;
+            string jurisdiction;
+            string citationCode;
+        };
+        
+        bool keyLess(const Key &a, const Key &b) {
+            if (a.priorityScore != b.priorityScore)
+                return a.priorityScore < b.priorityScore; // lower score = higher priority
+            if (a.effectiveFrom != b.effectiveFrom)
+                return a.effectiveFrom < b.effectiveFrom;
+            if (a.jurisdiction != b.jurisdiction)
+                return a.jurisdiction < b.jurisdiction;
+            return a.citationCode < b.citationCode;
+        }
+        
+        struct AVLNode {
+            Rule rule;
+            Key key;
+            AVLNode *left;
+            AVLNode *right;
+            int height;
+            AVLNode(const Rule &r, const Key &k)
+                : rule(r), key(k), left(nullptr), right(nullptr), height(1) {}
+        };
+        
+        int nodeHeight(AVLNode *n) {
+            return n ? n->height : 0;
+        }
+        
+        int balanceFactor(AVLNode *n) {
+            return n ? nodeHeight(n->left) - nodeHeight(n->right) : 0;
+        }
+        
+        void updateHeight(AVLNode *n) {
+            if (n)
+                n->height = 1 + max(nodeHeight(n->left), nodeHeight(n->right));
+        }
+        
+        AVLNode* rotateRight(AVLNode *y) {
+            AVLNode *x = y->left;
+            AVLNode *T2 = x->right;
+        
+            x->right = y;
+            y->left = T2;
+            updateHeight(y);
+            updateHeight(x);
+            return x;
+        }
+        
+        AVLNode* rotateLeft(AVLNode *x) {
+            AVLNode *y = x->right;
+            AVLNode *T2 = y->left;
+        
+            y->left = x;
+            x->right = T2;
+            updateHeight(x);
+            updateHeight(y);
+            return y;
+        }
+        
+        AVLNode* insertNode(AVLNode *node, const Rule &r) {
+            Key k{r.priorityScore, r.effectiveFrom, r.jurisdiction, r.citationCode};
+            if (!node) return new AVLNode(r, k);
+        
+            if (keyLess(k, node->key)) {
+                node->left = insertNode(node->left, r);
+            } else {
+                node->right = insertNode(node->right, r);
+            }
+        
+            updateHeight(node);
+            int bf = balanceFactor(node);
+        
+            // LL
+            if (bf > 1 && keyLess(k, node->left->key))
+                return rotateRight(node);
+            // RR
+            if (bf < -1 && !keyLess(k, node->right->key))
+                return rotateLeft(node);
+            // LR
+            if (bf > 1 && !keyLess(k, node->left->key)) {
+                node->left = rotateLeft(node->left);
+                return rotateRight(node);
+            }
+            // RL
+            if (bf < -1 && keyLess(k, node->right->key)) {
+                node->right = rotateRight(node->right);
+                return rotateLeft(node);
+            }
+            return node;
+        }
+        
+        // Simple CSV splitter
+        vector<string> splitCSV(const string &line) {
+            vector<string> out;
+            string cur;
+            bool inQuotes = false;
+            for (char c : line) {
+                if (c == '"') {
+                    inQuotes = !inQuotes;
+                } else if (c == ',' && !inQuotes) {
+                    out.push_back(cur);
+                    cur.clear();
+                } else {
+                    cur.push_back(c);
+                }
+            }
+            out.push_back(cur);
+            return out;
+        }
+        
+        Rule parseRule(const vector<string> &c) {
+            Rule r;
+            int i = 0;
+            r.ruleId               = stoi(c[i++]);
+            r.priorityScore        = stoi(c[i++]);
+            r.effectiveFrom        = c[i++];
+            r.effectiveToOrBlank   = c[i++];
+            r.jurisdiction         = c[i++];
+            r.minLevel             = c[i++];
+            r.maxLevel             = c[i++];
+            r.domain               = c[i++];
+            r.actionType           = c[i++];
+            r.minThreshold         = stod(c[i++]);
+            r.maxThreshold         = stod(c[i++]);
+            r.requiresWrittenOrder = stoi(c[i++]);
+            r.requiresLegalVet     = stoi(c[i++]);
+            r.primaryApproverRole  = c[i++];
+            r.secondaryApproverRole= c[i++];
+            r.citationCode         = c[i++];
+            r.shortTitle           = c[i++];
+            return r;
+        }
+        
+        void inorderPrint(AVLNode *root, int maxPrint = 20) {
+            static int printed = 0;
+            if (!root || printed >= maxPrint) return;
+            inorderPrint(root->left, maxPrint);
+            if (printed < maxPrint) {
+                cout << "[" << root->rule.citationCode << "] "
+                     << root->rule.shortTitle
+                     << " | priority=" << root->rule.priorityScore
+                     << " | juris=" << root->rule.jurisdiction
+                     << " | domain=" << root->rule.domain
+                     << " | action=" << root->rule.actionType
+                     << "\n";
+                ++printed;
+            }
+            inorderPrint(root->right, maxPrint);
+        }
+        
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+        
+            ifstream in("admin_rules_avl.csv");
+            if (!in) {
+                cerr << "Cannot open admin_rules_avl.csv\n";
+                return 1;
+            }
+        
+            string line;
+            if (!getline(in, line)) {
+                cerr << "Empty CSV\n";
+                return 1;
+            }
+        
+            AVLNode *root = nullptr;
+            int count = 0;
+        
+            while (getline(in, line)) {
+                if (line.empty()) continue;
+                auto cols = splitCSV(line);
+                if (cols.size() < 17) continue;
+                Rule r = parseRule(cols);
+                root = insertNode(root, r);
+                ++count;
+            }
+        
+            cerr << "Loaded " << count << " rules into AVL tree\n";
+        
+            cout << "Sample in-order traversal of rules (by priority, effective date, jurisdiction):\n";
+            inorderPrint(root, 25);
+        
+            return 0;
+        }
+        
+      </code></pre>
+    </div>
+
+  </div>
+
+
+<script>
+  function toggleAdminRulesCode() {
+    const block = document.getElementById('admin-rules-code-block');
+    if (!block) return;
+    const current = window.getComputedStyle(block).display;
+    block.style.display = (current === 'none') ? 'block' : 'none';
+  }
+</script>
+
 
 
 
