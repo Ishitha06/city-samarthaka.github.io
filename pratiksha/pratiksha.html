@@ -6,7 +6,7 @@
   <title>Pratiksha Chougule — Contributions</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="p.css">
+  <link rel="stylesheet" href="p.css?v=2">
   <script src="p.js" defer></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
     </section>
 
     <section class="mindmap">
-      <img src="assets/smart_city_ds_mindmap.png" alt="Smart City Data Structures Mindmap" />
+      <img class="mindmap-img" src="assets/smart_city_ds_mindmap.png" alt="Smart City Data Structures Mindmap" />
       <p class="caption">Mindmap: module relationships, DS & algorithm choices, and SDG alignment.</p>
     </section>
 
@@ -138,7 +138,6 @@
               <li>Digital marketplace & e-services</li>
               <li>Transport-related commerce (parking, smartcards)</li>
               <li>Advertising & loyalty engines</li>
-              <li>Hyper-local manufacturing hubs</li>
               <li>**Fraud Detection Engine**</li>
               <li>**Dynamic Pricing System**</li>
             </ul>
@@ -271,14 +270,14 @@
               <h3>Smart Scholarship Allocation System — Max-Heap + Hash Map <span class="sdg">SDG 4</span></h3>
               <p class="problem"><strong>Problem:</strong> Manual application review is slow and inconsistent, risking aid going to the wrong students.</p>
               <p class="why"><strong>Why Max-Heap + Hash:</strong> **Max-Heap** ranks composite priority (Need + Merit) for fast allocation ($O(\log n)$). **Hash Map** stores full student profiles for instant ($O(1)$) lookups during final verification.</p>
-              <p class="how"><strong>How it solves:</strong> Applications are placed in a **Max-Heap** by score. Reviewers pop the top candidate, instantly retrieving the full record from the **Hash Map**, ensuring fairness (Welfare) and reducing administrative costs (Business).</p>
+              <p class="how">**How it solves:** Applications are placed in a **Max-Heap** by score. Reviewers pop the top candidate, instantly retrieving the full record from the **Hash Map**, ensuring fairness (Welfare) and reducing administrative costs (Business).</p>
           </article>
           
           <article class="subpoint">
               <h3>Adaptive Learning Path Generator — Graphs + DFS <span class="sdg">SDG 4</span></h3>
               <p class="problem"><strong>Problem:</strong> Generic curricula lead to student frustration and high dropout rates due to knowledge gaps.</p>
               <p class="why"><strong>Why Graph + DFS:</strong> **Graphs** model topic prerequisites. **DFS** (Depth First Search) traverses this graph to generate a sequential path, ensuring students master foundational topics first.</p>
-              <p class="how"><strong>How it solves:</strong> Topics are **Graph** nodes; prerequisites are directed edges. **DFS** is used to check that all necessary prerequisites are met before recommending a topic, providing a custom sequence that increases pass rates (Welfare) and creates a valuable EdTech product (Business).</p>
+              <p class="how">**How it solves:** Topics are **Graph** nodes; prerequisites are directed edges. **DFS** is used to check that all necessary prerequisites are met before recommending a topic, providing a custom sequence that increases pass rates (Welfare) and creates a valuable EdTech product (Business).</p>
               <img class="subimage" src="assets/adaptive_learning_path.jpg" alt="Personalized Learning Path" />
           </article>
           
@@ -286,27 +285,27 @@
               <h3>Teacher Workload Optimization — Min-Heap + Greedy Scheduling <span class="sdg">SDG 4</span></h3>
               <p class="problem"><strong>Problem:</strong> Uneven workload distribution leads to teacher burnout and inconsistent teaching quality.</p>
               <p class="why"><strong>Why Min-Heap + Greedy:</strong> A **Min-Heap** maintains the list of teachers prioritized by the lowest current workload. The **Greedy Algorithm** makes the optimal scheduling choice at each step.</p>
-              <p class="how"><strong>How it solves:</strong> New sessions are allocated by the **Greedy Scheduler** to the teacher with the current minimum workload (extracted from the heap in $O(\log n)$). This balances assignments, reducing burnout (Welfare) and optimizing school staff utilization (Business).</p>
+              <p class="how">**How it solves:** New sessions are allocated by the **Greedy Scheduler** to the teacher with the current minimum workload (extracted from the heap in $O(\log n)$). This balances assignments, reducing burnout (Welfare) and optimizing school staff utilization (Business).</p>
               </article>
           
           <article class="subpoint">
               <h3>Real-Time Classroom Monitoring Analytics — Sliding Window (Queues) <span class="sdg">SDG 4</span></h3>
               <p class="problem"><strong>Problem:</strong> Detecting real-time issues like overcrowding or sudden performance drops is difficult with batch processing.</p>
-              <p class="why"><strong>Why Sliding Window (Queues):** A **Sliding Window** (implemented with two **Queues** or **Arrays**) efficiently tracks metrics over a fixed, recent time frame without recalculating the entire stream ($O(1)$ update).</p>
+              <p class="why"><strong>Why Sliding Window (Queues):</strong> A **Sliding Window** (implemented with two **Queues** or **Arrays**) efficiently tracks metrics over a fixed, recent time frame without recalculating the entire stream ($O(1)$ update).</p>
               <p class="how">**How it solves:** Metrics (e.g., login times, activity rates) are fed into the **Sliding Window**. The system compares the current window's average against a baseline to detect anomalies, allowing for instant alerts on potential issues like overcrowding or disengagement (Welfare/Business).</p>
               </article>
           
           <article class="subpoint">
               <h3>Exam Generation + Plagiarism Detection — Graphs + Hashing <span class="sdg">SDG 4, 16</span></h3>
               <p class="problem"><strong>Problem:</strong> Ensuring comprehensive syllabus coverage and quickly detecting similar or copied answers.</p>
-              <p class="why"><strong>Why Hashing + Graph:** **Hashing** (**Rabin-Karp**) is fast for text similarity detection. **Graph Algorithms** (Connectivity via DFS/BFS) ensure syllabus coverage in generated papers.</p>
+              <p class="why"><strong>Why Hashing + Graph:</strong> **Hashing** (**Rabin-Karp**) is fast for text similarity detection. **Graph Algorithms** (Connectivity via DFS/BFS) ensure syllabus coverage in generated papers.</p>
               <p class="how">**How it solves:** **Graph Algorithms** (DFS/BFS on a Topic Graph) ensure question sets cover all prerequisite topic clusters. **Rabin-Karp Hashing** checks for matching hash sequences across all submissions ($O(N+M)$ average time), flagging cheating instantly (Welfare) and reducing manual evaluation (Business).</p>
               </article>
 
           <article class="subpoint">
               <h3>Career Recommendation Engine — Decision Trees + AVL Trees <span class="sdg">SDG 4, 8</span></h3>
               <p class="problem"><strong>Problem:</strong> Students lack guidance on career paths aligned with their skills and market demand.</p>
-              <p class="why"><strong>Why Decision Trees + AVL Trees:** **Decision Trees** categorize student profiles. **AVL Trees** rank the best job matches within those categories based on market salary/demand ($O(\log n)$ query/ranking).</p>
+              <p class="why"><strong>Why Decision Trees + AVL Trees:</strong> **Decision Trees** categorize student profiles. **AVL Trees** rank the best job matches within those categories based on market salary/demand ($O(\log n)$ query/ranking).</p>
               <p class="how">**How it solves:** Student skill data traverses the **Decision Tree** for category placement. Job market data (salary, demand) is stored in an **AVL Tree** for fast extraction of the top $K$ best-matched jobs, guiding students to better opportunities (Welfare/Business).</p>
               </article>
 
@@ -368,21 +367,21 @@
             <p class="problem"><strong>Problem:</strong> Route teams must take shortest safe path when multiple faults arise.</p>
             <p class="why"><strong>Why Dijkstra:</strong> Shortest path on weighted graphs minimizes travel time considering traffic or road closures.</p>
             <p class="how"><strong>How it solves:</strong> Graph nodes = panels/locations. Dijkstra finds quickest maintenance route for each crew, aggregated for multi-stop tours. Use heuristics to batch repairs for efficiency.</p>
-            <img class="subimage" src="assets/maintenance_routing_map.jpg" alt="Maintenance Routing on Digital Map">
+            <img class="subimage" src="assets/solar_energy_trading.jpg" alt="Solar Energy Trading Marketplace">
           </article>
           
           <article class="subpoint">
               <h3>Fault Prediction Engine — Decision Trees + AVL Trees <span class="sdg">SDG 7</span></h3>
               <p class="problem"><strong>Problem:</strong> Unanticipated panel failure causes energy loss and expensive reactive maintenance.</p>
               <p class="why"><strong>Why Decision Trees + AVL Trees:</strong> **Decision Trees** classify panel health data (temp, output) to predict failure. **AVL Trees** efficiently store and rank panels by their current risk score for $O(\log n)$ updates and ranking.</p>
-              <p class="how"><strong>How it solves:</strong> Sensor data runs through a pre-trained **Decision Tree** model which outputs a risk score. This score is inserted into the **AVL Tree**, which maintains the panels ranked by risk. Technicians service the top $K$ riskiest panels proactively, reducing downtime (Welfare) and optimizing maintenance scheduling (Business).</p>
+              <p class="how">**How it solves:** Sensor data runs through a pre-trained **Decision Tree** model which outputs a risk score. This score is inserted into the **AVL Tree**, which maintains the panels ranked by risk. Technicians service the top $K$ riskiest panels proactively, reducing downtime (Welfare) and optimizing maintenance scheduling (Business).</p>
               </article>
 
           <article class="subpoint">
               <h3>Energy Trading Marketplace — Hash Tables + Ledgers <span class="sdg">SDG 7, 11</span></h3>
               <p class="problem"><strong>Problem:</strong> Excess solar energy often goes unutilized; no direct peer-to-peer trading mechanism exists.</p>
               <p class="why"><strong>Why Hash Tables:</strong> **Hash Tables** provide $O(1)$ instant lookups for user accounts and live balance updates, crucial for high-frequency trading ledgers.</p>
-              <p class="how"><strong>How it solves:</strong> A digital ledger tracks energy credits. **Hash Tables** store user accounts and balances, facilitating near-instantaneous, secure debits and credits when energy is bought/sold. The marketplace generates profit through transaction fees while incentivizing citizens to generate solar power (Welfare/Sustainability).</p>
+              <p class="how">**How it solves:** A digital ledger tracks energy credits. **Hash Tables** store user accounts and balances, facilitating near-instantaneous, secure debits and credits when energy is bought/sold. The marketplace generates profit through transaction fees while incentivizing citizens to generate solar power (Welfare/Sustainability).</p>
               </article>
 
           <h4 class="eff-heading">Efficiency Analysis (Solar)</h4>
@@ -405,11 +404,7 @@
         </div>
 
         <aside class="module-right">
-          <div class="side-box">
-            <h4>Tips</h4>
-            <p>Use rolling averages for sensor smoothing. Cache frequent routes. Create emergency backup policies for critical zones.</p>
-          </div>
-        </aside>
+          </aside>
       </div>
     </section>
 
