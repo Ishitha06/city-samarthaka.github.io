@@ -2218,11 +2218,222 @@ int main() {
 </script>
 
   </script>
+  <!--Teak wood marketing-->
+  <h2 class="section-heading">Teakwood Marketing Network</h2>
 
+<div class="content-box-container">
 
+  <div class="content-box">
+    <h3>Lean Marketing Backbone (Kruskal)</h3>
+    <div class="rule"></div>
 
-    
+    <p>
+      To keep selling costs under control, the teak marketing cell models plantations, intermediate depots and major markets as an undirected, weighted graph where each edge carries the full delivered cost of moving teak between two points.
+      Edge weights combine factors such as distance, road condition, loading and unloading charges, and even differential prices for premium versus standard grades in urban markets. 
+    </p>
 
+    <p>
+      The system then applies <b>Kruskal’s algorithm</b> to this graph to compute a minimum spanning tree, choosing the cheapest combination of trade links that still keeps all plantations connected to at least one key market.
+      Using a Union–Find structure, the algorithm sorts all potential links by cost and incrementally adds only those edges that do not create cycles, ensuring that redundant and expensive links are avoided in the core network design. 
+    </p>
+
+    <p>
+      Planners can visualise this Kruskal-based marketing backbone on the map and decide where to prioritise road upgrades, new depots or additional contracts when demand rises, by selectively adding extra edges on top of the minimum tree.
+      This turns teak marketing into a transparent, data-driven optimisation task, where every new route can be compared against the current minimum-cost structure before investment decisions are made. 
+    </p>
+
+    <h4>Implementation – Marketing Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="Masterplan/kruskal.jpg"
+           alt="Teak Marketing Backbone – Kruskal MST"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+
+    <div class="algo-div">Algorithm: Kruskal’s MST (Marketing Backbone)</div>
+    <br><br>
+
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleTeakKruskalCode()">
+      Code
+    </button>
+
+    <a class="btn btn-success text-decoration-none"
+       href="ananya/Datasets/teak_marketing_edges_kruskal.csv"
+       target="_blank">
+      Dataset
+    </a>
+
+    <div id="teak-kruskal-code-block" style="display:none; margin-top:20px;">
+      <h4>C++ Logic used (Kruskal for Teak Marketing)</h4>
+      <pre><code>
+        // teak_marketing_kruskal.cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        struct Edge {
+            int u, v;                 // integer ids of srcNode, dstNode
+            string srcNodeLabel;
+            string dstNodeLabel;
+            string roadType;
+            double distanceKm;
+            double transportCostPerTonne;
+            double handlingCost;
+            double tollCost;
+            double riskFactor;
+            double totalEdgeCost;     // used as weight in Kruskal
+            int capacityTonnes;
+            string allowedGrade;
+            int certifiedOnlyFlag;
+        };
+        
+        struct DSU {
+            vector<int> parent, rnk;
+            DSU(int n = 0) { init(n); }
+            void init(int n) {
+                parent.resize(n);
+                rnk.assign(n, 0);
+                iota(parent.begin(), parent.end(), 0);
+            }
+            int find(int x) {
+                if (parent[x] == x) return x;
+                return parent[x] = find(parent[x]);
+            }
+            bool unite(int a, int b) {
+                a = find(a); b = find(b);
+                if (a == b) return false;
+                if (rnk[a] < rnk[b]) swap(a, b);
+                parent[b] = a;
+                if (rnk[a] == rnk[b]) rnk[a]++;
+                return true;
+            }
+        };
+        
+        vector<string> splitCSV(const string &line) {
+            vector<string> out;
+            string cur;
+            bool inQuotes = false;
+            for (char c : line) {
+                if (c == '"') {
+                    inQuotes = !inQuotes;
+                } else if (c == ',' && !inQuotes) {
+                    out.push_back(cur);
+                    cur.clear();
+                } else {
+                    cur.push_back(c);
+                }
+            }
+            out.push_back(cur);
+            return out;
+        }
+        
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+        
+            ifstream in("teak_marketing_edges_kruskal.csv");
+            if (!in) {
+                cerr << "Cannot open teak_marketing_edges_kruskal.csv\n";
+                return 1;
+            }
+        
+            string header;
+            if (!getline(in, header)) {
+                cerr << "Empty CSV\n";
+                return 1;
+            }
+        
+            vector<Edge> edges;
+            unordered_map<string,int> nodeId;
+            vector<string> idToLabel;
+        
+            auto getId = [&](const string &label) {
+                auto it = nodeId.find(label);
+                if (it != nodeId.end()) return it->second;
+                int id = (int)nodeId.size();
+                nodeId[label] = id;
+                idToLabel.push_back(label);
+                return id;
+            };
+        
+            string line;
+            while (getline(in, line)) {
+                if (line.empty()) continue;
+                auto cols = splitCSV(line);
+                if (cols.size() < 12) continue;
+        
+                Edge e;
+                e.srcNodeLabel          = cols[0];
+                e.dstNodeLabel          = cols[1];
+                e.roadType              = cols[2];
+                e.distanceKm            = stod(cols[3]);
+                e.transportCostPerTonne = stod(cols[4]);
+                e.handlingCost          = stod(cols[5]);
+                e.tollCost              = stod(cols[6]);
+                e.riskFactor            = stod(cols[7]);
+                e.totalEdgeCost         = stod(cols[8]);
+                e.capacityTonnes        = stoi(cols[9]);
+                e.allowedGrade          = cols[10];
+                e.certifiedOnlyFlag     = stoi(cols[11]);
+        
+                e.u = getId(e.srcNodeLabel);
+                e.v = getId(e.dstNodeLabel);
+                edges.push_back(e);
+            }
+        
+            int n = (int)nodeId.size();
+            cerr << "Loaded " << edges.size() << " edges over "
+                 << n << " nodes\n";
+        
+            // Kruskal: sort by totalEdgeCost
+            sort(edges.begin(), edges.end(),
+                 [](const Edge &a, const Edge &b) {
+                     return a.totalEdgeCost < b.totalEdgeCost;
+                 });
+        
+            DSU dsu(n);
+            vector<Edge> mst;
+            double totalCost = 0.0;
+        
+            for (const auto &e : edges) {
+                if (dsu.unite(e.u, e.v)) {
+                    mst.push_back(e);
+                    totalCost += e.totalEdgeCost;
+                    if ((int)mst.size() == n - 1) break;
+                }
+            }
+        
+            cout << "Kruskal MST over teak marketing network\n";
+            cout << "Nodes: " << n << ", MST edges: " << mst.size()
+                 << ", Total cost: " << totalCost << "\n\n";
+        
+            for (const auto &e : mst) {
+                cout << e.srcNodeLabel << " -> " << e.dstNodeLabel
+                     << "  cost=" << e.totalEdgeCost
+                     << "  road=" << e.roadType
+                     << "  cap=" << e.capacityTonnes
+                     << "  grade=" << e.allowedGrade
+                     << (e.certifiedOnlyFlag ? "  [certified]" : "")
+                     << "\n";
+            }
+        
+            return 0;
+        }
+        
+      </code></pre>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleTeakKruskalCode() {
+    const block = document.getElementById('teak-kruskal-code-block');
+    if (!block) return;
+    const current = window.getComputedStyle(block).display;
+    block.style.display = (current === 'none') ? 'block' : 'none';
+  }
+</script>
 
 
 <script src="an.js"></script>
