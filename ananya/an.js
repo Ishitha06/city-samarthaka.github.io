@@ -144,4 +144,15 @@ block.style.display = "block";
 } else {
 block.style.display = "none";
 }
-}    
+}   
+
+function toggleBSTCode() {
+    const block = document.getElementById('bst-code-block');
+    if (!block) return;
+    if (block.style.display === 'none' || block.style.display === '') {
+      block.style.display = 'block';
+    } else {
+      block.style.display = 'none';
+    }
+  }
+

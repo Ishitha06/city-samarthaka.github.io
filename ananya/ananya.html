@@ -1338,84 +1338,194 @@ O(n) time and prepares it for queries and updates.
         onclick="toggleSegTreeCode()">
     Code
 </button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/carbon_segments_1000.csv"
+   target="_blank">
+  Dataset
+</a>
+
 
 <div id="seg-code-block" style="display:none; margin-top:20px;">
-
-  <h4>C++ Logic used (Segment Tree for Carbon Bands)</h4>
-  <pre><code>#include &lt;iostream&gt;
-using namespace std;
-
-const int MAXN = 100;
-
-int n;
-long long a[MAXN];
-long long tree[4 * MAXN];
-
-void build(int node, int l, int r) {
-    if (l == r) {
-        tree[node] = a[l];
-        return;
+    // carbon_segment_tree.cpp
+    #include <bits/stdc++.h>
+    using namespace std;
+    
+    struct Segment {
+        int segmentId;
+        string bandType;          // Forest / Plantation / Wetland
+        string zone;              // Zone-1 .. Zone-5
+        double lengthKm;
+        double widthM;
+        double areaHa;
+        double carbonPerYear;     // tCO2/year, this is a[i]
+    };
+    
+    const int MAX_SEGMENTS = 1000;
+    
+    // ---------- Segment Tree for range-sum and point update ----------
+    struct CarbonSegmentTree {
+        int n;
+        vector<double> a;      // base array
+        vector<double> tree;   // 4*n
+    
+        CarbonSegmentTree() : n(0) {}
+    
+        explicit CarbonSegmentTree(const vector<double> &values) {
+            build(values);
+        }
+    
+        void build(const vector<double> &values) {
+            a = values;
+            n = (int)a.size();
+            tree.assign(4 * max(1, n), 0.0);
+            if (n > 0) buildRec(1, 0, n - 1);
+        }
+    
+        void buildRec(int node, int l, int r) {
+            if (l == r) {
+                tree[node] = a[l];
+                return;
+            }
+            int mid = (l + r) / 2;
+            buildRec(2 * node, l, mid);
+            buildRec(2 * node + 1, mid + 1, r);
+            tree[node] = tree[2 * node] + tree[2 * node + 1];
+        }
+    
+        void update(int idx, double val) {
+            if (idx < 0 || idx >= n) return;
+            updateRec(1, 0, n - 1, idx, val);
+        }
+    
+        void updateRec(int node, int l, int r, int idx, double val) {
+            if (l == r) {
+                tree[node] = val;
+                a[idx] = val;
+                return;
+            }
+            int mid = (l + r) / 2;
+            if (idx <= mid) updateRec(2 * node, l, mid, idx, val);
+            else updateRec(2 * node + 1, mid + 1, r, idx, val);
+            tree[node] = tree[2 * node] + tree[2 * node + 1];
+        }
+    
+        double query(int ql, int qr) const {
+            if (n == 0 || ql < 0 || qr >= n || ql > qr) return 0.0;
+            return queryRec(1, 0, n - 1, ql, qr);
+        }
+    
+        double queryRec(int node, int l, int r, int ql, int qr) const {
+            if (qr < l || r < ql) return 0.0;
+            if (ql <= l && r <= qr) return tree[node];
+            int mid = (l + r) / 2;
+            return queryRec(2 * node, l, mid, ql, qr)
+                 + queryRec(2 * node + 1, mid + 1, r, ql, qr);
+        }
+    };
+    
+    // ---------- Generate realistic segments ----------
+    vector<Segment> generateSegments(int n = MAX_SEGMENTS) {
+        vector<Segment> segs;
+        segs.reserve(n);
+    
+        vector<string> bandTypes = {"Forest", "Plantation", "Wetland"};
+        vector<string> zones = {"Zone-1", "Zone-2", "Zone-3", "Zone-4", "Zone-5"};
+    
+        mt19937 rng(42);
+        uniform_real_distribution<double> lenDist(0.5, 5.0);     // km
+        uniform_real_distribution<double> widthDist(20.0, 200.0); // m
+        uniform_real_distribution<double> forestPerHa(8.0, 25.0);
+        uniform_real_distribution<double> plantPerHa(5.0, 18.0);
+        uniform_real_distribution<double> wetPerHa(3.0, 12.0);
+        // ranges loosely aligned with typical sequestration rates. [web:172][web:182]
+    
+        for (int i = 0; i < n; ++i) {
+            Segment s;
+            s.segmentId = i;
+            s.bandType = bandTypes[i % (int)bandTypes.size()];
+            s.zone = zones[i % (int)zones.size()];
+    
+            s.lengthKm = round(lenDist(rng) * 100.0) / 100.0;
+            s.widthM   = round(widthDist(rng) * 10.0) / 10.0;
+    
+            // area (ha) = length_km * 1000 * width_m / 10000
+            s.areaHa = s.lengthKm * 1000.0 * s.widthM / 10000.0;
+            s.areaHa = round(s.areaHa * 100.0) / 100.0;
+    
+            double perHa;
+            if (s.bandType == "Forest")      perHa = forestPerHa(rng);
+            else if (s.bandType == "Plantation") perHa = plantPerHa(rng);
+            else                               perHa = wetPerHa(rng);
+    
+            s.carbonPerYear = perHa * s.areaHa;
+            s.carbonPerYear = round(s.carbonPerYear * 100.0) / 100.0;
+    
+            segs.push_back(s);
+        }
+    
+        return segs;
     }
-    int mid = (l + r) / 2;
-    build(2 * node, l, mid);
-    build(2 * node + 1, mid + 1, r);
-    tree[node] = tree[2 * node] + tree[2 * node + 1];
-}
-
-void update(int node, int l, int r, int idx, long long val) {
-    if (l == r) {
-        tree[node] = val;
-        a[idx] = val;
-        return;
+    
+    // ---------- Optional: write dataset to CSV (one file to show as dataset) ----------
+    void exportSegmentsCSV(const vector<Segment> &segs,
+                           const string &filename = "carbon_segments_1000_cpp.csv") {
+        ofstream out(filename);
+        if (!out) {
+            cerr << "Error opening " << filename << " for writing\n";
+            return;
+        }
+        out << "Segment_ID,Band_Type,Zone,Length_km,Width_m,Area_ha,Carbon_tCO2_per_year\n";
+        out.setf(ios::fixed);
+        out << setprecision(2);
+    
+        for (const auto &s : segs) {
+            out << s.segmentId << ","
+                << s.bandType << ","
+                << s.zone << ","
+                << s.lengthKm << ","
+                << s.widthM << ","
+                << s.areaHa << ","
+                << s.carbonPerYear << "\n";
+        }
+        out.close();
+        cout << "Written dataset to " << filename << "\n";
     }
-    int mid = (l + r) / 2;
-    if (idx <= mid) update(2 * node, l, mid, idx, val);
-    else update(2 * node + 1, mid + 1, r, idx, val);
-    tree[node] = tree[2 * node] + tree[2 * node + 1];
-}
-
-long long query(int node, int l, int r, int ql, int qr) {
-    if (qr &lt; l || r &lt; ql) return 0;
-    if (ql &lt;= l &amp;&amp; r &lt;= qr) return tree[node];
-    int mid = (l + r) / 2;
-    return query(2 * node, l, mid, ql, qr)
-         + query(2 * node + 1, mid + 1, r, ql, qr);
-}
-
-int main() {
-    cout &lt;&lt; "Enter number of forest bands:\n";
-    cin &gt;&gt; n;
-
-    cout &lt;&lt; "Enter carbon value for each band (1..n):\n";
-    for (int i = 1; i &lt;= n; i++) cin &gt;&gt; a[i];
-
-    build(1, 1, n);
-
-    int idx;
-    long long val;
-    cout &lt;&lt; "Enter band index and new carbon value:\n";
-    cin &gt;&gt; idx &gt;&gt; val;
-    update(1, 1, n, idx, val);
-
-    int L, R;
-    cout &lt;&lt; "Enter corridor range [L R] to query total carbon:\n";
-    cin &gt;&gt; L &gt;&gt; R;
-
-    long long ans = query(1, 1, n, L, R);
-    cout &lt;&lt; "Total carbon from band " &lt;&lt; L &lt;&lt; " to " &lt;&lt; R
-         &lt;&lt; " = " &lt;&lt; ans &lt;&lt; "\n";
-
-    return 0;
-}</code></pre>
-
-  <h4>Sample Input</h4>
-  <pre><code>5
-10 8 4 6 12
-3 9
-2 5</code></pre>
-
-  <h4>Expected Output</h4>
-  <pre><code>Total carbon from band 2 to 5 = 35</code></pre>
+    
+    int main() {
+        // 1) Generate 1000 segments
+        vector<Segment> segments = generateSegments();
+    
+        // 2) Build base array and segment tree
+        vector<double> carbonValues;
+        carbonValues.reserve(segments.size());
+        for (const auto &s : segments) carbonValues.push_back(s.carbonPerYear);
+    
+        CarbonSegmentTree segTree(carbonValues);
+    
+        // 3) Example: print one corridor query and one update like C++ logic
+        int L = 0, R = 99; // corridor [0, 99]
+        double totalBefore = segTree.query(L, R);
+        cout << "Total carbon from band " << L << " to " << R
+             << " before update = " << totalBefore << " tCO2/year\n";
+    
+        // Point update: simulate restoration at some index
+        int idx = 50;
+        double newVal = segTree.a[idx] * 1.3; // +30%
+        segTree.update(idx, newVal);
+    
+        double totalAfter = segTree.query(L, R);
+        cout << "After updating band " << idx << " to " << newVal
+             << ", total carbon in [" << L << "," << R << "] = "
+             << totalAfter << " tCO2/year\n";
+    
+        // 4) Export dataset (single CSV you can show as dataset)
+        exportSegmentsCSV(segments);
+    
+        return 0;
+    }
+    
+  
+/code></pre>
         </div>
 
     </div>
@@ -1425,71 +1535,391 @@ int main() {
     ====================================================== -->
     <h2 class="section-heading">Sandalwood Industry</h2>
 
-    <div class="content-box-container">
+<div class="content-box-container">
+  <div class="content-box">
+    <h3>Green Industrial Timber Belt</h3>
+    <div class="rule"></div>
 
-        <!-- Overall industry idea -->
-        <div class="content-box">
-            <h3>Green Industrial Timber Belt</h3>
-            <div class="rule"></div>
+    <p>
+      The sandalwood industry wing treats every plantation block as a long-term asset with its own age, host-tree mix and expected harvest year. 
+      Instead of keeping these blocks in flat lists or spreadsheets, the planning system organises them in a <b>Binary Search Tree (BST)</b>, keyed by harvest year, so that upcoming harvest windows can be queried and adjusted quickly for different policy and investment scenarios.
+    </p>
 
-            <p>
-                The sandalwood industry wing treats every plantation block as a long-term asset with its own age, host-tree mix and expected harvest year. 
-                Instead of keeping these blocks in flat lists or spreadsheets, the planning system organises them in a <b>Binary Search Tree (BST)</b>, keyed by harvest year, so that upcoming harvest windows can be queried and adjusted quickly for different policy and investment scenarios.
-              </p>
-              
-              <p>
-                Each node of the BST represents one sandalwood block: it stores the block identifier or compartment number as the key, along with its harvest year and a projected yield score. 
-                The tree property—values smaller than a node’s key on the left, larger on the right—lets the planner insert new blocks, delete retired ones and traverse the tree in sorted order to generate a year-wise or range-wise harvest schedule without scanning the full registry every time.
-              </p>
-              
-              <p>
-                In practice this means that when the forest department wants to answer questions such as “which blocks are due between 2032 and 2035?” or “what does the 2030 harvest basket look like if we drop one risky block?”, the system simply walks the BST in-order or deletes/updates specific nodes. 
-                The core operations—insert, delete and inorder traversal—run in time proportional to the height of the tree, so with reasonably balanced data the planning tool stays responsive even as more sandalwood estates and farmer groups are onboarded.
-              </p>
+    <p>
+      Each node of the BST represents one sandalwood block: it stores the block identifier or compartment number as the key, along with its harvest year and a projected yield score. 
+      The tree property—values smaller than a node’s key on the left, larger on the right—lets the planner insert new blocks, delete retired ones and traverse the tree in sorted order to generate a year-wise or range-wise harvest schedule without scanning the full registry every time.
+    </p>
 
-            <h4>Implementation – Plantation Logic:</h4>
-            <div class="algo-div">Structures: Structured Records + Priority Queue for Blocks</div>
-            <br>
+    <p>
+      In practice this means that when the forest department wants to answer questions such as “which blocks are due between 2032 and 2035?” or “what does the 2030 harvest basket look like if we drop one risky block?”, the system simply walks the BST in-order or deletes/updates specific nodes. 
+      The core operations—insert, delete and inorder traversal—run in time proportional to the height of the tree, so with reasonably balanced data the planning tool stays responsive even as more sandalwood estates and farmer groups are onboarded.
+    </p>
 
-            <div class="image-box">
-                <img src="Industry/teak-queue.png" class="image" alt="Teak & sandal priority queue">
-                <div class="efficiency-box">
-                    <h3>Greedy, transparent harvest planning</h3>
-                </div>
-            </div>
+    <h4>Implementation – Plantation Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="Masterplan/bst.jpg"
+           alt="Sandalwood Harvest Planning – BST"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+    <div class="algo-div">Algorithm: Binary Search Tree</div>
+    <br><br>
 
-            <button type="button" class="btn btn-success">Code</button>
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleBSTCode()">
+      Code
+    </button>
+    <a class="btn btn-success text-decoration-none"
+       href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/sandalwood_bst_blocks_1000.csv"
+       target="_blank">
+      Dataset
+    </a>
 
-            <br><br>
+    <!-- EVERYTHING TOGGLEABLE STAYS INSIDE THIS DIV -->
+    <div id="bst-code-block" style="display:none; margin-top:20px;">
 
-            <h4>Transport & Routing – Dijkstra</h4>
-            <p>
-                Movement of timber from plantations to sawmills and then to logistics hubs is handled as a transport
-                network problem. Plantation blocks, mills and depots form the nodes of a weighted graph, with roads and
-                internal tracks as edges carrying travel time or cost.[web:167][web:179] To minimise hauling effort and
-                improve turnaround, <b>Dijkstra’s algorithm</b> is used to compute shortest paths from each mill or hub
-                to all relevant blocks.
-            </p>
+      <h4>C++ Logic used (BST for Sandalwood Blocks)</h4>
+      <pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
 
-            <p>
-                This routing layer links directly with the priority queue: once the best blocks are chosen for a given
-                season, their logs move along the cheapest or fastest routes suggested by the graph. The result is an
-                industry sector that appears as forest on the map, but behaves like an optimised supply chain in the
-                backend.
-            </p>
+struct SandalwoodBlock {
+    int blockId;
+    int harvestYear;
+    int plantingYear;
+    int ageYears;
+    string hostTreeMix;
+    double projectedYieldScore;
+};
 
-            <h4>Implementation – Transport Logic:</h4>
-            <div class="algo-div">Algorithm: Dijkstra on Industry Transport Graph</div>
-            <br>
+struct BSTNode {
+    pair&lt;int,int&gt; key;   // (harvestYear, blockId)
+    SandalwoodBlock data;
+    BSTNode *left;
+    BSTNode *right;
+    BSTNode(const pair&lt;int,int&gt; &amp;k, const SandalwoodBlock &amp;d)
+        : key(k), data(d), left(nullptr), right(nullptr) {}
+};
 
-            <div class="image-box">
-                <img src="Industry/transport-dijkstra.png" class="image" alt="Industry transport graph">
-                <div class="efficiency-box">
-                    <h3>Shortest‑path hauling from block to mill</h3>
-                </div>
-            </div>
+class SandalwoodBST {
+public:
+    BSTNode *root = nullptr;
 
-            <button type="button" class="btn btn-success">Code</button>
+    void insert(const SandalwoodBlock &amp;b) {
+        pair&lt;int,int&gt; key = {b.harvestYear, b.blockId};
+        root = insertRec(root, key, b);
+    }
+
+    vector&lt;SandalwoodBlock&gt; inorderBlocks() const {
+        vector&lt;SandalwoodBlock&gt; res;
+        inorderRec(root, res);
+        return res;
+    }
+
+    vector&lt;SandalwoodBlock&gt; rangeQuery(int ys, int ye) const {
+        vector&lt;SandalwoodBlock&gt; res;
+        rangeRec(root, ys, ye, res);
+        return res;
+    }
+
+private:
+    static BSTNode* insertRec(BSTNode *node,
+                              const pair&lt;int,int&gt; &amp;key,
+                              const SandalwoodBlock &amp;b) {
+        if (!node) return new BSTNode(key, b);
+        if (key &lt; node-&gt;key)      node-&gt;left  = insertRec(node-&gt;left, key, b);
+        else if (key &gt; node-&gt;key) node-&gt;right = insertRec(node-&gt;right, key, b);
+        else                      node-&gt;data = b;
+        return node;
+    }
+
+    static void inorderRec(BSTNode *node, vector&lt;SandalwoodBlock&gt; &amp;out) {
+        if (!node) return;
+        inorderRec(node-&gt;left, out);
+        out.push_back(node-&gt;data);
+        inorderRec(node-&gt;right, out);
+    }
+
+    static void rangeRec(BSTNode *node, int ys, int ye,
+                         vector&lt;SandalwoodBlock&gt; &amp;out) {
+        if (!node) return;
+        int hy = node-&gt;data.harvestYear;
+        if (hy &gt; ys)  rangeRec(node-&gt;left, ys, ye, out);
+        if (ys &lt;= hy &amp;&amp; hy &lt;= ye) out.push_back(node-&gt;data);
+        if (hy &lt; ye)  rangeRec(node-&gt;right, ys, ye, out);
+    }
+};
+
+int main() {
+    SandalwoodBST bst;
+    SandalwoodBlock b1{101, 2030, 2010, 20, "Acacia_dominant", 82.5};
+    SandalwoodBlock b2{102, 2033, 2015, 18, "Mixed_Hardwood", 78.0};
+    SandalwoodBlock b3{103, 2035, 2012, 23, "Agroforestry_Farm", 74.3};
+
+    bst.insert(b1);
+    bst.insert(b2);
+    bst.insert(b3);
+
+    vector&lt;SandalwoodBlock&gt; due = bst.rangeQuery(2032, 2035);
+    cout &lt;&lt; "Blocks due between 2032 and 2035:\\n";
+    for (auto &amp;blk : due) {
+        cout &lt;&lt; "  Block " &lt;&lt; blk.blockId
+             &lt;&lt; " harvest " &lt;&lt; blk.harvestYear
+             &lt;&lt; " score " &lt;&lt; blk.projectedYieldScore &lt;&lt; "\\n";
+    }
+    return 0;
+}</code></pre>
+
+    </div> <!-- /bst-code-block -->
+
+  </div> <!-- /content-box -->
+</div> <!-- /content-box-container -->
+
+<script>
+// single toggle function for this section
+function toggleBSTCode() {
+  var block = document.getElementById('bst-code-block');
+  if (!block) return;
+  var current = window.getComputedStyle(block).display;
+  block.style.display = (current === 'none') ? 'block' : 'none';
+}
+</script>
+
+<!-- Sandal wood planation block -->
+<h2 class="section-heading">Sandalwood Access Network</h2>
+
+<div class="content-box-container">
+  <div class="content-box">
+    <h3>Road & Track Planning Graph</h3>
+    <div class="rule"></div>
+
+    <p>
+        The sandalwood access wing treats depots, plantation blocks and junctions as nodes in a weighted graph, where each edge represents a candidate forest track with a construction or maintenance cost.
+        This graph structure lets planners reason about connectivity and route choices instead of static road lists, so new blocks or closures can be reflected immediately in the access plan.
+      </p>
+  
+      <p>
+        On top of this graph, Prim’s algorithm builds a Minimum Spanning Tree (MST) that selects a low-cost backbone of tracks connecting all active sandalwood blocks to at least one depot.
+        Standard graph traversals like BFS and DFS then run over the same structure to simulate patrol routes, check reachability after storms, and explore local clusters of farmer estates.
+      </p>
+  
+      <p>
+        In practice this means queries such as “what is the cheapest network that connects these 200 new farmer blocks?” or “which blocks become unreachable if one critical bridge fails?” are answered by simply recomputing the MST or running BFS from a chosen depot.
+        Because MST construction and traversal scale roughly with the number of edges in the graph, the access-planning tool stays responsive even as more sandalwood corridors and community plantations are added.
+      </p>
+      <h4>Implementation – Plantation Logic:</h4>
+      <div style="text-align:center; margin:20px 0;">
+        <img src="Masterplan/prim.jpg"
+             alt="Sandalwood Harvest Planning – BST"
+             style="width:450px; height:auto; border:2px solid #000;">
+      </div>
+      <div class="algo-div">Algorithm: Primz Algorithm</div>
+      <br><br>
+      <button type="button"
+      class="btn btn-success"
+      onclick="toggleSandalwoodGraphCode()">
+      Code
+    </button>
+    <a class="btn btn-success text-decoration-none"
+       href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/sandalwood_bst_blocks_1000.csv"
+       target="_blank">
+      Dataset
+    </a>
+    <div id="bst-code-block" style="display:none; margin-top:20px;"></div>
+    <h4>C++ Logic used (Wighted graph(Primz for Netwok))</h4>
+      <pre><code>
+        // sandalwood_prim_mst.cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int nodeId;
+    string nodeType;     // "Block" or "Depot"
+    string zone;         // Zone-1 .. Zone-5
+    double blockAreaHa;
+    int harvestYear;
+    double priorityScore;
+};
+
+struct Edge {
+    int u, v;
+    double distanceKm;
+    string trackType;
+    double costWeight;
+};
+
+const int MAX_NODES = 1000;
+
+vector<Node> generateNodes(int n = MAX_NODES, int seed = 7) {
+    mt19937 rng(seed);
+    vector<Node> nodes;
+    nodes.reserve(n);
+
+    vector<string> zones = {"Zone-1", "Zone-2", "Zone-3", "Zone-4", "Zone-5"};
+
+    // choose ~10 depots
+    unordered_set<int> depotIds;
+    uniform_int_distribution<int> idDist(0, n - 1);
+    while ((int)depotIds.size() < 10) {
+        depotIds.insert(idDist(rng));
+    }
+
+    uniform_real_distribution<double> areaDist(2.0, 40.0);
+    uniform_int_distribution<int> harvestDist(2028, 2055);
+    uniform_real_distribution<double> depotPriorityDist(70.0, 95.0);
+    uniform_real_distribution<double> noiseDist(0.0, 10.0);
+
+    for (int i = 0; i < n; ++i) {
+        Node node;
+        node.nodeId = i;
+        node.zone = zones[i % (int)zones.size()];
+
+        if (depotIds.count(i)) {
+            node.nodeType = "Depot";
+            node.blockAreaHa = 0.0;
+            node.harvestYear = 0;
+            node.priorityScore = depotPriorityDist(rng);
+        } else {
+            node.nodeType = "Block";
+            node.blockAreaHa = round(areaDist(rng) * 100.0) / 100.0;
+            node.harvestYear = harvestDist(rng);
+            int yearsToHarvest = max(1, node.harvestYear - 2025);
+            double base = 80.0 / yearsToHarvest;
+            double areaFactor = min(1.5, node.blockAreaHa / 20.0);
+            double score = base * areaFactor + noiseDist(rng);
+            score = min(100.0, max(0.0, score));
+            node.priorityScore = floor(score * 10.0 + 0.5) / 10.0;
+        }
+
+        nodes.push_back(node);
+    }
+
+    return nodes;
+}
+
+vector<Edge> generateEdges(const vector<Node> &nodes,
+                           int avgDegree = 6,
+                           int seed = 11) {
+    mt19937 rng(seed);
+    int n = (int)nodes.size();
+    vector<Edge> edges;
+    edges.reserve(avgDegree * n / 2 + n);
+
+    vector<string> trackTypes = {"Primary", "Secondary", "Trail"};
+    vector<double> weights = {0.3, 0.5, 0.2};
+    unordered_set<long long> used;
+
+    auto edgeKey = [](int u, int v) -> long long {
+        if (u > v) swap(u, v);
+        return ( (long long)u << 32 ) ^ (unsigned int)v;
+    };
+
+    uniform_real_distribution<double> dist1(0.5, 15.0);
+    uniform_real_distribution<double> dist2(0.5, 20.0);
+    uniform_real_distribution<double> prob(0.0, 1.0);
+
+    auto pickTrackType = [&](mt19937 &rnd) {
+        double r = prob(rnd);
+        if (r < weights[0]) return string("Primary");
+        if (r < weights[0] + weights[1]) return string("Secondary");
+        return string("Trail");
+    };
+
+    auto typeFactor = [](const string &t) {
+        if (t == "Primary") return 1.0;
+        if (t == "Secondary") return 1.3;
+        return 1.7;
+    };
+
+    // ensure connectivity by linking each node v with a previous node u
+    for (int v = 1; v < n; ++v) {
+        uniform_int_distribution<int> pickU(0, v - 1);
+        int u = pickU(rng);
+        double d = dist1(rng);
+        string t = pickTrackType(rng);
+        double w = d * typeFactor(t);
+
+        Edge e{u, v, d, t, w};
+        edges.push_back(e);
+        used.insert(edgeKey(u, v));
+    }
+
+    int targetEdges = avgDegree * n / 2;
+    uniform_int_distribution<int> nodeDist(0, n - 1);
+
+    while ((int)edges.size() < targetEdges) {
+        int u = nodeDist(rng);
+        int v = nodeDist(rng);
+        if (u == v) continue;
+        long long k = edgeKey(u, v);
+        if (used.count(k)) continue;
+
+        double d = dist2(rng);
+        string t = pickTrackType(rng);
+        double w = d * typeFactor(t);
+        Edge e{u, v, d, t, w};
+        edges.push_back(e);
+        used.insert(k);
+    }
+
+    return edges;
+}
+
+// Prim's MST using adjacency list + min-heap. [web:255][web:267]
+vector<tuple<int,int,double>> primMST(int n,
+                                      const vector<vector<pair<int,double>>> &adj) {
+    vector<bool> inMST(n, false);
+    vector<tuple<int,int,double>> mstEdges;
+
+    // min-heap on (weight, u, v)
+    using T = tuple<double,int,int>;
+    priority_queue<T, vector<T>, greater<T>> pq;
+
+    inMST[0] = true;
+    for (auto [v, w] : adj[0]) {
+        pq.emplace(w, 0, v);
+    }
+
+    while (!pq.empty() && (int)mstEdges.size() < n - 1) {
+        auto [w, u, v] = pq.top();
+        pq.pop();
+        if (inMST[v]) continue;
+        inMST[v] = true;
+        mstEdges.emplace_back(u, v, w);
+        for (auto [nxt, wt] : adj[v]) {
+            if (!inMST[nxt]) pq.emplace(wt, v, nxt);
+        }
+    }
+
+    return mstEdges;
+}
+
+void exportNodesCSV(const vector<Node> &nodes,
+                    const string &filename) {
+    ofstream out(filename);
+    if (!out) {
+        cerr << "Error opening " << filename
+
+    </code></pre>
+    <script>
+        function toggleSandalwoodGraphCode() {
+          const block = document.getElementById('sandalwood-graph-code-block');
+          if (!block) return;
+          const current = window.getComputedStyle(block).display;
+          block.style.display = (current === 'none') ? 'block' : 'none';
+        }
+        </script>
+
+
+
+
+
+  
+    
+
+
+            
+
+            
         </div>
 
     </div>
@@ -1498,10 +1928,10 @@ int main() {
 
 </div>
 
-<!-- <script>
+
     
 
-</script> -->
+
 
 <script src="an.js"></script>
 
