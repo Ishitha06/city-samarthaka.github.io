@@ -3128,6 +3128,218 @@ int main() {
     block.style.display = (current === 'none') ? 'block' : 'none';
   }
 </script>
+<h2 class="section-heading">Administration & Governance</h2>
+
+<div class="content-box-container">
+
+  <div class="content-box">
+    <h3>Knowledge & Document Management (Trie)</h3>
+    <div class="rule"></div>
+
+    <p>
+      Administration teams work with thousands of documents: working plans, circulars, court orders, office memoranda and scheme guidelines, each tagged by reference number, year, subject and the beats or divisions they apply to. 
+      Officers often remember only part of a notification code or a few keywords, yet need to quickly pull up all relevant documents for a case, inspection or audit without scrolling through long folder trees. 
+    </p>
+
+    <p>
+      The knowledge layer stores all document keys in a <b>Trie (Prefix Tree)</b>, where each path from the root corresponds to a sequence of characters from a reference code or subject tag. 
+      As users type a notification number prefix, beat code or topic, the trie follows that prefix down the tree and instantly lists all matching documents under that node, enabling fast autocomplete and filtered search even as the corpus grows. 
+    </p>
+
+    <p>
+      Each terminal node in the trie carries a small posting list with document IDs, titles, issuing authority and effective period, so that search results can be further refined by date range or jurisdiction. 
+      Shared prefixes between related codes are stored only once in the tree, making the index memory‑efficient while still supporting rich, prefix‑based navigation through the rule and knowledge base. 
+    </p>
+
+    <p>
+      When new circulars are issued or old ones are superseded, the system simply inserts or marks nodes in the trie without rebuilding the entire index, keeping updates lightweight. 
+      This turns the document repository into an interactive, data‑structure‑driven library where officers can move from a partial code or phrase to the exact governing document in a few keystrokes, improving consistency and institutional memory. 
+    </p>
+
+    <h4>Implementation – Knowledge Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="Masterplan/trie.jpg"
+           alt="Knowledge & Document Management – Trie Index"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+
+    <div class="algo-div">
+      Data Structure: Trie (Prefix-based Document Index)
+    </div>
+    <br><br>
+
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleAdminKnowledgeCode()">
+      Code
+    </button>
+
+    <a class="btn btn-success text-decoration-none"
+       href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/admin_budget_versions.csv"
+       target="_blank">
+      Dataset
+    </a>
+
+    <div id="admin-knowledge-code-block" style="display:none; margin-top:20px;">
+      <h4>C++  Logic used (Document Trie)</h4>
+      <pre><code>
+        // admin_knowledge_trie.cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        struct Document {
+            int documentId;
+            string referenceCode;
+            string department;
+            string category;
+            string subject;
+            string shortTitle;
+            string longTitle;
+            int year;
+            string issueDate;
+            string effectiveToOrBlank;
+            string status;
+            string jurisdiction;
+            int pageCount;
+            string tags;
+        };
+        
+        struct TrieNode {
+            // map<char, TrieNode*> to support letters, digits, '-'
+            unordered_map<char, TrieNode*> child;
+            vector<int> docIds;  // documents that end exactly at this code
+        };
+        
+        class Trie {
+        public:
+            Trie() { root = new TrieNode(); }
+        
+            void insert(const string &key, int docId) {
+                TrieNode *node = root;
+                for (char c : key) {
+                    if (!node->child.count(c))
+                        node->child[c] = new TrieNode();
+                    node = node->child[c];
+                }
+                node->docIds.push_back(docId);
+            }
+        
+            // collect all document IDs under given prefix
+            vector<int> collectWithPrefix(const string &prefix) const {
+                TrieNode *node = root;
+                for (char c : prefix) {
+                    auto it = node->child.find(c);
+                    if (it == node->child.end()) return {};
+                    node = it->second;
+                }
+                vector<int> result;
+                dfs(node, result);
+                return result;
+            }
+        
+        private:
+            TrieNode *root;
+        
+            static void dfs(TrieNode *node, vector<int> &out) {
+                for (int id : node->docIds) out.push_back(id);
+                for (auto &kv : node->child) {
+                    dfs(kv.second, out);
+                }
+            }
+        };
+        
+        vector<string> splitCSV(const string &line) {
+            vector<string> out;
+            string cur;
+            bool inQuotes = false;
+            for (char c : line) {
+                if (c == '"') inQuotes = !inQuotes;
+                else if (c == ',' && !inQuotes) {
+                    out.push_back(cur);
+                    cur.clear();
+                } else cur.push_back(c);
+            }
+            out.push_back(cur);
+            return out;
+        }
+        
+        Document parseDoc(const vector<string> &c) {
+            Document d;
+            int i = 0;
+            d.documentId        = stoi(c[i++]);
+            d.referenceCode     = c[i++];
+            d.department        = c[i++];
+            d.category          = c[i++];
+            d.subject           = c[i++];
+            d.shortTitle        = c[i++];
+            d.longTitle         = c[i++];
+            d.year              = stoi(c[i++]);
+            d.issueDate         = c[i++];
+            d.effectiveToOrBlank= c[i++];
+            d.status            = c[i++];
+            d.jurisdiction      = c[i++];
+            d.pageCount         = stoi(c[i++]);
+            d.tags              = c[i++];
+            return d;
+        }
+        
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+        
+            ifstream in("admin_documents_trie.csv");
+            if (!in) {
+                cerr << "Cannot open admin_documents_trie.csv\n";
+                return 1;
+            }
+        
+            string line;
+            if (!getline(in, line)) {
+                cerr << "Empty CSV\n";
+                return 1;
+            }
+        
+            vector<Document> docs;
+            Trie trie;
+        
+            while (getline(in, line)) {
+                if (line.empty()) continue;
+                auto cols = splitCSV(line);
+                if (cols.size() < 14) continue;
+                Document d = parseDoc(cols);
+                docs.push_back(d);
+                trie.insert(d.referenceCode, d.documentId);
+            }
+        
+            cerr << "Loaded " << docs.size() << " documents into trie\n";
+        
+            // Example prefix queries
+            string prefix1 = "F-CIR-2023";
+            auto ids1 = trie.collectWithPrefix(prefix1);
+            cout << "Documents with reference prefix \"" << prefix1 << "\":\n";
+            for (int id : ids1) {
+                const Document &d = docs[id - 1]; // assuming ids are 1..N continuous
+                cout << "  [" << d.referenceCode << "] " << d.shortTitle << "\n";
+            }
+        
+            return 0;
+        }
+        
+      </code></pre>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleAdminKnowledgeCode() {
+    const block = document.getElementById('admin-knowledge-code-block');
+    if (!block) return;
+    const current = window.getComputedStyle(block).display;
+    block.style.display = (current === 'none') ? 'block' : 'none';
+  }
+</script>
+
 
 
 
