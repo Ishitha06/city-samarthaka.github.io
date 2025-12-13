@@ -3,33 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Divya Udnur Detailed Contribution Breakdown </title>
+  <title>Divya Udnur Detailed Contribution Breakdown</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="d.css">
   <style>
-    /* Additional inline styles for tables and buttons */
+    /* Global text enhancements */
+    body {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #222;
+      font-weight: 500;
+    }
+
+    /* Text emphasis */
+    p, td, li, .subtitle {
+      color: #222;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .page-title {
+      font-size: 3.5rem;
+      color: #1a1a1a;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      color: #2d2d2d;
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-size: 2.4rem;
+      color: #1a3c27;
+      border-left: 6px solid #1a3c27;
+      padding-left: 20px;
+      margin: 60px 0 25px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: #1a3c27;
+      border-left: 4px solid #1a3c27;
+      padding-left: 15px;
+      margin: 35px 0 20px;
+    }
+
+    p strong {
+      color: #1a3c27;
+      font-weight: 700;
+    }
+
+    /* Table enhancements */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 25px 0;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      border-radius: 10px;
+      margin: 35px 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      border-radius: 12px;
       overflow: hidden;
+      font-size: 1.1rem;
     }
 
     th {
-      background: linear-gradient(135deg, #2b4d34, #1f3826);
+      background: linear-gradient(135deg, #1a3c27, #14321f);
       color: white;
-      padding: 18px 15px;
+      padding: 22px 20px;
       text-align: left;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.8px;
     }
 
     td {
-      padding: 15px;
-      border-bottom: 1px solid #eee;
-      color: #555;
+      padding: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #2d2d2d;
+      font-weight: 500;
     }
 
     tr:nth-child(even) {
@@ -37,89 +88,117 @@
     }
 
     tr:hover {
-      background-color: #e8f4fc;
-      transform: translateY(-2px);
+      background-color: #e3f2fd;
+      transform: translateY(-3px);
       transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.15);
     }
 
+    /* Button enhancements */
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      margin: 15px 15px 15px 0;
-      background: linear-gradient(135deg, #2b4d34, #1f3826);
+      gap: 12px;
+      padding: 18px 35px;
+      margin: 20px 20px 20px 0;
+      background: linear-gradient(135deg, #1a3c27, #14321f);
       color: white;
       text-decoration: none;
       border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.8px;
+      transition: all 0.4s ease;
       border: none;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(43, 77, 52, 0.3);
+      box-shadow: 0 8px 20px rgba(26, 60, 39, 0.35);
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(43, 77, 52, 0.4);
-      background: linear-gradient(135deg, #1f3826, #14281d);
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(26, 60, 39, 0.5);
+      background: linear-gradient(135deg, #14321f, #0f2919);
     }
 
     .btn::after {
       content: '↗';
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: bold;
     }
 
+    /* Complexity box */
     .complexity-box {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      border: 2px solid #dee2e6;
-      border-radius: 15px;
-      padding: 25px;
-      margin: 30px 0;
-      box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+      border: 3px solid #d1d9e6;
+      border-radius: 18px;
+      padding: 35px;
+      margin: 40px 0;
+      box-shadow: inset 0 4px 15px rgba(0,0,0,0.06);
     }
 
-    h3 {
-      color: #2b4d34;
-      margin: 25px 0 15px;
-      font-size: 1.4rem;
-      padding-left: 10px;
-      border-left: 4px solid #2b4d34;
-    }
-
-    p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      color: #444;
-      text-align: justify;
-    }
-
-    p strong {
-      color: #2b4d34;
-    }
-
+    /* HR styling */
     hr {
       border: none;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ddd, transparent);
-      margin: 40px 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #bbb, transparent);
+      margin: 60px 0;
     }
 
+    /* Back button */
+    .back-btn {
+      display: inline-block;
+      padding: 18px 40px;
+      margin: 50px 0 80px;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.8px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(44, 62, 80, 0.4);
+      background: linear-gradient(135deg, #34495e, #2c3e50);
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+      
+      .page-title {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.4rem;
+      }
+      
+      .section-heading {
+        font-size: 1.8rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+      }
+      
       table {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
       
       th, td {
-        padding: 10px;
+        padding: 15px 12px;
       }
       
       .btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 16px 25px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -577,7 +656,7 @@ support analytics for stock levels and wastage prediction.
 
 <hr>
 
-<div style="text-align: center; margin-top: 50px;">
+<div style="text-align: center; margin-top: 60px;">
 <a href="../index.html" class="back-btn">← Back to Team</a>
 </div>
 
@@ -585,9 +664,9 @@ support analytics for stock levels and wastage prediction.
 
 <script src="d.js"></script>
 <script>
-// Additional JavaScript for enhanced interactivity
+// Enhanced JavaScript with improved animations
 document.addEventListener('DOMContentLoaded', function() {
-  // Add smooth scrolling for anchor links
+  // Smooth scrolling
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -601,47 +680,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Add animation to table rows on hover
+  // Enhanced table row hover effects
   const tableRows = document.querySelectorAll('table tr');
   tableRows.forEach(row => {
     row.addEventListener('mouseenter', function() {
-      this.style.transition = 'all 0.3s ease';
+      this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     });
   });
 
-  // Add click animation to buttons
-  const buttons = document.querySelectorAll('.btn');
+  // Enhanced button interactions
+  const buttons = document.querySelectorAll('.btn, .back-btn');
   buttons.forEach(button => {
     button.addEventListener('mousedown', function() {
-      this.style.transform = 'scale(0.95)';
+      this.style.transform = 'scale(0.92)';
     });
     button.addEventListener('mouseup', function() {
-      this.style.transform = '';
+      this.style.transform = 'translateY(-5px) scale(1.03)';
     });
     button.addEventListener('mouseleave', function() {
       this.style.transform = '';
     });
   });
 
-  // Add section numbering animation
+  // Section counter animation
   const sectionHeadings = document.querySelectorAll('.section-heading');
   sectionHeadings.forEach((heading, index) => {
     heading.style.counterIncrement = 'section-counter';
-    
-    // Create a pseudo-element for the section number
     heading.style.position = 'relative';
-    heading.style.paddingLeft = '50px';
+    heading.style.paddingLeft = '70px';
     
     const number = document.createElement('span');
     number.textContent = (index + 1) + '. ';
     number.style.position = 'absolute';
     number.style.left = '0';
-    number.style.top = '0';
-    number.style.fontSize = '2rem';
-    number.style.fontWeight = '700';
-    number.style.color = '#2b4d34';
-    number.style.opacity = '0.3';
+    number.style.top = '50%';
+    number.style.transform = 'translateY(-50%)';
+    number.style.fontSize = '2.8rem';
+    number.style.fontWeight = '800';
+    number.style.color = '#1a3c27';
+    number.style.opacity = '0.25';
+    number.style.width = '60px';
+    number.style.textAlign = 'center';
     heading.insertBefore(number, heading.firstChild);
+  });
+
+  // Add subtle fade-in animation to content
+  const contentElements = document.querySelectorAll('h2, h3, p, table');
+  contentElements.forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100 + index * 50);
   });
 });
 </script>
