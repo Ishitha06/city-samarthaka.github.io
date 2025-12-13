@@ -1707,27 +1707,32 @@ function toggleBSTCode() {
         Because MST construction and traversal scale roughly with the number of edges in the graph, the access-planning tool stays responsive even as more sandalwood corridors and community plantations are added.
       </p>
       <h4>Implementation – Plantation Logic:</h4>
-      <div style="text-align:center; margin:20px 0;">
-        <img src="Masterplan/prim.jpg"
-             alt="Sandalwood Harvest Planning – BST"
-             style="width:450px; height:auto; border:2px solid #000;">
-      </div>
-      <div class="algo-div">Algorithm: Primz Algorithm</div>
-      <br><br>
-      <button type="button"
-      class="btn btn-success"
-      onclick="toggleSandalwoodGraphCode()">
-      Code
-    </button>
-    <a class="btn btn-success text-decoration-none"
-       href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/sandalwood_bst_blocks_1000.csv"
-       target="_blank">
-      Dataset
-    </a>
-    <div id="bst-code-block" style="display:none; margin-top:20px;"></div>
-    <h4>C++ Logic used (Wighted graph(Primz for Netwok))</h4>
-      <pre><code>
-        // sandalwood_prim_mst.cpp
+<div style="text-align:center; margin:20px 0;">
+  <img src="Masterplan/prim.jpg"
+       alt="Sandalwood Access Network – Prim's MST"
+       style="width:450px; height:auto; border:2px solid #000;">
+</div>
+<div class="algo-div">Algorithm: Prim's Algorithm (Weighted Graph)</div>
+<br><br>
+
+<button type="button"
+        class="btn btn-success"
+        onclick="toggleSandalwoodGraphCode()">
+  Code
+</button>
+<a class="btn btn-success text-decoration-none"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/sandalwood_graph_nodes_1000.csv"
+   target="_blank">
+  Dataset
+</a>
+
+<!-- EVERYTHING TOGGLEABLE GOES INSIDE THIS DIV -->
+<div id="sandalwood-graph-code-block" style="display:none; margin-top:20px;">
+
+  <h4>C++ Logic used (Weighted Graph – Prim's for Network)</h4>
+  <pre><code>// sandalwood_prim_mst.cpp
+#include &lt;bits/stdc++.h&gt;
+// sandalwood_prim_mst.cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -1897,36 +1902,323 @@ void exportNodesCSV(const vector<Node> &nodes,
                     const string &filename) {
     ofstream out(filename);
     if (!out) {
-        cerr << "Error opening " << filename
+        cerr << "Error opening " << filename << "\n";
+        return;
+    }
+    out << "Node_ID,Node_Type,Zone,Block_Area_ha,Harvest_Year,Priority_Score\n";
+    out << fixed << setprecision(2);
+    for (const auto &n : nodes) {
+        out << n.nodeId << ","
+            << n.nodeType << ","
+            << n.zone << ","
+            << n.blockAreaHa << ",";
+        out << setprecision(0) << n.harvestYear << ",";
+        out << setprecision(1) << n.priorityScore << "\n";
+        out << setprecision(2);
+    }
+}
 
-    </code></pre>
-    <script>
-        function toggleSandalwoodGraphCode() {
-          const block = document.getElementById('sandalwood-graph-code-block');
-          if (!block) return;
-          const current = window.getComputedStyle(block).display;
-          block.style.display = (current === 'none') ? 'block' : 'none';
+void exportEdgesCSV(const vector<Edge> &edges,
+                    const string &filename) {
+    ofstream out(filename);
+    if (!out) {
+        cerr << "Error opening " << filename << "\n";
+        return;
+    }
+    out << "From_Node,To_Node,Distance_km,Track_Type,Cost_Weight\n";
+    out << fixed << setprecision(2);
+    for (const auto &e : edges) {
+        out << e.u << ","
+            << e.v << ","
+            << e.distanceKm << ","
+            << e.trackType << ",";
+        out << setprecision(3) << e.costWeight << "\n";
+        out << setprecision(2);
+    }
+}
+
+void exportMstCSV(const vector<tuple<int,int,double>> &mst,
+                  const string &filename) {
+    ofstream out(filename);
+    if (!out) {
+        cerr << "Error opening " << filename << "\n";
+        return;
+    }
+    out << "From_Node,To_Node,MST_Edge_Weight\n";
+    out << fixed << setprecision(3);
+    for (auto [u, v, w] : mst) {
+        out << u << "," << v << "," << w << "\n";
+    }
+}
+
+int main() {
+    cout << "Generating sandalwood access graph with 1000 nodes...\n";
+    vector<Node> nodes = generateNodes();
+    vector<Edge> edges = generateEdges(nodes);
+
+    int n = (int)nodes.size();
+    vector<vector<pair<int,double>>> adj(n);
+    for (const auto &e : edges) {
+        adj[e.u].push_back({e.v, e.costWeight});
+        adj[e.v].push_back({e.u, e.costWeight});
+    }
+
+    cout << "Running Prim's MST...\n";
+    auto mst = primMST(n, adj);
+    cout << "MST edges: " << mst.size() << " (expected " << n - 1 << ")\n";
+
+    exportNodesCSV(nodes, "sandalwood_graph_nodes_1000_cpp.csv");
+    exportEdgesCSV(edges, "sandalwood_graph_edges_1000_cpp.csv");
+    exportMstCSV(mst, "sandalwood_graph_mst_1000_cpp.csv");
+
+    cout << "Written sandalwood_graph_nodes_1000_cpp.csv, "
+         << "sandalwood_graph_edges_1000_cpp.csv, "
+         << "sandalwood_graph_mst_1000_cpp.csv\n";
+
+    return 0;
+}
+
+
+
+
+</code></pre>
+</div> <!-- /sandalwood-graph-code-block -->
+</div> <!-- /sandalwood content-box -->
+</div>
+
+<script>
+function toggleSandalwoodGraphCode() {
+  const block = document.getElementById('sandalwood-graph-code-block');
+  if (!block) return;
+  const current = window.getComputedStyle(block).display;
+  block.style.display = (current === 'none') ? 'block' : 'none';
+}
+</script>
+<!--TEAAKAKWOOD-->
+
+<h2 class="section-heading">Teakwood Industry</h2>
+
+<div class="content-box-container">
+
+  <div class="content-box">
+    <h3>Teak Rotation Planning (BST)</h3>
+    <div class="rule"></div>
+
+    <p>
+      Teak plantations are managed as long-rotation assets, with planned thinnings and a final harvest spread over several decades depending on site quality and local guidelines.
+      Typical management schedules include early thinnings within the first 5–10 years and subsequent interventions at wider intervals, before the stand reaches its final felling age. 
+    </p>
+
+    <p>
+      For planning and decision support, each teak block is stored in a <b>Binary Search Tree (BST)</b> keyed by a chosen priority value such as next thinning year, stand density index or composite rotation score.
+      Because the BST keeps blocks in sorted order by this key, planners can quickly traverse from the earliest due teak operations to the latest, and insert or remove blocks as management plans change. 
+    </p>
+
+    <p>
+      In the application, searching the BST allows the system to instantly locate the next teak block due for thinning or final harvest, while an in‑order traversal produces a time‑sorted list of blocks for scheduling.
+      This keeps teak scheduling transparent and explorable for field officers, while still being efficient enough to handle hundreds or thousands of plantation blocks across different zones.
+    </p>
+
+    <h4>Implementation – Plantation Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="Masterplan/teak.jpg"
+           alt="Teak Rotation Planning – BST"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+    <div class="algo-div">Algorithm: BST</div>
+    <br><br>
+
+    <!-- Buttons row -->
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleTeakBSTCode()">
+      Code
+    </button>
+
+    <a class="btn btn-success text-decoration-none"
+       href="ananya/Datasets/teak_blocks_1000.csv"
+       target="_blank">
+      Dataset
+    </a>
+
+    <!-- TOGGLE TARGET OUTSIDE THE <a> -->
+    <div id="teak-bst-code-block" style="display:none; margin-top:20px;">
+      <h4>C++ Logic used (BST for Teak Priority)</h4>
+      <pre><code>
+// teak_bst.cpp
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+// teak_bst.cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+struct TeakBlock {
+    int blockId;
+    string zone;
+    string blockType;
+    string siteQuality;
+    string agroZone;
+    string soilClass;
+    string slopeClass;
+    double areaHa;
+    int plantingYear;
+    int rotationAge;
+    int firstThinningYear;
+    int secondThinningYear;
+    int finalHarvestYear;
+    int treesPerHa;
+    double avgDBH_cm;
+    double avgHeight_m;
+    double stocking_m3_per_ha;
+    double heartwoodShare_pct;
+    double riskIndex;
+    double roadDistance_km;
+    double marketDistance_km;
+    string nextOperationType;
+    int nextOperationYear;
+    double priorityScore;
+};
+
+// BST node keyed by (priorityScore, blockId)
+struct BSTNode {
+    TeakBlock data;
+    BSTNode *left;
+    BSTNode *right;
+    BSTNode(const TeakBlock &b) : data(b), left(nullptr), right(nullptr) {}
+};
+
+bool lessByKey(const TeakBlock &a, const TeakBlock &b) {
+    if (fabs(a.priorityScore - b.priorityScore) > 1e-9)
+        return a.priorityScore < b.priorityScore; // smaller score "later"
+    return a.blockId < b.blockId;
+}
+
+BSTNode* insertNode(BSTNode *root, const TeakBlock &blk) {
+    if (!root) return new BSTNode(blk);
+    if (lessByKey(blk, root->data)) {
+        root->left = insertNode(root->left, blk);
+    } else {
+        root->right = insertNode(root->right, blk);
+    }
+    return root;
+}
+
+// in-order traversal: lowest priority first
+void inorderTraversal(BSTNode *root) {
+    if (!root) return;
+    inorderTraversal(root->left);
+    cout << "Block " << root->data.blockId
+         << " priority=" << root->data.priorityScore
+         << " nextOp=" << root->data.nextOperationType
+         << " year=" << root->data.nextOperationYear << "\n";
+    inorderTraversal(root->right);
+}
+
+// read the 1000-row CSV and build BST
+TeakBlock parseTeakBlock(const vector<string> &cols) {
+    TeakBlock b;
+    int i = 0;
+    b.blockId             = stoi(cols[i++]);
+    b.zone                = cols[i++];
+    b.blockType           = cols[i++];
+    b.siteQuality         = cols[i++];
+    b.agroZone            = cols[i++];
+    b.soilClass           = cols[i++];
+    b.slopeClass          = cols[i++];
+    b.areaHa              = stod(cols[i++]);
+    b.plantingYear        = stoi(cols[i++]);
+    b.rotationAge         = stoi(cols[i++]);
+    b.firstThinningYear   = stoi(cols[i++]);
+    b.secondThinningYear  = stoi(cols[i++]);
+    b.finalHarvestYear    = stoi(cols[i++]);
+    b.treesPerHa          = stoi(cols[i++]);
+    b.avgDBH_cm           = stod(cols[i++]);
+    b.avgHeight_m         = stod(cols[i++]);
+    b.stocking_m3_per_ha  = stod(cols[i++]);
+    b.heartwoodShare_pct  = stod(cols[i++]);
+    b.riskIndex           = stod(cols[i++]);
+    b.roadDistance_km     = stod(cols[i++]);
+    b.marketDistance_km   = stod(cols[i++]);
+    b.nextOperationType   = cols[i++];
+    b.nextOperationYear   = stoi(cols[i++]);
+    b.priorityScore       = stod(cols[i++]);
+    return b;
+}
+
+vector<string> splitCSVLine(const string &line) {
+    vector<string> out;
+    string cur;
+    bool inQuotes = false;
+    for (char c : line) {
+        if (c == '"') {
+            inQuotes = !inQuotes;
+        } else if (c == ',' && !inQuotes) {
+            out.push_back(cur);
+            cur.clear();
+        } else {
+            cur.push_back(c);
         }
-        </script>
+    }
+    out.push_back(cur);
+    return out;
+}
 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
+    ifstream in("teak_blocks_1000.csv");
+    if (!in) {
+        cerr << "Cannot open teak_blocks_1000.csv\n";
+        return 1;
+    }
 
+    string line;
+    // skip header
+    if (!getline(in, line)) {
+        cerr << "Empty CSV\n";
+        return 1;
+    }
 
+    BSTNode *root = nullptr;
+    int count = 0;
 
-  
-    
+    while (getline(in, line)) {
+        if (line.empty()) continue;
+        auto cols = splitCSVLine(line);
+        if (cols.size() < 24) continue; // safety
+        TeakBlock blk = parseTeakBlock(cols);
+        root = insertNode(root, blk);
+        ++count;
+    }
 
+    cerr << "Loaded " << count << " teak blocks into BST\n";
 
-            
+    // Example: print all blocks in increasing priorityScore
+    inorderTraversal(root);
 
-            
-        </div>
+    // TODO: free BST nodes if needed (or rely on OS at program exit)
+    return 0;
+}
 
+      </code></pre>
     </div>
 
-   <a href="../index.html" class="back-btn">Back</a>
+  </div> <!-- /.content-box -->
+</div> <!-- /.content-box-container -->
 
-</div>
+<script>
+  function toggleTeakBSTCode() {
+    const block = document.getElementById('teak-bst-code-block');
+    if (!block) return;
+    const current = window.getComputedStyle(block).display;
+    block.style.display = (current === 'none') ? 'block' : 'none';
+  }
+</script>
+
+  </script>
+
 
 
     
