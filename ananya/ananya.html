@@ -420,7 +420,7 @@ int main() {
                      alt="City Master Plan & Zoning mindmap"
                      style="width:450px; height:auto; border:2px solid #000;">
             </div>
-            <div class="algo-div">Core Structure: Union–Find </div>
+            <div class="algo-div">Core Structure: Deque </div>
             <br><br>
 
             
@@ -1077,7 +1077,7 @@ int main() {
     Code
 </button>
 <a class="btn btn-success text-decoration-none"
-   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/animal_hashmap_output__score_.csv"
+   href="https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/stock_points_fenwick_rich.csv"
    target="_blank">
   Dataset
 </a>
@@ -1085,75 +1085,124 @@ int main() {
 <div id="bit-code-block" style="display:none; margin-top:20px;">
 
   <h4>C++ Logic used (Fenwick / BIT for Resource Monitoring)</h4>
-  <pre><code>#include &lt;iostream&gt;
+  #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXN = 100;  
-int BIT[MAXN + 1];      
-int n;
+struct StockPoint {
+    int index;
+    string node_type;
+    string zone;
+    string corridor;
+    string facility_name;
+    double gps_lat;
+    double gps_lon;
+    string criticality_level;
+    string resource_type;
+    double capacity_units;
+    double final_stock_units;
+};
 
+struct FenwickTree {
+    int n;
+    vector<double> bit; // 1-indexed
 
-void update(int x, int delta) {
-    for (int i = x; i &lt;= n; i = i + (i &amp; -i)) {
-        BIT[i] += delta;
+    FenwickTree(int n = 0) { init(n); }
+
+    void init(int n_) {
+        n = n_;
+        bit.assign(n + 1, 0.0);
     }
-}
 
-
-int prefixSum(int x) {
-    int s = 0;
-    for (int i = x; i &gt; 0; i = i - (i &amp; -i)) {
-        s += BIT[i];
+    void update(int idx, double delta) {
+        for (int i = idx; i <= n; i += i & -i)
+            bit[i] += delta;
     }
-    return s;
-}
 
+    double prefix_sum(int idx) const {
+        double s = 0.0;
+        for (int i = idx; i > 0; i -= i & -i)
+            s += bit[i];
+        return s;
+    }
 
-int rangeSum(int l, int r) {
-    return prefixSum(r) - prefixSum(l - 1);
-}
+    double range_sum(int l, int r) const {
+        if (l > r) return 0.0;
+        return prefix_sum(r) - prefix_sum(l - 1);
+    }
+};
 
 int main() {
-    cout &lt;&lt; "Enter number of storage points (n):\n";
-    cin &gt;&gt; n;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    int a[MAXN + 1];
-    cout &lt;&lt; "Enter initial units at each point (1..n):\n";
-    for (int i = 1; i &lt;= n; i++) {
-        cin &gt;&gt; a[i];
-        update(i, a[i]);          
+    string filename = "stock_points_fenwick_rich.csv";
+    ifstream fin(filename);
+    if (!fin) {
+        cerr << "Could not open " << filename << "\n";
+        return 1;
     }
 
-    
-    int idx, delta;
-    cout &lt;&lt; "Enter index and change in stock (delta):\n";
-    cin &gt;&gt; idx &gt;&gt; delta;
-    update(idx, delta);
+    vector<StockPoint> pts;
+    string line;
 
-    int L, R;
-    cout &lt;&lt; "Enter range [L R] to query total stock:\n";
-    cin &gt;&gt; L &gt;&gt; R;
+    // skip header
+    if (!getline(fin, line)) {
+        cerr << "Empty CSV\n";
+        return 1;
+    }
 
-    cout &lt;&lt; "Total stock from " &lt;&lt; L &lt;&lt; " to " &lt;&lt; R
-         &lt;&lt; " = " &lt;&lt; rangeSum(L, R) &lt;&lt; "\n";
+    while (getline(fin, line)) {
+        if (line.empty()) continue;
+        stringstream ss(line);
+        string token;
+        StockPoint p;
+
+        getline(ss, token, ','); p.index = stoi(token);
+        getline(ss, p.node_type, ',');
+        getline(ss, p.zone, ',');
+        getline(ss, p.corridor, ',');
+        getline(ss, p.facility_name, ',');
+        getline(ss, token, ','); p.gps_lat = stod(token);
+        getline(ss, token, ','); p.gps_lon = stod(token);
+        getline(ss, p.criticality_level, ',');
+        getline(ss, p.resource_type, ',');
+        getline(ss, token, ','); p.capacity_units = stod(token);
+        getline(ss, token, ','); p.final_stock_units = stod(token);
+
+        pts.push_back(p);
+    }
+
+    int n = (int)pts.size();
+    cout << "Loaded " << n << " stock points.\n";
+
+    FenwickTree ft(n);
+    for (const auto &p : pts)
+        ft.update(p.index, p.final_stock_units);
+
+    // Example 1: total stock in first 100 indexed points
+    cout << "Total stock [1, 100]: "
+         << ft.range_sum(1, 100) << "\n";
+
+    // Example 2: total stock in one corridor
+    string target_corridor = "RIVER_EAST";
+    double corridor_total = 0.0;
+    for (const auto &p : pts)
+        if (p.corridor == target_corridor)
+            corridor_total += p.final_stock_units;
+    cout << "Total stock in corridor " << target_corridor
+         << ": " << corridor_total << "\n";
+
+    // Example 3: upgrade a HIGH-criticality clinic at index 25
+    int idx = 25;
+    double extra = 300.0;
+    ft.update(idx, extra);
+    cout << "After adding " << extra << " units at index " << idx
+         << ", prefix up to " << idx << " = "
+         << ft.prefix_sum(idx) << "\n";
 
     return 0;
-}</code></pre>
-
-  <h4>Sample Input</h4>
-  <pre><code>5
-10 5 0 12 3
-3 4
-2 5</code></pre>
-
-  <h4>Explanation</h4>
-  <pre><code>n = 5
-Initial stock: [10, 5, 0, 12, 3]
-Update: index 3 += 4  -> [10, 5, 4, 12, 3]
-Query: total from 2..5 -> 5 + 4 + 12 + 3 = 24</code></pre>
-
-  <h4>Expected Output</h4>
-  <pre><code>Total stock from 2 to 5 = 24</code></pre>
+}
+</code></pre>
 
 </div>
 </div>
