@@ -1,152 +1,200 @@
 /* ------------------------------
    GLOBAL PAGE STYLING
 ------------------------------ */
-
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
+    margin: 0; padding: 0; width: 100%; min-height: 100%;
     font-family: 'Playfair Display', sans-serif;
-    background-color: #eae0d5;   /* soft beige */
-    color: #2d2d2d;
+    background-color: #f4f2ed; color: #2d2d2d;
 }
 
 /* ------------------------------
    PAGE CONTAINER
 ------------------------------ */
-
 .page-wrapper {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 30px 40px;
-    background: #ddbea9;     /* matches your cards */
-    border-radius: 14px;
+    max-width: 1100px; margin: 40px auto; padding: 30px 40px;
+    background: white; border-radius: 14px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
 
 /* ------------------------------
    PAGE HEADER
 ------------------------------ */
-
 .page-title {
-    font-family: 'Cinzel', serif;
-    font-size: 38px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2b4d34;   /* deep green accent */
+    font-family: 'Cinzel', serif; font-size: 38px; text-align: center;
+    margin-bottom: 20px; color: #2b4d34;
 }
-
 .subtitle {
-    text-align: center;
-    font-size: 18px;
-    color: #4a4a4a;
-    margin-bottom: 40px;
+    text-align: center; font-size: 18px; color: #4a4a4a; margin-bottom: 40px;
 }
 
 /* ------------------------------
    SECTION HEADINGS
 ------------------------------ */
-
 .section-heading {
-    font-size: 24px;
-    margin-top: 35px;
-    color: #2b4d34;
-    font-weight: 600;
-    font-family: 'Cinzel', serif;
-    position: relative;
-    padding-bottom: 8px;
+    font-size: 24px; margin-top: 35px; color: #2b4d34;
+    font-weight: 600; font-family: 'Cinzel', serif;
+    position: relative; padding-bottom: 8px;
 }
-
 .section-heading::after {
-    content: "";
-    width: 60px;
-    height: 3px;
-    background: #2b4d34;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    border-radius: 2px;
+    content: ""; width: 60px; height: 3px; background: #2b4d34;
+    position: absolute; left: 0; bottom: 0; border-radius: 2px;
 }
 
 /* ------------------------------
-   CONTENT LIST
+   CONTENT BOXES
 ------------------------------ */
+.content-box-container { display: flex; flex-direction: column; gap: 20px; }
 
-.content-list {
-    margin-top: 15px;
-    padding-left: 20px;
+.content-box {
+    background: #f3ecdd; border-radius: 18px; padding: 25px;
+    border: 1px solid rgba(31, 81, 54, 0.12);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.08); position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+.content-box:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
+.content-box h3 { color: #2b4d34; }
+.content-box p { font-size: 20px; }
 
-.content-list li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 1.5;
+.rule {
+    height: 1.7px; background: linear-gradient(90deg, #c9a87a, #e4c9a7);
+    width: 20%; margin: 5px 0 12px; border-radius: 2px;
 }
 
 /* ------------------------------
-   BACK BUTTON
+   TAGS & IMAGES
 ------------------------------ */
+.sdg-container { display: flex; align-items: center; gap: 12px; font-size: 20px; }
+.sdg-div {
+    background-color: #2b4d34; color: white; padding: 6px 14px;
+    border-radius: 8px; font-family: 'Cinzel', serif; font-size: 16px;
+    font-weight: 600; display: inline-block;
+}
+.algo-div {
+    background-color: goldenrod; color: black; padding: 6px 14px;
+    border-radius: 8px; font-family: 'Cinzel', serif; font-size: 16px; display: inline-block;
+}
 
+/* Images */
+.image, .sequence {
+    border-radius: 8px; border: 2px solid rgba(0,0,0,0.22);
+}
+.image { height: 200px; width: 350px; margin-left: 65px; }
+.sequence { height: 300px; width: 600px; margin-left: 200px; }
+
+.image-box {
+    display: flex; justify-content: space-around; align-items: center; gap: 15px;
+}
+
+/* Efficiency Table Box */
+.efficiency-box {
+    height: 200px; width: 380px; border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.22); background: #d4f8d4;
+    display: flex; justify-content: center; align-items: center; padding: 10px;
+}
+.heap-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.heap-table th { background: #c3f2c3; padding: 5px; border: 1px solid #a1e6a1; }
+.heap-table td { text-align: center; padding: 5px; border: 1px solid #b9e8b9; }
+
+/* Buttons */
+.btn {
+    display: inline-block; font-family: 'Cinzel'; padding: 0.375rem 0.75rem;
+    font-size: 1rem; border-radius: 8px; cursor: pointer; transition: 0.15s;
+    width: 160px; margin-top: 20px; border: 2px solid rgba(0,0,0,0.22);
+}
+.btn-success { color: #fff; background-color: #198754; border-color: #198754; }
+.btn-success:hover { background-color: #157347; }
 .back-btn {
-    display: inline-block;
-    margin-top: 50px;
-    padding: 10px 22px;
-    background: #2b4d34;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 15px;
+    display: inline-block; margin-top: 50px; padding: 10px 22px;
+    background: #2b4d34; color: #fff; text-decoration: none; border-radius: 25px;
     transition: 0.3s ease;
 }
+.back-btn:hover { background: #1f3826; transform: scale(1.05); }
 
-.back-btn:hover {
-    background: #1f3826;
-    transform: scale(1.05);
+/* Animation Classes */
+.animate-smooth { opacity: 0; transform: translateY(25px); transition: opacity 0.8s, transform 0.8s; }
+.show { opacity: 1; transform: translateY(0); }
+
+
+/* ===========================
+   FINAL FIXED MODAL CSS
+=========================== */
+
+/* 1. The Overlay (Hidden by Default) */
+#codeModal {
+    display: none;        /* Hidden */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    backdrop-filter: blur(4px);
+    z-index: 99999; 
+    justify-content: center; align-items: center;
 }
 
-
-/* ------------------------------
-   MOBILE RESPONSIVE
------------------------------- */
-
-@media (max-width: 768px) {
-    .page-wrapper {
-        margin: 20px;
-        padding: 20px;
-    }
-
-    .page-title {
-        font-size: 30px;
-    }
-
-    .section-heading {
-        font-size: 20px;
-    }
+/* 2. The Open State (FORCED VISIBILITY) */
+#codeModal.open {
+    display: flex !important; /* Forces it to show */
 }
 
-/* js changes */
-
-/* Smooth page fade-in */
-body {
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+/* 3. The Window itself */
+.code-window {
+    background-color: #1e1e1e;
+    width: 900px; max-width: 90vw; height: 600px;
+    border-radius: 12px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    border: 1px solid #444;
+    display: flex; flex-direction: column; overflow: hidden;
+    position: relative;
+    
+    /* FIX: Force opacity to 1 so it's visible */
+    opacity: 1 !important; 
+    transform: none !important;
 }
 
-body.page-loaded {
-    opacity: 1;
+/* Header */
+.window-header {
+    background-color: #252526; padding: 15px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #111;
 }
 
-/* Fade-up animation for section headings */
-.fade-section {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: 0.7s ease;
+/* Dots */
+.dots-container { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; cursor: pointer;}
+.red { background: #ff5f56; } 
+.yellow { background: #ffbd2e; } 
+.green { background: #27c93f; }
+
+/* Tabs */
+.tabs-container { display: flex; gap: 10px; }
+.tab-btn {
+    background: none; border: none; color: #888;
+    cursor: pointer; padding: 5px 10px; font-family: monospace; font-size: 14px;
+}
+.tab-btn.active { color: #fff; border-bottom: 2px solid #27c93f; }
+
+/* Body */
+.code-body { 
+    flex: 1; padding: 20px; overflow-y: auto; 
+    color: #ccc; font-family: 'Consolas', monospace; background: #1e1e1e; 
+}
+.code-content { display: none; }
+.code-content.active-content { display: block; white-space: pre-wrap; }
+
+
+/* VIEW DATASET BUTTON */
+/* Add this to ishi.css */
+
+.btn-outline {
+    background-color: transparent;
+    color: #2b4d34;              /* Deep Green Text */
+    border: 2px solid #2b4d34;   /* Deep Green Border */
+    text-decoration: none;       /* Remove underline from link */
+    margin-left: 15px;           /* Space between Code and Dataset buttons */
+    transition: all 0.3s ease;
 }
 
-.fade-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+.btn-outline:hover {
+    background-color: #2b4d34;   /* Green background on hover */
+    color: #fff;                 /* White text on hover */
+    transform: translateY(-2px);
 }
-
-
