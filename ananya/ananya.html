@@ -2915,6 +2915,220 @@ int main() {
     block.style.display = (current === 'none') ? 'block' : 'none';
   }
 </script>
+<h2 class="section-heading">Administration & Governance</h2>
+
+<div class="content-box-container">
+
+  <div class="content-box">
+    <h3>Time-series Monitoring of Operations (Segment Tree)</h3>
+    <div class="rule"></div>
+
+    <p>
+      Day-to-day administration generates a continuous stream of dated events: satellite fire alerts, patrol GPS logs, planting completions, nursery dispatches, payment releases and grievance closures across all divisions and ranges. 
+      Supervisors need fast answers to questions like how many high-risk fire alerts occurred in the last 7 days in a circle, how many patrols missed their planned beats this month, or which ranges are lagging on plantation milestones. 
+    </p>
+
+    <p>
+      The monitoring module organises these events on a calendar line and builds a <b>Segment Tree</b> over time, where each leaf corresponds to a day (or week) and each internal node aggregates counts and severity scores for its entire date range. 
+      This structure supports efficient range queries and updates, so dashboards can compute metrics such as “fire alerts in the last 30 days” or “patrols completed this quarter” in logarithmic time even when the underlying event log contains years of data. 
+    </p>
+
+    <p>
+      When new events arrive—like a fresh fire warning, patrol completion or payment entry—the segment tree updates the corresponding leaf and propagates changes up the tree, automatically refreshing all affected aggregates. 
+      Administrators can maintain separate trees for different event types (fires, patrols, finance milestones) or combine them into multi-metric nodes, enabling rich visualisations of activity intensity over any chosen period. 
+    </p>
+
+    <p>
+      This time-series layer also underpins alerting logic: if the sum of high-severity alerts in the past N days in a division exceeds a configured threshold, or if patrol counts fall below a minimum, the system can highlight those divisions in red on the dashboard. 
+      By using a segment tree instead of naive scans, the platform keeps these rolling-window checks responsive, even as more years of operational history accumulate in the administrative data lake. 
+    </p>
+
+    <h4>Implementation – Monitoring Logic:</h4>
+    <div style="text-align:center; margin:20px 0;">
+      <img src="Masterplan/think.jpg"
+           alt="Time-series Monitoring – Segment Tree"
+           style="width:450px; height:auto; border:2px solid #000;">
+    </div>
+
+    <div class="algo-div">
+      Data Structure: Segment Tree (Time-series Event Aggregation)
+    </div>
+    <br><br>
+
+    <button type="button"
+            class="btn btn-success"
+            onclick="toggleAdminMonitoringCode()">
+      Code
+    </button>
+
+    <a class="btn btn-success text-decoration-none"
+       href="ananya/Datasets/admin_timeseries_events.csv"
+       target="_blank">
+      Dataset
+    </a>
+
+    <div id="admin-monitoring-code-block" style="display:none; margin-top:20px;">
+      <h4>C++  Logic used (Time-series Segment Tree)</h4>
+      <pre><code>
+        // admin_timeseries_segment_tree.cpp
+        #include <bits/stdc++.h>
+        using namespace std;
+        
+        struct Event {
+            int eventId;
+            string dateStr;
+            string division;
+            string rangeName;
+            string eventType;
+            string severityLevel;
+            int severityScore;
+            int durationMinutes;
+            double amountRs;
+        };
+        
+        // ---- date helpers (YYYY-MM-DD -> ordinal) ----
+        int toOrdinal(const string &s) {
+            int y, m, d;
+            sscanf(s.c_str(), "%d-%d-%d", &y, &m, &d);
+            tm t = {};
+            t.tm_year = y - 1900;
+            t.tm_mon  = m - 1;
+            t.tm_mday = d;
+            time_t tt = timegm(&t);
+            return (int)(tt / 86400);  // days since epoch
+        }
+        
+        // ---- segment tree for range sum ----
+        struct SegTree {
+            int n;
+            vector<long long> tree;
+            SegTree() : n(0) {}
+            explicit SegTree(int n_) { init(n_); }
+        
+            void init(int n_) {
+                n = 1;
+                while (n < n_) n <<= 1;
+                tree.assign(2 * n, 0);
+            }
+        
+            void pointAdd(int idx, long long val) {
+                int pos = idx + n;
+                tree[pos] += val;
+                for (pos >>= 1; pos > 0; pos >>= 1)
+                    tree[pos] = tree[pos << 1] + tree[(pos << 1) | 1];
+            }
+        
+            long long rangeSum(int l, int r) { // inclusive l,r
+                if (l > r) return 0;
+                l += n; r += n;
+                long long res = 0;
+                while (l <= r) {
+                    if (l & 1) res += tree[l++];
+                    if (!(r & 1)) res += tree[r--];
+                    l >>= 1; r >>= 1;
+                }
+                return res;
+            }
+        };
+        
+        vector<string> splitCSV(const string &line) {
+            vector<string> out;
+            string cur;
+            bool inQuotes = false;
+            for (char c : line) {
+                if (c == '"') inQuotes = !inQuotes;
+                else if (c == ',' && !inQuotes) {
+                    out.push_back(cur);
+                    cur.clear();
+                } else cur.push_back(c);
+            }
+            out.push_back(cur);
+            return out;
+        }
+        
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+        
+            ifstream in("admin_timeseries_events.csv");
+            if (!in) {
+                cerr << "Cannot open admin_timeseries_events.csv\n";
+                return 1;
+            }
+        
+            string line;
+            if (!getline(in, line)) {
+                cerr << "Empty CSV\n";
+                return 1;
+            }
+        
+            vector<Event> events;
+            vector<int> ordinals;
+        
+            while (getline(in, line)) {
+                if (line.empty()) continue;
+                auto c = splitCSV(line);
+                if (c.size() < 9) continue;
+        
+                Event e;
+                int i = 0;
+                e.eventId         = stoi(c[i++]);
+                e.dateStr         = c[i++];
+                e.division        = c[i++];
+                e.rangeName       = c[i++];
+                e.eventType       = c[i++];
+                e.severityLevel   = c[i++];
+                e.severityScore   = stoi(c[i++]);
+                e.durationMinutes = stoi(c[i++]);
+                e.amountRs        = stod(c[i++]);
+        
+                events.push_back(e);
+                ordinals.push_back(toOrdinal(e.dateStr));
+            }
+        
+            if (events.empty()) {
+                cerr << "No events\n";
+                return 1;
+            }
+        
+            int minOrd = *min_element(ordinals.begin(), ordinals.end());
+            int maxOrd = *max_element(ordinals.begin(), ordinals.end());
+            int days = maxOrd - minOrd + 1;
+        
+            SegTree st(days);
+        
+            for (size_t i = 0; i < events.size(); ++i) {
+                int idx = ordinals[i] - minOrd;
+                st.pointAdd(idx, events[i].severityScore);
+            }
+        
+            cout << "Built segment tree over " << days
+                 << " days, with " << events.size() << " events.\n";
+        
+            // Example: query last 7 days (relative to maxOrd)
+            int last7_start = max(0, days - 7);
+            int last7_end   = days - 1;
+            long long sevLast7 = st.rangeSum(last7_start, last7_end);
+            cout << "Total severityScore in last 7 days: " << sevLast7 << "\n";
+        
+            return 0;
+        }
+        
+      </code></pre>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleAdminMonitoringCode() {
+    const block = document.getElementById('admin-monitoring-code-block');
+    if (!block) return;
+    const current = window.getComputedStyle(block).display;
+    block.style.display = (current === 'none') ? 'block' : 'none';
+  }
+</script>
+
 
 
 
