@@ -1,37 +1,649 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Divya – Contributions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divya Udnur – Smart City DAA Contributions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="d.css">
+  <style>
+    /* Additional inline styles for tables and buttons */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-    <link rel="stylesheet" href="d.css"> <!-- your updated css file -->
+    th {
+      background: linear-gradient(135deg, #2b4d34, #1f3826);
+      color: white;
+      padding: 18px 15px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      color: #555;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    tr:hover {
+      background-color: #e8f4fc;
+      transform: translateY(-2px);
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      margin: 15px 15px 15px 0;
+      background: linear-gradient(135deg, #2b4d34, #1f3826);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(43, 77, 52, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(43, 77, 52, 0.4);
+      background: linear-gradient(135deg, #1f3826, #14281d);
+    }
+
+    .btn::after {
+      content: '↗';
+      font-size: 1.2rem;
+    }
+
+    .complexity-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 2px solid #dee2e6;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px 0;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h3 {
+      color: #2b4d34;
+      margin: 25px 0 15px;
+      font-size: 1.4rem;
+      padding-left: 10px;
+      border-left: 4px solid #2b4d34;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: justify;
+    }
+
+    p strong {
+      color: #2b4d34;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ddd, transparent);
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.9rem;
+      }
+      
+      th, td {
+        padding: 10px;
+      }
+      
+      .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <div class="page-wrapper">
+<div class="page-wrapper">
 
-        <h1 class="page-title">DIVYA UDNUR</h1>
-        <p class="subtitle">Detailed Contribution Breakdown</p>
+<h1 class="page-title">DIVYA UDNUR</h1>
+<p class="subtitle">Smart City – Design & Analysis of Algorithms (DAA)</p>
 
-        <h2 class="section-heading">Agriculture</h2>
-        
+<!-- ========================================================= -->
+<!-- 1. IT Hardware Assembly & Testing Unit -->
+<!-- ========================================================= -->
+<h2 class="section-heading">1. IT Hardware Assembly & Testing Unit</h2>
 
-        <h2 class="section-heading">IT HUB</h2>
-        
+<p><strong>SDGs:</strong> SDG 9 (Industry & Innovation), SDG 8 (Decent Work), SDG 12 (Responsible Production)</p>
 
-        <h2 class="section-heading">Commercial Services</h2>
+<h3>Abstraction</h3>
+<p>
+The IT Hardware Assembly & Testing Unit is abstracted as a multi-stage pipeline where electronic components
+flow through assembly, testing, validation, and dispatch stages. Each component is represented as a node
+with dependencies, quality metrics, and test logs. The workflow forms a directed graph of workstations,
+allowing fault propagation, bottleneck detection, and throughput optimization.
+</p>
 
-        <h2 class="section-heading">Tourism</h2>
+<h3>Solution Approach</h3>
+<p>
+Components enter the system through queues to ensure FIFO assembly. Trees organize component hierarchies,
+while graphs model workstation routing. Pattern matching algorithms analyze test logs to detect recurring
+faults, and sorting algorithms prioritize urgent or defective batches.
+</p>
 
-        
+<h3>Data Structures Used</h3>
 
-        <a href="../index.html" class="back-btn">← Back to Team</a>
+<table class="complexity-table">
+  <thead>
+    <tr>
+      <th>Data Structure</th>
+      <th>Best Case</th>
+      <th>Average Case</th>
+      <th>Worst Case</th>
+    </tr>
+  </thead>
 
-    </div>
+  <tbody>
+    <tr>
+      <td>Queue</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+      <td>O(1)</td>
+    </tr>
 
-    <script src="d.js"></script>
+    <tr>
+      <td>AVL Tree</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+      <td>O(log n)</td>
+    </tr>
 
+    <tr>
+      <td>Trie</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+      <td>O(L)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Algorithms Used</h3>
+
+<table class="complexity-table">
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Best Case</th>
+      <th>Average Case</th>
+      <th>Worst Case</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>BFS / DFS</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+      <td>O(V + E)</td>
+    </tr>
+
+    <tr>
+      <td>Merge Sort</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+    </tr>
+
+    <tr>
+      <td>KMP Pattern Matching</td>
+      <td>O(n)</td>
+      <td>O(n + m)</td>
+      <td>O(n + m)</td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/IT%20Hardware%20Assembly%20%26%20Testing%20Unit/it_hardware.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/IT%20Hardware%20Assembly%20%26%20Testing%20Unit/hardware_components.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 2. Startup Incubation & SaaS Hub -->
+<!-- ========================================================= -->
+<h2 class="section-heading">2. Startup Incubation & SaaS Hub</h2>
+
+<p><strong>SDGs:</strong> SDG 8, SDG 9, SDG 11</p>
+
+<h3>Abstraction</h3>
+<p>
+The Startup Incubation & SaaS Hub abstracts startups as textual profiles and mentors as expertise nodes.
+Relationships between startups and mentors form a weighted graph where edge weights represent compatibility
+scores derived from skill overlap and domain relevance.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Tries enable fast keyword-based search of startup domains. Hash maps store mentor expertise scores.
+Priority queues rank mentors for each startup, and greedy matching assigns the most suitable mentor.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>DS</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Trie</td><td>O(L)</td><td>O(L)</td><td>O(L)</td></tr>
+<tr><td>Hash Map</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+<tr><td>Heap</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>KMP</td><td>O(n)</td><td>O(n+m)</td><td>O(n+m)</td></tr>
+<tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Startup%20Incubation%20Center/incubation.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Startup%20Incubation%20Center/incubation.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 3. Innovation & Research Center -->
+<!-- ========================================================= -->
+<h2 class="section-heading">3. Innovation & Research Center</h2>
+
+<p><strong>SDGs:</strong> SDG 9, SDG 4, SDG 8</p>
+
+<h3>Abstraction</h3>
+<p>
+The Innovation & Research Center is abstracted as a hierarchical system of projects, experiments, and
+researchers. Each project consists of multiple dependent experiments organized as trees, while researcher
+collaboration forms a graph network.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Trees store project hierarchies, heaps prioritize critical experiments, and graphs identify collaboration
+paths. Segment trees allow progress analysis over time.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>DS</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+<tr><td>Priority Queue</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>DFS / BFS</td><td>O(V+E)</td><td>O(V+E)</td><td>O(V+E)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Innovation%20%26%20Research%20Center/research.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Innovation%20%26%20Research%20Center/research.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 4. E-Waste Recycling Facility -->
+<!-- ========================================================= -->
+<h2 class="section-heading">4. E-Waste Recycling Facility</h2>
+
+<p><strong>SDGs:</strong> SDG 12 (Responsible Consumption & Production), SDG 11 (Sustainable Cities), SDG 13 (Climate Action)</p>
+
+<h3>Abstraction</h3>
+<p>
+The E-Waste Recycling Facility is abstracted as a value-driven material recovery system where electronic
+waste items are treated as entities with attributes such as type, hazard level, and recoverable metal value.
+The system prioritizes safe handling of hazardous waste while maximizing recovery of valuable materials.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Incoming e-waste items are stored in arrays and categorized using hash maps. High-value or hazardous items
+are prioritized using max-heaps. Pattern-matching algorithms scan descriptions to detect specific metals,
+while sorting algorithms organize items for efficient processing.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>Data Structure</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Array / Vector</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+<tr><td>Hash Map</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+<tr><td>Priority Queue</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+<tr><td>Boyer–Moore</td><td>O(n/m)</td><td>O(n)</td><td>O(n·m)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/E-Waste%20Collection%20%26%20Recycling/ewaste.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/E-Waste%20Collection%20%26%20Recycling/ewaste.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 5. Hybrid Micro-Finance Branch & Community Hub -->
+<!-- ========================================================= -->
+<h2 class="section-heading">5. Hybrid Micro-Finance Branch & Community Hub</h2>
+
+<p><strong>SDGs:</strong> SDG 1 (No Poverty), SDG 8 (Decent Work), SDG 10 (Reduced Inequalities)</p>
+
+<h3>Abstraction</h3>
+<p>
+The Hybrid Micro-Finance System abstracts financial operations as a time-series transaction system involving
+loans, repayments, branch activities, and community events. Each borrower and loan is represented as a
+structured entity with temporal and risk-based attributes.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Fenwick Trees efficiently manage frequent balance updates, while Segment Trees support range-based queries
+for financial analysis. Priority queues rank loan approvals, and graphs optimize routing for field agents.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>Data Structure</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Fenwick Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+<tr><td>Segment Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+<tr><td>Heap</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Dijkstra</td><td>O(E+V log V)</td><td>O(E log V)</td><td>O(E log V)</td></tr>
+<tr><td>Greedy Scheduling</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Hybrid%20Micro-Finance%20Branch/microfinance.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Hybrid%20Micro-Finance%20Branch/microfinance.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 6. Integrated EV Charging & Fuel Station -->
+<!-- ========================================================= -->
+<h2 class="section-heading">6. Integrated EV Charging & Fuel Station</h2>
+
+<p><strong>SDGs:</strong> SDG 7 (Clean Energy), SDG 11 (Sustainable Cities), SDG 13 (Climate Action)</p>
+
+<h3>Abstraction</h3>
+<p>
+This system abstracts the city as a weighted graph where nodes represent junctions and energy stations,
+and edges represent roads with travel cost. Stations maintain real-time attributes such as availability,
+queue length, and fault status.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Dijkstra's algorithm computes optimal routes while dynamically excluding faulty or congested stations.
+Priority queues assign vehicles to the least busy stations, ensuring minimum waiting and travel time.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>Data Structure</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Graph (Adj List)</td><td>O(1)</td><td>O(V+E)</td><td>O(V+E)</td></tr>
+<tr><td>Priority Queue</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Dijkstra</td><td>O(E+V log V)</td><td>O(E log V)</td><td>O(E log V)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/EV%20Charging%20%26%20Fuel%20Station%20with/ev_hub.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/EV%20Charging%20%26%20Fuel%20Station%20with/ev_hub.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 7. Smart Delivery Services -->
+<!-- ========================================================= -->
+<h2 class="section-heading">7. Smart Delivery Services</h2>
+
+<p><strong>SDGs:</strong> SDG 9, SDG 11</p>
+
+<h3>Abstraction</h3>
+<p>
+Smart Delivery Services abstract logistics as a real-time routing and scheduling problem where orders,
+drivers, and destinations interact dynamically under traffic constraints and urgency levels.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Graphs compute optimal delivery routes, heaps prioritize urgent orders, hash maps track order details,
+and sorting algorithms rank deliveries based on deadlines.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>Data Structure</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Hash Map</td><td>O(1)</td><td>O(1)</td><td>O(n)</td></tr>
+<tr><td>Heap</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Dijkstra</td><td>O(E+V log V)</td><td>O(E log V)</td><td>O(E log V)</td></tr>
+<tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Delivery%20Services/delivery.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Delivery%20Services/delivery.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 8. Tourism & Smart Transportation -->
+<!-- ========================================================= -->
+<h2 class="section-heading">8. Tourism & Smart Transportation</h2>
+
+<p><strong>SDGs:</strong> SDG 11, SDG 8</p>
+
+<h3>Abstraction</h3>
+<p>
+This system abstracts tourist attractions and transport routes as connected graph entities where user
+preferences, proximity, and attraction ratings influence itinerary generation.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Tries index attraction tags, Dijkstra computes travel-efficient paths, and greedy algorithms select
+top-ranked attractions for itinerary planning.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>DS</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Trie</td><td>O(L)</td><td>O(L)</td><td>O(L)</td></tr>
+<tr><td>Graph</td><td>O(1)</td><td>O(V+E)</td><td>O(V+E)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Dijkstra</td><td>O(E+V log V)</td><td>O(E log V)</td><td>O(E log V)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/AI-Powered%20Smart%20Tourism%20Guide/smart_tourism.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/AI-Powered%20Smart%20Tourism%20Guide/attractions.csv">View Dataset</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/AI-Powered%20Smart%20Tourism%20Guide/tourism_roads.csv">Roads Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 9. Cocoa–Chocolate Factory -->
+<!-- ========================================================= -->
+<h2 class="section-heading">9. Cocoa–Chocolate Factory</h2>
+
+<p><strong>SDGs:</strong> SDG 12, SDG 8</p>
+
+<h3>Abstraction</h3>
+<p>
+The Cocoa–Chocolate Factory abstracts production as a batch-oriented workflow where cocoa beans pass
+through roasting, grinding, tempering, and packaging stages, each with quality checkpoints.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Queues manage production order, heaps prioritize urgent batches, hash maps track suppliers, and trees
+enable fast lookup of batch quality metrics.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>DS</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Queue</td><td>O(1)</td><td>O(1)</td><td>O(1)</td></tr>
+<tr><td>Heap</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n log n)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Cocoa-Chocolate%20Factory/cocoa.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Cocoa-Chocolate%20Factory/cocoa.csv">View Dataset</a>
+
+<hr>
+
+<!-- ========================================================= -->
+<!-- 10. Cold Storage & Sorting Center -->
+<!-- ========================================================= -->
+<h2 class="section-heading">10. Cold Storage & Sorting Center</h2>
+
+<p><strong>SDGs:</strong> SDG 2 (Zero Hunger), SDG 12</p>
+
+<h3>Abstraction</h3>
+<p>
+The Cold Storage & Sorting Center abstracts inventory management as a time-sensitive optimization problem
+where perishable items must be stored, monitored, and dispatched before expiry.
+</p>
+
+<h3>Solution Approach</h3>
+<p>
+Min-heaps prioritize items nearing expiry, AVL trees maintain sorted inventory, and segment trees
+support analytics for stock levels and wastage prediction.
+</p>
+
+<h3>Data Structures Used</h3>
+<table>
+<tr><th>DS</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Min-Heap</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+<tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<h3>Algorithms Used</h3>
+<table>
+<tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th></tr>
+<tr><td>Heap Operations</td><td>O(1)</td><td>O(log n)</td><td>O(log n)</td></tr>
+</table>
+
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Cold%20Storage%20%26%20Sorting%20Center/cold_storage.cpp">View Code</a>
+<a class="btn" href="https://github.com/city-samarthaka/city-samarthaka.github.io/blob/main/divya/code%20and%20dataset/Cold%20Storage%20%26%20Sorting%20Center/cold_storage.csv">View Dataset</a>
+
+<hr>
+
+<div style="text-align: center; margin-top: 50px;">
+<a href="../index.html" class="back-btn">← Back to Team</a>
+</div>
+
+</div>
+
+<script src="d.js"></script>
+<script>
+// Additional JavaScript for enhanced interactivity
+document.addEventListener('DOMContentLoaded', function() {
+  // Add smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add animation to table rows on hover
+  const tableRows = document.querySelectorAll('table tr');
+  tableRows.forEach(row => {
+    row.addEventListener('mouseenter', function() {
+      this.style.transition = 'all 0.3s ease';
+    });
+  });
+
+  // Add click animation to buttons
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('mousedown', function() {
+      this.style.transform = 'scale(0.95)';
+    });
+    button.addEventListener('mouseup', function() {
+      this.style.transform = '';
+    });
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  // Add section numbering animation
+  const sectionHeadings = document.querySelectorAll('.section-heading');
+  sectionHeadings.forEach((heading, index) => {
+    heading.style.counterIncrement = 'section-counter';
+    
+    // Create a pseudo-element for the section number
+    heading.style.position = 'relative';
+    heading.style.paddingLeft = '50px';
+    
+    const number = document.createElement('span');
+    number.textContent = (index + 1) + '. ';
+    number.style.position = 'absolute';
+    number.style.left = '0';
+    number.style.top = '0';
+    number.style.fontSize = '2rem';
+    number.style.fontWeight = '700';
+    number.style.color = '#2b4d34';
+    number.style.opacity = '0.3';
+    heading.insertBefore(number, heading.firstChild);
+  });
+});
+</script>
 </body>
 </html>
