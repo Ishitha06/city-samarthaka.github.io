@@ -1,0 +1,151 @@
+business_id,name,category,revenue,location,rating,priority
+B0001,Pooja Deshmukh,Chocolate,427067.79,South,3.01,1
+B0002,Pranav Iyer,Manufacturing,82711.04,South,1.15,4
+B0003,Sanjana Rao,Food Processing,258256.98,Central,1.5,10
+B0004,Kiran Shinde,Manufacturing,734539.14,North,4.05,10
+B0005,Riya Kulkarni,Food Processing,93180.0,East,2.42,9
+B0006,Aditya Mehta,Manufacturing,394454.31,Central,1.61,2
+B0007,Sanjana Rao,Chocolate,746579.1,South,3.83,5
+B0008,Kiran Shinde,Chocolate,410968.12,West,3.19,4
+B0009,Karthik Patil,Chocolate,585616.08,Central,2.16,9
+B0010,Megha Kapoor,Chocolate,513362.71,North,2.43,6
+B0011,Pooja Deshmukh,Food Processing,775537.63,South,4.09,4
+B0012,Karthik Patil,Chocolate,716246.24,East,4.5,3
+B0013,Aditi Kulkarni,Manufacturing,69352.41,West,4.29,2
+B0014,Sanjana Rao,Food Processing,420460.92,Central,1.56,9
+B0015,Karthik Patil,Food Processing,716125.04,South,1.87,7
+B0016,Pranav Iyer,Manufacturing,622913.84,North,4.29,2
+B0017,Riya Kulkarni,Food Processing,456472.23,West,4.32,7
+B0018,Manoj Rao,Chocolate,463224.99,East,4.77,4
+B0019,Arjun Shetty,Manufacturing,643391.17,West,4.3,10
+B0020,Megha Kapoor,Food Processing,104912.99,North,1.6,7
+B0021,Karthik Patil,Food Processing,303944.81,South,1.41,2
+B0022,Manoj Rao,Chocolate,722795.4,West,3.67,5
+B0023,Megha Kapoor,Food Processing,772136.85,East,4.36,8
+B0024,Pooja Deshmukh,Chocolate,799021.41,North,4.05,9
+B0025,Riya Kulkarni,Food Processing,418269.57,South,1.22,9
+B0026,Karthik Patil,Manufacturing,366124.07,Central,4.65,6
+B0027,Manoj Rao,Manufacturing,381783.63,North,1.23,1
+B0028,Sanjana Rao,Manufacturing,578533.73,South,1.21,5
+B0029,Arjun Shetty,Manufacturing,102964.39,North,3.42,1
+B0030,Ananya Hegde,Manufacturing,385343.8,South,2.2,9
+B0031,Megha Kapoor,Chocolate,466719.41,North,2.23,8
+B0032,Rohan Jain,Food Processing,562262.99,Central,3.19,4
+B0033,Neha Iyer,Food Processing,354097.88,Central,1.04,6
+B0034,Pranav Iyer,Manufacturing,174093.27,East,1.56,5
+B0035,Sneha Joshi,Food Processing,508519.71,East,2.62,3
+B0036,Arjun Shetty,Food Processing,251342.99,North,4.83,10
+B0037,Sanjana Rao,Manufacturing,381143.2,North,4.59,3
+B0038,Neha Iyer,Manufacturing,735532.59,West,4.6,9
+B0039,Manoj Rao,Chocolate,216507.07,Central,1.0,5
+B0040,Aditya Mehta,Manufacturing,614744.4,Central,3.01,7
+B0041,Megha Kapoor,Manufacturing,129785.03,East,1.38,5
+B0042,Sanjana Rao,Chocolate,660100.28,Central,3.36,4
+B0043,Aditi Kulkarni,Chocolate,263506.53,West,2.29,3
+B0044,Aditya Mehta,Food Processing,633236.73,North,1.63,2
+B0045,Karthik Patil,Chocolate,102117.65,Central,4.78,5
+B0046,Rohan Jain,Chocolate,264117.79,South,3.42,9
+B0047,Aditya Mehta,Manufacturing,465681.46,North,3.85,4
+B0048,Riya Kulkarni,Chocolate,172012.61,South,2.7,10
+B0049,Manoj Rao,Chocolate,574539.3,Central,2.14,5
+B0050,Riya Kulkarni,Food Processing,734834.16,South,4.71,4
+B0051,Ananya Hegde,Manufacturing,126479.02,West,2.69,10
+B0052,Ananya Hegde,Manufacturing,512798.87,North,3.54,6
+B0053,Pooja Deshmukh,Chocolate,748659.2,East,4.37,1
+B0054,Manoj Rao,Manufacturing,297741.66,East,1.95,10
+B0055,Aditi Kulkarni,Food Processing,787526.68,South,3.37,4
+B0056,Aditya Mehta,Food Processing,784389.41,North,2.23,3
+B0057,Megha Kapoor,Food Processing,608367.98,Central,1.5,1
+B0058,Kiran Shinde,Food Processing,345363.54,East,1.03,4
+B0059,Manoj Rao,Food Processing,233908.27,South,2.15,5
+B0060,Pranav Iyer,Food Processing,743143.79,West,3.36,5
+B0061,Neha Iyer,Food Processing,509957.62,South,1.56,2
+B0062,Aditi Kulkarni,Food Processing,497755.52,Central,3.88,3
+B0063,Aditya Mehta,Manufacturing,470993.08,East,1.64,5
+B0064,Aditya Mehta,Manufacturing,587651.92,Central,1.46,1
+B0065,Aditya Mehta,Manufacturing,238086.67,South,3.71,1
+B0066,Pranav Iyer,Food Processing,427449.78,North,3.53,5
+B0067,Kiran Shinde,Food Processing,706731.16,West,1.18,8
+B0068,Megha Kapoor,Chocolate,210273.56,South,2.18,5
+B0069,Arjun Shetty,Food Processing,588912.96,West,3.26,3
+B0070,Sanjana Rao,Manufacturing,611444.32,Central,2.16,1
+B0071,Pooja Deshmukh,Food Processing,474874.39,North,3.5,4
+B0072,Sneha Joshi,Chocolate,581899.12,East,2.99,7
+B0073,Kiran Shinde,Food Processing,171815.65,East,1.3,10
+B0074,Pooja Deshmukh,Manufacturing,615660.91,North,2.12,9
+B0075,Rohan Jain,Food Processing,201245.69,South,1.29,10
+B0076,Ananya Hegde,Food Processing,237725.78,Central,1.66,4
+B0077,Arjun Shetty,Manufacturing,673788.6,North,2.2,1
+B0078,Sneha Joshi,Food Processing,502420.83,North,4.1,7
+B0079,Aditi Kulkarni,Food Processing,206324.7,North,4.87,2
+B0080,Arjun Shetty,Manufacturing,370969.91,South,2.64,5
+B0081,Rohan Jain,Food Processing,187136.5,Central,3.83,4
+B0082,Pooja Deshmukh,Manufacturing,429728.34,West,3.62,10
+B0083,Rohan Jain,Chocolate,567805.53,South,4.09,3
+B0084,Aditi Kulkarni,Food Processing,652699.44,South,4.73,6
+B0085,Riya Kulkarni,Food Processing,189180.76,Central,2.44,4
+B0086,Manoj Rao,Chocolate,321900.58,Central,2.41,9
+B0087,Sneha Joshi,Food Processing,264832.04,West,1.33,5
+B0088,Riya Kulkarni,Food Processing,210829.35,East,2.88,9
+B0089,Manoj Rao,Food Processing,116014.05,West,3.75,3
+B0090,Manoj Rao,Chocolate,218599.18,East,4.71,10
+B0091,Karthik Patil,Food Processing,668216.81,South,4.9,2
+B0092,Neha Iyer,Food Processing,184113.73,Central,4.0,2
+B0093,Aditya Mehta,Chocolate,141230.04,North,2.85,5
+B0094,Pooja Deshmukh,Food Processing,452945.69,Central,2.44,1
+B0095,Aditi Kulkarni,Food Processing,747302.76,East,4.37,10
+B0096,Sneha Joshi,Food Processing,257544.47,South,2.53,2
+B0097,Manoj Rao,Food Processing,544822.06,South,3.96,2
+B0098,Pooja Deshmukh,Manufacturing,347278.21,South,3.99,6
+B0099,Karthik Patil,Manufacturing,292050.55,South,3.4,4
+B0100,Rohan Jain,Manufacturing,467723.88,North,2.11,6
+B0101,Neha Iyer,Chocolate,751102.52,West,4.93,6
+B0102,Aditi Kulkarni,Food Processing,546915.39,East,4.88,7
+B0103,Manoj Rao,Manufacturing,639890.13,North,2.37,8
+B0104,Aditi Kulkarni,Chocolate,550812.64,Central,2.64,10
+B0105,Pranav Iyer,Chocolate,262305.86,Central,3.42,3
+B0106,Megha Kapoor,Food Processing,136028.61,North,2.17,9
+B0107,Aditi Kulkarni,Chocolate,206432.76,East,2.93,5
+B0108,Aditya Mehta,Chocolate,361624.43,North,4.24,4
+B0109,Riya Kulkarni,Manufacturing,361327.29,East,2.25,4
+B0110,Ananya Hegde,Chocolate,359331.17,Central,4.86,7
+B0111,Aditya Mehta,Chocolate,172676.68,West,2.1,5
+B0112,Karthik Patil,Manufacturing,768488.82,North,2.79,4
+B0113,Manoj Rao,Food Processing,491451.74,Central,2.45,1
+B0114,Megha Kapoor,Chocolate,596075.66,North,4.32,5
+B0115,Rohan Jain,Chocolate,400415.86,East,2.72,1
+B0116,Riya Kulkarni,Food Processing,216020.32,North,1.69,9
+B0117,Megha Kapoor,Manufacturing,300552.16,Central,2.98,5
+B0118,Sanjana Rao,Manufacturing,368052.37,Central,4.84,6
+B0119,Sanjana Rao,Food Processing,426145.45,North,4.91,1
+B0120,Ananya Hegde,Manufacturing,343771.01,West,4.61,2
+B0121,Kiran Shinde,Manufacturing,197006.69,North,4.74,3
+B0122,Karthik Patil,Food Processing,382736.55,North,2.21,9
+B0123,Sanjana Rao,Manufacturing,224875.85,West,4.66,5
+B0124,Sneha Joshi,Chocolate,119528.55,West,2.2,8
+B0125,Aditya Mehta,Food Processing,702404.29,Central,2.57,7
+B0126,Riya Kulkarni,Chocolate,646177.05,West,3.85,1
+B0127,Neha Iyer,Chocolate,169431.36,Central,2.16,9
+B0128,Aditi Kulkarni,Manufacturing,260393.0,East,1.05,7
+B0129,Sanjana Rao,Food Processing,343083.1,West,4.8,8
+B0130,Neha Iyer,Food Processing,699568.29,North,3.69,5
+B0131,Karthik Patil,Food Processing,292735.58,Central,2.11,2
+B0132,Kiran Shinde,Manufacturing,612152.16,Central,4.84,6
+B0133,Kiran Shinde,Chocolate,64000.88,Central,4.86,4
+B0134,Manoj Rao,Manufacturing,778249.69,East,4.59,6
+B0135,Sanjana Rao,Manufacturing,698252.68,West,1.46,10
+B0136,Neha Iyer,Manufacturing,101186.86,East,1.29,1
+B0137,Aditya Mehta,Food Processing,178339.42,South,1.02,5
+B0138,Ananya Hegde,Food Processing,340998.31,East,4.18,1
+B0139,Aditi Kulkarni,Manufacturing,787197.09,Central,1.51,2
+B0140,Arjun Shetty,Manufacturing,474283.95,East,2.25,10
+B0141,Aditya Mehta,Manufacturing,709515.87,West,2.15,2
+B0142,Aditya Mehta,Food Processing,367804.49,East,4.3,9
+B0143,Aditi Kulkarni,Food Processing,586682.74,South,2.62,3
+B0144,Ananya Hegde,Chocolate,520216.71,West,2.08,3
+B0145,Manoj Rao,Manufacturing,180778.9,East,2.96,9
+B0146,Sanjana Rao,Food Processing,724226.47,Central,1.05,5
+B0147,Manoj Rao,Manufacturing,404109.48,South,3.36,3
+B0148,Megha Kapoor,Food Processing,106826.84,East,2.08,3
+B0149,Aditya Mehta,Manufacturing,119003.08,West,4.48,1
+B0150,Aditya Mehta,Food Processing,214619.33,South,2.93,7
