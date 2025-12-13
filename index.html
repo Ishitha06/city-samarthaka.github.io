@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samarthaka</title>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
@@ -13,7 +12,6 @@
 
 <body>
 
-<!-- Navigation -->
 <nav class="navbar">
     <div class="nav-logo">SAMARTHAKA</div>
     <ul class="nav-links">
@@ -25,8 +23,7 @@
     </ul>
 </nav>
 
-<!-- HERO SECTION -->
-<section class="hero">
+<section class="hero" id="home">
     <h1>WELCOME TO</h1>
     <h2>SAMARTHAKA</h2>
     <h3>A SMART & SUSTAINABLE URBAN VISION</h3>
@@ -35,7 +32,6 @@
 </section>
 
 
-<!-- ABOUT / COURSE INFO -->
 <section id="about" class="course-section">
     <div class="tag">PROJECT DETAILS</div>
 
@@ -65,19 +61,140 @@
     </div>
 </section>
 
-<!-- CITY DESIGN BLUEPRINT -->
 <div class="blueprint-section">
     <h2 class="section-title">CITY DESIGN BLUEPRINT</h2>
     <p class="section-subtitle">Our conceptual planning of Samarthaka</p>
 
     <div class="blueprint-image-row">
-        <img src="assets/map1.jpg" alt="City Design Blueprint" class="blueprint-img">
-        <img src="assets/map2.jpg" alt="Population & Budget Sheet" class="blueprint-img">
+        <img src="assets/satellite.jpg" alt="City Design Blueprint" class="blueprint-img">
+        <!-- <img src="assets/map2.jpg" alt="Population & Budget Sheet" class="blueprint-img"> -->
     </div>
-</div>
+
+    <div class="city-stats-container">
+        <div class="stat-card city-info-card">
+            <h3>Samarthaka Overview</h3>
+            <div class="stat-rule"></div>
+            <ul class="info-list">
+                <li><span class="info-label">City Name:</span> Samarthaka</li>
+                <li><span class="info-label">Total Area:</span> 775 sq km</li>
+                <li><span class="info-label">Projected Population:</span> ~1.6 Million</li>
+                <li><span class="info-label">State:</span> Karnataka</li>
+                <li><span class="info-label">Pincode:</span> 571020</li>
+            </ul>
+        </div>
+
+        <div class="stat-card age-dist-card">
+            <h3>Age Wise Population Distribution</h3>
+            <div class="stat-rule"></div>
+            <div class="age-chart-container">
+                
+                <div class="age-group-row">
+                    <span class="age-label">0 - 15 Years</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 30%;"></div>
+                    </div>
+                    <span class="age-percentage">30%</span>
+                </div>
+
+                <div class="age-group-row">
+                    <span class="age-label">15 - 25 Years</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 17%;"></div>
+                    </div>
+                    <span class="age-percentage">17%</span>
+                </div>
+
+                <div class="age-group-row">
+                    <span class="age-label">25 - 54 Years</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 36%;"></div>
+                    </div>
+                    <span class="age-percentage">36%</span>
+                </div>
+
+                <div class="age-group-row">
+                    <span class="age-label">55 - 64 Years</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 10%;"></div>
+                    </div>
+                    <span class="age-percentage">10%</span>
+                </div>
+
+                <div class="age-group-row">
+                    <span class="age-label">64+ Years</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 7%;"></div>
+                    </div>
+                    <span class="age-percentage">7%</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="revenue-section-container">
+        <h2 class="section-title">PROJECTED REVENUE MODEL & DISTRIBUTION</h2>
+        <p class="section-subtitle">Financial projections in Crores (₹) based on Image Data</p>
+        
+        <div class="table-wrapper">
+            <table class="revenue-table">
+                <thead>
+                    <tr>
+                        <th>Phase (Timeline)</th>
+                        <th>Property Tax</th>
+                        <th>Utilities</th>
+                        <th>Transport</th>
+                        <th>Tourism & Hosp.</th>
+                        <th>Land Lease</th>
+                        <th class="total-col">Phase Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="phase-name">Phase 1 (Yrs 1-5)</td>
+                        <td>14,000</td>
+                        <td>7,650</td>
+                        <td>5,900</td>
+                        <td>4,200</td>
+                        <td>7,800</td>
+                        <td class="total-col">39,550</td>
+                    </tr>
+                    <tr>
+                        <td class="phase-name">Phase 2 (Yrs 6-10)</td>
+                        <td>17,500</td>
+                        <td>14,200</td>
+                        <td>7,800</td>
+                        <td>6,800</td>
+                        <td>9,500</td>
+                        <td class="total-col">55,800</td>
+                    </tr>
+                    <tr>
+                        <td class="phase-name">Phase 3 (Yrs 11-15)</td>
+                        <td>22,000</td>
+                        <td>18,400</td>
+                        <td>10,300</td>
+                        <td>10,100</td>
+                        <td>11,600</td>
+                        <td class="total-col">72,400</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="grand-total-label">Grand Total (15 Yrs)</th>
+                        <th>53,500</th>
+                        <th>40,250</th>
+                        <th>24,000</th>
+                        <th>21,100</th>
+                        <th>28,900</th>
+                        <th class="total-col grand-total-value">₹ 1,67,750</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    </div>
 
 
-<!-- SDG SECTION -->
 <section id="sdgs" class="sdg-section">
     <div class="tag">UNITED NATIONS</div>
 
@@ -103,7 +220,6 @@
     </div>
 </section>
 
-<!-- BUSINESS SECTION -->
 <section id="business-models">
     <h2 class="business-title">Explore Business Models</h2>
 
@@ -114,7 +230,6 @@
                 <img src="assets/Infra.jpg" alt="">
             </div>
             <h3>Infrastructure & Transport</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -122,7 +237,6 @@
                 <img src="assets/housing.png" alt="">
             </div>
             <h3>Land & Housing</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -130,7 +244,6 @@
                 <img src="assets/energy.jpg" alt="">
             </div>
             <h3>Energy Systems</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -138,7 +251,6 @@
                 <img src="assets/Agri.jpg" alt="">
             </div>
             <h3>Agriculture</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -146,7 +258,6 @@
                 <img src="assets/health.jpg" alt="">
             </div>
             <h3>Healthcare</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -154,7 +265,6 @@
                 <img src="assets/commercial.png" alt="">
             </div>
             <h3>Commercial Services</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -162,7 +272,6 @@
                 <img src="assets/indus.png" alt="">
             </div>
             <h3>Industry</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
         <div class="business-card">
@@ -170,20 +279,17 @@
                 <img src="assets/eco.png" alt="">
             </div>
             <h3>Environment & Tourism</h3>
-            <!-- <a href="#" class="learn-more">Learn More →</a> -->
         </div>
 
     </div>
 </section>
 
 
-<!-- TEAM CONTRIBUTIONS -->
 <section class="contribution-section" id="team">
     <h2 class="section-title">INDIVIDUAL CONTRIBUTIONS</h2>
 
     <div class="contrib-grid">
 
-        <!-- CARD 1 - Ishitha -->
         <div class="contrib-card">
             <div class="avatar"></div>
 
@@ -229,7 +335,6 @@
 
         </div>
 
-        <!-- CARD 2 - Ananya -->
         <div class="contrib-card">
             <div class="avatar"></div>
 
@@ -270,7 +375,6 @@
 
         </div>
 
-        <!-- CARD 3 - Pratiksha -->
         <div class="contrib-card">
             <div class="avatar"></div>
 
@@ -315,7 +419,6 @@
 
         </div>
 
-        <!-- CARD 4 - Divya -->
         <div class="contrib-card">
             <div class="avatar"></div>
 
@@ -350,7 +453,7 @@
 
             <a href="divya/divya.html" class="view-btn">View Work</a>
 
-           
+            
         </div>
 
     </div>
@@ -369,8 +472,6 @@
         <p class="footer-tagline">A Smart & Sustainable Urban Vision for the Future</p>
         <p class="footer-course">Design & Analysis of Algorithms | 24ECSC205 | Semester 3</p>
     </div>
-
-    
 </footer>
 
 </html>
