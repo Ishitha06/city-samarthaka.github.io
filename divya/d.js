@@ -1,138 +1,136 @@
-/* =========================================================
-   1. Page Load & Animations
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    document.body.classList.add("page-loaded");
-});
 
-const animatedItems = document.querySelectorAll(
-    "h1, h2, h3, h4, p, img, .section-heading, .card, .content-box, .efficiency-box"
-);
-
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            scrollObserver.unobserve(entry.target);
-        }
+// Enhanced JavaScript with improved animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
-}, { threshold: 0.15 });
+  });
 
-animatedItems.forEach(item => {
-    item.classList.add("animate-smooth");
-    scrollObserver.observe(item);
-});
+  // Enhanced table row hover effects
+  const tableRows = document.querySelectorAll('table tr');
+  tableRows.forEach(row => {
+    row.addEventListener('mouseenter', function() {
+      this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    });
+  });
 
+  // Enhanced button interactions
+  const buttons = document.querySelectorAll('.btn, .back-btn');
+  buttons.forEach(button => {
+    button.addEventListener('mousedown', function() {
+      this.style.transform = 'scale(0.92)';
+    });
+    button.addEventListener('mouseup', function() {
+      this.style.transform = 'translateY(-5px) scale(1.03)';
+    });
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
 
-/* =========================================================
-   2. CODE POPUP LOGIC (Diagnostic Version)
-========================================================= */
-
-function openModal(btn) {
-    // 1. Get Modal
-    const modal = document.getElementById("codeModal");
-    if (!modal) {
-        alert("CRITICAL ERROR: Modal HTML missing.");
-        return;
-    }
-
-    // 2. Open & Reset
-    modal.classList.add("open"); 
+  // Section counter animation
+  const sectionHeadings = document.querySelectorAll('.section-heading');
+  sectionHeadings.forEach((heading, index) => {
+    heading.style.counterIncrement = 'section-counter';
+    heading.style.position = 'relative';
+    heading.style.paddingLeft = '70px';
     
-    // Set initial status text
-    const setStatus = (id, msg) => {
-        const el = document.querySelector(`#${id} code`);
-        if(el) el.textContent = msg;
-    };
+    const number = document.createElement('span');
+    number.textContent = (index + 1) + '. ';
+    number.style.position = 'absolute';
+    number.style.left = '0';
+    number.style.top = '50%';
+    number.style.transform = 'translateY(-50%)';
+    number.style.fontSize = '2.8rem';
+    number.style.fontWeight = '800';
+    number.style.color = '#1a3c27';
+    number.style.opacity = '0.25';
+    number.style.width = '60px';
+    number.style.textAlign = 'center';
+    heading.insertBefore(number, heading.firstChild);
+  });
 
-    setStatus("cpp", "🔍 Scanning for C++ file...");
-    setStatus("input", "🔍 Scanning for Input...");
-    setStatus("output", "🔍 Scanning for Output...");
-
-    // 3. Reset Tabs
-    switchTab(null, 'cpp');
-
-    // 4. Find Data Container
-    let container = btn.nextElementSibling;
-    while (container && !container.classList.contains("code-data")) {
-        container = container.nextElementSibling;
-    }
-
-    if (!container) {
-        setStatus("cpp", "❌ ERROR: No <div class='code-data'> found next to button.");
-        return;
-    }
-
-    // 5. Load Content Function
-    const loadContent = (type, elementId) => {
-        const div = container.querySelector(`.data-${type}`);
-        const codeBox = document.querySelector(`#${elementId} code`);
-
-        if (!div) {
-            codeBox.textContent = "// No " + type + " data provided.";
-            return;
-        }
-
-        // Case A: Fetch from File
-        if (div.dataset.src) {
-            const filePath = div.dataset.src;
-            codeBox.textContent = "⏳ Loading file: " + filePath + " ...";
-
-            // Add timestamp to force fresh load (bypasses cache)
-            fetch(filePath + "?t=" + new Date().getTime())
-                .then(response => {
-                    if (!response.ok) throw new Error(`File not found (Status: ${response.status})`);
-                    return response.text();
-                })
-                .then(text => {
-                    // SUCCESS: Display the code
-                    codeBox.textContent = text; 
-                })
-                .catch(err => {
-                    // FAILURE: Show error message in the box
-                    codeBox.textContent = "❌ ERROR: Could not load file.\n" +
-                                          "👉 Path: " + filePath + "\n" +
-                                          "👉 Details: " + err.message + "\n" +
-                                          "👉 Check: Does '" + filePath + "' exist in your 'codes' folder?";
-                });
-        } 
-        // Case B: Inline HTML
-        else if (div.innerHTML.trim().length > 0) {
-            codeBox.textContent = div.innerHTML.trim(); // Use textContent to show tags like <iostream> safely
-        } 
-        else {
-            codeBox.textContent = "// Data block is empty.";
-        }
-    };
-
-    // 6. Trigger Loads
-    loadContent("cpp", "cpp");
-    loadContent("input", "input");
-    loadContent("output", "output");
-}
-
-
-function closeCode() {
-    const modal = document.getElementById("codeModal");
-    if (modal) modal.classList.remove("open");
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById("codeModal");
-    if (event.target === modal) closeCode();
-};
-
-function switchTab(evt, tabName) {
-    document.querySelectorAll(".code-content").forEach(c => c.classList.remove("active-content"));
-    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  // Add subtle fade-in animation to content
+  const contentElements = document.querySelectorAll('h2, h3, p, table');
+  contentElements.forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     
-    const activeContent = document.getElementById(tabName);
-    if (activeContent) activeContent.classList.add("active-content");
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100 + index * 50);
+  });
 
-    if (evt) {
-        evt.currentTarget.classList.add("active");
+  // Add scroll progress indicator
+  const progressBar = document.createElement('div');
+  progressBar.style.position = 'fixed';
+  progressBar.style.top = '0';
+  progressBar.style.left = '0';
+  progressBar.style.width = '0%';
+  progressBar.style.height = '4px';
+  progressBar.style.background = 'linear-gradient(90deg, #1a3c27, #2e7d32)';
+  progressBar.style.zIndex = '9999';
+  progressBar.style.transition = 'width 0.3s ease';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+
+  // Add "scroll to top" button
+  const scrollToTopBtn = document.createElement('button');
+  scrollToTopBtn.innerHTML = '↑';
+  scrollToTopBtn.style.position = 'fixed';
+  scrollToTopBtn.style.bottom = '30px';
+  scrollToTopBtn.style.right = '30px';
+  scrollToTopBtn.style.width = '50px';
+  scrollToTopBtn.style.height = '50px';
+  scrollToTopBtn.style.borderRadius = '50%';
+  scrollToTopBtn.style.background = 'linear-gradient(135deg, #1a3c27, #14321f)';
+  scrollToTopBtn.style.color = 'white';
+  scrollToTopBtn.style.border = 'none';
+  scrollToTopBtn.style.fontSize = '1.5rem';
+  scrollToTopBtn.style.cursor = 'pointer';
+  scrollToTopBtn.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+  scrollToTopBtn.style.opacity = '0';
+  scrollToTopBtn.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  scrollToTopBtn.style.zIndex = '999';
+  document.body.appendChild(scrollToTopBtn);
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  scrollToTopBtn.addEventListener('mouseenter', () => {
+    scrollToTopBtn.style.transform = 'scale(1.1)';
+  });
+
+  scrollToTopBtn.addEventListener('mouseleave', () => {
+    scrollToTopBtn.style.transform = 'scale(1)';
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.style.opacity = '1';
     } else {
-        const btn = document.querySelector(`.tab-btn[onclick*="${tabName}"]`);
-        if (btn) btn.classList.add("active");
+      scrollToTopBtn.style.opacity = '0';
     }
-}
+  });
+});
