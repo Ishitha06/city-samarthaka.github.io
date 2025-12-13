@@ -63,7 +63,7 @@ body{
 .lead{ color:#345d48; margin:8px 0 0 0; font-size:14px }
 
 /* mindmap */
-.mindmap{ width:100%; border-radius:10px; display:block; max-height:340px; object-fit:cover }
+.mindmap img{ width:100%; border-radius:10px; display:block; max-height:340px; object-fit:cover }
 .mindmap .caption, .mindmap + .caption { font-size:13px; color:var(--muted); margin-top:8px }
 
 /* module */
