@@ -1,20 +1,20 @@
-/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL THEME RESTORED */
+/* p.css - Pratiksha Chougule - Smart City DS/A Project Theme - FINAL LIGHT MODE THEME */
 
 /* --------------------------------------
  * 1. Global Reset & Typography
  * -------------------------------------- */
 :root {
-    --color-primary: #1e3a8a; /* Deep Navy Blue */
-    --color-secondary: #059669; /* Medium Emerald Green */
-    --color-text-dark: #f8f8f8; /* Off-White for high contrast text */
-    --color-text-light: #d1d5db; /* Light gray for body text */
-    --color-bg-main: #111827; /* Dark Grey/Black for main background */
-    --color-bg-secondary: #1f2937; /* Slightly lighter dark for module cards */
-    --color-accent-bg: #4b5563; /* Medium grey for borders/highlights */
+    --color-primary: #1e3a8a; /* Deep Navy Blue (Accent Color) */
+    --color-secondary: #059669; /* Medium Emerald Green (Highlight Color) */
+    --color-text-dark: #333333; /* Dark Text for Light Backgrounds */
+    --color-text-light: #555555; /* Secondary Text/Body Copy */
+    --color-bg-main: #f4f4f4; /* Light Off-White Main Background */
+    --color-bg-secondary: #ffffff; /* Crisp White Module Cards */
+    --color-accent-bg: #cccccc; /* Light Gray for Borders/Separators */
     --font-heading: 'Cinzel', serif;
     --font-body: 'Playfair Display', serif;
     --border-radius: 8px;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -25,7 +25,7 @@
 
 body {
     font-family: var(--font-body);
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     background-color: var(--color-bg-main);
     line-height: 1.6;
 }
@@ -52,11 +52,11 @@ body {
 .brand {
     font-family: var(--font-heading);
     font-size: 1.2rem;
-    color: var(--color-secondary);
+    color: var(--color-primary); /* Use Primary Accent Color */
 }
 
 .mini-nav a {
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     text-decoration: none;
     padding: 5px 10px;
     border: 1px solid var(--color-accent-bg);
@@ -78,7 +78,7 @@ body {
 .hero h1 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--color-text-dark);
+    color: var(--color-primary); /* Use Primary Accent Color */
     margin-bottom: 10px;
 }
 
@@ -96,7 +96,7 @@ body {
 .caption {
     margin-top: 10px;
     font-style: italic;
-    color: var(--color-accent-bg);
+    color: var(--color-text-light);
 }
 
 /* --------------------------------------
@@ -165,6 +165,7 @@ body {
     margin-bottom: 5px;
     padding-left: 15px;
     border-left: 3px solid var(--color-secondary);
+    color: var(--color-text-light); /* Ensure body text is readable */
 }
 
 .subpoint strong {
@@ -176,7 +177,7 @@ body {
     float: right;
     font-size: 0.9rem;
     background-color: var(--color-primary);
-    color: var(--color-text-dark);
+    color: var(--color-bg-secondary); /* White text on primary accent */
     padding: 2px 6px;
     border-radius: 4px;
     font-family: var(--font-body);
@@ -184,14 +185,15 @@ body {
 
 /* Sidebar Boxes */
 .side-box {
-    background-color: #2b384a;
+    background-color: #f0f0f0; /* Light Gray background for sidebar */
     padding: 15px;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
+    border: 1px solid var(--color-accent-bg);
 }
 
 .side-box h4 {
-    color: var(--color-secondary);
+    color: var(--color-primary);
     margin-bottom: 10px;
     font-family: var(--font-heading);
 }
@@ -205,6 +207,7 @@ body {
 .side-box li {
     padding-left: 10px;
     position: relative;
+    color: var(--color-text-dark);
 }
 
 .side-box li::before {
@@ -221,7 +224,7 @@ body {
  * 4. Image Styling FIXES (Full Content Display)
  * -------------------------------------- */
 
-/* Detail Images (Overridden by inline styles in HTML, but kept here for fallback) */
+/* Detail Images (Fallback: primary styling is now handled by the inline styles in HTML) */
 .subimage { 
     width: 100%; 
     max-width: 100%; 
@@ -233,7 +236,7 @@ body {
     border: 1px solid var(--color-accent-bg); 
 }
 
-/* Mindmap Image */
+/* Mindmap Image (Fallback: primary styling is now handled by the inline styles in HTML) */
 .mindmap-img {
     width: 100%;
     max-width: 900px;
@@ -263,24 +266,26 @@ body {
     border-collapse: collapse;
     margin-bottom: 25px;
     font-size: 0.9rem;
+    background-color: var(--color-bg-secondary); /* White table background */
 }
 
 .eff-table th, .eff-table td {
     border: 1px solid var(--color-accent-bg);
     padding: 10px;
     text-align: left;
+    color: var(--color-text-dark);
 }
 
 .eff-table th {
     background-color: var(--color-primary);
-    color: var(--color-text-dark);
+    color: var(--color-bg-secondary); /* White text on primary accent */
     font-family: var(--font-heading);
     text-transform: uppercase;
     font-size: 0.85rem;
 }
 
 .eff-table tr:nth-child(even) {
-    background-color: #1a2430; /* slight variation for readability */
+    background-color: #f9f9f9; /* very slight variation for readability */
 }
 
 /* --------------------------------------
@@ -309,7 +314,7 @@ body {
 
 .code-btn {
     background-color: var(--color-secondary);
-    color: var(--color-bg-main);
+    color: var(--color-bg-secondary); /* White text on secondary color */
 }
 
 .code-btn:hover {
@@ -325,7 +330,7 @@ body {
 
 .ghost:hover {
     background-color: var(--color-secondary);
-    color: var(--color-bg-main);
+    color: var(--color-bg-secondary); /* White text on hover */
 }
 
 /* --------------------------------------
@@ -337,7 +342,7 @@ body {
     border-top: 1px solid var(--color-accent-bg);
     text-align: center;
     font-size: 0.85rem;
-    color: var(--color-accent-bg);
+    color: var(--color-text-light);
 }
 
 /* --------------------------------------
@@ -388,10 +393,10 @@ body {
 
 .code-block {
     background-color: #000;
-    color: #00ff88; /* Hacking/terminal color */
+    color: #00ff88; /* Hacking/terminal color for C++ */
     padding: 15px;
     border-radius: 4px;
-    white-space: pre-wrap; /* Allows long lines to wrap */
+    white-space: pre-wrap;
     overflow-x: auto;
     font-family: monospace;
     font-size: 0.9rem;
