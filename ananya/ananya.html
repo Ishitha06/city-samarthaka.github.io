@@ -77,7 +77,7 @@
                 Code
             </button>
             <button type="button" class="btn btn-success" 
-            onclick="window.location.href='https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/land_housing_zoning_with_status%20(1).csv';">
+            onclick="window.location.href='https://github.com/Ishitha06/city-samarthaka.github.io/blob/main/ananya/Datasets/land_housing_zoning_1000_final.csv;">
         Dataset
     </button>
     
@@ -89,8 +89,12 @@
 
                 <h4>C++ Logic used</h4>
                 <pre><code>#include &lt;iostream&gt;
+#include <bits/stdc++.h>
 using namespace std;
 
+const int MAXN = 1005;
+
+// Union-Find functions (original logic)
 int unionfind(int arr[], int u, int v) {
     if (arr[u] == arr[v])
         return 1;
@@ -98,55 +102,139 @@ int unionfind(int arr[], int u, int v) {
         return 0;
 }
 
-// merge zoning block of u into zoning block of v
 void unionn(int arr[], int n, int u, int v) {
-    int old_id = arr[u];
-    int new_id = arr[v];
-    if (old_id == new_id) return;          // no work needed
-
-    for (int i = 0; i < n; i++) {
-        if (arr[i] == old_id)
-            arr[i] = new_id;
-    }
+    if (unionfind(arr, u, v)) return;
+    int ru = u, rv = v;
+    while (arr[ru] != ru) ru = arr[ru];
+    while (arr[rv] != rv) rv = arr[rv];
+    arr[ru] = rv;
 }
+
+struct Plot {
+    string plot_id, zone_code, ward_code, current_use, owner_name;
+    string income_band, occupancy_type, status_vs_0, status;
+    double plot_area_sqm, max_far, max_height_m;
+    int zoning_block_id, household_size, tenure_years, zoning_block_final;
+};
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int n, m, q;
-    cin >> n;                  // number of plots (e.g. up to 5000)
-    int *arr = new int[n];
-
-    // initially, each plot is its own zoning block
-    for (int i = 0; i < n; i++)
-        arr[i] = i;
-
-    cin >> m;                  // number of unions
-    while (m--) {
-        int u, v;
-        cin >> u >> v;         // 0-based plot indices
-        if (u >= 0 && u < n && v >= 0 && v < n)
-            unionn(arr, n, u, v);
-    }
-
-    cin >> q;                  // number of queries
-    while (q--) {
-        int u, v;
-        cin >> u >> v;
-        if (u >= 0 && u < n && v >= 0 && v < n) {
-            if (unionfind(arr, u, v))
-                cout << "Same zoning block\n";
-            else
-                cout << "Different zoning blocks\n";
-        } else {
-            cout << "Invalid plot index\n";
+    const int n = 1000;
+    Plot plots[MAXN];
+    int parent[MAXN];
+    
+    // Read COMPLETE CSV (all 16 columns)
+    cout << "Reading land_housing_zoning_1000_final.csv..." << endl;
+    ifstream fin("land_housing_zoning_1000_final.csv");
+    string line;
+    getline(fin, line);  // Skip header
+    
+    int idx = 0;
+    while (getline(fin, line) && idx < n) {
+        stringstream ss(line);
+        string token;
+        vector<string> cols;
+        while (getline(ss, token, ',')) {
+            cols.push_back(token);
+        }
+        
+        if (cols.size() >= 16) {
+            plots[idx].plot_id = cols[0];
+            plots[idx].zone_code = cols[1];
+            plots[idx].ward_code = cols[2];
+            plots[idx].current_use = cols[3];
+            plots[idx].plot_area_sqm = stod(cols[4]);
+            plots[idx].max_far = stod(cols[5]);
+            plots[idx].max_height_m = stod(cols[6]);
+            plots[idx].zoning_block_id = stoi(cols[7]);
+            plots[idx].owner_name = cols[8];
+            plots[idx].household_size = stoi(cols[9]);
+            plots[idx].income_band = cols[10];
+            plots[idx].occupancy_type = cols[11];
+            plots[idx].tenure_years = stoi(cols[12]);
+            plots[idx].zoning_block_final = stoi(cols[13]);
+            plots[idx].status_vs_0 = cols[14];
+            plots[idx].status = cols[15];
+            
+            parent[idx] = plots[idx].zoning_block_id;
+            idx++;
         }
     }
-
-    delete[] arr;
+    fin.close();
+    
+    cout << "Loaded " << idx << " plots with FULL Union-Find logic" << endl;
+    
+    // Display table format (first 10 rows)
+    cout << "\n=== LAND HOUSING ZONING TABLE (First 10) ===" << endl;
+    cout << left << setw(10) << "plot_id" 
+         << setw(12) << "zone_code" 
+         << setw(10) << "ward_code" 
+         << setw(16) << "current_use" 
+         << setw(12) << "area_sqm" 
+         << setw(8) << "FAR" 
+         << setw(10) << "height_m" 
+         << setw(8) << "block_id" 
+         << setw(14) << "owner" 
+         << setw(12) << "status" << endl;
+    
+    for (int i = 0; i < 10; i++) {
+        cout << left << setw(10) << plots[i].plot_id
+             << setw(12) << plots[i].zone_code
+             << setw(10) << plots[i].ward_code
+             << setw(16) << plots[i].current_use
+             << setw(12) << fixed << setprecision(1) << plots[i].plot_area_sqm
+             << setw(8) << plots[i].max_far
+             << setw(10) << plots[i].max_height_m
+             << setw(8) << plots[i].zoning_block_id
+             << setw(14) << plots[i].owner_name
+             << plots[i].status << endl;
+    }
+    
+    // Interactive Union-Find operations
+    cout << "\n=== UNION-FIND ZONING OPERATIONS ===" << endl;
+    cout << "Enter number of operations: ";
+    int q;
+    cin >> q;
+    
+    for (int i = 0; i < q; i++) {
+        int u, v;
+        cout << "Enter plot indices (1-based): ";
+        cin >> u >> v;
+        u--; v--;  // Convert to 0-based
+        
+        if (u >= 0 && u < n && v >= 0 && v < n) {
+            if (unionfind(parent, u, v)) {
+                cout << "Same zoning block" << endl;
+                cout << "  " << plots[u].plot_id << " & " << plots[v].plot_id 
+                     << " both in BLOCK_" << parent[u] << endl;
+            } else {
+                cout << "Different zoning blocks" << endl;
+                cout << "  Merging " << plots[u].plot_id << " into " << plots[v].plot_id << endl;
+                unionn(parent, n, u, v);
+            }
+        }
+    }
+    
+    // Final status updates
+    cout << "\n=== FINAL ZONING STATUS (First 10) ===" << endl;
+    for (int i = 0; i < 10; i++) {
+        cout << plots[i].plot_id << " (" << plots[i].zone_code << ") "
+             << "BLOCK_" << parent[i] << " | " << plots[i].status << endl;
+    }
+    
+    // Summary statistics
+    cout << "\n=== ZONING SUMMARY ===" << endl;
+    map<int, int> block_counts;
+    for (int i = 0; i < n; i++) {
+        block_counts[parent[i]]++;
+    }
+    cout << "Total plots: " << n << endl;
+    cout << "Active zoning blocks: " << block_counts.size() << endl;
+    cout << "Largest block: " << max_element(block_counts.begin(), block_counts.end(),
+              [](const pair<int,int>& a, const pair<int,int>& b){ return a.second < b.second; })->second << " plots" << endl;
+    
     return 0;
 }
+
 ​
 
 </code></pre>
