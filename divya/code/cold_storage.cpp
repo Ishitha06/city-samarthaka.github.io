@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -9,8 +10,8 @@ vector<vector<string>> readCSV(const string& filename) {
     ifstream file(filename);
     string line, cell;
     if (!file.is_open()) {
-        cout << "Error opening file: " << filename << endl;
-        exit(1);
+        cerr << "Error opening file: " << filename << endl;
+        exit(EXIT_FAILURE);
     }
     while (getline(file, line)) {
         stringstream ss(line);
@@ -29,16 +30,17 @@ struct Item {
     string itemID;
     string supplier;
     string type;
-    int expiry;       // days to expiry (smaller = urgent)
+    int expiry;        // days to expiry
     int quantity;
+    string status;     // STORED, SORTED, DISPATCHED
 };
 
 /* ==========================
-   MIN HEAP COMPARATOR
+   MIN HEAP (NEAR EXPIRY)
    ========================== */
 struct ExpiryCompare {
     bool operator()(const Item& a, const Item& b) {
-        return a.expiry > b.expiry; // min-heap by expiry
+        return a.expiry > b.expiry;
     }
 };
 
@@ -52,7 +54,7 @@ struct Node {
     Node(Item i): item(i), left(nullptr), right(nullptr), height(1) {}
 };
 
-int height(Node* n){ return n ? n->height : 0; }
+int height(Node* n) { return n ? n->height : 0; }
 
 Node* rightRotate(Node* y) {
     Node* x = y->left;
@@ -74,7 +76,7 @@ Node* leftRotate(Node* x) {
     return y;
 }
 
-int getBalance(Node* n){
+int getBalance(Node* n) {
     return n ? height(n->left) - height(n->right) : 0;
 }
 
@@ -87,10 +89,8 @@ Node* insertAVL(Node* node, Item item) {
         node->right = insertAVL(node->right, item);
 
     node->height = 1 + max(height(node->left), height(node->right));
-
     int balance = getBalance(node);
 
-    // Rotations
     if (balance > 1 && item.expiry < node->left->item.expiry)
         return rightRotate(node);
     if (balance < -1 && item.expiry > node->right->item.expiry)
@@ -107,26 +107,49 @@ Node* insertAVL(Node* node, Item item) {
 }
 
 /* ==========================
-   INORDER TRAVERSAL
+   INORDER AVL TRAVERSAL
    ========================== */
 void inorder(Node* root) {
     if (!root) return;
     inorder(root->left);
     cout << root->item.itemID
-         << " Expiry: " << root->item.expiry << endl;
+         << " | Expiry: " << root->item.expiry
+         << " | Qty: " << root->item.quantity << endl;
     inorder(root->right);
 }
 
+/* ==========================
+   BINARY SEARCH (BY ITEM ID)
+   ========================== */
+int binarySearchItem(const vector<Item>& items, const string& id) {
+    int l = 0, r = items.size() - 1;
+    while (l <= r) {
+        int mid = (l + r) / 2;
+        if (items[mid].itemID == id) return mid;
+        if (items[mid].itemID < id) l = mid + 1;
+        else r = mid - 1;
+    }
+    return -1;
+}
+
+/* ==========================
+   MAIN
+   ========================== */
 int main() {
+
+    cout << "=== Cold Storage & Sorting Center ===\n";
 
     auto data = readCSV("cold_storage_items.csv");
 
     priority_queue<Item, vector<Item>, ExpiryCompare> minHeap;
     unordered_map<string, vector<Item>> supplierMap;
+    unordered_map<string, int> typeCount;
     vector<Item> items;
     Node* avlRoot = nullptr;
 
-    // Skip header
+    /* --------------------------
+       LOAD ITEMS
+       -------------------------- */
     for (int i = 1; i < data.size(); i++) {
         Item it;
         it.itemID = data[i][0];
@@ -134,28 +157,78 @@ int main() {
         it.type = data[i][2];
         it.expiry = stoi(data[i][3]);
         it.quantity = stoi(data[i][4]);
+        it.status = "STORED";
 
         minHeap.push(it);
         supplierMap[it.supplier].push_back(it);
+        typeCount[it.type]++;
         items.push_back(it);
         avlRoot = insertAVL(avlRoot, it);
     }
 
-    cout << "Dispatch Priority (Near Expiry First):\n";
+    /* --------------------------
+       SORT ITEMS BY ID (SEARCH)
+       -------------------------- */
+    sort(items.begin(), items.end(),
+         [](const Item& a, const Item& b) {
+             return a.itemID < b.itemID;
+         });
+
+    /* --------------------------
+       DISPATCH PRIORITY
+       -------------------------- */
+    cout << "\nDispatch Priority (Greedy by Expiry):\n";
     while (!minHeap.empty()) {
         Item it = minHeap.top(); minHeap.pop();
-        cout << it.itemID << " | Expiry in "
-             << it.expiry << " days\n";
+        it.status = "DISPATCHED";
+        cout << it.itemID
+             << " | Expiry in " << it.expiry
+             << " days | Qty: " << it.quantity << endl;
     }
 
+    /* --------------------------
+       AVL SORTED VIEW
+       -------------------------- */
     cout << "\nItems Sorted by Expiry (AVL Tree):\n";
     inorder(avlRoot);
 
-    cout << "\nSupplier Inventory Lookup:\n";
+    /* --------------------------
+       SUPPLIER INVENTORY
+       -------------------------- */
+    cout << "\nSupplier Inventory Summary:\n";
     for (auto &p : supplierMap) {
-        cout << "Supplier " << p.first
-             << " has " << p.second.size() << " items\n";
+        cout << p.first << " supplies "
+             << p.second.size() << " items\n";
     }
 
+    /* --------------------------
+       CATEGORY STATISTICS
+       -------------------------- */
+    cout << "\nItem Type Distribution:\n";
+    for (auto &p : typeCount) {
+        cout << p.first << " : " << p.second << " items\n";
+    }
+
+    /* --------------------------
+       ITEM SEARCH (DEMO)
+       -------------------------- */
+    string searchID;
+    cout << "\nEnter item ID to search: ";
+    cin >> searchID;
+
+    int idx = binarySearchItem(items, searchID);
+    if (idx != -1) {
+        Item &it = items[idx];
+        cout << "Item Found: "
+             << it.itemID
+             << " | Supplier: " << it.supplier
+             << " | Type: " << it.type
+             << " | Expiry: " << it.expiry
+             << " | Qty: " << it.quantity << endl;
+    } else {
+        cout << "Item not found.\n";
+    }
+
+    cout << "\nSystem execution completed.\n";
     return 0;
 }
