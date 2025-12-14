@@ -701,7 +701,7 @@ int main() {
         struct NodeInfo {
             int    id;
             string type;
-            double dist; // minutes from source (precomputed by Python)
+            double dist; // minutes from source 
         };
         
         int main() {
@@ -1174,6 +1174,7 @@ int main() {
 <div id="bit-code-block" style="display:none; margin-top:20px;">
 
   <h4>C++ Logic used (Fenwick / BIT for Resource Monitoring)</h4>
+    <code><pre>
   #include <bits/stdc++.h>
 using namespace std;
 
@@ -1485,6 +1486,7 @@ O(n) time and prepares it for queries and updates.
 
 <div id="seg-code-block" style="display:none; margin-top:20px;">
     // carbon_segment_tree.cpp
+    <pre><code>#include &lt;iostream&gt;
     #include <bits/stdc++.h>
     using namespace std;
     
@@ -1663,7 +1665,7 @@ O(n) time and prepares it for queries and updates.
     }
     
   
-/code></pre>
+</code></pre>
         </div>
 
     </div>
@@ -2007,7 +2009,7 @@ vector<Edge> generateEdges(const vector<Node> &nodes,
     return edges;
 }
 
-// Prim's MST using adjacency list + min-heap. [web:255][web:267]
+
 vector<tuple<int,int,double>> primMST(int n,
                                       const vector<vector<pair<int,double>>> &adj) {
     vector<bool> inMST(n, false);
@@ -2621,7 +2623,7 @@ int main() {
     </a>
 
     <div id="admin-budget-code-block" style="display:none; margin-top:20px;">
-      <h4>C++ / Python Logic used (Budget Persistent Segment Tree)</h4>
+      <h4>C++  Logic used (Budget Persistent Segment Tree)</h4>
       <pre><code>
         // admin_budget_pst.cpp
         #include <bits/stdc++.h>
