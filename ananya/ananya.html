@@ -3476,14 +3476,224 @@ int main() {
     block.style.display = (current === 'none') ? 'block' : 'none';
   }
 </script>
+<h4>Land &amp; Housing – Advanced Structures Overview</h4>
+<table style="width:100%; border-collapse:collapse; text-align:center; font-family:Arial, sans-serif; font-size:14px;">
+  <thead>
+    <tr style="background-color:#245b33; color:#ffffff;">
+      <th style="padding:8px; border:1px solid #dddddd;">DATA STRUCTURE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">TYPICAL LAND &amp; HOUSING USE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">BUILD / INSERT</th>
+      <th style="padding:8px; border:1px solid #dddddd;">QUERY</th>
+      <th style="padding:8px; border:1px solid #dddddd;">UPDATE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">SPACE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Union–Find (Disjoint Set)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Track connected zoning blocks / merged parcels</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Make‑set: O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Find: amortized O(α(n))</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Union: amortized O(α(n))</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
 
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid #dddddd;">Red‑Black Tree</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Balanced index of property records or deeds</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Insert: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Search: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Delete / update: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
 
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Segment Tree</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Range statistics over land values / densities</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Build: O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Range query: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Point / range update: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+  </tbody>
+</table>
 
+<h4>Wildlife – Algorithm Efficiency Overview</h4>
+<table style="width:100%; border-collapse:collapse; text-align:center; font-family:Arial, sans-serif; font-size:14px;">
+  <thead>
+    <tr style="background-color:#245b33; color:#ffffff;">
+      <th style="padding:8px; border:1px solid #dddddd;">ALGORITHM / STRUCTURE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">TYPICAL WILDLIFE USE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">BUILD / INSERT</th>
+      <th style="padding:8px; border:1px solid #dddddd;">QUERY</th>
+      <th style="padding:8px; border:1px solid #dddddd;">UPDATE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">SPACE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Dijkstra’s Algorithm</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Safest migration path between habitats</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(E log V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(E log V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Edge weight update: O(E log V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(V + E)</td>
+    </tr>
 
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid #dddddd;">Max Heap</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Highest‑priority animals (e.g., endangered)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Extract‑max: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Increase‑key: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Hash Map</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Lookup of tagged animal records</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(1)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(1)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(1)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid #dddddd;">Fenwick Tree (BIT)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Cumulative counts of sightings over time</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Prefix / range sum: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Point update: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Boyer–Moore</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Search patterns in tracking logs</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Preprocess pattern: O(m + |Σ|)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(n / m), worst O(n · m)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Pattern change: O(m + |Σ|)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(m + |Σ|)</td>
+    </tr>
+
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid #dddddd;">Segment Tree</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Range stats over territories (e.g., population)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Build: O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Range query: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Point / range update: O(log n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+  </tbody>
+</table>
+<h4>Industries – MST &amp; Search Efficiency Overview</h4>
+<table style="width:100%; border-collapse:collapse; text-align:center; font-family:Arial, sans-serif; font-size:14px;">
+  <thead>
+    <tr style="background-color:#245b33; color:#ffffff;">
+      <th style="padding:8px; border:1px solid #dddddd;">ALGORITHM / STRUCTURE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">TYPICAL INDUSTRY USE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">BUILD / INSERT</th>
+      <th style="padding:8px; border:1px solid #dddddd;">QUERY</th>
+      <th style="padding:8px; border:1px solid #dddddd;">UPDATE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">SPACE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Binary Search Tree (BST)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Search over ordered product or asset IDs</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(log n), worst O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(log n), worst O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Average O(log n), worst O(n)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid #dddddd;">Prim’s Algorithm (MST)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Design minimum‑cost factory or network layouts</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Init graph + heap: O(V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Run MST: O(E log V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Edge weight change: rerun or partial: ≈ O(E log V)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(V + E)</td>
+    </tr>
+
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid #dddddd;">Kruskal’s Algorithm (MST)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Plan cheapest inter‑city logistics or power grids</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Sort edges: O(E log E)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Build MST: O(E log E)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">Graph change: resort / rerun: ≈ O(E log E)</td>
+      <td style="padding:8px; border:1px solid #dddddd;">O(V + E)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Administration – Data Structure Efficiency Overview</h4>
+<table style="width:100%; border-collapse:collapse; text-align:center; font-family:Arial, sans-serif; font-size:14px;">
+  <thead>
+    <tr style="background-color:#245b33; color:#ffffff;">
+      <th style="padding:8px; border:1px solid #dddddd;">DATA STRUCTURE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">TYPICAL ADMIN USE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">BUILD / INSERT</th>
+      <th style="padding:8px; border:1px solid #dddddd;">QUERY</th>
+      <th style="padding:8px; border:1px solid #dddddd;">UPDATE</th>
+      <th style="padding:8px; border:1px solid #dddddd;">SPACE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid:#dddddd;">Persistent Segment Tree</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Versioned reports over time (e.g., budgets)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Build: O(n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Range query per version: O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Update (new version): O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(n log n) across versions</td>
+    </tr>
+
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid:#dddddd;">AVL Tree</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Balanced index of citizen or file IDs</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Search: O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Insert / delete: O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#f3faf5;">
+      <td style="padding:8px; border:1px solid:#dddddd;">Segment Tree</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Aggregated stats over departments or regions</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Build: O(n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Range query: O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Point / range update: O(log n)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(n)</td>
+    </tr>
+
+    <tr style="background-color:#e5f2ec;">
+      <td style="padding:8px; border:1px solid:#dddddd;">Trie</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Fast lookup of names, codes, or prefixes</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(L) per key (L = length)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Search / prefix query: O(L)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">Insert / delete: O(L)</td>
+      <td style="padding:8px; border:1px solid:#dddddd;">O(K · L) for K keys</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="../index.html" class="back-btn">← Back to Team</a>
 
 
 
 <script src="an.js"></script>
+
+  
+
+
+
+
+
+
+
+
 
 </body>
 </html>
