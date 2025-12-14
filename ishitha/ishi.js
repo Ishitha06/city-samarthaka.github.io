@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("page-loaded");
 });
 
+// UPDATED: Added ".summary-table" to the list below
 const animatedItems = document.querySelectorAll(
-    "h1, h2, h3, h4, p, img, .section-heading, .card, .content-box, .efficiency-box"
+    "h1, h2, h3, h4, p, img, .section-heading, .card, .content-box, .efficiency-box, .summary-table"
 );
 
 const scrollObserver = new IntersectionObserver((entries) => {

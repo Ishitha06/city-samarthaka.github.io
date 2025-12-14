@@ -65,8 +65,11 @@ html, body {
 ------------------------------ */
 .sdg-container { display: flex; align-items: center; gap: 12px; font-size: 20px; }
 .sdg-div {
-    background-color: #2b4d34; color: white; padding: 6px 14px;
-    border-radius: 8px; font-family: 'Cinzel', serif; font-size: 16px;
+    background-color: #2b4d34; 
+    color: white; padding: 6px 14px;
+    border-radius: 8px; 
+    font-family: 'Cinzel', serif; 
+    font-size: 20px;
     font-weight: 600; display: inline-block;
 }
 .algo-div {
@@ -94,6 +97,41 @@ html, body {
 .heap-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .heap-table th { background: #c3f2c3; padding: 5px; border: 1px solid #a1e6a1; }
 .heap-table td { text-align: center; padding: 5px; border: 1px solid #b9e8b9; }
+
+
+/* Update the existing .efficiency-box class */
+.efficiency-box {
+    /* 1. Change layout to column so the title sits on top of the table */
+    flex-direction: column;
+    
+    /* 2. Change fixed height to auto so the new text fits comfortably */
+    height: auto;
+    min-height: 220px; 
+    
+    /* Keep existing styles below... */
+    width: 380px; 
+    border-radius: 8px;
+    border: 2px solid rgba(0,0,0,0.22); 
+    background: #d4f8d4;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 15px 10px; /* Increased padding slightly */
+}
+
+/* Add the Title automatically using CSS */
+.efficiency-box::before {
+    content: "Efficiency Analysis";
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #2b4d34; /* Deep Green to match theme */
+    margin-bottom: 31px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1.5px solid #2b4d34;
+    padding-bottom: 2px;
+}
 
 /* Buttons */
 .btn {
@@ -197,4 +235,72 @@ html, body {
     background-color: #2b4d34;   /* Green background on hover */
     color: #fff;                 /* White text on hover */
     transform: translateY(-2px);
+}
+
+/* TABLE AT END */
+
+/* ------------------------------
+   SUMMARY TABLE STYLING
+------------------------------ */
+
+/* Container to ensure horizontal scroll on small screens */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(43, 77, 52, 0.2);
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Playfair Display', serif;
+    background-color: #fff; /* White background for contrast against the box */
+}
+
+/* Header Styling - Matching the Deep Green Theme */
+.summary-table thead tr {
+    background-color: #2b4d34;
+    color: #ffffff;
+    text-align: left;
+}
+
+.summary-table th {
+    padding: 18px 15px;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+/* Body Styling */
+.summary-table td {
+    padding: 15px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 18px;
+    color: #2d2d2d;
+    vertical-align: top; /* Aligns text to top if wrapping occurs */
+}
+
+/* Alternating Row Colors for Readability (Light Cream) */
+.summary-table tbody tr:nth-of-type(even) {
+    background-color: #f9f7f1;
+}
+
+/* Hover Effect */
+.summary-table tbody tr:hover {
+    background-color: #e8f5e9; /* Very light green hover */
+    transition: background-color 0.2s ease;
+}
+
+/* Column Width Adjustments */
+.summary-table th:nth-child(1) { width: 25%; } /* Algo Name */
+.summary-table th:nth-child(2) { width: 50%; } /* Use Cases */
+.summary-table th:nth-child(3) { width: 25%; } /* SDGs */
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .summary-table th, .summary-table td {
+        font-size: 16px;
+        padding: 10px;
+    }
 }
