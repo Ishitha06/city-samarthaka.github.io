@@ -72,3 +72,14 @@ if (backBtn) {
         window.location.href = "../index.html";
     });
 }
+
+
+// FOOTER COPYRIGHT
+
+// ---------------------------------------------------------
+// 7. Auto-update footer copyright year
+// ---------------------------------------------------------
+const footerYear = document.getElementById("footer-year");
+if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
+}

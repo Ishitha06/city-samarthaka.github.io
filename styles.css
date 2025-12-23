@@ -1129,3 +1129,43 @@ nav a.active::after{
         0 0 22px rgba(255, 255, 255, 0.5);
     transition: 0.4s ease;
 }
+
+/* // FOOTER COPYRIGHT */
+
+/* -----------------------
+   PROFESSIONAL COPYRIGHT
+   ----------------------- */
+
+.footer-divider {
+    width: 120px;
+    height: 2px;
+    margin: 18px auto;
+    background: linear-gradient(90deg, #c99a6b, #e2c19f);
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+
+/* -----------------------
+   UNIQUE COPYRIGHT STYLE
+   ----------------------- */
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;   /* unique font */
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+
+    /* muted bronze tone (unique but soft) */
+    color: #bfa67a;
+
+    margin-top: 14px;
+    opacity: 0.85;
+    text-align: center;
+}
+
+/* subtle hover polish */
+.site-footer:hover .footer-copyright {
+    color: #dcc9a2;
+    transition: color 0.4s ease;
+}
