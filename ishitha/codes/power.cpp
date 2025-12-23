@@ -1,14 +1,3 @@
-// grid_full.cpp
-// Reads samarthaka_grid.csv (10000 rows), builds graph and runs:
-//  - Power-source max-heap selection
-//  - Kruskal MST (Union-Find)
-//  - Dijkstra shortest path (min-heap implemented with arrays)
-//  - Segment tree (meter queries/updates)
-//  - Outage detection (simulate disabling edges, use Union-Find)
-//
-// NO std::vector used — static arrays sized to support up to 10050 nodes and ~200k edges.
-
-// #include <bits/stdc++.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -204,53 +193,80 @@ Source srcTop() {
 }
 
 // ----------------------------- CSV loader -----------------------------
+
+// ----------------------------- CSV loader (FIXED & SAFE) -----------------------------
 void loadCSV(const char *fname) {
     ifstream fin(fname);
     if (!fin.is_open()) {
         cerr << "Unable to open " << fname << "\n";
         exit(1);
     }
+
     string line;
-    getline(fin, line); // header
+    getline(fin, line); // skip header
+
     int idx = 0;
     string tokens[32];
+
     while (getline(fin, line)) {
-        if ((int)line.size() < 2) continue;
+        if (line.size() < 2) continue;
+
         int cnt;
         splitCSVLine(line, tokens, cnt);
-        // Expecting at least 12 columns (see guidance)
-        // tokens[0]=NodeID, [1]=NodeType, [7]=ConnectedTo, [8]=LineResistance, [11]=MeterReadingMonthly
-        int nodeid = 0;
-        try { nodeid = stoi(tokens[0]); }
-        catch(...) { nodeid = idx; }
+
+        // Expected columns:
+        // [0] NodeID
+        // [1] Type
+        // [2] Zone (ignored)
+        // [3] ConnectedTo
+        // [4] Resistance
+        // [5] MonthlyUnits
+
+        // -------- NodeID --------
+        int nodeid = idx;
+        try {
+            if (cnt > 0 && !tokens[0].empty())
+                nodeid = stoi(tokens[0]);
+        } catch (...) {}
         NodeID[idx] = nodeid;
-        string ttype = (cnt>1?tokens[1]:"Unknown");
-        strncpy(NodeType[idx], ttype.c_str(), sizeof(NodeType[idx])-1);
-        NodeType[idx][sizeof(NodeType[idx])-1]=0;
-        int conn = 0;
-        if (cnt>7) {
-            try { conn = stoi(tokens[7]); } catch(...) { conn = 0; }
-        }
+
+        // -------- NodeType --------
+        string ttype = (cnt > 1 ? tokens[1] : "Unknown");
+        strncpy(NodeType[idx], ttype.c_str(), 31);
+        NodeType[idx][31] = '\0';
+
+        // -------- ConnectedTo --------
+        int conn = -1;
+        try {
+            if (cnt > 3 && !tokens[3].empty())
+                conn = stoi(tokens[3]);
+        } catch (...) {}
         ConnectedTo[idx] = conn;
+
+        // -------- Resistance --------
         int rint = 1;
-        if (cnt>8) {
-            try {
-                float rf = stof(tokens[8]);
-                rint = max(1, (int)round(rf));
-            } catch(...) { rint = 1; }
-        }
+        try {
+            if (cnt > 4 && !tokens[4].empty())
+                rint = max(1, (int)round(stof(tokens[4])));
+        } catch (...) {}
         LineResInt[idx] = rint;
+
+        // -------- Monthly Meter --------
         long long month = 0;
-        if (cnt>11) {
-            try { month = stoll(tokens[11]); } catch(...) { month = 0; }
-        }
+        try {
+            if (cnt > 5 && !tokens[5].empty())
+                month = stoll(tokens[5]);
+        } catch (...) {}
         MeterMonth[idx] = month;
+
         idx++;
         if (idx >= MAX_NODES) break;
     }
+
     N = idx;
     fin.close();
 }
+
 
 // ----------------------------- Kruskal MST -----------------------------
 long long runKruskalAndPrint() {
