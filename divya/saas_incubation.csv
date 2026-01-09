@@ -1,0 +1,151 @@
+business_id,name,category,revenue,location,rating,priority
+B0001,Ananya Hegde,Startup,544749.58,South,4.39,6
+B0002,Ananya Hegde,SaaS,485515.1,Central,2.46,1
+B0003,Manoj Rao,Digital Service,331358.92,West,1.95,3
+B0004,Sneha Joshi,SaaS,698188.13,West,4.69,10
+B0005,Karthik Patil,Digital Service,751152.79,South,1.22,6
+B0006,Arjun Shetty,Startup,501140.28,East,3.01,9
+B0007,Pooja Deshmukh,Digital Service,784981.41,Central,1.39,9
+B0008,Manoj Rao,Digital Service,500138.53,South,1.78,2
+B0009,Sneha Joshi,Digital Service,772899.43,Central,3.66,8
+B0010,Manoj Rao,Digital Service,552016.73,South,1.69,1
+B0011,Pooja Deshmukh,Startup,686174.22,South,3.18,4
+B0012,Manoj Rao,SaaS,472814.95,East,4.67,4
+B0013,Rohan Jain,Startup,160315.55,East,3.46,10
+B0014,Rohan Jain,SaaS,750915.2,West,3.48,2
+B0015,Ananya Hegde,SaaS,623867.53,South,3.96,2
+B0016,Pooja Deshmukh,SaaS,763950.63,South,3.83,4
+B0017,Aditi Kulkarni,SaaS,109448.7,Central,1.38,1
+B0018,Riya Kulkarni,Startup,769723.1,Central,3.12,4
+B0019,Aditya Mehta,Digital Service,448734.16,South,1.86,3
+B0020,Ananya Hegde,Startup,71087.39,North,4.25,7
+B0021,Aditi Kulkarni,Digital Service,378279.36,South,1.65,1
+B0022,Kiran Shinde,Digital Service,201030.18,East,2.08,5
+B0023,Sneha Joshi,Digital Service,274462.12,South,4.13,5
+B0024,Aditya Mehta,Digital Service,293436.69,North,4.45,6
+B0025,Neha Iyer,Digital Service,154470.46,South,2.24,2
+B0026,Rohan Jain,SaaS,527713.8,South,4.79,9
+B0027,Aditi Kulkarni,Digital Service,75272.46,North,3.71,9
+B0028,Pranav Iyer,Startup,635951.98,North,4.81,10
+B0029,Arjun Shetty,Startup,549654.49,North,4.66,2
+B0030,Megha Kapoor,Startup,196942.21,West,1.81,7
+B0031,Pranav Iyer,Digital Service,381104.5,South,2.07,5
+B0032,Karthik Patil,Digital Service,99556.19,West,2.63,2
+B0033,Karthik Patil,SaaS,677230.2,East,4.13,3
+B0034,Megha Kapoor,SaaS,150488.6,Central,2.38,3
+B0035,Neha Iyer,Startup,511561.35,South,4.22,3
+B0036,Sanjana Rao,Digital Service,263111.01,Central,1.71,3
+B0037,Kiran Shinde,Startup,406184.93,North,4.84,2
+B0038,Sneha Joshi,Digital Service,777362.42,North,2.69,4
+B0039,Aditi Kulkarni,Startup,307333.84,South,3.78,6
+B0040,Karthik Patil,SaaS,525306.74,East,3.16,5
+B0041,Pooja Deshmukh,Digital Service,56568.08,North,1.39,4
+B0042,Megha Kapoor,Startup,715627.53,North,1.62,10
+B0043,Neha Iyer,SaaS,799141.88,North,4.27,8
+B0044,Pooja Deshmukh,Startup,610792.48,West,3.23,9
+B0045,Sanjana Rao,SaaS,145371.92,South,3.31,3
+B0046,Ananya Hegde,SaaS,401558.52,Central,1.18,1
+B0047,Rohan Jain,Digital Service,585319.8,East,3.2,3
+B0048,Arjun Shetty,SaaS,522431.53,West,4.26,2
+B0049,Kiran Shinde,Startup,179663.34,East,2.37,1
+B0050,Neha Iyer,Digital Service,234944.48,East,2.23,2
+B0051,Pranav Iyer,SaaS,188192.96,East,3.4,3
+B0052,Neha Iyer,Digital Service,286677.05,Central,2.52,2
+B0053,Ananya Hegde,Digital Service,209856.47,South,2.28,7
+B0054,Karthik Patil,SaaS,484410.82,South,1.1,4
+B0055,Sanjana Rao,Digital Service,268318.42,South,3.75,6
+B0056,Neha Iyer,SaaS,639271.42,East,4.84,5
+B0057,Manoj Rao,SaaS,490744.13,West,1.14,3
+B0058,Neha Iyer,SaaS,685013.71,North,3.55,1
+B0059,Pooja Deshmukh,Startup,543929.82,North,1.24,6
+B0060,Neha Iyer,Digital Service,302700.47,West,1.43,8
+B0061,Aditya Mehta,SaaS,124712.21,East,4.82,5
+B0062,Kiran Shinde,SaaS,704752.68,North,1.73,6
+B0063,Manoj Rao,Digital Service,171374.08,East,1.73,1
+B0064,Sneha Joshi,SaaS,504999.26,Central,1.81,1
+B0065,Pranav Iyer,Digital Service,237884.47,West,4.99,9
+B0066,Pooja Deshmukh,SaaS,287061.55,North,4.3,4
+B0067,Kiran Shinde,Startup,797532.43,East,4.6,4
+B0068,Karthik Patil,Digital Service,664572.11,East,3.53,7
+B0069,Sanjana Rao,Digital Service,744627.8,West,1.4,4
+B0070,Kiran Shinde,Startup,208735.53,North,2.94,3
+B0071,Arjun Shetty,SaaS,792673.62,North,4.6,7
+B0072,Aditya Mehta,Digital Service,710268.0,North,4.46,5
+B0073,Aditi Kulkarni,Startup,740123.11,South,1.99,7
+B0074,Megha Kapoor,Digital Service,140110.86,Central,3.54,3
+B0075,Sneha Joshi,Startup,52370.64,South,2.92,6
+B0076,Kiran Shinde,SaaS,721768.21,West,3.08,5
+B0077,Aditya Mehta,Digital Service,768768.45,North,3.91,5
+B0078,Megha Kapoor,Startup,142048.32,North,1.97,1
+B0079,Pooja Deshmukh,Startup,421139.13,East,4.75,1
+B0080,Pranav Iyer,Digital Service,682742.91,Central,3.21,9
+B0081,Sneha Joshi,Digital Service,293723.06,South,3.79,10
+B0082,Neha Iyer,Digital Service,297738.49,South,3.74,2
+B0083,Rohan Jain,Startup,717306.3,North,4.07,3
+B0084,Manoj Rao,Startup,702646.67,West,4.91,4
+B0085,Ananya Hegde,Digital Service,789388.22,Central,1.39,5
+B0086,Pooja Deshmukh,Startup,379831.26,North,4.89,5
+B0087,Riya Kulkarni,Digital Service,640177.73,South,3.65,2
+B0088,Pooja Deshmukh,Digital Service,682860.75,Central,2.94,6
+B0089,Megha Kapoor,Startup,427195.43,East,4.17,8
+B0090,Arjun Shetty,Digital Service,81870.71,East,3.83,5
+B0091,Sanjana Rao,Digital Service,300199.55,East,3.86,8
+B0092,Riya Kulkarni,Startup,664834.97,West,3.22,8
+B0093,Aditya Mehta,Startup,120194.05,East,3.3,10
+B0094,Arjun Shetty,SaaS,324193.05,North,2.51,6
+B0095,Ananya Hegde,Digital Service,794749.84,West,2.94,4
+B0096,Sneha Joshi,Startup,738060.89,Central,3.4,7
+B0097,Manoj Rao,Digital Service,227681.2,Central,4.55,10
+B0098,Ananya Hegde,Digital Service,214941.96,West,3.56,10
+B0099,Riya Kulkarni,Digital Service,348487.17,East,2.84,5
+B0100,Riya Kulkarni,Digital Service,756416.03,West,3.6,2
+B0101,Sneha Joshi,Startup,350554.71,West,1.89,9
+B0102,Aditi Kulkarni,SaaS,220443.97,East,3.08,10
+B0103,Sneha Joshi,SaaS,442349.89,Central,4.32,2
+B0104,Pooja Deshmukh,Startup,175765.29,South,4.33,3
+B0105,Aditya Mehta,SaaS,704160.0,West,1.59,10
+B0106,Arjun Shetty,Digital Service,794749.59,Central,4.85,6
+B0107,Aditya Mehta,Digital Service,151876.33,North,3.93,6
+B0108,Rohan Jain,SaaS,686904.74,South,4.76,10
+B0109,Pooja Deshmukh,SaaS,636379.18,South,3.06,6
+B0110,Megha Kapoor,Digital Service,430659.86,Central,1.69,1
+B0111,Arjun Shetty,SaaS,603834.03,South,4.91,6
+B0112,Kiran Shinde,Digital Service,497355.49,East,2.39,10
+B0113,Kiran Shinde,Digital Service,235072.38,North,1.31,5
+B0114,Aditya Mehta,SaaS,85385.48,North,2.89,1
+B0115,Arjun Shetty,Startup,794846.26,West,1.35,4
+B0116,Aditi Kulkarni,SaaS,387750.06,North,3.45,5
+B0117,Rohan Jain,SaaS,334501.64,South,1.78,1
+B0118,Megha Kapoor,SaaS,679135.81,North,4.06,8
+B0119,Manoj Rao,SaaS,334685.8,North,2.11,2
+B0120,Kiran Shinde,Startup,351311.21,West,4.35,6
+B0121,Megha Kapoor,SaaS,728725.07,East,4.45,8
+B0122,Pranav Iyer,Startup,439060.06,Central,4.45,10
+B0123,Kiran Shinde,Startup,566174.64,Central,2.57,9
+B0124,Aditya Mehta,SaaS,207450.55,Central,3.47,2
+B0125,Pooja Deshmukh,Startup,736998.17,West,1.27,9
+B0126,Aditya Mehta,SaaS,254622.35,North,4.68,1
+B0127,Karthik Patil,SaaS,230806.48,West,2.58,8
+B0128,Ananya Hegde,Digital Service,105022.56,East,1.21,3
+B0129,Pranav Iyer,SaaS,542890.96,East,3.07,3
+B0130,Neha Iyer,Startup,357807.47,West,2.69,6
+B0131,Sanjana Rao,Startup,270192.45,Central,2.32,3
+B0132,Karthik Patil,SaaS,583596.91,East,2.79,10
+B0133,Arjun Shetty,SaaS,292748.29,South,2.87,1
+B0134,Manoj Rao,Startup,532530.91,Central,3.08,2
+B0135,Manoj Rao,SaaS,335587.56,West,3.12,8
+B0136,Ananya Hegde,Startup,650116.46,South,4.63,10
+B0137,Arjun Shetty,Startup,399271.01,West,2.17,6
+B0138,Rohan Jain,SaaS,444405.49,Central,4.37,9
+B0139,Sneha Joshi,Digital Service,662015.88,South,2.72,3
+B0140,Megha Kapoor,Startup,219676.28,South,2.92,4
+B0141,Kiran Shinde,SaaS,100704.39,Central,2.51,1
+B0142,Megha Kapoor,SaaS,402675.15,North,2.4,2
+B0143,Aditi Kulkarni,SaaS,693674.31,North,4.7,6
+B0144,Riya Kulkarni,Startup,159165.07,East,2.14,3
+B0145,Pooja Deshmukh,Startup,585545.9,South,3.37,9
+B0146,Pranav Iyer,Digital Service,416741.52,North,4.63,8
+B0147,Riya Kulkarni,SaaS,630881.24,West,3.33,1
+B0148,Neha Iyer,Startup,595419.77,South,1.85,8
+B0149,Manoj Rao,Digital Service,405633.39,North,3.39,7
+B0150,Pooja Deshmukh,SaaS,406420.71,East,1.3,4

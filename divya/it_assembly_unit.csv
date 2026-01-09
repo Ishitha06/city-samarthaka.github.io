@@ -1,0 +1,151 @@
+business_id,name,category,revenue,location,rating,priority
+B0001,Riya Kulkarni,Assembly,532747.32,East,4.58,5
+B0002,Aditi Kulkarni,Assembly,615246.44,Central,3.59,1
+B0003,Manoj Rao,Assembly,445871.18,South,3.3,8
+B0004,Arjun Shetty,Assembly,793447.19,South,3.08,6
+B0005,Sneha Joshi,IT Hardware,264840.49,North,1.01,7
+B0006,Pranav Iyer,Manufacturing,779565.03,Central,1.49,1
+B0007,Pranav Iyer,IT Hardware,329633.83,West,3.94,1
+B0008,Sneha Joshi,Assembly,384757.31,East,2.76,5
+B0009,Kiran Shinde,Assembly,185551.84,East,3.35,4
+B0010,Kiran Shinde,Manufacturing,676142.39,West,2.14,1
+B0011,Megha Kapoor,IT Hardware,227151.29,West,4.53,1
+B0012,Aditya Mehta,Assembly,249218.42,East,4.86,5
+B0013,Kiran Shinde,IT Hardware,507249.23,South,3.38,7
+B0014,Pranav Iyer,Assembly,423289.42,Central,4.3,4
+B0015,Aditi Kulkarni,Manufacturing,765518.39,East,2.19,2
+B0016,Arjun Shetty,IT Hardware,184531.23,North,1.71,3
+B0017,Manoj Rao,IT Hardware,308202.96,Central,2.82,8
+B0018,Sanjana Rao,IT Hardware,651845.74,North,2.89,10
+B0019,Megha Kapoor,Assembly,94838.33,Central,4.12,7
+B0020,Sneha Joshi,Assembly,741037.41,Central,1.57,4
+B0021,Kiran Shinde,IT Hardware,741121.56,East,2.4,6
+B0022,Karthik Patil,IT Hardware,491910.59,East,4.47,2
+B0023,Arjun Shetty,IT Hardware,653721.79,Central,1.52,7
+B0024,Aditi Kulkarni,Manufacturing,394134.7,North,2.18,6
+B0025,Pooja Deshmukh,Assembly,765027.02,North,4.3,7
+B0026,Riya Kulkarni,Manufacturing,701488.17,West,1.54,9
+B0027,Riya Kulkarni,Assembly,114950.44,South,2.06,10
+B0028,Sneha Joshi,Assembly,292647.4,West,4.79,9
+B0029,Kiran Shinde,IT Hardware,479437.0,North,1.06,3
+B0030,Neha Iyer,Assembly,694514.51,South,1.92,5
+B0031,Kiran Shinde,IT Hardware,530818.95,Central,3.14,3
+B0032,Neha Iyer,Manufacturing,728963.57,Central,4.62,1
+B0033,Manoj Rao,Assembly,236449.88,East,1.76,6
+B0034,Pooja Deshmukh,IT Hardware,345297.27,North,3.14,6
+B0035,Kiran Shinde,Assembly,576306.97,West,2.76,7
+B0036,Rohan Jain,Manufacturing,649636.37,South,2.84,8
+B0037,Aditya Mehta,Manufacturing,92367.73,East,4.91,4
+B0038,Rohan Jain,IT Hardware,546495.51,South,4.83,8
+B0039,Aditi Kulkarni,Assembly,701691.22,West,3.03,3
+B0040,Aditi Kulkarni,Assembly,302645.61,South,3.43,8
+B0041,Sanjana Rao,IT Hardware,657002.9,North,4.62,8
+B0042,Ananya Hegde,Assembly,189290.63,East,1.72,7
+B0043,Manoj Rao,IT Hardware,613826.44,East,1.2,9
+B0044,Neha Iyer,Manufacturing,753032.83,West,1.0,5
+B0045,Manoj Rao,Manufacturing,574226.43,Central,4.03,6
+B0046,Karthik Patil,IT Hardware,630598.48,South,4.26,7
+B0047,Manoj Rao,Assembly,617972.73,Central,4.83,2
+B0048,Arjun Shetty,Manufacturing,357156.48,North,2.28,9
+B0049,Ananya Hegde,IT Hardware,297330.97,South,1.41,2
+B0050,Riya Kulkarni,Assembly,218701.65,Central,2.9,9
+B0051,Sneha Joshi,IT Hardware,313871.73,North,4.63,8
+B0052,Ananya Hegde,Manufacturing,621041.34,South,1.66,9
+B0053,Sneha Joshi,Manufacturing,179550.2,North,3.73,2
+B0054,Aditi Kulkarni,Manufacturing,324749.42,North,4.58,7
+B0055,Pranav Iyer,Assembly,780898.71,Central,4.77,4
+B0056,Arjun Shetty,IT Hardware,294367.03,West,2.49,7
+B0057,Pranav Iyer,Assembly,774705.42,West,4.46,2
+B0058,Riya Kulkarni,IT Hardware,515421.96,South,3.19,1
+B0059,Rohan Jain,Assembly,164503.56,West,4.43,1
+B0060,Sanjana Rao,Manufacturing,315520.23,North,4.65,1
+B0061,Karthik Patil,IT Hardware,287464.43,North,1.47,5
+B0062,Sneha Joshi,IT Hardware,59666.44,North,2.35,1
+B0063,Ananya Hegde,Assembly,293832.45,North,4.0,3
+B0064,Arjun Shetty,IT Hardware,700934.02,South,2.59,4
+B0065,Aditya Mehta,Manufacturing,703359.99,East,2.76,7
+B0066,Riya Kulkarni,IT Hardware,407695.33,South,4.28,3
+B0067,Kiran Shinde,Assembly,748931.78,East,2.51,1
+B0068,Aditi Kulkarni,Manufacturing,130782.21,North,2.86,2
+B0069,Arjun Shetty,IT Hardware,563616.64,North,4.95,10
+B0070,Neha Iyer,IT Hardware,62260.49,North,2.73,9
+B0071,Sanjana Rao,IT Hardware,345705.26,North,4.95,7
+B0072,Karthik Patil,Assembly,331279.93,East,4.66,9
+B0073,Megha Kapoor,Manufacturing,219032.85,West,2.08,4
+B0074,Riya Kulkarni,Assembly,750269.57,West,1.83,2
+B0075,Manoj Rao,Assembly,707089.96,Central,4.0,8
+B0076,Neha Iyer,Assembly,301976.33,North,4.61,8
+B0077,Manoj Rao,Manufacturing,542239.27,East,3.39,9
+B0078,Manoj Rao,Manufacturing,795621.57,Central,4.57,8
+B0079,Aditi Kulkarni,Assembly,305630.04,South,1.85,3
+B0080,Sneha Joshi,Assembly,641997.98,East,1.89,7
+B0081,Manoj Rao,Assembly,268659.53,East,3.75,5
+B0082,Sanjana Rao,Assembly,429152.54,North,4.82,9
+B0083,Aditi Kulkarni,Manufacturing,521308.03,East,2.27,10
+B0084,Riya Kulkarni,Manufacturing,169562.83,West,4.4,2
+B0085,Megha Kapoor,Assembly,682177.71,North,2.8,4
+B0086,Pooja Deshmukh,Assembly,121466.09,West,3.21,10
+B0087,Sneha Joshi,IT Hardware,226566.06,South,1.2,3
+B0088,Sanjana Rao,Manufacturing,523668.9,West,1.6,2
+B0089,Riya Kulkarni,IT Hardware,347893.55,South,2.82,2
+B0090,Aditi Kulkarni,Manufacturing,475044.69,South,2.33,4
+B0091,Arjun Shetty,Assembly,125423.68,South,3.14,3
+B0092,Kiran Shinde,Assembly,657975.51,South,3.87,1
+B0093,Neha Iyer,IT Hardware,610909.29,East,2.0,5
+B0094,Karthik Patil,Manufacturing,689153.0,South,1.84,8
+B0095,Neha Iyer,Assembly,218442.57,East,1.48,8
+B0096,Neha Iyer,IT Hardware,590914.69,East,1.6,8
+B0097,Aditya Mehta,Manufacturing,124574.18,West,1.77,7
+B0098,Arjun Shetty,IT Hardware,672304.29,South,1.67,5
+B0099,Riya Kulkarni,Manufacturing,644326.89,North,3.01,1
+B0100,Pooja Deshmukh,IT Hardware,168396.18,South,4.97,4
+B0101,Rohan Jain,IT Hardware,550217.92,East,1.42,10
+B0102,Megha Kapoor,Manufacturing,442759.55,Central,1.97,4
+B0103,Manoj Rao,Manufacturing,770091.4,North,1.47,5
+B0104,Karthik Patil,Manufacturing,409554.28,West,3.88,2
+B0105,Riya Kulkarni,Manufacturing,443310.05,North,2.34,3
+B0106,Manoj Rao,Manufacturing,706818.28,Central,1.2,7
+B0107,Sneha Joshi,Assembly,315423.06,East,1.41,9
+B0108,Neha Iyer,IT Hardware,747053.15,West,2.19,8
+B0109,Neha Iyer,Assembly,68933.45,Central,2.86,1
+B0110,Megha Kapoor,Assembly,724825.4,West,4.98,10
+B0111,Riya Kulkarni,IT Hardware,504753.95,West,4.09,6
+B0112,Aditi Kulkarni,IT Hardware,142267.99,North,3.84,1
+B0113,Neha Iyer,Assembly,414750.94,West,1.79,1
+B0114,Manoj Rao,IT Hardware,645873.85,North,2.16,6
+B0115,Aditya Mehta,Assembly,282952.28,North,1.16,4
+B0116,Manoj Rao,Assembly,770461.94,South,1.63,8
+B0117,Kiran Shinde,IT Hardware,69032.35,North,1.9,9
+B0118,Ananya Hegde,Assembly,152329.33,East,3.02,8
+B0119,Arjun Shetty,Assembly,176198.05,North,4.04,3
+B0120,Megha Kapoor,Assembly,224720.42,West,2.28,6
+B0121,Ananya Hegde,Assembly,335717.72,West,1.02,2
+B0122,Megha Kapoor,IT Hardware,564956.75,West,1.81,8
+B0123,Pooja Deshmukh,Manufacturing,438669.09,North,4.57,2
+B0124,Rohan Jain,Assembly,541734.55,Central,2.5,8
+B0125,Manoj Rao,Manufacturing,398783.57,East,4.36,4
+B0126,Ananya Hegde,IT Hardware,114060.56,West,4.95,1
+B0127,Rohan Jain,Manufacturing,590277.37,East,3.28,3
+B0128,Manoj Rao,Manufacturing,715596.89,East,4.57,1
+B0129,Aditya Mehta,Assembly,62283.61,North,4.43,10
+B0130,Manoj Rao,Manufacturing,723866.33,Central,4.0,5
+B0131,Rohan Jain,Manufacturing,615782.46,South,4.98,3
+B0132,Pranav Iyer,Manufacturing,511195.46,East,3.55,4
+B0133,Pranav Iyer,Manufacturing,115046.64,East,3.04,2
+B0134,Aditya Mehta,Manufacturing,413717.2,South,3.89,7
+B0135,Sanjana Rao,IT Hardware,782128.96,North,1.8,4
+B0136,Riya Kulkarni,Assembly,613844.48,East,4.04,10
+B0137,Karthik Patil,Assembly,371468.4,West,2.98,3
+B0138,Ananya Hegde,IT Hardware,480415.72,North,2.17,6
+B0139,Pooja Deshmukh,Assembly,480338.12,North,4.37,2
+B0140,Aditya Mehta,IT Hardware,236685.51,Central,2.48,1
+B0141,Arjun Shetty,Manufacturing,158065.49,North,2.59,4
+B0142,Manoj Rao,Manufacturing,713299.29,Central,2.87,2
+B0143,Arjun Shetty,Manufacturing,71739.04,Central,1.83,7
+B0144,Manoj Rao,Manufacturing,750873.06,South,3.81,7
+B0145,Riya Kulkarni,Manufacturing,56656.27,Central,2.87,7
+B0146,Riya Kulkarni,IT Hardware,751854.16,Central,4.61,2
+B0147,Pranav Iyer,IT Hardware,763952.47,Central,2.31,7
+B0148,Sanjana Rao,IT Hardware,213002.44,West,1.4,4
+B0149,Aditi Kulkarni,IT Hardware,372153.24,East,3.03,9
+B0150,Ananya Hegde,Assembly,68650.25,East,2.03,6
